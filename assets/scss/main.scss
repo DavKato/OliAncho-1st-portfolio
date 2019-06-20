@@ -1,0 +1,45 @@
+////////////////
+//PAGE ANIMATION
+
+// .page-enter-active,
+// .page-leave-active {
+//   transition: opacity 0.5s;
+// }
+// .page-enter,
+// .page-leave-to {
+//   opacity: 0.7;
+// }
+
+//////////
+//SKELTON
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --oa: calc((1.25vh + 0.8vw) / 2);
+  font-size: var(--oa);
+}
+
+body {
+  font-family: $paragraph-p;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-weight: bold;
+  color: $black-p;
+}
+
+p {
+  color: $black-l;
+}

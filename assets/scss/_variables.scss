@@ -1,0 +1,49 @@
+//FONTS
+// $heading-p: ;
+$paragraph-p: 'Times New Roman', sans-serif;
+
+//COLORS
+
+$green-p: #95afb4;
+$black-p: #3b3a3a;
+$black-l: #575757;
+$blue-p: #6180aa;
+$blue-pt: rgba(100, 119, 145, 0.45);
+$blue-l: #5080c4;
+$white-p: #ffffff;
+$gray-p: #c3c3c3;
+$gray-l: #ededed;
+$gray-d: #707070;
+$red-err: #d83c51;
+
+//SHADOWS
+
+$fsh-s: drop-shadow(0.3rem 0.5rem 0.4rem rgba(0, 0, 0, 0.25));
+$fsh-m: drop-shadow(0.6rem 0.8rem 0.7rem rgba(0, 0, 0, 0.3));
+$fsh-l: drop-shadow(0.6rem 0.9rem 0.9rem rgba(0, 0, 0, 0.35));
+
+@mixin tsh-m {
+  text-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.25);
+}
+
+//Gradient
+
+@mixin lg-m($color) {
+  background-image: linear-gradient(
+    to right,
+    $green-p 0%,
+    darken($color, 15%) 100%
+  );
+}
+
+//BOX Action
+
+@mixin box-hover {
+  box-shadow: 0 0.8rem 0.8rem 0.2rem rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.5rem);
+}
+
+@mixin box-active {
+  box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.2rem);
+}
