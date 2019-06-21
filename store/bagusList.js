@@ -41,9 +41,15 @@ export const state = () => ({
 
 export const mutations = {
   hovered(state, i) {
-    state.list[i].hover = !state.list[i].hover;
+    state.list[i].hover = state.list[i].hover = true;
+  },
+  unHovered(state, i) {
+    state.list[i].hover = state.list[i].hover = false;
   },
   activated(state, i) {
-    state.list[i].active = !state.list[i].active;
+    state.list[i].active = state.list[i].active = true;
+  },
+  deActivated(state, i) {
+    state.list[i].active = state.list[i].active = false;
   }
 };

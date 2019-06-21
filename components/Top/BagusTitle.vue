@@ -1,15 +1,19 @@
 <template>
   <ul class="title-box">
-    <li
+    <nuxt-link
+      :tag="'li'"
+      :to="localePath(index.title)"
       v-for="(index, i) of bagusList"
       :key="index.title"
-      @mouseover="hovered(i)"
-      @mouseout="hovered(i)"
-      @mousedown="activated(i)"
-      @mouseup="activated(i)"
     >
-      <h1>{{ index.title }}</h1>
-    </li>
+      <h1
+        @mouseover="hovered(i)"
+        @mouseout="unHovered(i)"
+        @mousedown="activated(i)"
+        @mouseup="deActivated(i)"
+        @click.native="unHovered(i)"
+      >{{ index.title }}</h1>
+    </nuxt-link>
   </ul>
 </template>
 
@@ -21,6 +25,7 @@
   & li {
     position: relative;
     list-style: none;
+    cursor: pointer;
 
     & h1 {
       text-transform: uppercase;
@@ -47,7 +52,12 @@ export default {
     })
   },
   methods: {
-    ...mapMutations("bagusList", ["hovered", "activated"])
+    ...mapMutations("bagusList", [
+      "hovered",
+      "unHovered",
+      "activated",
+      "deActivated"
+    ])
   }
 };
 </script>

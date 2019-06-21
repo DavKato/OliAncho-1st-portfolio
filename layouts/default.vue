@@ -29,9 +29,16 @@ main {
   width: 100%;
   max-width: 150vh;
   max-height: 66.67vw;
-  background-image: url("~assets/img/2x/top/main-middle-square.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-color: $white-p;
+  border: 1.3rem solid $gray-d;
+  border-top: none;
+
+  & > * {
+    margin: 0 -1rem;
+  }
+  // background-image: url("~assets/img/2x/top/main-middle-square.png");
+  // background-size: 100% 100%;
+  // background-repeat: no-repeat;
 }
 </style>
 

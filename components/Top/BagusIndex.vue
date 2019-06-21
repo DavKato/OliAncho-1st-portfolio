@@ -32,14 +32,25 @@
 
 <style lang="scss" scoped>
 .window {
-  margin: 0 7%;
-  text-align: center;
-  position: relative;
+  margin: 0 7.5%;
   border: 1rem solid $black-p;
   transition: all 0.7s;
   display: grid;
   grid-template-rows: repeat(3, auto) 1fr auto;
-  height: 96%;
+  align-content: stretch;
+  height: 97.5%;
+  position: relative;
+
+  // &:not(:last-child)::after {
+  //   content: "";
+  //   display: block;
+  //   border-right: 1.4rem solid $gray-d;
+  //   height: 107%;
+  //   width: 0;
+  //   position: absolute;
+  //   top: -1rem;
+  //   right: -3.7rem;
+  // }
 
   &:link,
   &:visited {
@@ -66,9 +77,8 @@
   }
 
   &__image-box {
-    object-fit: cover;
-
     & > img {
+      object-fit: contain;
       display: block;
       width: 100%;
       height: 100%;

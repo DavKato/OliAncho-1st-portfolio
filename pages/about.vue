@@ -11,6 +11,7 @@ export default {
 <style lang="scss" scoped>
 .about {
   background-image: url("../assets/img/2x/about/about-middle-square.png");
+  background-position: contain;
 }
 </style>
 

@@ -1,13 +1,15 @@
 <template>
   <div class="bagus-box">
+    <BagusWalls/>
     <BagusIndex
       v-for="(index, i) of bagusIndex"
       :key="index.title"
       :index="index"
       @mouseover.native="hovered(i)"
-      @mouseout.native="hovered(i)"
+      @mouseout.native="unHovered(i)"
       @mousedown.native="activated(i)"
-      @mouseup.native="activated(i)"
+      @mouseup.native="deActivated(i)"
+      @click.native="unHovered(i)"
     />
   </div>
 </template>
@@ -15,9 +17,11 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import BagusIndex from "~/components/Top/BagusIndex";
+import BagusWalls from "~/components/Top/BagusWalls";
 export default {
   components: {
-    BagusIndex
+    BagusIndex,
+    BagusWalls
   },
   computed: {
     ...mapState("bagusList", {
@@ -25,7 +29,12 @@ export default {
     })
   },
   methods: {
-    ...mapMutations("bagusList", ["hovered", "activated"])
+    ...mapMutations("bagusList", [
+      "hovered",
+      "unHovered",
+      "activated",
+      "deActivated"
+    ])
   }
 };
 </script>
@@ -35,6 +44,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 100%;
-  padding: 0 0.2%;
+  position: relative;
 }
 </style>
