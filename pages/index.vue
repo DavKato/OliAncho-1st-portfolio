@@ -1,6 +1,5 @@
 <template>
   <div class="bagus-box">
-    <BagusWalls/>
     <BagusIndex
       v-for="(index, i) of bagusIndex"
       :key="index.title"
@@ -17,11 +16,9 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import BagusIndex from "~/components/Top/BagusIndex";
-import BagusWalls from "~/components/Top/BagusWalls";
 export default {
   components: {
-    BagusIndex,
-    BagusWalls
+    BagusIndex
   },
   computed: {
     ...mapState("bagusList", {
@@ -44,6 +41,6 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   height: 100%;
-  position: relative;
+  margin: 0 -1rem;
 }
 </style>

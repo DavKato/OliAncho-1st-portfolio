@@ -22,7 +22,7 @@
       <img :src="path2x(index.glassS)" alt="stend glass">
     </div>
     <div class="window__text-box">
-      <p class="window__text">{{ $t(index.title) }}</p>
+      <p class="window__text">{{ $t(`main.${index.title}`) }}</p>
     </div>
     <div class="window__image-box window__image-box--glassL">
       <img :src="path2x(index.glassL)" alt="stend glass">
@@ -32,13 +32,13 @@
 
 <style lang="scss" scoped>
 .window {
-  margin: 0 7.5%;
+  margin: 1.5% 7.5% 0 7.5%;
   border: 1rem solid $black-p;
   transition: all 0.7s;
   display: grid;
   grid-template-rows: repeat(3, auto) 1fr auto;
   align-content: stretch;
-  height: 97.5%;
+  height: 97%;
   position: relative;
 
   // &:not(:last-child)::after {
@@ -67,13 +67,12 @@
   }
 
   &__text-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0.8rem 1.2rem;
   }
 
   &__text {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    white-space: pre-wrap;
   }
 
   &__image-box {

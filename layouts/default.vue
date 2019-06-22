@@ -6,6 +6,7 @@
       <TheHeader/>
       <main>
         <BagusTitle/>
+        <BagusWalls/>
         <nuxt class="bagus-box"/>
       </main>
       <Contact/>
@@ -30,12 +31,10 @@ main {
   max-width: 150vh;
   max-height: 66.67vw;
   background-color: $white-p;
-  border: 1.3rem solid $gray-d;
+  border: $bdw-s solid $gray-d;
   border-top: none;
+  position: relative;
 
-  & > * {
-    margin: 0 -1rem;
-  }
   // background-image: url("~assets/img/2x/top/main-middle-square.png");
   // background-size: 100% 100%;
   // background-repeat: no-repeat;
@@ -47,6 +46,7 @@ main {
 import NavL from "~/components/Nav/NavL";
 import NavR from "~/components/Nav/NavR";
 import TheHeader from "~/components/Header/TheHeader";
+import BagusWalls from "~/components/Top/BagusWalls";
 import BagusTitle from "~/components/Top/BagusTitle";
 import Contact from "~/components/Contact/Contact";
 import TheFooter from "~/components/TheFooter";
@@ -58,6 +58,7 @@ export default {
     NavL,
     NavR,
     TheHeader,
+    BagusWalls,
     BagusTitle,
     Contact,
     TheFooter

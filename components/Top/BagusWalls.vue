@@ -1,9 +1,9 @@
 <template>
-  <div class="walls">
-    <div class="wall walls__1"></div>
-    <div class="wall walls__2"></div>
-    <div class="wall walls__3"></div>
-    <div class="wall walls__4"></div>
+  <div class="walls" :class="currentRoute">
+    <div class="walls__1" :class="`${currentRoute}__wall`"></div>
+    <div class="walls__2" :class="`${currentRoute}__wall`"></div>
+    <div class="walls__3" :class="`${currentRoute}__wall`"></div>
+    <div class="walls__4" :class="`${currentRoute}__wall`"></div>
   </div>
 </template>
 
@@ -14,14 +14,43 @@
   left: 0;
   height: 100%;
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
+  // left: -0.24%;
+  // width: 101.7%;
+  // grid-template-columns: repeat(4, 1fr);
 }
-.wall {
-  &:not(:last-child) {
-    $walls-border: 1.3rem;
-    border-right: $walls-border solid $gray-d;
-    margin-right: -($walls-border / 2);
+
+@mixin commonW {
+  width: 24%;
+}
+
+.index {
+  &__wall {
+    @include commonW;
+    &:not(:last-child) {
+      border-right: $bdw-p solid $gray-d;
+      margin-left: $bdw-p;
+    }
+  }
+}
+.about {
+  box-shadow: inset 0 0.7rem 0 $gray-d;
+  &__wall {
+    @include commonW;
+    &:first-child {
+      background-color: $white-p;
+    }
   }
 }
 </style>
+
+<script>
+export default {
+  computed: {
+    currentRoute() {
+      return this.$route.name.split("___")[0];
+    }
+  }
+};
+</script>

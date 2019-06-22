@@ -1,6 +1,6 @@
 //FONTS
-// $heading-p: ;
-$paragraph-p: 'Times New Roman', sans-serif;
+$font-c: 'Abril Fatface', cursive, sans-serif;
+$font-p: 'Times New Roman', 'Abril Fatface';
 
 //COLORS
 
@@ -16,6 +16,11 @@ $gray-p: #c3c3c3;
 $gray-l: #ededed;
 $gray-d: #707070;
 $red-err: #d83c51;
+
+//BORDER WIDTH
+
+$bdw-s: 1rem;
+$bdw-p: 1.3rem;
 
 //SHADOWS
 

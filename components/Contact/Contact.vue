@@ -132,7 +132,7 @@
 
     &::placeholder {
       color: $gray-l;
-      font-family: $paragraph-p;
+      font-family: $font-p;
     }
 
     &:hover {
