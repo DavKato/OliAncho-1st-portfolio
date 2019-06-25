@@ -34,12 +34,16 @@
       top: -4rem;
       transform: translateX(-50%);
       font-size: 3rem;
+      z-index: 50;
 
       &:hover {
         @include tsh-m;
       }
     }
   }
+}
+.active {
+  @include tsh-m;
 }
 </style>
 

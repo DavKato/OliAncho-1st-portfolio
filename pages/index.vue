@@ -1,5 +1,5 @@
 <template>
-  <div class="bagus-box">
+  <section class="bagus-box">
     <BagusIndex
       v-for="(index, i) of bagusIndex"
       :key="index.title"
@@ -10,7 +10,7 @@
       @mouseup.native="deActivated(i)"
       @click.native="unHovered(i)"
     />
-  </div>
+  </section>
 </template>
 
 <script>

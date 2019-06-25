@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <section class="about">
     <p class="caption">{{ $t('about.caption') }}</p>
     <div class="us">
       <div class="text-box">
@@ -22,7 +22,7 @@
         <GobuProfile v-if="gobuHover"/>
       </transition>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -44,14 +44,12 @@ export default {
 
 <style lang="scss" scoped>
 .about {
-  height: calc(100% - 0.6rem);
-  margin-top: 0.6rem;
   padding: 0 7%;
 
   color: $black-d;
 
   background-image: url("~assets/img/2x/about/about-middle-square.png");
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
   z-index: 100;
@@ -118,32 +116,28 @@ export default {
   }
 }
 
-.gobu-enter {
-  opacity: 0;
-  transform: translateX(5rem);
-}
-.gobu-enter-active {
-  transition: all 0.4s;
-}
-.gobu-leave-active {
-  transition: all 0.7s;
-}
+.gobu-enter,
 .gobu-leave-to {
   opacity: 0;
-  transform: translateX(5rem);
+  transform: translate3D(5rem, 0, 0);
+  backface-visibility: hidden;
 }
-.davi-enter {
-  opacity: 0;
-  transform: translateX(-5rem);
+.gobu-enter-active {
+  transition: all 0.3s;
 }
-.davi-enter-active {
-  transition: all 0.4s;
+.gobu-leave-active {
+  transition: all 0.5s;
 }
-.davi-leave-active {
-  transition: all 0.7s;
-}
+.davi-enter,
 .davi-leave-to {
   opacity: 0;
-  transform: translateX(-5rem);
+  transform: translate3D(-5rem, 0, 0);
+  backface-visibility: hidden;
+}
+.davi-enter-active {
+  transition: all 0.3s;
+}
+.davi-leave-active {
+  transition: all 0.5s;
 }
 </style>

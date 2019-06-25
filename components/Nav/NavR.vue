@@ -41,11 +41,13 @@ export default {
 
     &:hover {
       filter: $fsh-m;
-      transform: translateY(-3px);
+      transform: translate3D(0, -3px, 0);
+      backface-visibility: hidden;
     }
     &:active {
-      transform: translateY(-1px);
+      transform: translate3D(0, -1px, 0);
       filter: $fsh-s;
+      backface-visibility: hidden;
     }
   }
 }

@@ -32,14 +32,15 @@
 
 <style lang="scss" scoped>
 .window {
-  margin: 1.5% 7.5% 0 7.5%;
+  margin: 3.5% 7.5% 0 7.5%;
   border: 1rem solid $black-p;
   transition: all 0.7s;
   display: grid;
   grid-template-rows: repeat(3, auto) 1fr auto;
   align-content: stretch;
-  height: 97%;
+  height: 96%;
   position: relative;
+  z-index: 2;
 
   // &:not(:last-child)::after {
   //   content: "";

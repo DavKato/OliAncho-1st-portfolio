@@ -23,8 +23,7 @@
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.1s;
-  transition-timing-function: ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
 .fade-enter,

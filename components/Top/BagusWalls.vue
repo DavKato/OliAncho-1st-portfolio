@@ -1,9 +1,9 @@
 <template>
   <div class="walls" :class="currentRoute">
-    <div class="walls__1" :class="`${currentRoute}__wall`"></div>
-    <div class="walls__2" :class="`${currentRoute}__wall`"></div>
-    <div class="walls__3" :class="`${currentRoute}__wall`"></div>
-    <div class="walls__4" :class="`${currentRoute}__wall`"></div>
+    <div class="wall" :class="`${currentRoute}__wall`"></div>
+    <div class="wall" :class="`${currentRoute}__wall`"></div>
+    <div class="wall" :class="`${currentRoute}__wall`"></div>
+    <div class="wall" :class="`${currentRoute}__wall`"></div>
   </div>
 </template>
 
@@ -16,18 +16,23 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  transition: all 0.3s;
   // left: -0.24%;
   // width: 101.7%;
   // grid-template-columns: repeat(4, 1fr);
 }
+.wall {
+  transition: all 0.3s;
+}
 
-@mixin commonW {
-  width: 24%;
+$commonW: 24.1%;
+@mixin wallsborder {
+  box-shadow: inset 0 0.8rem 0 $gray-d;
 }
 
 .index {
   &__wall {
-    @include commonW;
+    width: $commonW;
     &:not(:last-child) {
       border-right: $bdw-p solid $gray-d;
       margin-left: $bdw-p;
@@ -35,10 +40,37 @@
   }
 }
 .about {
-  box-shadow: inset 0 0.7rem 0 $gray-d;
+  @include wallsborder();
   &__wall {
-    @include commonW;
+    width: $commonW;
     &:first-child {
+      background-color: $white-p;
+    }
+  }
+}
+.works {
+  @include wallsborder();
+  &__wall {
+    width: $commonW;
+    &:nth-child(2) {
+      background-color: $white-p;
+    }
+  }
+}
+.blog {
+  @include wallsborder();
+  &__wall {
+    width: $commonW;
+    &:nth-child(3) {
+      background-color: $white-p;
+    }
+  }
+}
+.location {
+  @include wallsborder();
+  &__wall {
+    width: $commonW;
+    &:nth-child(4) {
       background-color: $white-p;
     }
   }

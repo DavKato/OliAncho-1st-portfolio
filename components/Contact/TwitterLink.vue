@@ -27,8 +27,8 @@
     width: 6.2rem;
     top: 9.2rem;
     left: -5.2rem;
-    filter: $fsh-m;
     transition: transform 0.2s;
+    z-index: 10;
   }
   &__logo {
     display: block;

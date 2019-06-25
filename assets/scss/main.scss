@@ -1,15 +1,16 @@
 ////////////////
 //PAGE ANIMATION
-
 // .page-enter-active,
-// .page-leave-active {
-//   transition: opacity 0.5s;
+// .page-leave-active,
+// .page-enter-active {
+//   transition: all 0.1s ease-in;
 // }
 // .page-enter,
-// .page-leave-to {
-//   opacity: 0.7;
+// .page-leave-active {
+//   opacity: 0;
+//   transform: translateZ(0);
+//   backface-visibility: hidden;
 // }
-
 //////////
 //SKELTON
 

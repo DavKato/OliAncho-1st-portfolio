@@ -1,5 +1,5 @@
 <template>
-  <div class="location">LOCATION</div>
+  <section class="location">LOCATION</section>
 </template>
 
 <style lang="scss" scoped>

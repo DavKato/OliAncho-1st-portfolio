@@ -31,13 +31,29 @@ main {
   max-width: 150vh;
   max-height: 66.67vw;
   background-color: $white-p;
-  border: $bdw-s solid $gray-d;
+  border: 1.2rem solid $gray-d;
   border-top: none;
   position: relative;
+}
 
-  // background-image: url("~assets/img/2x/top/main-middle-square.png");
-  // background-size: 100% 100%;
-  // background-repeat: no-repeat;
+.bagus-box {
+  height: calc(100% - 0.5rem);
+  width: 101%;
+  margin-top: 0.6rem;
+  margin-left: -0.5%;
+}
+
+.page-enter-active {
+  transition: all 1s;
+}
+.page-leave-active {
+  transition: all 0.3s ease-in;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 </style>
 
