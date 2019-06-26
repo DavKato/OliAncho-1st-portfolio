@@ -57,7 +57,7 @@ export default {
         images: ['Marina-demo1', 'Marina-demo2'],
         client: 'Marina Soranzo様',
         tech:
-          'サイトデザイン、グラフィックデザイン、\nコーディング (Vue/Nuxt.js)、\n多言語仕様, レスポンシブ、\n翻訳サポート',
+          'ウェブデザイン、グラフィックデザイン、コーディング (Vue/Nuxt.js)、ホスティング、多言語仕様, レスポンシブ、翻訳サポート',
         description:
           'こんにちは、ビール好きかい？　僕は好きです。\nグルテン食べられなくなってビールも飲めなくなったけどね。\n僕の嫁はゴブリンさ。知ってた？\nシドニー、元気？　懐かしいなぁ。',
         url: 'https://www.marina.com'
@@ -74,13 +74,13 @@ export default {
   },
   blog: {
     caption: '最新の投稿',
-    readThis: 'この記事を読む',
+    readThis: 'この記事へ',
     latestPost: '建設中...　お楽しみに！',
     intro: '主に4つのカテゴリーについて書いています。',
     life: '海外\nノマド生活',
     work: 'WEB\nお仕事',
     teaching: '日本語\n教師',
-    recipe: 'レシピ',
+    recipe: 'グルテン\nフリー',
     goto: 'Blogを\n読んでみる'
   }
 };

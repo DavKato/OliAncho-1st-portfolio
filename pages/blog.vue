@@ -2,7 +2,9 @@
   <section class="blog">
     <img :src="path2x('blog-starbacks')" alt="background image with stars" ref="stars">
     <div class="caption-box">
-      <h2>{{ $t('blog.caption') }}</h2>
+      <div class="latest-title">
+        <h3>{{ $t('blog.caption') }}</h3>
+      </div>
       <p class="latest-post">{{ $t('blog.latestPost') }}</p>
       <nuxt-link :to="localePath('blog')" class="cta">
         <p class="cta-btn">{{ $t('blog.readThis') }}</p>
@@ -17,7 +19,7 @@
           @mouseover="treeShake($event)"
           @mouseleave="restore($event)"
         >
-        <p ref="life">{{ $t('blog.life') }}</p>
+        <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
         <img
@@ -26,7 +28,7 @@
           @mouseover="treeBump($event)"
           @mouseleave="restore($event)"
         >
-        <p ref="work">{{ $t('blog.work') }}</p>
+        <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
         <img
@@ -35,7 +37,7 @@
           @mouseover="treeGrow($event)"
           @mouseleave="restore($event)"
         >
-        <p ref="teach">{{ $t('blog.teaching') }}</p>
+        <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
         <img
@@ -44,11 +46,11 @@
           @mouseover="treeMario($event)"
           @mouseleave="restore($event)"
         >
-        <p ref="recipe">{{ $t('blog.recipe') }}</p>
+        <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
       <nuxt-link class="go-to" :to="localePath('blog')">
         <img :src="path2x('blog-moon')" alt="go to blog page">
-        <p>{{ $t('blog.goto') }}</p>
+        <p class="go-to__text">{{ $t('blog.goto') }}</p>
       </nuxt-link>
     </div>
   </section>
@@ -150,22 +152,31 @@ export default {
   flex-direction: column;
   justify-content: center;
 
-  .latest-post {
-    font-size: 1.9rem;
-    line-height: 1.6;
-    white-space: pre;
-    text-align: center;
-  }
+  .latest {
+    &-post {
+      font-size: 1.9rem;
+      line-height: 1.6;
+      white-space: pre;
+      text-align: center;
+    }
 
-  h2 {
-    position: absolute;
-    top: 1.4%;
-    left: 12.8%;
-    font-size: 2rem;
-    font-family: "Times New Roman";
-    color: #718bad;
-  }
+    &-title {
+      height: 21%;
+      width: 23%;
+      position: absolute;
+      top: 0.4%;
+      left: 9%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
+      h3 {
+        font-size: 1.9rem;
+        font-weight: 600;
+        color: #718bad;
+      }
+    }
+  }
   .cta {
     height: 21%;
     width: 23%;
@@ -183,10 +194,10 @@ export default {
     }
 
     &-btn {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: $white-p;
-      margin-left: 8%;
-      letter-spacing: -0.8px;
+      margin-left: 12.5%;
+      letter-spacing: -0.3px;
     }
   }
 }
@@ -200,6 +211,8 @@ export default {
   align-items: flex-end;
   gap: 1rem;
   position: relative;
+  font-feature-settings: "palt";
+  line-height: 1.3;
 
   .category {
     display: block;
@@ -215,26 +228,51 @@ export default {
     & > p {
       position: absolute;
       white-space: pre;
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       text-align: center;
       pointer-events: none;
+      color: #000;
     }
 
-    &:first-child > p {
-      top: 32.5%;
-      left: 32%;
+    .life {
+      &-ja {
+        top: 33.5%;
+        left: 34.5%;
+      }
+      &-en {
+        top: 34.5%;
+        left: 39%;
+      }
     }
-    &:nth-child(2) > p {
-      top: 37%;
-      left: 40%;
+    .work {
+      &-ja {
+        top: 37%;
+        left: 41%;
+      }
+      &-en {
+        top: 37%;
+        left: 44%;
+      }
     }
-    &:nth-child(3) > p {
-      top: 34%;
-      left: 33%;
+    .teach {
+      &-ja {
+        top: 36%;
+        left: 35.5%;
+      }
+      &-en {
+        top: 36%;
+        left: 29%;
+      }
     }
-    &:nth-child(4) > p {
-      top: 38%;
-      left: 31%;
+    .recipe {
+      &-ja {
+        top: 35%;
+        left: 28%;
+      }
+      &-en {
+        top: 35%;
+        left: 32%;
+      }
     }
   }
 }
@@ -267,19 +305,19 @@ export default {
     }
   }
 
-  & > p {
+  &__text {
     position: absolute;
     top: 30%;
-    right: 15%;
+    right: 17%;
     white-space: pre;
     font-size: 1.9rem;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.4;
-    letter-spacing: -0.4px;
     text-align: center;
     @include tsh-m;
     transition: transform 0.2s;
     pointer-events: none;
+    color: #000;
   }
 }
 </style>

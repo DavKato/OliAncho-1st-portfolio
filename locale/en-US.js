@@ -52,7 +52,7 @@ export default {
         images: ['Marina-demo1', 'Marina-demo2'],
         client: 'Marina Soranzo',
         tech:
-          'Site design, Graphic design,\nCoding - Vue/Nuxt.js,\nMulti-Language, Responsive,\nTranslation support',
+          'Site design, Graphic design, Coding - Vue/Nuxt.js, Multi-Language, Responsive, Translation support',
         description:
           'This is this and yeah I love beer.\n My wife is a goblin and I am proud. I hope it helps.\nHey Sydney, How are you doing? I miss you!',
         url: 'https://www.marina.com'
@@ -68,14 +68,14 @@ export default {
     ]
   },
   blog: {
-    caption: 'Latest post',
-    readThis: 'Read this article',
+    caption: 'Latest Post',
+    readThis: 'To this article',
     latestPost: "Under construction... It's gonna be good!",
     intro: "We'll be writing about 4 main categories",
     life: 'Nomad\nLife',
-    work: 'WEB Development',
-    teaching: 'Japanese Lessons',
-    recipe: 'Recipes',
-    goto: 'Jump to\nour Blog'
+    work: 'Web\nDev',
+    teaching: 'Japanese\nLessons',
+    recipe: 'Gluten\nFree',
+    goto: 'To the\nBlog Page'
   }
 };

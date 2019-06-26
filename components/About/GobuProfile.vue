@@ -83,10 +83,12 @@ $gobuRed: #ddc1b9;
   & .title {
     font-size: 1.8rem;
     letter-spacing: 0.05px;
+    font-weight: normal;
   }
   & .name {
     margin-left: 1rem;
     font-size: 3rem;
+    font-weight: bold;
   }
   & .skills {
     padding-top: 2.1rem;
@@ -96,7 +98,7 @@ $gobuRed: #ddc1b9;
   &::after {
     content: "";
     position: absolute;
-    top: 62.5%;
+    top: 60.5%;
     left: -4%;
     width: 120%;
     height: 0;
@@ -104,8 +106,8 @@ $gobuRed: #ddc1b9;
   }
 }
 .detail {
-  font-size: 1.4rem;
-  margin: 0 6% 10% 6%;
-  letter-spacing: 0.1px;
+  font-size: 1.5rem;
+  margin: 0 8% 10% 8%;
+  line-height: 1.6;
 }
 </style>

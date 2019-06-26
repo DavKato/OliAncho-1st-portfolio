@@ -18,7 +18,7 @@
       <h1 class="form__caption">Contact</h1>
     </div>
     <div class="form__box form__box3">
-      <h2 class="form__subtext">{{ $t('formSub') }}</h2>
+      <h3 class="form__subtext">{{ $t('formSub') }}</h3>
     </div>
     <div
       class="form__box form__box-str form__box4 form__box-input"
@@ -116,14 +116,13 @@
   &__subtext {
     font-size: 2rem;
     font-weight: 500;
-    color: $black-p;
     padding-left: 1.5rem;
   }
 
   &__field {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-family: inherit;
-    color: $black-p;
+    color: #000;
     background-color: inherit;
     border: none;
     width: 100%;
@@ -332,7 +331,7 @@
 
 .lighten {
   // background-color: lighten($green-p, 3%);
-  @include lg-m($green-p);
+  // @include lg-m($green-p);
 }
 
 .hidden {

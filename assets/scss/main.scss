@@ -18,6 +18,7 @@
 *:before,
 *:after {
   box-sizing: inherit;
+  font-size: inherit;
   margin: 0;
   padding: 0;
 }
@@ -34,15 +35,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  color: $black-d;
 }
 
 h1,
 h2 {
-  font-family: $font-c;
-  font-weight: bold;
-  color: $black-d;
-}
-
-p {
+  font-family: $font-h;
+  font-weight: 500;
   color: $black-d;
 }

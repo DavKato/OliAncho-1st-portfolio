@@ -34,7 +34,7 @@
 .window {
   margin: 3.5% 7.5% 0 7.5%;
   border: 1rem solid $black-p;
-  transition: all 0.7s;
+  transition: all 0.5s;
   display: grid;
   grid-template-rows: repeat(3, auto) 1fr auto;
   align-content: stretch;
@@ -78,7 +78,7 @@
 
   &__image-box {
     & > img {
-      object-fit: contain;
+      object-fit: fill;
       display: block;
       width: 100%;
       height: 100%;
@@ -101,7 +101,7 @@
 }
 
 .main-image {
-  transition: all 0.7s;
+  transition: opacity 1s;
 }
 </style>
 

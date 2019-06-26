@@ -47,11 +47,11 @@
   .image-roll {
     width: 100%;
     height: 38%;
-    margin-top: 4%;
+    margin-top: 6%;
     display: grid;
     grid-template-columns: repeat(2, 38%);
     justify-content: center;
-    gap: 4rem;
+    gap: 3rem;
 
     & > img {
       width: 100%;
@@ -64,9 +64,10 @@
     margin: 5% auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     font-size: 1.8rem;
-    line-height: 1.7;
+    line-height: 1.5;
+    color: #000;
 
     &__left {
       width: 31%;
@@ -74,17 +75,18 @@
 
       &--box {
         display: flex;
-        margin-top: 3%;
-        // &:not(:last-child) {
-        //   margin-bottom: 3%;
-        // }
+        // margin-top: 5%;
+        align-items: flex-start;
+        justify-content: flex-start;
+        &:nth-child(2) {
+          margin: 5% 0;
+        }
 
         dt {
           white-space: nowrap;
         }
         dd {
-          white-space: pre;
-          font-size: 1.7rem;
+          white-space: pre-wrap;
         }
       }
     }
@@ -101,8 +103,6 @@
   width: 6rem;
   border-top: 8px solid $blue-p;
   position: absolute;
-  // top: 1rem;
-  // right: 1rem;
   top: 2.5rem;
   left: -0.2rem;
 }
@@ -132,7 +132,6 @@
 </style>
 
 <script>
-import { TweenLite } from "gsap";
 export default {
   props: {
     selected: Object

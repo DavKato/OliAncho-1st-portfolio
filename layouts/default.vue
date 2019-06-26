@@ -18,7 +18,6 @@
 <style lang="scss" scoped>
 #defaultLayout {
   background-color: $green-p;
-  color: $gray-d;
   max-width: 100vw;
   border: 0.7rem solid $gray-d;
   display: flex;

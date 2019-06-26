@@ -13,7 +13,7 @@ h1 {
   transition: all 0.2s;
 
   &:hover {
-    @include tsh-m;
+    @include tsh-s;
     transform: skewX(-3deg);
   }
 }

@@ -40,7 +40,8 @@ export default {
 .bagus-box {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 0.2%;
   height: 100%;
-  margin: 0 -1rem;
+  // margin: 0 -1rem;
 }
 </style>

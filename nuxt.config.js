@@ -109,5 +109,7 @@ export default {
       '/ja/works'
     ],
     subFolder: false
-  }
+  },
+  ssr: false,
+  resourceHints: true
 };

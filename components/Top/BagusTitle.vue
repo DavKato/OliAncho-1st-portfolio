@@ -37,13 +37,13 @@
       z-index: 50;
 
       &:hover {
-        @include tsh-m;
+        @include tsh-s;
       }
     }
   }
 }
 .active {
-  @include tsh-m;
+  @include tsh-s;
 }
 </style>
 
