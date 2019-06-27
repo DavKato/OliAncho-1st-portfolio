@@ -94,6 +94,7 @@ $trs: all 0.3s;
 
 .caption-box {
   width: 61%;
+  height: 22%;
   padding: 3.3% 0;
   margin: 8% auto;
   background-image: url(~assets/img/2x/works/works-tiles.png);
@@ -101,6 +102,10 @@ $trs: all 0.3s;
   background-repeat: no-repeat;
   position: relative;
   transition: $trs;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .caption {
     font-size: 1.9rem;

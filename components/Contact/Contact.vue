@@ -1,12 +1,5 @@
 <template>
-  <form
-    class="form"
-    method="post"
-    @submit.prevent="validate($event)"
-    novalidate="true"
-    netlify
-    netlify-honeypot="bot-field"
-  >
+  <form class="form" method="post" @submit.prevent="validate($event)" novalidate="true">
     <p class="hidden">
       <label>
         {{ $t('formDummy') }}
@@ -329,10 +322,10 @@
   width: 80%;
 }
 
-.lighten {
-  // background-color: lighten($green-p, 3%);
-  // @include lg-m($green-p);
-}
+// .lighten {
+// background-color: lighten($green-p, 3%);
+// @include lg-m($green-p);
+// }
 
 .hidden {
   display: none;

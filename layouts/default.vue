@@ -36,7 +36,7 @@ main {
 }
 
 .bagus-box {
-  height: calc(100% - 0.5rem);
+  height: 100%;
   width: 101%;
   margin-top: 0.6rem;
   margin-left: -0.5%;

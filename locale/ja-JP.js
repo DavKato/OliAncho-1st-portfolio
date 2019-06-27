@@ -82,5 +82,13 @@ export default {
     teaching: '日本語\n教師',
     recipe: 'グルテン\nフリー',
     goto: 'Blogを\n読んでみる'
+  },
+  location: {
+    caption: 'パソコンとネット環境さえあればどこでも働ける！',
+    intro:
+      ' 寒い季節は南へ、暑い季節は北へ、海外を中心に夫婦でノマド生活をしています。\nルールは「新しいものを買ったら、持っているものを1つ手放す」\n持ち物を増やさないように頑張っています。',
+    currentParagraph: '  現在地：\n\t',
+    currentLocation: 'ドイツ',
+    numberVisited: 'ヵ国'
   }
 };

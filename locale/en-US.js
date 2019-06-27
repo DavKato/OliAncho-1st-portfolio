@@ -77,5 +77,13 @@ export default {
     teaching: 'Japanese\nLessons',
     recipe: 'Gluten\nFree',
     goto: 'To the\nBlog Page'
+  },
+  location: {
+    caption: 'All We Need Is a Lap Top and a Network!',
+    intro:
+      "Go South in winter, Go North in summer.\n'Get one, Release one' is our motto.\n We are degital nomads mainly based in Europe and Asia.",
+    currentParagraph: 'Currently\nIn：',
+    currentLocation: 'Germany',
+    numberVisited: 'countries'
   }
 };
