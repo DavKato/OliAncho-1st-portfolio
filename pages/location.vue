@@ -283,9 +283,16 @@ export default {
     },
     timeCatcher() {
       const diffFromUTC = 2;
+      const formatter = cli => {
+        if (cli < 10) {
+          return "0" + cli;
+        } else {
+          return cli;
+        }
+      };
       const t = new Date().getUTCHours() + diffFromUTC;
       const m = new Date().getUTCMinutes();
-      this.time = `${t}：${m}`;
+      this.time = `${formatter(t)}：${formatter(m)}`;
     },
     orangeFlicker() {
       const { orange } = this.$refs;
