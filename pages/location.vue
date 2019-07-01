@@ -6,33 +6,49 @@
     </h1>
     <p class="intro">{{ $t('location.intro') }}</p>
     <div class="map-box">
-      <img :src="path2x('maps')" class="map" alt="World map where we have been">
-      <img :src="path2x('duck-orange')" class="orange" ref="orange">
+      <img :src="path2x('maps')" class="map" alt="World map where we have been" />
+      <img
+        :src="path2x('duck-orange')"
+        class="orange"
+        ref="orange"
+        @click="highlightShip"
+        @mouseover="orangeHover"
+        @mouseleave="orangeSilence"
+        @mousedown="orangeActive"
+        @mouseup="orangeInActive"
+      />
       <p class="currentP">{{ $t('location.currentParagraph') }}</p>
-      <img :src="path2x('wave')" class="wave">
-      <div class="ship">
-        <img :src="path2x('ship')">
+      <img :src="path2x('wave')" class="wave" />
+      <div class="ship" ref="ship" @mouseover="orangeFlicker" @mouseleave="orangeSilence">
+        <img :src="path2x('ship')" />
         <div class="info">
           <p class="currentL">{{ $t('location.currentLocation') }}</p>
-          <p class="time">15:00</p>
+          <p class="time">{{ time }}</p>
         </div>
       </div>
-      <div class="plane">
-        <img :src="path2x('plane')">
-        <p class="number">
+      <div class="plane" ref="plane">
+        <img :src="path2x('plane')" />
+        <p
+          class="number"
+          @mouseover="planeHover"
+          @mouseleave="planeSilence"
+          @mousedown="planeActive"
+          @mouseup="planeInActive"
+          @click="bonVoyage"
+        >
           <b>20</b>/
           <b>193</b>
           <span :class="$i18n.locale">{{ $t('location.numberVisited') }}</span>
         </p>
       </div>
-      <div class="ducks__three">
-        <img :src="path2x('duck-yellow')" class="duck duck-big">
-        <img :src="path2x('duck-yellow')" class="duck duck-middle">
-        <img :src="path2x('duck-yellow')" class="duck duck-small">
+      <div class="ducks__three" @mouseover="threeDOn">
+        <img :src="path2x('duck-yellow')" class="duck duck-big" />
+        <img :src="path2x('duck-yellow')" class="duck duck-middle" />
+        <img :src="path2x('duck-yellow')" class="duck duck-small" />
       </div>
-      <div class="ducks__two">
-        <img :src="path2x('duck-yellow')" class="duck duck-middle">
-        <img :src="path2x('duck-yellow')" class="duck duck-small">
+      <div class="ducks__two" @mouseover="twoDOn">
+        <img :src="path2x('duck-yellow')" class="duck duck-middle" />
+        <img :src="path2x('duck-yellow')" class="duck duck-small" />
       </div>
     </div>
   </section>
@@ -64,6 +80,16 @@ $yellow-location: #eaea5d;
     display: inline-block;
     margin-top: 5%;
     position: relative;
+    font-style: italic;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: skewX(15deg) translateY(-1px);
+
+      & > span {
+        background-color: darken($yellow-location, 15);
+      }
+    }
 
     span {
       position: absolute;
@@ -120,9 +146,10 @@ $yellow-location: #eaea5d;
 
     .orange {
       width: 2.3%;
-      top: 25.4%;
+      top: 25.8%;
       left: 22.2%;
       filter: $fsh-s;
+      cursor: pointer;
     }
 
     .currentP {
@@ -145,6 +172,7 @@ $yellow-location: #eaea5d;
       left: 27%;
       height: 37.5%;
       width: 21%;
+      transform-origin: 45% 70%;
 
       & > img {
         @include wh100;
@@ -179,6 +207,8 @@ $yellow-location: #eaea5d;
       width: 25%;
       transform: rotate(30deg);
       z-index: 300;
+      cursor: pointer;
+
       & > img {
         @include wh100;
       }
@@ -218,6 +248,7 @@ $yellow-location: #eaea5d;
     }
     .duck {
       filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+      pointer-events: none;
 
       &-big {
         height: 100%;
@@ -234,10 +265,121 @@ $yellow-location: #eaea5d;
 </style>
 
 <script>
+import { TweenMax, TimelineLite, CSSPlugin } from "gsap";
 export default {
+  data() {
+    return {
+      planeToggle: false,
+      time: ""
+    };
+  },
+  mounted() {
+    this.timeCatcher();
+    setInterval(this.timeCatcher, 5000);
+  },
   methods: {
     path2x(img) {
       return require("../assets/img/2x/location/location-" + img + ".png");
+    },
+    timeCatcher() {
+      const diffFromUTC = 2;
+      const t = new Date().getUTCHours() + diffFromUTC;
+      const m = new Date().getUTCMinutes();
+      this.time = `${t}：${m}`;
+    },
+    orangeFlicker() {
+      const { orange } = this.$refs;
+      TweenMax.to(orange, 1.1, {
+        scale: 1.3,
+        opacity: 0,
+        y: -15,
+        repeat: -1
+      });
+    },
+    orangeHover() {
+      const { orange } = this.$refs;
+      TweenMax.to(orange, 0.2, { y: -3, rotation: 0 });
+    },
+    orangeActive() {
+      const { orange } = this.$refs;
+      TweenMax.to(orange, 0.2, { rotation: 10 });
+    },
+    orangeInActive() {
+      const { orange } = this.$refs;
+      TweenMax.to(orange, 0.2, { rotation: 0 });
+    },
+    orangeSilence() {
+      const { orange } = this.$refs;
+      TweenMax.to(orange, 0.5, { scale: 1, opacity: 1, y: 0 });
+    },
+    highlightShip() {
+      const { ship } = this.$refs;
+      TweenMax.killTweensOf(ship);
+      const tl = new TimelineLite();
+      tl.to(ship, 0.6, {
+        rotation: -6,
+        x: -6,
+        ease: Power1.easeInOut
+      })
+        .to(ship, 1.2, {
+          rotation: 9,
+          x: 3,
+          ease: Power1.easeInOut
+        })
+        .to(ship, 0.8, { rotation: 0, x: 0, ease: Power1.easeInOut }, "+=0.1");
+    },
+    planeHover() {
+      if (this.planeToggle) {
+        return false;
+      }
+      const { plane } = this.$refs;
+      TweenMax.to(plane, 0.3, { rotation: 33 });
+    },
+    planeActive() {
+      if (this.planeToggle) {
+        return false;
+      }
+      const { plane } = this.$refs;
+      TweenMax.to(plane, 0.1, { y: 5 });
+    },
+    planeInActive() {
+      if (this.planeToggle) {
+        return false;
+      }
+      const { plane } = this.$refs;
+      TweenMax.to(plane, 0.1, { y: 0 });
+    },
+    planeSilence() {
+      if (this.planeToggle) {
+        return false;
+      }
+      const { plane } = this.$refs;
+      TweenMax.to(plane, 0.3, { rotation: 30 });
+    },
+    bonVoyage() {
+      const { plane } = this.$refs;
+      const tl = new TimelineLite({
+        onComplete: () => (this.planeToggle = false)
+      });
+      this.planeToggle = true;
+      TweenMax.set(plane, { force3D: true });
+      tl.to(plane, 3.4, { x: -1600, y: -800, ease: Power4.easeIn })
+        .set(plane, { x: 1000, y: 400 })
+        .to(plane, 2, { x: 0, y: 0, ease: Power4.easeOut });
+    },
+    threeDOn(ev) {
+      const tar = [...ev.target.childNodes];
+      const tl = new TimelineLite();
+      tl.staggerTo(tar, 0.4, { y: -15, ease: Power1.easeInOut }, 0.1)
+        .staggerTo(tar, 0.7, { y: 30, ease: Power1.easeInOut }, 0.1, "-=0.4")
+        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.7");
+    },
+    twoDOn(ev) {
+      const tar = [...ev.target.childNodes];
+      const tl = new TimelineLite();
+      tl.staggerTo(tar, 0.4, { y: -15, ease: Power1.easeInOut }, 0.1)
+        .staggerTo(tar, 0.7, { y: 30, ease: Power1.easeInOut }, 0.1, "-=0.2")
+        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.5");
     }
   }
 };

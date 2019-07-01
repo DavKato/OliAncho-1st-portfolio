@@ -60,7 +60,7 @@ export default {
       };
     },
     popup(el, done) {
-      TweenLite.from(el, 0.3, {
+      TweenLite.from(el, 0.5, {
         opacity: 0,
         y: 200,
         scale: 0,
@@ -68,7 +68,7 @@ export default {
       });
     },
     popdown(el, done) {
-      TweenLite.to(el, 0.3, {
+      TweenLite.to(el, 0.5, {
         opacity: 0,
         y: 200,
         scale: 0,
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$trs: all 0.3s;
+$trs: all 0.4s;
 
 .works {
   color: $black-d;
