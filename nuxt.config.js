@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: "Web tech team OliAncho's official website"
       }
     ],
     link: [
