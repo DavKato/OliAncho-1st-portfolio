@@ -1,9 +1,9 @@
 <template>
-  <nav class="nav">
-    <a class="nav__mail" href="mailto:#" target="_blank">
-      <img class="nav__img" src="~/assets/img/2x/top/top-email.png" alt="send an email">
+  <nav class="main-nav">
+    <a class="main-nav__mail" href="mailto:#" target="_blank">
+      <img src="~/assets/img/2x/top/top-email.png" alt="send an email" />
     </a>
-    <LangSwitch/>
+    <LangSwitch class="flag" />
   </nav>
 </template>
 
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-.nav {
+.main-nav {
   display: flex;
   align-items: center;
   position: absolute;
@@ -34,7 +34,7 @@ export default {
     height: 4.1rem;
   }
 
-  &__img {
+  & img {
     height: 100%;
     filter: $fsh-s;
     transition: all 0.2s;
@@ -49,6 +49,11 @@ export default {
       filter: $fsh-s;
       backface-visibility: hidden;
     }
+  }
+
+  .flag {
+    width: 5.5rem;
+    height: 4.1rem;
   }
 }
 </style>

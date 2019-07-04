@@ -1,3 +1,5 @@
+import postsEn from '~/contents/en/postsEn.js';
+import postsJa from '~/contents/ja/postsJa.js';
 export default {
   mode: 'universal',
   /*
@@ -26,7 +28,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  // loading: { color: '#fff' },
   /*
    ** Global CSS
    */
@@ -34,7 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/dateFormatter.js'],
   /*
    ** Router
    */
@@ -58,8 +60,8 @@ export default {
         locales: [
           {
             code: 'en',
-            iso: 'en-US',
-            file: 'en-US.js'
+            iso: 'en-GB',
+            file: 'en-GB.js'
           },
           {
             code: 'ja',
@@ -94,20 +96,32 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        options: {
+          vue: true
+        }
+      });
+    }
   },
   generate: {
     routes: [
       '/about',
-      '/blog',
       '/location',
       '/works',
+      '/blog',
+      '/posts',
       '/ja',
       '/ja/about',
-      '/ja/blog',
       '/ja/location',
-      '/ja/works'
-    ],
+      '/ja/works',
+      '/ja/blog',
+      '/ja/posts'
+    ]
+      .concat(postsEn.map(post => `/posts/${post.slug}`))
+      .concat(postsJa.map(post => `/posts/${post.slug}`)),
     subFolder: false
   },
   ssr: false,

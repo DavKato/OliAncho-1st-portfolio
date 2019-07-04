@@ -1,21 +1,21 @@
 <template>
   <no-ssr>
     <div id="defaultLayout">
-      <NavL/>
-      <NavR/>
-      <TheHeader/>
+      <NavL />
+      <NavR />
+      <TheHeader />
       <main>
-        <BagusTitle/>
-        <BagusWalls/>
-        <nuxt class="bagus-box"/>
+        <BagusTitle />
+        <BagusWalls />
+        <nuxt class="bagus-box" />
       </main>
-      <Contact/>
-      <TheFooter/>
+      <Contact />
+      <TheFooter />
     </div>
   </no-ssr>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #defaultLayout {
   background-color: $green-p;
   max-width: 100vw;

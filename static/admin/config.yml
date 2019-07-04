@@ -5,11 +5,12 @@ publish_mode: editorial_workflow
 media_folder: 'static/images'
 public_folder: '/images'
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content'
+  - name: 'japanese__posts'
+    label: 'ブログ/日本語'
+    folder: 'content/ja/posts'
     create: true
     slug: '{{slug}}'
+    filter: { field: 'language', value: 'ja' }
     fields:
       - { label: 'タイトル', name: 'title', widget: 'string', required: true }
       - { label: 'タグ', name: 'type', widget: 'string', required: false }
@@ -35,6 +36,61 @@ collections:
           widget: 'image',
           required: true,
         }
-      # - {label: "概要", name: summary, widget: text, required: true}
-      #, pattern: ['.{20,60}', "20 ~ 60字以内"] -add this to summary for limitation.
+      - {
+          label: '概要',
+          name: summary,
+          widget: text,
+          required: true,
+          pattern: ['.{40,80}', '40 ~ 80字以内'],
+        }
+      - { label: '本文', name: 'body', widget: 'markdown', required: true }
+
+  - name: 'english__posts'
+    label: 'Blog/English'
+    folder: 'content/en'
+    create: true
+    slug: '{{slug}}'
+    filter: { field: 'language', value: 'en' }
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Tag', name: 'type', widget: 'string', required: false }
+      - {
+          label: 'author',
+          name: 'author',
+          widget: 'string',
+          required: true,
+          default: 'Gobu',
+        }
+      - {
+          label: 'Language',
+          name: 'language',
+          widget: 'string',
+          required: true,
+          default: 'ja',
+        }
+      - {
+          label: 'Published date',
+          name: 'date',
+          widget: 'date',
+          required: true,
+        }
+      - {
+          label: 'Updated date',
+          name: 'update',
+          widget: 'date',
+          required: false,
+        }
+      - {
+          label: 'Thumbnail',
+          name: 'thumbnail',
+          widget: 'image',
+          required: true,
+        }
+      - {
+          label: 'Summary',
+          name: summary,
+          widget: text,
+          required: true,
+          pattern: ['.{40,80}', 'Between 40 ~ 80 charactors'],
+        }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }

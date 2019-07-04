@@ -1,6 +1,6 @@
 <template>
   <section class="blog">
-    <img :src="path2x('blog-starbacks')" alt="background image with stars" ref="stars">
+    <img :src="path2x('blog-starbacks')" alt="background image with stars" ref="stars" />
     <div class="caption-box">
       <div class="latest-title">
         <h3>{{ $t('blog.caption') }}</h3>
@@ -18,7 +18,7 @@
           alt="tallest tree"
           @mouseover="treeShake($event)"
           @mouseleave="restore($event)"
-        >
+        />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
@@ -27,7 +27,7 @@
           alt="tall tree"
           @mouseover="treeBump($event)"
           @mouseleave="restore($event)"
-        >
+        />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
@@ -36,7 +36,7 @@
           alt="short tree"
           @mouseover="treeGrow($event)"
           @mouseleave="restore($event)"
-        >
+        />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
       <nuxt-link :to="localePath('blog')" class="category">
@@ -45,11 +45,11 @@
           alt="shortest tree"
           @mouseover="treeMario($event)"
           @mouseleave="restore($event)"
-        >
+        />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
-      <nuxt-link class="go-to" :to="localePath('blog')">
-        <img :src="path2x('blog-moon')" alt="go to blog page">
+      <nuxt-link class="go-to" :to="localePath('posts')">
+        <img :src="path2x('blog-moon')" alt="go to blog page" />
         <p class="go-to__text">{{ $t('blog.goto') }}</p>
       </nuxt-link>
     </div>
@@ -61,7 +61,7 @@ import { TweenMax, TimelineLite } from "gsap";
 export default {
   methods: {
     path2x(img) {
-      return require("../assets/img/2x/blog/" + img + ".png");
+      return require("../../assets/img/2x/blog/" + img + ".png");
     },
     treeShake(event) {
       const { life } = this.$refs;
@@ -297,7 +297,7 @@ export default {
     transition: all 0.2s;
 
     &:hover {
-      filter: saturate(2);
+      filter: saturate(1.5);
       & + p {
         transform: translateY(-1px);
         text-shadow: none;

@@ -85,5 +85,12 @@ export default {
     currentParagraph: 'Currently\nIn：',
     currentLocation: 'Germany',
     numberVisited: 'countries'
+  },
+  posts: {
+    all: 'All',
+    life: 'Nomad Life',
+    web: 'Web Dev',
+    teaching: 'Japanese',
+    glutenFree: 'Gluten Free'
   }
 };

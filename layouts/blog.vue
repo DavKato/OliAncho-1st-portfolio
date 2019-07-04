@@ -20,6 +20,11 @@ export default {
       ...this.$nuxtI18nSeo()
     };
   },
+  components: {
+    TopHeader,
+    StickyHeader,
+    BlogFooter
+  },
   mounted() {
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

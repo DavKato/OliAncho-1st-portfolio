@@ -90,5 +90,12 @@ export default {
     currentParagraph: '  現在地：\n\t',
     currentLocation: 'ドイツ',
     numberVisited: 'ヵ国'
+  },
+  posts: {
+    all: 'ぜんぶ',
+    life: '海外ノマド生活',
+    web: 'WEBのお仕事',
+    teaching: '日本語教師',
+    glutenFree: 'グルテンフリー'
   }
 };
