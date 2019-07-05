@@ -1,5 +1,5 @@
-import postsEn from '~/contents/en/postsEn.js';
-import postsJa from '~/contents/ja/postsJa.js';
+import postsEn from './contents/en/posts.json';
+import postsJa from './contents/ja/posts.json';
 export default {
   mode: 'universal',
   /*
@@ -121,7 +121,7 @@ export default {
       '/ja/posts'
     ]
       .concat(postsEn.map(post => `/posts/${post.slug}`))
-      .concat(postsJa.map(post => `/posts/${post.slug}`)),
+      .concat(postsJa.map(post => `ja/posts/${post.slug}`)),
     subFolder: false
   },
   ssr: false,

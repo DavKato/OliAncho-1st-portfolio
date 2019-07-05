@@ -13,7 +13,7 @@ const getFiles = (dir, lang) => {
 
   files.forEach(file => {
     const markdownFile = fs.readFileSync(
-      `contents/${lang}/blog/${file}`,
+      `contents/${lang}/posts/${file}`,
       'utf-8'
     );
     const fileContents = parseMarkdown(markdownFile);
@@ -37,7 +37,7 @@ const getFiles = (dir, lang) => {
  * @param {string} lang
  */
 const writeBlogs = async lang => {
-  const fileArray = await getFiles(`content/${lang}/posts/`, lang);
+  const fileArray = await getFiles(`contents/${lang}/posts/`, lang);
 
   // Order array by date (default asc)
   const sortedArray = await fileArray.sort((a, b) => {
@@ -48,7 +48,7 @@ const writeBlogs = async lang => {
   const reversedArray = await sortedArray.reverse();
   const jsonContent = await JSON.stringify(reversedArray);
 
-  fs.writeFile(`content/${lang}/blogs.js`, jsonContent, err => {
+  fs.writeFile(`contents/${lang}/posts.js`, jsonContent, err => {
     if (err) throw new Error(err);
   });
 };
