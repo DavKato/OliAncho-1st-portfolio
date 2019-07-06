@@ -12,44 +12,48 @@
     </div>
     <p class="middle">{{ $t('blog.intro') }}</p>
     <div class="categories">
-      <nuxt-link :to="localePath('blog')" class="category">
+      <nuxt-link class="category" :to="localePath('posts')">
         <img
           :src="path2x('blog-1tree')"
           alt="tallest tree"
           @mouseover="treeShake($event)"
           @mouseleave="restore($event)"
+          @click="selectTag('life')"
         />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
-      <nuxt-link :to="localePath('blog')" class="category">
+      <nuxt-link class="category" :to="localePath('posts')">
         <img
           :src="path2x('blog-2tree')"
           alt="tall tree"
           @mouseover="treeBump($event)"
           @mouseleave="restore($event)"
+          @click="selectTag('web')"
         />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
-      <nuxt-link :to="localePath('blog')" class="category">
+      <nuxt-link class="category" :to="localePath('posts')">
         <img
           :src="path2x('blog-3tree')"
           alt="short tree"
           @mouseover="treeGrow($event)"
           @mouseleave="restore($event)"
+          @click="selectTag('japanese')"
         />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
-      <nuxt-link :to="localePath('blog')" class="category">
+      <nuxt-link class="category" :to="localePath('posts')">
         <img
           :src="path2x('blog-4tree')"
           alt="shortest tree"
           @mouseover="treeMario($event)"
           @mouseleave="restore($event)"
+          @click="selectTag('gluten')"
         />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
       <nuxt-link class="go-to" :to="localePath('posts')">
-        <img :src="path2x('blog-moon')" alt="go to blog page" />
+        <img :src="path2x('blog-moon')" alt="go to blog page" @click="selectTag('all')" />
         <p class="go-to__text">{{ $t('blog.goto') }}</p>
       </nuxt-link>
     </div>
@@ -58,10 +62,11 @@
 
 <script>
 import { TweenMax, TimelineLite } from "gsap";
+import { mapMutations } from "vuex";
 export default {
   methods: {
     path2x(img) {
-      return require("../../assets/img/2x/blog/" + img + ".png");
+      return require("../assets/img/2x/blog/" + img + ".png");
     },
     treeShake(event) {
       const { life } = this.$refs;
@@ -104,7 +109,8 @@ export default {
         x: 0,
         y: 0
       });
-    }
+    },
+    ...mapMutations("posts", ["selectTag"])
   },
   mounted() {
     const { stars } = this.$refs;

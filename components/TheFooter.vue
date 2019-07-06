@@ -1,5 +1,5 @@
 <template>
-  <p>2019&copy;OliAncho</p>
+  <p>2019 &copy; OliAncho</p>
 </template>
 
 <style lang="scss" scoped>

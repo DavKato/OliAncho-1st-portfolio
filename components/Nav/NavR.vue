@@ -40,14 +40,10 @@ export default {
     transition: all 0.2s;
 
     &:hover {
-      filter: $fsh-m;
-      transform: translate3D(0, -3px, 0);
-      backface-visibility: hidden;
+      @include iconHover;
     }
     &:active {
-      transform: translate3D(0, -1px, 0);
-      filter: $fsh-s;
-      backface-visibility: hidden;
+      @include iconActive;
     }
   }
 

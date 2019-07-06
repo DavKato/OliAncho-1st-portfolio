@@ -46,6 +46,8 @@ export default {
     daviDetail:
       'えっちなイタリア人ですダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト'
   },
+
+  //WORKS
   works: {
     caption:
       '今までに作ったWEBサイトの実績です。\nクリックすると、使った技術やこだわった点など\n詳細が表示されます。',
@@ -72,6 +74,8 @@ export default {
       }
     ]
   },
+
+  //BLOG
   blog: {
     caption: '最新の投稿',
     readThis: 'この記事へ',
@@ -83,6 +87,8 @@ export default {
     recipe: 'グルテン\nフリー',
     goto: 'Blogを\n読んでみる'
   },
+
+  //LOCATION
   location: {
     caption: 'パソコンとネット環境さえあればどこでも働ける！',
     intro:
@@ -91,10 +97,11 @@ export default {
     currentLocation: 'ドイツ',
     numberVisited: 'ヵ国'
   },
+
+  //POSTS
   posts: {
-    all: 'ぜんぶ',
     life: '海外ノマド生活',
-    web: 'WEBのお仕事',
+    web: 'ウェブのお仕事',
     teaching: '日本語教師',
     glutenFree: 'グルテンフリー'
   }

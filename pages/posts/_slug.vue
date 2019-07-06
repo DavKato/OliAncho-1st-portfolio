@@ -1,26 +1,279 @@
-<template></template>
+<template>
+  <div class="post-page">
+    <section class="post">
+      <div class="intro">
+        <div class="intro__info">
+          <p class="date">{{ date | date($i18n.locale) }}</p>
+          <figure class="author">
+            <img
+              v-if="author === 'Gobu'"
+              src="~/assets/img/2x/about/about-gobu.png"
+              alt="Gobu's picture"
+              class="author-img"
+            />
+            <img
+              v-if="author === 'Davide'"
+              src="~/assets/img/2x/about/about-davi.png"
+              alt="Davide's picture"
+              class="author-img"
+            />
+            <figcaption class="author-name">{{ author }}</figcaption>
+          </figure>
+        </div>
+        <div class="intro__title">
+          <h1 class="intro__title-heading">{{ title }}</h1>
+          <p class="intro__title-sub">{{ summary }}</p>
+        </div>
+        <img class="thumbnail" :src="thumbnail" alt />
+      </div>
+      <article class="post__content" v-html="html"></article>
+      <div class="post__links">
+        <div class="post__links--prev">
+          <img src alt />
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+// @import url(https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css);
+
+$green-pre: #d9ebde80;
+
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 21rem;
+
+  .post {
+    background-color: $post-bg;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 94rem;
+    min-width: 20rem;
+    position: relative;
+
+    .intro {
+      height: 23rem;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 2rem;
+      margin-bottom: 10rem;
+      background-color: $gray-l;
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .date {
+          text-align: center;
+          font-size: 3rem;
+          font-family: $font-h;
+          color: #fff;
+          background-color: #000;
+          padding: 0.2rem 1.5rem;
+          margin-left: -4rem;
+        }
+        .author {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 0.6rem;
+          margin-bottom: 1.5rem;
+
+          &-img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            border: 1px solid $black-l;
+          }
+
+          &-name {
+            font-size: 1.8rem;
+            color: $black-p;
+            margin-top: 0.4rem;
+          }
+        }
+      }
+
+      &__title {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        padding: 3rem;
+
+        &-heading {
+          font-size: 4.2rem;
+        }
+        &-sub {
+          margin-top: 1rem;
+          font-size: 1.4rem;
+          color: $gray-d;
+        }
+      }
+
+      .thumbnail {
+        width: 36rem;
+        height: 125%;
+        margin-right: -5rem;
+        object-fit: cover;
+        object-position: center;
+        align-self: flex-end;
+        border-radius: 1px;
+      }
+    }
+  }
+
+  & /deep/ .post__content {
+    width: 75%;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    word-spacing: 1px;
+
+    & * {
+      margin-bottom: 2.2rem;
+    }
+
+    & > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    & h1,
+    h2,
+    h3 {
+      font-weight: 600;
+      font-family: $font-p;
+      line-height: 1.25;
+      margin-top: 4rem;
+      margin-bottom: 1.6rem;
+    }
+
+    & h1 {
+      font-size: 3.6rem;
+    }
+    & h2 {
+      font-size: 2.9rem;
+    }
+    & h3 {
+      font-size: 2.3rem;
+    }
+
+    & p {
+      margin-bottom: 1.8rem;
+    }
+
+    & ol,
+    & ul {
+      padding-left: 2rem;
+    }
+
+    & ol ol,
+    & ul ol {
+      list-style-type: lower-roman;
+    }
+
+    & li + li {
+      margin-top: 0.25rem;
+    }
+
+    & ol ol,
+    & ol ul,
+    & ul ol,
+    & ul ul,
+    & pre code {
+      margin-bottom: 0;
+    }
+
+    & pre,
+    & code {
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+        monospace;
+      word-spacing: normal;
+    }
+    & pre {
+      padding: 2.2rem;
+      border-radius: 3px;
+      background-color: $green-pre;
+      border: 2px solid $gray-l;
+      line-height: 1.3;
+    }
+    & code {
+      border-radius: 3px;
+      padding: 0.2em 0.4em;
+      background-color: $green-pre;
+      font-size: 1.4rem;
+    }
+    & pre > code {
+      border-radius: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    & a {
+      color: inherit;
+      box-shadow: inset 0 -1px 0 currentColor;
+      transition: color 0.8s ease-in, box-shadow 0.13s ease-in-out;
+
+      &:hover {
+        box-shadow: inset 0 0 0 currentcolor, 0 2px 0 currentcolor;
+      }
+      &:link,
+      &:visited {
+        text-decoration: none;
+      }
+    }
+
+    & blockquote {
+      border-left: 8px solid darken($green-pre, 5%);
+      padding: 2rem;
+
+      & > p:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    & img {
+      max-width: 100%;
+    }
+  }
+}
+</style>
+
 
 <script>
 export default {
+  layout: "blog",
+  head() {
+    return {
+      title: `${this.title} - OliAncho`,
+      script: [
+        {
+          src:
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"
+        }
+      ],
+      link: [
+        {
+          rel: "stylesheet",
+          href:
+            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"
+        }
+      ]
+    };
+  },
   async asyncData({ params, app }) {
     const post = await import(
-      `~/content/${app.$i18n.locale}/posts/${params.slug}.md`
+      `~/contents/${app.i18n.locale}/posts/${params.slug}.md`
     );
     const attr = post.attributes;
     const slug = params.slug;
 
-    const { author, date, summary, thumbnail, title, tag, update } = attr;
-
-    // const dateOptions = {
-    //   year: 'numeric',
-    //   month: 'short',
-    //   day: 'numeric'
-    // }
-
-    // const published = new Date(date)
-    // const updated = new Date(update)
-    // const published = app.$i18n.locale === 'en' ? publishedDate.toLocaleDateString('en-GB', dateOptions) : publishedDate.toLocaleDateString('ja-JP')
-    // const updated = app.$i18n.locale === 'en' ? publishedDate.toLocaleDateString('en-GB', dateOptions) : updatedDate.toLocaleDateString('ja-JP')
+    const { author, date, update, summary, thumbnail, title, tag } = attr;
 
     return {
       title,
@@ -33,6 +286,9 @@ export default {
       slug,
       html: post.html
     };
+  },
+  mounted() {
+    hljs.initHighlightingOnLoad();
   }
 };
 </script>

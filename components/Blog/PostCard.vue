@@ -1,36 +1,52 @@
 <template>
-  <div class="postcard">
-    <div class="date-box">{{ date | date }}</div>
+  <nuxt-link :to="`posts/${link}`" class="postcard" tag="div">
+    <div class="date-box">
+      <p>{{ date | date($i18n.locale) }}</p>
+    </div>
     <h1 class="title">{{ title }}</h1>
     <p class="summary">{{ summary }}</p>
-    <img class="thumbnail" :src="`~/static/${thumbnail}`" />
-  </div>
+    <img class="thumbnail" :src="thumbnail" />
+  </nuxt-link>
 </template>
 
 <style lang="scss" scoped>
 .postcard {
-  padding: 0.5rem;
-  background-color: #fff;
+  padding: 1rem 0;
+  background-color: $post-bg;
   position: relative;
   width: 70.5%;
   height: 18rem;
+  cursor: pointer;
+
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
 
   .date-box {
     background-color: #000;
-    color: #fff;
-    font-family: $font-h;
-    font-size: 3rem;
+    width: calc(100% + 3rem);
     margin-left: -3rem;
-    text-align: center;
+
+    & > p {
+      font-family: $font-h;
+      font-size: 3rem;
+      color: #fff;
+      margin-left: 3rem;
+    }
   }
   .title {
     color: #000;
     font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 4rem;
   }
   .summary {
     color: #000;
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+    width: 60%;
     font-size: 1.8rem;
-    margin-top: 2rem;
   }
   .thumbnail {
     position: absolute;
@@ -51,7 +67,8 @@ export default {
     date: String,
     title: String,
     summary: String,
-    thumbnail: String
+    thumbnail: String,
+    link: String
   }
 };
 </script>

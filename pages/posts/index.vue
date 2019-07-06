@@ -1,39 +1,80 @@
 <template>
   <section class="top">
     <PostCard
-      v-for="(post, index) in postList"
+      v-for="(post, index) in sortedList"
       :key="index"
       :date="post.date"
       :title="post.title"
       :summary="post.summary"
       :thumbnail="post.thumbnail"
+      :link="post.link"
+      class="card"
+      @click.native="selectTag('all')"
     />
   </section>
 </template>
 
 <script>
-import postsEn from `~/content/en/posts.js`;
-import postsJa from `~/content/ja/posts.js`;
-import PostCard from '~/components/Blog/PostCard';
+import { mapState, mapMutations } from "vuex";
+import postsEn from "~/contents/en/posts.json";
+import postsJa from "~/contents/ja/posts.json";
+import PostCard from "~/components/Blog/PostCard";
 export default {
+  layout: "blog",
   async asyncData({ app }) {
-const posts = app.$i18n.locale === 'en' ? postsEn : postsJa;
+    const postList = app.i18n.locale === "en" ? postsEn : postsJa;
 
-    async function awaitImport(post) {
-      const wholeMD = await import(`~/content/${app.$i18n.locale}/post/${post.slug}.md`)
-      return wholeMD.attributes
+    async function awaitImport(slug) {
+      const wholeMD = await import(
+        `~/contents/${app.i18n.locale}/posts/${slug}.md`
+      );
+      return {
+        link: slug,
+        ...wholeMD.attributes
+      };
     }
 
-    const postList = await Promise.all(
-      posts.map(post => awaitImport(post))
-    ).then(res => {
-      return {
-        postList: res
+    return Promise.all(postList.map(post => awaitImport(post.slug))).then(
+      res => {
+        return {
+          postList: res
+        };
       }
-    })
-
-    return postList;
+    );
   },
-  layout: "blog"
-}
+  components: {
+    PostCard
+  },
+  computed: {
+    sortedList() {
+      if (this.selectedTag === "all") {
+        return this.postList;
+      } else {
+        return this.postList.filter(post => post.tag === this.selectedTag);
+      }
+    },
+    ...mapState("posts", {
+      selectedTag: state => state.selectedTag
+    })
+  },
+  methods: {
+    ...mapMutations("posts", ["selectTag"])
+  }
+};
 </script>
+
+<style lang="scss" scoped>
+.top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40.5rem;
+
+  .card {
+    &:not(last-child) {
+      margin-bottom: 12rem;
+    }
+  }
+}
+</style>

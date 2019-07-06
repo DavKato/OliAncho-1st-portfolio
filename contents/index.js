@@ -45,8 +45,8 @@ const writeBlogs = async lang => {
   });
 
   // Reverse array and write a file
-  const reversedArray = await sortedArray.reverse();
-  const jsonContent = await JSON.stringify(reversedArray);
+  // const reversedArray = await sortedArray.reverse();
+  const jsonContent = await JSON.stringify(sortedArray);
 
   fs.writeFile(`contents/${lang}/posts.js`, jsonContent, err => {
     if (err) throw new Error(err);

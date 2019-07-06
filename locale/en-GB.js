@@ -42,6 +42,8 @@ export default {
     daviDetail:
       'えっちなイタリア人ですダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト'
   },
+
+  //WORKS
   works: {
     caption: 'Check out our works!\nClick one of them to see the details.',
     clientCap: 'Client',
@@ -67,6 +69,8 @@ export default {
       }
     ]
   },
+
+  //BLOG
   blog: {
     caption: 'Latest Post',
     readThis: 'To this article',
@@ -78,6 +82,8 @@ export default {
     recipe: 'Gluten\nFree',
     goto: 'To the\nBlog Page'
   },
+
+  //LOCATION
   location: {
     caption: 'All We Need Is a Lap Top and a Network!',
     intro:
@@ -86,8 +92,9 @@ export default {
     currentLocation: 'Germany',
     numberVisited: 'countries'
   },
+
+  //POSTS
   posts: {
-    all: 'All',
     life: 'Nomad Life',
     web: 'Web Dev',
     teaching: 'Japanese',

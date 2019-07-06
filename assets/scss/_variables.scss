@@ -18,6 +18,8 @@ $gray-d: #707070;
 $red-err: #d83c51;
 
 $mud-b: #909473;
+$blog-bg: #4b4a4a;
+$post-bg: #f3f3f3;
 //BORDER WIDTH
 
 $bdw-s: 1rem;
@@ -35,6 +37,20 @@ $fsh-l: drop-shadow(0.6rem 0.9rem 0.9rem rgba(0, 0, 0, 0.35));
 
 @mixin tsh-m {
   text-shadow: 0.4rem 0.4rem 0.6rem rgba(0, 0, 0, 0.2);
+}
+
+//ICONS
+
+@mixin iconHover {
+  filter: $fsh-m;
+  transform: translate3D(0, -3px, 0);
+  backface-visibility: hidden;
+}
+
+@mixin iconActive {
+  transform: translate3D(0, -1px, 0);
+  filter: $fsh-s;
+  backface-visibility: hidden;
 }
 
 //Gradient
