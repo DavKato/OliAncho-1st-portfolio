@@ -1,18 +1,16 @@
 <template>
-  <no-ssr>
-    <div id="defaultLayout">
-      <NavL />
-      <NavR />
-      <TheHeader />
-      <main>
-        <BagusTitle />
-        <BagusWalls />
-        <nuxt class="bagus-box" />
-      </main>
-      <Contact />
-      <TheFooter />
-    </div>
-  </no-ssr>
+  <div id="defaultLayout">
+    <NavL />
+    <NavR />
+    <TheHeader />
+    <main>
+      <BagusTitle />
+      <BagusWalls />
+      <nuxt class="bagus-box" />
+    </main>
+    <Contact />
+    <TheFooter />
+  </div>
 </template>
 
 <style lang="scss">

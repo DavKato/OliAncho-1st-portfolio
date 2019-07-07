@@ -177,8 +177,11 @@ $green-pre: #d9ebde80;
       list-style-type: lower-roman;
     }
 
-    & li + li {
-      margin-top: 0.25rem;
+    & li {
+      margin-bottom: 0;
+      & + li {
+        margin-top: 0.25rem;
+      }
     }
 
     & ol ol,

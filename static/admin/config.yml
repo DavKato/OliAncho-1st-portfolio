@@ -41,7 +41,7 @@ collections:
           name: summary,
           widget: text,
           required: true,
-          pattern: ['.{40,80}', '40 ~ 80字以内'],
+          pattern: ['.{15,45}', '15 ~ 45字以内'],
         }
       - { label: '本文', name: 'body', widget: 'markdown', required: true }
 
@@ -91,6 +91,6 @@ collections:
           name: summary,
           widget: text,
           required: true,
-          pattern: ['.{40,80}', 'Between 40 ~ 80 charactors'],
+          pattern: ['.{15,45}', 'Between 15 ~ 45 charactors'],
         }
       - { label: 'Body', name: 'body', widget: 'markdown', required: true }

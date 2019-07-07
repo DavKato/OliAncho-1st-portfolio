@@ -42,11 +42,10 @@
     margin-left: 4rem;
   }
   .summary {
-    color: #000;
-    margin-top: 1.5rem;
-    margin-left: 4rem;
-    width: 60%;
-    font-size: 1.8rem;
+    color: $gray-d;
+    margin-left: 9rem;
+    width: 55%;
+    font-size: 1.6rem;
   }
   .thumbnail {
     position: absolute;
