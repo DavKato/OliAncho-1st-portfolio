@@ -7,7 +7,7 @@ public_folder: '/images'
 collections:
   - name: 'japanese__posts'
     label: 'ブログ/日本語'
-    folder: 'content/ja/posts'
+    folder: 'contents/ja/posts'
     create: true
     slug: '{{slug}}'
     filter: { field: 'language', value: 'ja' }
@@ -47,7 +47,7 @@ collections:
 
   - name: 'english__posts'
     label: 'Blog/English'
-    folder: 'content/en'
+    folder: 'contents/en/posts/'
     create: true
     slug: '{{slug}}'
     filter: { field: 'language', value: 'en' }
