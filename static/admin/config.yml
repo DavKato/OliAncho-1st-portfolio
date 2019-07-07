@@ -10,6 +10,7 @@ collections:
     folder: 'contents/ja/posts'
     create: true
     slug: '{{slug}}'
+    preview_path: 'posts/{{slug}}'
     filter: { field: 'language', value: 'ja' }
     fields:
       - { label: 'タイトル', name: 'title', widget: 'string', required: true }
@@ -50,6 +51,7 @@ collections:
     folder: 'contents/en/posts/'
     create: true
     slug: '{{slug}}'
+    preview_path: 'posts/{{slug}}'
     filter: { field: 'language', value: 'en' }
     fields:
       - { label: 'Title', name: 'title', widget: 'string', required: true }
