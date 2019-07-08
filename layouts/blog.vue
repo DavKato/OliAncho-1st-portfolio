@@ -1,7 +1,5 @@
 <template>
   <div id="blog-layout">
-    <TopHeader />
-    <StickyHeader />
     <nuxt />
     <BlogFooter />
   </div>
@@ -20,8 +18,6 @@
 
 
 <script>
-import TopHeader from "~/components/Blog/TopHeader";
-import StickyHeader from "~/components/Blog/StickyHeader";
 import BlogFooter from "~/components/Blog/BlogFooter";
 export default {
   head() {
@@ -33,8 +29,6 @@ export default {
     };
   },
   components: {
-    TopHeader,
-    StickyHeader,
     BlogFooter
   },
   mounted() {

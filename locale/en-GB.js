@@ -97,7 +97,7 @@ export default {
   posts: {
     life: 'Nomad Life',
     web: 'Web Dev',
-    teaching: 'Japanese',
+    japanese: 'Japanese',
     glutenFree: 'Gluten Free'
   }
 };

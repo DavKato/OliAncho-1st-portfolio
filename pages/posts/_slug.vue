@@ -1,5 +1,6 @@
 <template>
   <div class="post-page">
+    <StickyHeader />
     <section class="post">
       <div class="intro">
         <div class="intro__info">
@@ -249,17 +250,16 @@ $green-pre: #d9ebde80;
 
 
 <script>
+import StickyHeader from "~/components/Blog/StickyHeader";
+import hljs from "highlight.js/lib/highlight";
+import javascript from "highlight.js/lib/languages/javascript";
+import xml from "highlight.js/lib/languages/xml";
+import css from "highlight.js/lib/languages/css";
 export default {
   layout: "blog",
   head() {
     return {
       title: `${this.title} - OliAncho`,
-      script: [
-        {
-          src:
-            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"
-        }
-      ],
       link: [
         {
           rel: "stylesheet",
@@ -291,7 +291,13 @@ export default {
     };
   },
   mounted() {
-    hljs.initHighlightingOnLoad();
+    hljs.registerLanguage("javascript", javascript);
+    hljs.registerLanguage("xml", xml);
+    hljs.registerLanguage("css", css);
+    hljs.initHighlighting();
+  },
+  components: {
+    StickyHeader
   }
 };
 </script>

@@ -56,13 +56,13 @@ main {
 
 
 <script>
-import NavL from "~/components/Nav/NavL";
-import NavR from "~/components/Nav/NavR";
+import NavL from "~/components/Top/NavL";
+import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
 import BagusWalls from "~/components/Top/BagusWalls";
 import BagusTitle from "~/components/Top/BagusTitle";
 import Contact from "~/components/Contact/Contact";
-import TheFooter from "~/components/TheFooter";
+import TheFooter from "~/components/GlobalComponents/TheFooter";
 export default {
   head() {
     return this.$nuxtI18nSeo();

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`posts/${link}`" class="postcard" tag="div">
+  <nuxt-link :to="`posts/${link}`" class="postcard">
     <div class="date-box">
       <p>{{ date | date($i18n.locale) }}</p>
     </div>
@@ -17,6 +17,12 @@
   width: 70.5%;
   height: 18rem;
   cursor: pointer;
+  transition: transform 0.3s;
+  transform-origin: bottom;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 
   &:link,
   &:active {
@@ -37,20 +43,21 @@
   }
   .title {
     color: #000;
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-top: 1rem;
-    margin-left: 4rem;
+    margin-left: 2.4rem;
   }
   .summary {
     color: $gray-d;
-    margin-left: 9rem;
-    width: 55%;
-    font-size: 1.6rem;
+    margin-top: 0.3rem;
+    margin-left: 6rem;
+    width: 60%;
+    font-size: 1.5rem;
   }
   .thumbnail {
     position: absolute;
     top: -3rem;
-    right: 2rem;
+    right: 1rem;
     width: 29.6%;
     height: 100%;
     object-fit: cover;

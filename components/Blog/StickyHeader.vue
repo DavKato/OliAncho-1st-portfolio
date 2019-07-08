@@ -1,11 +1,6 @@
 <template>
   <nav class="sticky">
-    <nuxt-link :to="localePath('posts')" tag="div">
-      <h1 @click="selectTag('all')" class="sticky-name">
-        OliAncho
-        <span>.blog</span>
-      </h1>
-    </nuxt-link>
+    <TextLogo :selectTag="selectTag" />
 
     <ul class="filter">
       <nuxt-link
@@ -30,7 +25,7 @@
         :class="{ active: selectedTag === 'japanese'}"
         tag="li"
       >
-        <h2 @click="selectTag('japanese')" class="filter__list-text">{{ $t('posts.teaching') }}</h2>
+        <h2 @click="selectTag('japanese')" class="filter__list-text">{{ $t('posts.japanese') }}</h2>
       </nuxt-link>
       <nuxt-link
         :to="localePath('posts')"
@@ -42,27 +37,7 @@
       </nuxt-link>
     </ul>
 
-    <ul class="links">
-      <LangSwitch
-        class="links-image flag"
-        v-if="$route.path === '/posts' || $route.path === '/ja/posts'"
-      />
-      <li>
-        <a href="#">
-          <img class="links-image insta" src="~/assets/img/2x/posts/insta.png" />
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <img class="links-image twitter" src="~/assets/img/2x/posts/twitter.png" />
-        </a>
-      </li>
-      <li>
-        <nuxt-link :to="localePath('index')">
-          <img class="links-image home" src="~/assets/img/2x/posts/oliancho-logo.png" />
-        </nuxt-link>
-      </li>
-    </ul>
+    <BlogNavLinks />
   </nav>
 </template>
 
@@ -82,21 +57,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  z-index: 100;
-
-  &-name {
-    color: $white-p;
-    font-size: 4.5rem;
-    font-feature-settings: "palt";
-    margin-left: 1.5rem;
-    margin-top: 0.4rem;
-    cursor: pointer;
-
-    span {
-      font-size: 3rem;
-      margin-left: -0.8rem;
-    }
-  }
+  z-index: 10;
 
   .filter {
     align-self: center;
@@ -150,46 +111,8 @@
       }
     }
   }
-
-  .links {
-    display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    gap: 1.1rem;
-    margin-right: 2.5rem;
-    margin-top: 1.2rem;
-    list-style: none;
-
-    &-image {
-      filter: $fsh-s;
-      transition: all 0.2s;
-
-      &:hover {
-        @include iconHover;
-      }
-      &:active {
-        @include iconActive;
-      }
-    }
-
-    .insta {
-      height: 3.9rem;
-      width: 3.9rem;
-    }
-    .twitter {
-      height: 3.5rem;
-      width: 4rem;
-    }
-    .home {
-      height: 3.4rem;
-      width: 3.3rem;
-    }
-    .flag {
-      height: 2.6rem;
-      width: 3.5rem;
-    }
-  }
 }
+
 .active::before {
   content: "";
   width: 100% !important;
@@ -203,10 +126,12 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import LangSwitch from "~/components/Nav/LangSwitch";
+import TextLogo from "~/components/Blog/TextLogo";
+import BlogNavLinks from "~/components/Blog/BlogNavLinks";
 export default {
   components: {
-    LangSwitch
+    TextLogo,
+    BlogNavLinks
   },
   computed: {
     ...mapState("posts", ["selectedTag"])

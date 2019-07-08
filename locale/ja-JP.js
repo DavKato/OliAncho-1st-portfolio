@@ -102,7 +102,7 @@ export default {
   posts: {
     life: '海外ノマド生活',
     web: 'ウェブのお仕事',
-    teaching: '日本語教師',
+    japanese: '日本語教師',
     glutenFree: 'グルテンフリー'
   }
 };

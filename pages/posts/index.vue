@@ -1,5 +1,9 @@
 <template>
-  <section class="top">
+  <section class="blog-top">
+    <TopHeader class="top__header" />
+    <transition name="topbar">
+      <StickyHeader v-if="scrollY > 230" :style="stickyStyle" />
+    </transition>
     <PostCard
       v-for="(post, index) in sortedList"
       :key="index"
@@ -8,7 +12,7 @@
       :summary="post.summary"
       :thumbnail="post.thumbnail"
       :link="post.link"
-      class="card"
+      class="blog-top__card"
       @click.native="selectTag('all')"
     />
   </section>
@@ -18,6 +22,8 @@
 import { mapState, mapMutations } from "vuex";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
+import TopHeader from "~/components/Blog/TopHeader";
+import StickyHeader from "~/components/Blog/StickyHeader";
 import PostCard from "~/components/Blog/PostCard";
 export default {
   layout: "blog",
@@ -42,8 +48,21 @@ export default {
       }
     );
   },
+  data() {
+    return {
+      scrollY: 0
+    };
+  },
   components: {
+    TopHeader,
+    StickyHeader,
     PostCard
+  },
+  mounted() {
+    this.scrollY = window.scrollY;
+    if (process.browser) {
+      window.addEventListener("scroll", () => (this.scrollY = window.scrollY));
+    }
   },
   computed: {
     sortedList() {
@@ -52,6 +71,22 @@ export default {
       } else {
         return this.postList.filter(post => post.tag === this.selectedTag);
       }
+    },
+    stickyStyle() {
+      if (this.scrollY <= 230) {
+        return { visibility: "hidden" };
+      }
+
+      let op;
+      if (this.scrollY > 270) {
+        op = 1;
+      } else {
+        op = 1 - (270 - this.scrollY) / 40;
+      }
+      return {
+        visibility: "visible",
+        opacity: op
+      };
     },
     ...mapState("posts", {
       selectedTag: state => state.selectedTag
@@ -64,16 +99,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.top {
+.blog-top {
   width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 40.5rem;
 
-  .card {
-    &:not(last-child) {
-      margin-bottom: 12rem;
+  &__card {
+    margin-bottom: 11rem;
+
+    &:first-of-type {
+      margin-top: 10.5%;
     }
   }
 }

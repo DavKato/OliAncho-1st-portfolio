@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import LangSwitch from "~/components/Nav/LangSwitch";
+import LangSwitch from "~/components/GlobalComponents/LangSwitch";
 export default {
   components: {
     LangSwitch

@@ -17,9 +17,6 @@
   display: flex;
   justify-content: space-between;
   transition: all 0.3s;
-  // left: -0.24%;
-  // width: 101.7%;
-  // grid-template-columns: repeat(4, 1fr);
 }
 .wall {
   transition: all 0.3s;

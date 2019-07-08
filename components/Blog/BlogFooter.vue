@@ -68,7 +68,7 @@
     .scope {
       position: absolute;
       bottom: 0;
-      left: 33%;
+      right: 59%;
       height: 73%;
       object-fit: contain;
     }
@@ -123,7 +123,7 @@
 </style>
 
 <script>
-import TheFooter from "~/components/TheFooter";
+import TheFooter from "~/components/GlobalComponents/TheFooter";
 export default {
   components: {
     TheFooter

@@ -4,6 +4,11 @@ export const state = () => ({
 
 export const mutations = {
   selectTag(state, i) {
-    state.selectedTag = i;
+    const tag = state.selectedTag;
+    if (tag === i) {
+      state.selectedTag = 'all';
+    } else {
+      state.selectedTag = i;
+    }
   }
 };
