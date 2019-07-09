@@ -108,7 +108,8 @@ $green-pre: #d9ebde80;
         padding: 3rem;
 
         &-heading {
-          font-size: 4.2rem;
+          font-size: 4rem;
+          line-height: 1.3;
         }
         &-sub {
           margin-top: 1rem;
@@ -210,7 +211,7 @@ $green-pre: #d9ebde80;
       border-radius: 3px;
       padding: 0.2em 0.4em;
       background-color: $green-pre;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
     & pre > code {
       border-radius: 0;
@@ -236,13 +237,14 @@ $green-pre: #d9ebde80;
       border-left: 8px solid darken($green-pre, 5%);
       padding: 2rem;
 
-      & > p:last-child {
-        margin-bottom: 0;
-      }
+      // & > p:last-child {
+      //   margin-bottom: 0;
+      // }
     }
 
     & img {
       max-width: 100%;
+      margin-top: 1.7rem;
     }
   }
 }

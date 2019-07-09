@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="localePath('posts')" tag="div">
-    <h1 @click="selectTag('all')" class="text-logo">
+    <h1 @click="selectTag({tag: 'all', reset: true})" class="text-logo">
       OliAncho
       <span>.blog</span>
     </h1>

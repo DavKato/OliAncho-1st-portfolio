@@ -9,7 +9,10 @@
         :class="{ active: selectedTag === 'life'}"
         tag="li"
       >
-        <h2 @click="selectTag('life')" class="filter__list-text">{{ $t('posts.life') }}</h2>
+        <h2
+          @click="selectTag({tag: 'life', reset: true})"
+          class="filter__list-text"
+        >{{ $t('posts.life') }}</h2>
       </nuxt-link>
       <nuxt-link
         :to="localePath('posts')"
@@ -17,7 +20,10 @@
         :class="{ active: selectedTag === 'web'}"
         tag="li"
       >
-        <h2 @click="selectTag('web')" class="filter__list-text">{{ $t('posts.web') }}</h2>
+        <h2
+          @click="selectTag({tag: 'web', reset: true})"
+          class="filter__list-text"
+        >{{ $t('posts.web') }}</h2>
       </nuxt-link>
       <nuxt-link
         :to="localePath('posts')"
@@ -25,7 +31,10 @@
         :class="{ active: selectedTag === 'japanese'}"
         tag="li"
       >
-        <h2 @click="selectTag('japanese')" class="filter__list-text">{{ $t('posts.japanese') }}</h2>
+        <h2
+          @click="selectTag({tag: 'japanese', reset: true})"
+          class="filter__list-text"
+        >{{ $t('posts.japanese') }}</h2>
       </nuxt-link>
       <nuxt-link
         :to="localePath('posts')"
@@ -33,7 +42,10 @@
         tag="li"
         class="filter__list"
       >
-        <h2 @click="selectTag('glutenFree')" class="filter__list-text">{{ $t('posts.glutenFree') }}</h2>
+        <h2
+          @click="selectTag({tag: 'glutenFree', reset: true})"
+          class="filter__list-text"
+        >{{ $t('posts.glutenFree') }}</h2>
       </nuxt-link>
     </ul>
 

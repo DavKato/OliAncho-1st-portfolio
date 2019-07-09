@@ -1,9 +1,7 @@
 <template>
   <section class="blog-top">
     <TopHeader class="top__header" />
-    <transition name="topbar">
-      <StickyHeader v-if="scrollY > 230" :style="stickyStyle" />
-    </transition>
+    <StickyHeader v-if="scrollY > 230" :style="stickyStyle" />
     <PostCard
       v-for="(post, index) in sortedList"
       :key="index"

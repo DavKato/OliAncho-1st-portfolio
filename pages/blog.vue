@@ -5,8 +5,13 @@
       <div class="latest-title">
         <h3>{{ $t('blog.caption') }}</h3>
       </div>
-      <p class="latest-post">{{ $t('blog.latestPost') }}</p>
-      <nuxt-link :to="localePath('blog')" class="cta">
+      <div class="latest-post">
+        <p
+          class="latest-post-text latest-post-top"
+        >{{ latestPost.date | date($i18n.locale) }} 【{{ latestPost.title }}】</p>
+        <p class="latest-post-text latest-post-low">{{ latestPost.summary }}</p>
+      </div>
+      <nuxt-link :to="`posts/${latestPost.link}`" class="cta">
         <p class="cta-btn">{{ $t('blog.readThis') }}</p>
       </nuxt-link>
     </div>
@@ -18,7 +23,7 @@
           alt="tallest tree"
           @mouseover="treeShake($event)"
           @mouseleave="restore($event)"
-          @click="selectTag('life')"
+          @click="selectTag({tag: 'life', reset: false})"
         />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
@@ -28,7 +33,7 @@
           alt="tall tree"
           @mouseover="treeBump($event)"
           @mouseleave="restore($event)"
-          @click="selectTag('web')"
+          @click="selectTag({tag: 'web', reset: false})"
         />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
@@ -38,7 +43,7 @@
           alt="short tree"
           @mouseover="treeGrow($event)"
           @mouseleave="restore($event)"
-          @click="selectTag('japanese')"
+          @click="selectTag({tag: 'japanese', reset: false})"
         />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
@@ -48,7 +53,7 @@
           alt="shortest tree"
           @mouseover="treeMario($event)"
           @mouseleave="restore($event)"
-          @click="selectTag('gluten')"
+          @click="selectTag({tag: 'glutenFree', reset: false})"
         />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
@@ -63,7 +68,29 @@
 <script>
 import { TweenMax, TimelineLite } from "gsap";
 import { mapMutations } from "vuex";
+import postsEn from "~/contents/en/posts.json";
+import postsJa from "~/contents/ja/posts.json";
 export default {
+  async asyncData({ app }) {
+    const postList = app.i18n.locale === "en" ? postsEn : postsJa;
+
+    async function awaitImport(slug) {
+      const latestMD = await import(
+        `~/contents/${app.i18n.locale}/posts/${slug}.md`
+      );
+      return {
+        link: slug,
+        date: latestMD.attributes.date,
+        title: latestMD.attributes.title,
+        summary: latestMD.attributes.summary
+      };
+    }
+
+    const latestPost = await awaitImport(postList[0].slug);
+    console.log(latestPost);
+
+    return { latestPost };
+  },
   methods: {
     path2x(img) {
       return require("../assets/img/2x/blog/" + img + ".png");
@@ -146,7 +173,7 @@ export default {
 .caption-box {
   width: 61%;
   height: 22%;
-  padding: 3.3% 0;
+  padding: 3.2% 4% 3.4%;
   margin-top: 7%;
   background-image: url(~assets/img/2x/blog/blog-tiles.png);
   background-size: 100% 100%;
@@ -154,16 +181,30 @@ export default {
   background-color: $white-p;
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   .latest {
     &-post {
-      font-size: 1.9rem;
+      width: 100%;
+      height: 100%;
       line-height: 1.6;
-      white-space: pre;
       text-align: center;
+
+      &-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &-top {
+        font-size: 1.9rem;
+        white-space: nowrap;
+        height: 35%;
+      }
+      &-low {
+        margin-top: 0.5rem;
+        height: 60%;
+        font-size: 1.7rem;
+        line-height: 1.4;
+      }
     }
 
     &-title {
@@ -316,7 +357,7 @@ export default {
     top: 30%;
     right: 17%;
     white-space: pre;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     font-weight: 600;
     line-height: 1.4;
     text-align: center;

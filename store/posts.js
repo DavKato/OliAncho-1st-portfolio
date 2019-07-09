@@ -5,10 +5,10 @@ export const state = () => ({
 export const mutations = {
   selectTag(state, i) {
     const tag = state.selectedTag;
-    if (tag === i) {
+    if (tag === i.tag && i.reset) {
       state.selectedTag = 'all';
     } else {
-      state.selectedTag = i;
+      state.selectedTag = i.tag;
     }
   }
 };
