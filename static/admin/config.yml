@@ -27,7 +27,7 @@ collections:
           name: 'author',
           widget: 'select',
           required: true,
-          options: ["Davide'Gobu"],
+          options: ['Davide', 'Gobu'],
         }
       # - {
       #     label: '言語',

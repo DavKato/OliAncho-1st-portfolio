@@ -58,7 +58,11 @@
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
       <nuxt-link class="go-to" :to="localePath('posts')">
-        <img :src="path2x('blog-moon')" alt="go to blog page" @click="selectTag('all')" />
+        <img
+          :src="path2x('blog-moon')"
+          alt="go to blog page"
+          @click="selectTag({tag: 'all', reset: false})"
+        />
         <p class="go-to__text">{{ $t('blog.goto') }}</p>
       </nuxt-link>
     </div>

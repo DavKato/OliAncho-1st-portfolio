@@ -30,7 +30,7 @@
       <article class="post__content" v-html="html"></article>
       <div class="post__links">
         <div class="post__links--prev">
-          <img src alt />
+          <img src alt class="post__links--prev-img" />
         </div>
       </div>
     </section>
@@ -83,8 +83,8 @@ $green-pre: #d9ebde80;
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-left: 0.6rem;
-          margin-bottom: 1.5rem;
+          margin-left: 1.6rem;
+          margin-bottom: 2.4rem;
 
           &-img {
             width: 8rem;
@@ -130,15 +130,17 @@ $green-pre: #d9ebde80;
     }
   }
 
+  //////
+  //Markdown Styling
   & /deep/ .post__content {
     width: 75%;
     margin: 0 auto;
     font-size: 1.8rem;
-    line-height: 1.6;
+    line-height: 1.7;
     word-spacing: 1px;
 
     & * {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.8rem;
     }
 
     & > *:first-child {
@@ -152,7 +154,6 @@ $green-pre: #d9ebde80;
       font-family: $font-p;
       line-height: 1.25;
       margin-top: 4rem;
-      margin-bottom: 1.6rem;
     }
 
     & h1 {
@@ -166,7 +167,7 @@ $green-pre: #d9ebde80;
     }
 
     & p {
-      margin-bottom: 1.8rem;
+      // margin-bottom: 2.4rem;
     }
 
     & ol,
@@ -206,6 +207,7 @@ $green-pre: #d9ebde80;
       background-color: $green-pre;
       border: 2px solid $gray-l;
       line-height: 1.3;
+      margin: 2.8rem 0;
     }
     & code {
       border-radius: 3px;
@@ -237,14 +239,15 @@ $green-pre: #d9ebde80;
       border-left: 8px solid darken($green-pre, 5%);
       padding: 2rem;
 
-      // & > p:last-child {
-      //   margin-bottom: 0;
-      // }
+      & > p:last-child {
+        margin-bottom: 0;
+      }
     }
 
     & img {
+      display: block;
       max-width: 100%;
-      margin-top: 1.7rem;
+      margin: 3rem 0;
     }
   }
 }
