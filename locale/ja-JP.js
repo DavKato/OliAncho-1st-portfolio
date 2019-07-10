@@ -103,6 +103,8 @@ export default {
     life: '海外ノマド生活',
     web: 'ウェブのお仕事',
     japanese: '日本語教師',
-    glutenFree: 'グルテンフリー'
+    glutenFree: 'グルテンフリー',
+    noPrev: 'これが最古の記事です。',
+    noNext: 'これが最新の記事です。'
   }
 };

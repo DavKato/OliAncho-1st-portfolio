@@ -18,12 +18,13 @@ const getFiles = (dir, lang) => {
     );
     const fileContents = parseMarkdown(markdownFile);
     const date = fileContents.date;
+    const tag = fileContents.tag;
     const slug = file
       .split('.')
       .slice(0, -1)
       .join('.');
 
-    const obj = { date, slug };
+    const obj = { date, slug, tag };
 
     filelist.push(obj);
   });

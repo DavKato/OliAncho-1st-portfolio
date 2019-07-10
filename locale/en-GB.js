@@ -98,6 +98,8 @@ export default {
     life: 'Nomad Life',
     web: 'Web Dev',
     japanese: 'Japanese',
-    glutenFree: 'Gluten Free'
+    glutenFree: 'Gluten Free',
+    noPrev: 'This is the oldest post',
+    noNext: 'This is the latest post'
   }
 };

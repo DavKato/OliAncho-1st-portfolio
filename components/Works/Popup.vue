@@ -10,7 +10,7 @@
         :key="image"
         :src="path2x(image)"
         :alt="`selected work's image ${i+1}`"
-      >
+      />
     </div>
     <div class="textrow">
       <dl class="textrow__left">

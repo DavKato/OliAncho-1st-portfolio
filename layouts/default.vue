@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 main {
   height: 97vh;

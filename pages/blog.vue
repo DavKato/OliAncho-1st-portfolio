@@ -91,7 +91,6 @@ export default {
     }
 
     const latestPost = await awaitImport(postList[0].slug);
-    console.log(latestPost);
 
     return { latestPost };
   },

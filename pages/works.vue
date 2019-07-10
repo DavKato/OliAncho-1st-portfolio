@@ -10,12 +10,12 @@
         :key="work.name"
         @click="showDetail(i)"
       >
-        <img :src="path2x(work.images[0])" :alt="work.name">
+        <img :src="path2x(work.images[0])" :alt="work.name" />
         <figcaption class="worklist-each__caption">{{ work.name }}</figcaption>
       </figure>
     </div>
     <transition name="popup" @enter="popup" @leave="popdown" :css="false">
-      <Popup v-if="selected.toggled" :selected="selected"/>
+      <Popup v-if="selected.toggled" :selected="selected" />
     </transition>
   </section>
 </template>
@@ -64,14 +64,18 @@ export default {
         opacity: 0,
         y: 200,
         scale: 0,
+        rotation: 0.001,
+        ease: Power2.easeOut,
         onComplete: done
       });
     },
     popdown(el, done) {
-      TweenLite.to(el, 0.5, {
+      TweenLite.to(el, 0.4, {
         opacity: 0,
         y: 200,
         scale: 0,
+        ease: Power1.easeIn,
+        rotation: 0.001,
         onComplete: done
       });
     }

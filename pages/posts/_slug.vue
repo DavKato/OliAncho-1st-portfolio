@@ -29,17 +29,16 @@
       </div>
       <article class="post__content" v-html="html"></article>
       <div class="post__links">
-        <div class="post__links--prev">
-          <img src alt class="post__links--prev-img" />
-        </div>
+        <PrevPost v-if="prev" :prev="prev" />
+        <div class="empty" v-else-if="!prev">{{ $t('posts.noPrev') }}</div>
+        <NextPost v-if="next" :next="next" />
+        <div class="empty" v-else-if="!next">{{ $t('posts.noNext') }}</div>
       </div>
     </section>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// @import url(https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css);
-
 $green-pre: #d9ebde80;
 
 .post-page {
@@ -128,10 +127,34 @@ $green-pre: #d9ebde80;
         border-radius: 1px;
       }
     }
+
+    &__links {
+      --links-padding: 2rem;
+      --links-height: 14.2rem;
+      height: calc(var(--links-height) + var(--links-padding) * 2);
+      width: 100%;
+      display: grid;
+      grid-template-columns: 49% 49%;
+      justify-content: space-between;
+      padding: var(--links-padding);
+    }
+  }
+  .empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: $font-h;
+    color: $gray-d;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+    font-style: italic;
   }
 
-  //////
+  ////////////////////////////////
   //Markdown Styling
+  ////
   & /deep/ .post__content {
     width: 75%;
     margin: 0 auto;
@@ -165,10 +188,10 @@ $green-pre: #d9ebde80;
     & h3 {
       font-size: 2.3rem;
     }
-
-    & p {
-      // margin-bottom: 2.4rem;
-    }
+    //
+    // & p {
+    // margin-bottom: 2.4rem;
+    // }
 
     & ol,
     & ul {
@@ -250,16 +273,25 @@ $green-pre: #d9ebde80;
       margin: 3rem 0;
     }
   }
+  ////
+  ////////////////////////////////
 }
 </style>
 
 
 <script>
-import StickyHeader from "~/components/Blog/StickyHeader";
+import postsEn from "~/contents/en/posts.json";
+import postsJa from "~/contents/ja/posts.json";
+
 import hljs from "highlight.js/lib/highlight";
 import javascript from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
+
+import StickyHeader from "~/components/Blog/StickyHeader";
+import PrevPost from "~/components/Blog/PrevPost";
+import NextPost from "~/components/Blog/NextPost";
+
 export default {
   layout: "blog",
   head() {
@@ -275,13 +307,61 @@ export default {
     };
   },
   async asyncData({ params, app }) {
-    const post = await import(
-      `~/contents/${app.i18n.locale}/posts/${params.slug}.md`
-    );
+    const lang = app.i18n.locale;
+    //For main post
+    const post = await import(`~/contents/${lang}/posts/${params.slug}.md`);
     const attr = post.attributes;
     const slug = params.slug;
-
     const { author, date, update, summary, thumbnail, title, tag } = attr;
+
+    //For prev/next links
+    const postList = app.i18n.locale === "en" ? postsEn : postsJa;
+    const sortedList = postList.filter(el => el.tag === tag);
+
+    const curIndex = sortedList.findIndex(el => el.slug === slug);
+    const prevPost = sortedList[curIndex + 1];
+    const nextPost = sortedList[curIndex - 1];
+
+    const importAdjacentPosts = async tar => {
+      const post = await import(`~/contents/${lang}/posts/${tar}.md`);
+      const attr = post.attributes;
+      return {
+        link: tar,
+        title: attr.title,
+        date: attr.date,
+        thumbnail: attr.thumbnail
+      };
+    };
+    // const prev = prevPost ? await importAdjacentPosts(prevPost.slug) : false;
+    // const next = nextPost ? await importAdjacentPosts(nextPost.slug) : false;
+    let prev, next;
+    if (prevPost) {
+      prev = await importAdjacentPosts(prevPost.slug);
+      console.log("1:" + prev);
+    } else {
+      var curPostg = postList.findIndex(el => el.slug === slug);
+      const prevPostg = postList[curPostg + 1];
+      if (prevPostg) {
+        prev = await importAdjacentPosts(prevPostg.slug);
+        console.log("2:" + prev.title);
+      } else {
+        prev = false;
+        console.log("3:" + prev);
+      }
+    }
+
+    if (nextPost) {
+      next = await importAdjacentPosts(nextPost.slug);
+    } else {
+      var curPostg = postList.findIndex(el => el.slug === slug);
+      const nextPostg = postList[curPostg - 1];
+      if (nextPostg) {
+        next = await importAdjacentPosts(nextPostg.slug);
+      } else {
+        next = false;
+      }
+    }
+    console.log("4:" + prev + next);
 
     return {
       title,
@@ -292,7 +372,9 @@ export default {
       thumbnail,
       summary,
       slug,
-      html: post.html
+      html: post.html,
+      prev,
+      next
     };
   },
   mounted() {
@@ -302,7 +384,9 @@ export default {
     hljs.initHighlighting();
   },
   components: {
-    StickyHeader
+    StickyHeader,
+    PrevPost,
+    NextPost
   }
 };
 </script>

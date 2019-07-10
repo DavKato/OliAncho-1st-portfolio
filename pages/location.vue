@@ -206,6 +206,7 @@ $yellow-location: #eaea5d;
       height: 43%;
       width: 25%;
       transform: rotate(30deg);
+      will-change: transform;
       z-index: 300;
       cursor: pointer;
 
@@ -370,9 +371,19 @@ export default {
       });
       this.planeToggle = true;
       TweenMax.set(plane, { force3D: true });
-      tl.to(plane, 3.4, { x: -1600, y: -800, ease: Power4.easeIn })
-        .set(plane, { x: 1000, y: 400 })
-        .to(plane, 2, { x: 0, y: 0, ease: Power4.easeOut });
+      tl.to(plane, 3.4, {
+        x: -1600,
+        y: -800,
+        rotation: 30.001,
+        ease: Power4.easeIn
+      })
+        .set(plane, { x: 1000, y: 400, rotation: 30.002 })
+        .to(plane, 2, {
+          x: 0,
+          y: 0,
+          rotation: 30,
+          ease: Power4.easeOut
+        });
     },
     threeDOn(ev) {
       const tar = [...ev.target.childNodes];
