@@ -1,17 +1,17 @@
 <template>
   <nav class="main-nav">
-    <a class="main-nav__mail" href="mailto:#" target="_blank">
-      <img src="~/assets/img/2x/top/top-email.png" alt="send an email" />
-    </a>
+    <ContactLink class="contact" />
     <LangSwitch class="flag" />
   </nav>
 </template>
 
 <script>
+import ContactLink from "~/components/GlobalComponents/ContactLink";
 import LangSwitch from "~/components/GlobalComponents/LangSwitch";
 export default {
   components: {
-    LangSwitch
+    LangSwitch,
+    ContactLink
   }
 };
 </script>
@@ -29,11 +29,6 @@ export default {
     margin-right: 1.5rem;
   }
 
-  &__mail {
-    width: 5.5rem;
-    height: 4.1rem;
-  }
-
   & img {
     height: 100%;
     filter: $fsh-s;
@@ -45,6 +40,11 @@ export default {
     &:active {
       @include iconActive;
     }
+  }
+
+  .contact {
+    width: 5.5rem;
+    height: 4.1rem;
   }
 
   .flag {

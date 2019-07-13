@@ -5,7 +5,7 @@
     :class="{ 'window-hover': index.hover, 'window-active': index.active }"
   >
     <div class="window__image-box window__image-box--glassL">
-      <img :src="path2x(index.glassL)" alt="stend glass">
+      <img :src="path2x(index.glassL)" alt="stend glass" />
     </div>
     <div
       class="window__image-box window__image-box--main"
@@ -16,16 +16,16 @@
         alt="our picture"
         class="main-image"
         :class="{ 'image-hover': index.hover }"
-      >
+      />
     </div>
     <div class="window__image-box window__image-box--glassS">
-      <img :src="path2x(index.glassS)" alt="stend glass">
+      <img :src="path2x(index.glassS)" alt="stend glass" />
     </div>
     <div class="window__text-box">
       <p class="window__text">{{ $t(`main.${index.title}`) }}</p>
     </div>
     <div class="window__image-box window__image-box--glassL">
-      <img :src="path2x(index.glassL)" alt="stend glass">
+      <img :src="path2x(index.glassL)" alt="stend glass" />
     </div>
   </nuxt-link>
 </template>
@@ -101,7 +101,7 @@
 }
 
 .main-image {
-  transition: opacity 1s;
+  transition: opacity 0.7s;
 }
 </style>
 

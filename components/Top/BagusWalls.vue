@@ -16,11 +16,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transition: all 0.3s;
 }
-.wall {
-  transition: all 0.3s;
-}
+// .wall {
+// }
 
 $commonW: 24.1%;
 @mixin wallsborder {
@@ -30,6 +28,7 @@ $commonW: 24.1%;
 .index {
   &__wall {
     width: $commonW;
+    opacity: 1;
     &:not(:last-child) {
       border-right: $bdw-p solid $gray-d;
       margin-left: $bdw-p;
@@ -38,6 +37,7 @@ $commonW: 24.1%;
 }
 .about {
   @include wallsborder();
+  opacity: 1;
   &__wall {
     width: $commonW;
     &:first-child {
@@ -47,6 +47,7 @@ $commonW: 24.1%;
 }
 .works {
   @include wallsborder();
+  opacity: 1;
   &__wall {
     width: $commonW;
     &:nth-child(2) {
@@ -56,6 +57,7 @@ $commonW: 24.1%;
 }
 .blog {
   @include wallsborder();
+  opacity: 1;
   &__wall {
     width: $commonW;
     &:nth-child(3) {
@@ -65,6 +67,7 @@ $commonW: 24.1%;
 }
 .location {
   @include wallsborder();
+  opacity: 1;
   &__wall {
     width: $commonW;
     &:nth-child(4) {

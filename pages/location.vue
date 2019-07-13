@@ -267,6 +267,8 @@ $yellow-location: #eaea5d;
 
 <script>
 import { TweenMax, TimelineLite, CSSPlugin } from "gsap";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   data() {
     return {
@@ -274,6 +276,7 @@ export default {
       time: ""
     };
   },
+  mixins: [bagusScroll],
   mounted() {
     this.timeCatcher();
     setInterval(this.timeCatcher, 5000);

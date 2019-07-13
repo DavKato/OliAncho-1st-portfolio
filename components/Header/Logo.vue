@@ -1,10 +1,28 @@
 <template>
   <div class="logo-box">
     <nuxt-link :to="localePath('index')">
-      <img src="~/assets/img/2x/top/top-logo.png" alt="Logo" class="logo-box__image">
+      <img
+        src="~/assets/img/2x/top/top-logo.png"
+        alt="Logo"
+        class="logo-box__image"
+        @click="valScroll"
+      />
     </nuxt-link>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    valScroll() {
+      if (this.$route.path !== "/" && this.$route.path !== "/ja") {
+        this.$store.commit("toBagus");
+      } else return false;
+    }
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 .logo-box {

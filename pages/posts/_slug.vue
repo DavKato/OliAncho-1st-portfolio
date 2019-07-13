@@ -61,7 +61,6 @@ $green-pre: #d9ebde80;
       display: flex;
       justify-content: space-between;
       padding-top: 2rem;
-      margin-bottom: 10rem;
       background-color: $gray-l;
 
       &__info {
@@ -107,7 +106,7 @@ $green-pre: #d9ebde80;
         padding: 3rem;
 
         &-heading {
-          font-size: 4rem;
+          font-size: 3.1rem;
           line-height: 1.3;
         }
         &-sub {
@@ -157,8 +156,8 @@ $green-pre: #d9ebde80;
   ////
   & /deep/ .post__content {
     width: 75%;
-    margin: 0 auto;
-    font-size: 1.8rem;
+    margin: 8rem auto 0;
+    font-size: 1.6rem;
     line-height: 1.7;
     word-spacing: 1px;
 
@@ -180,18 +179,14 @@ $green-pre: #d9ebde80;
     }
 
     & h1 {
-      font-size: 3.6rem;
-    }
-    & h2 {
       font-size: 2.9rem;
     }
-    & h3 {
+    & h2 {
       font-size: 2.3rem;
     }
-    //
-    // & p {
-    // margin-bottom: 2.4rem;
-    // }
+    & h3 {
+      font-size: 1.8rem;
+    }
 
     & ol,
     & ul {
@@ -229,14 +224,13 @@ $green-pre: #d9ebde80;
       border-radius: 3px;
       background-color: $green-pre;
       border: 2px solid $gray-l;
-      line-height: 1.3;
+      line-height: 1.5;
       margin: 2.8rem 0;
     }
     & code {
       border-radius: 3px;
       padding: 0.2em 0.4em;
       background-color: $green-pre;
-      font-size: 1.6rem;
     }
     & pre > code {
       border-radius: 0;
@@ -270,7 +264,7 @@ $green-pre: #d9ebde80;
     & img {
       display: block;
       max-width: 100%;
-      margin: 3rem 0;
+      margin: 4rem 0;
     }
   }
   ////
@@ -288,6 +282,8 @@ import javascript from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
 
+import { TweenLite } from "gsap";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import StickyHeader from "~/components/Blog/StickyHeader";
 import PrevPost from "~/components/Blog/PrevPost";
 import NextPost from "~/components/Blog/NextPost";
@@ -337,16 +333,13 @@ export default {
     let prev, next;
     if (prevPost) {
       prev = await importAdjacentPosts(prevPost.slug);
-      console.log("1:" + prev);
     } else {
       var curPostg = postList.findIndex(el => el.slug === slug);
       const prevPostg = postList[curPostg + 1];
       if (prevPostg) {
         prev = await importAdjacentPosts(prevPostg.slug);
-        console.log("2:" + prev.title);
       } else {
         prev = false;
-        console.log("3:" + prev);
       }
     }
 
@@ -361,7 +354,6 @@ export default {
         next = false;
       }
     }
-    console.log("4:" + prev + next);
 
     return {
       title,
@@ -378,6 +370,9 @@ export default {
     };
   },
   mounted() {
+    this.$nextTick(() => {
+      this.scrollTop();
+    });
     hljs.registerLanguage("javascript", javascript);
     hljs.registerLanguage("xml", xml);
     hljs.registerLanguage("css", css);
@@ -387,6 +382,17 @@ export default {
     StickyHeader,
     PrevPost,
     NextPost
+  },
+  methods: {
+    scrollTop() {
+      TweenLite.to(window, 1, { scrollTo: { y: 0 } });
+    }
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!to.name.startsWith("posts")) {
+      TweenLite.to(window, 0.5, { scrollTo: { y: 2000 }, onComplete: next });
+      TweenLite.to("#blog-layout", 0.4, { opacity: 0 });
+    } else next();
   }
 };
 </script>

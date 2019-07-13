@@ -43,7 +43,7 @@
     </svg>
 
     <div class="upper-nav">
-      <TextLogo :selectTag="selectTag" />
+      <TextLogo :selectTag="selectTag" @click="$emit('click', $event)" />
 
       <BlogNavLinks />
     </div>
@@ -53,6 +53,7 @@
         :key="filter.tag"
         :tag="filter.tag"
         :text="filter.text"
+        @click="$emit('click', $event)"
       />
     </ul>
   </nav>

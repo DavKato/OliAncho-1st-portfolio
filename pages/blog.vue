@@ -72,6 +72,8 @@
 <script>
 import { TweenMax, TimelineLite } from "gsap";
 import { mapMutations } from "vuex";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import bagusScroll from "~/mixins/bagusScroll.js";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
 export default {
@@ -94,6 +96,7 @@ export default {
 
     return { latestPost };
   },
+  mixins: [bagusScroll],
   methods: {
     path2x(img) {
       return require("../assets/img/2x/blog/" + img + ".png");
@@ -152,6 +155,13 @@ export default {
       ease: Power1.easeOut,
       yoyo: true
     });
+  },
+  beforeRouteLeave(to, from, next) {
+    if (to.name.startsWith("posts")) {
+      TweenLite.set("#dummy-sky", { display: "block" });
+      TweenLite.to(window, 0.5, { scrollTo: { y: 0 }, onComplete: next });
+      TweenLite.to("#defaultLayout", 0.4, { opacity: 0 });
+    } else next();
   }
 };
 </script>
@@ -176,7 +186,7 @@ export default {
 .caption-box {
   width: 61%;
   height: 22%;
-  padding: 3.2% 4% 3.4%;
+  padding: 3.3% 4% 3.4%;
   margin-top: 7%;
   background-image: url(~assets/img/2x/blog/blog-tiles.png);
   background-size: 100% 100%;
@@ -198,15 +208,17 @@ export default {
       }
 
       &-top {
-        font-size: 1.9rem;
+        font-size: 1.8rem;
         white-space: nowrap;
         height: 35%;
       }
       &-low {
-        margin-top: 0.5rem;
         height: 60%;
         font-size: 1.7rem;
         line-height: 1.4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
 

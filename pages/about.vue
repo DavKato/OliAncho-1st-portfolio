@@ -9,23 +9,26 @@
       <div class="image-box">
         <div class="select-davide" @mouseover="daviHover = true" @mouseleave="daviHover = false"></div>
         <div class="select-gobu" @mouseover="gobuHover = true" @mouseleave="gobuHover = false"></div>
-        <img src="~/assets/img/2x/about/about-davigobu.png" alt="私たちの写真です。">
+        <img src="~/assets/img/2x/about/about-davigobu.png" alt="私たちの写真です。" />
       </div>
       <div class="text-box">
         <p class="position">{{ $t('about.gobuPosition') }}</p>
         <h3 class="name">Gobu</h3>
       </div>
       <transition name="davi">
-        <DavideProfile v-if="daviHover"/>
+        <DavideProfile v-if="daviHover" />
       </transition>
       <transition name="gobu">
-        <GobuProfile v-if="gobuHover"/>
+        <GobuProfile v-if="gobuHover" />
       </transition>
     </div>
   </section>
 </template>
 
 <script>
+import { TweenLite } from "gsap";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import bagusScroll from "~/mixins/bagusScroll.js";
 import DavideProfile from "~/components/About/DavideProfile";
 import GobuProfile from "~/components/About/GobuProfile";
 export default {
@@ -33,6 +36,7 @@ export default {
     DavideProfile,
     GobuProfile
   },
+  mixins: [bagusScroll],
   data() {
     return {
       daviHover: false,

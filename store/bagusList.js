@@ -45,11 +45,9 @@ export const mutations = {
   },
   unHovered(state, i) {
     state.list[i].hover = state.list[i].hover = false;
+    state.list[i].active = state.list[i].active = false;
   },
   activated(state, i) {
     state.list[i].active = state.list[i].active = true;
-  },
-  deActivated(state, i) {
-    state.list[i].active = state.list[i].active = false;
   }
 };

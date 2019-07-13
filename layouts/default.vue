@@ -1,14 +1,15 @@
 <template>
   <div id="defaultLayout">
+    <div id="dummy-sky"></div>
     <NavL />
     <NavR />
-    <TheHeader />
+    <TheHeader id="bagus-top" />
     <main>
-      <BagusTitle />
+      <BagusTitle id="bagus-title" />
       <BagusWalls />
       <nuxt class="bagus-box" />
     </main>
-    <Contact />
+    <Contact id="contact" />
     <TheFooter />
   </div>
 </template>
@@ -22,6 +23,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  opacity: 0;
 }
 main {
   height: 97vh;
@@ -42,21 +44,27 @@ main {
 }
 
 .page-enter-active {
-  transition: all 1s;
+  transition: opacity 0.5s ease-out;
 }
 .page-leave-active {
-  transition: all 0.3s ease-in;
+  transition: opacity 0.3s ease-out;
 }
 .page-enter,
 .page-leave-active {
   opacity: 0;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+}
+#dummy-sky {
+  width: 100%;
+  height: 100rem;
+  display: block;
+  background: linear-gradient(to top, transparent 0%, $white-p 100%);
 }
 </style>
 
 
 <script>
+import { TweenLite } from "gsap";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import NavL from "~/components/Top/NavL";
 import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
@@ -76,6 +84,11 @@ export default {
     BagusTitle,
     Contact,
     TheFooter
+  },
+  mounted() {
+    TweenLite.to("#defaultLayout", 1, { opacity: 1, delay: 0.3 });
+    TweenLite.to(window, 1.2, { scrollTo: "#bagus-top", ease: Power2.easeOut });
+    TweenLite.set("#dummy-sky", { display: "none", delay: 1.1 });
   }
 };
 </script>

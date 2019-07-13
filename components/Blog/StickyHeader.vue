@@ -1,6 +1,6 @@
 <template>
   <nav class="sticky">
-    <TextLogo :selectTag="selectTag" />
+    <TextLogo :selectTag="selectTag" @click="$emit('click', $event)" />
 
     <ul class="filter">
       <nuxt-link
@@ -10,7 +10,7 @@
         tag="li"
       >
         <h2
-          @click="selectTag({tag: 'life', reset: true})"
+          @click="$emit('click', {tag: 'life', reset: true})"
           class="filter__list-text"
         >{{ $t('posts.life') }}</h2>
       </nuxt-link>
@@ -21,7 +21,7 @@
         tag="li"
       >
         <h2
-          @click="selectTag({tag: 'web', reset: true})"
+          @click="$emit('click', {tag: 'web', reset: true})"
           class="filter__list-text"
         >{{ $t('posts.web') }}</h2>
       </nuxt-link>
@@ -32,7 +32,7 @@
         tag="li"
       >
         <h2
-          @click="selectTag({tag: 'japanese', reset: true})"
+          @click="$emit('click', {tag: 'japanese', reset: true})"
           class="filter__list-text"
         >{{ $t('posts.japanese') }}</h2>
       </nuxt-link>
@@ -43,7 +43,7 @@
         class="filter__list"
       >
         <h2
-          @click="selectTag({tag: 'glutenFree', reset: true})"
+          @click="$emit('click', {tag: 'glutenFree', reset: true})"
           class="filter__list-text"
         >{{ $t('posts.glutenFree') }}</h2>
       </nuxt-link>

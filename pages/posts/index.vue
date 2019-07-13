@@ -1,23 +1,24 @@
 <template>
-  <section class="blog-top">
-    <TopHeader class="top__header" />
-    <StickyHeader v-if="scrollY > 230" :style="stickyStyle" />
+  <section id="blog-top">
+    <TopHeader class="top__header" @click="destroyList($event)" />
+    <StickyHeader v-if="scrollY > 230" :style="stickyStyle" @click="destroyList($event)" />
     <PostCard
-      v-for="(post, index) in sortedList"
-      :key="index"
+      v-for="(post, i) in sortedList"
+      :key="post.title + i"
       :date="post.date"
       :title="post.title"
       :summary="post.summary"
       :thumbnail="post.thumbnail"
       :link="post.link"
-      class="blog-top__card"
-      @click.native="selectTag('all')"
+      tag="postcard"
     />
   </section>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import { TweenLite, TimelineLite } from "gsap";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
 import TopHeader from "~/components/Blog/TopHeader";
@@ -58,9 +59,10 @@ export default {
   },
   mounted() {
     this.scrollY = window.scrollY;
-    if (process.browser) {
-      window.addEventListener("scroll", () => (this.scrollY = window.scrollY));
-    }
+    window.addEventListener("scroll", () => (this.scrollY = window.scrollY));
+    this.$nextTick(() => {
+      this.renderList();
+    });
   },
   computed: {
     sortedList() {
@@ -91,21 +93,79 @@ export default {
     })
   },
   methods: {
+    renderList() {
+      let tar = document.getElementsByClassName("postcard");
+
+      if (tar.length < 1);
+      else if (tar.length === 1) {
+        TweenLite.fromTo(
+          tar,
+          0.5,
+          { x: -200, autoAlpha: 0 },
+          { x: 0, autoAlpha: 1, ease: Power4.easeOut }
+        );
+      } else if (tar.length > 1) {
+        const tl = new TimelineLite();
+        tl.staggerFromTo(
+          tar,
+          0.5,
+          { x: -200, autoAlpha: 0 },
+          { x: 0, autoAlpha: 1, ease: Power4.easeOut },
+          0.2
+        );
+      }
+      this.scrollTop();
+    },
+    destroyList(payload) {
+      let tar = document.getElementsByClassName("postcard");
+
+      if (tar.length < 1) {
+        this.renewList(payload);
+      } else if (tar.length === 1) {
+        TweenLite.to(tar[0], 0.3, {
+          x: 200,
+          autoAlpha: 0,
+          onComplete: this.renewList,
+          onCompleteParams: [payload]
+        });
+      } else if (tar.length > 1) {
+        const tl = new TimelineLite();
+        tl.staggerTo(tar, 0.3, { x: 200, autoAlpha: 0 }, 0.1).set(tar, {
+          x: -200,
+          onComplete: this.renewList,
+          onCompleteParams: [payload]
+        });
+      }
+    },
+    renewList(payload) {
+      console.log("renewStart");
+      this.selectTag(payload);
+      this.$nextTick(() => this.renderList());
+      console.log("renewEnd");
+    },
+    scrollTop() {
+      TweenLite.to(window, 1, { scrollTo: { y: 0 } });
+    },
     ...mapMutations("posts", ["selectTag"])
+  },
+  beforeRouteLeave(to, from, next) {
+    if (!to.name.startsWith("posts")) {
+      TweenLite.to(window, 0.5, { scrollTo: { y: 2000 }, onComplete: next });
+      TweenLite.to("#blog-layout", 0.4, { opacity: 0 });
+    } else next();
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.blog-top {
+#blog-top {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  &__card {
-    margin-bottom: 11rem;
-
+  .postcard {
     &:first-of-type {
       margin-top: 10.5%;
     }

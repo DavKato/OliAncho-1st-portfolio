@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link :to="localePath('posts')" class="filter" tag="li">
-    <div class="filter__container" @click="selectTag({ tag, reset: true })">
+  <li class="filter">
+    <div class="filter__container" @click="$emit('click',{ tag, reset: true })">
       <img
         :id="tag"
         class="filter__container-img"
@@ -9,7 +9,7 @@
       />
       <h2 class="filter__container-text">{{ $t(text) }}</h2>
     </div>
-  </nuxt-link>
+  </li>
 </template>
 
 <style lang="scss" scoped>

@@ -23,6 +23,8 @@
 <script>
 import { TweenLite, CSSPlugin } from "gsap";
 import Popup from "~/components/Works/Popup";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   components: {
     Popup
@@ -39,6 +41,7 @@ export default {
       }
     };
   },
+  mixins: [bagusScroll],
   computed: {
     workList() {
       return this.$t("works.list");

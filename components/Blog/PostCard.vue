@@ -14,11 +14,11 @@
   padding: 1rem 0;
   background-color: $post-bg;
   position: relative;
-  width: 70.5%;
   height: 18rem;
-  cursor: pointer;
-  transition: transform 0.3s;
+  width: 70.5%;
+  // transition: transform 0.3s;
   transform-origin: bottom;
+  margin-bottom: 11rem;
 
   &:hover {
     transform: scale(1.01);

@@ -25,7 +25,7 @@
           </nuxt-link>
         </li>
         <li>
-          <a href="#blog-layout">
+          <a @click.prevent="toTop" href="#blog-layout">
             <img class="to-top" src="~/assets/img/2x/posts/top.png" />
           </a>
         </li>
@@ -127,6 +127,11 @@ import TheFooter from "~/components/GlobalComponents/TheFooter";
 export default {
   components: {
     TheFooter
+  },
+  methods: {
+    toTop() {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
   }
 };
 </script>

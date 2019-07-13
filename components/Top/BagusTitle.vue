@@ -1,17 +1,17 @@
 <template>
   <ul class="title-box">
     <nuxt-link
-      :tag="'li'"
       :to="localePath(index.title)"
       v-for="(index, i) of bagusList"
       :key="index.title"
+      tag="li"
     >
       <h1
         @mouseover="hovered(i)"
         @mouseout="unHovered(i)"
         @mousedown="activated(i)"
-        @mouseup="deActivated(i)"
-        @click.native="unHovered(i)"
+        @mouseup="unHovered(i)"
+        @click="$store.commit('toBagus')"
       >{{ index.title }}</h1>
     </nuxt-link>
   </ul>
@@ -56,12 +56,7 @@ export default {
     })
   },
   methods: {
-    ...mapMutations("bagusList", [
-      "hovered",
-      "unHovered",
-      "activated",
-      "deActivated"
-    ])
+    ...mapMutations("bagusList", ["hovered", "unHovered", "activated"])
   }
 };
 </script>

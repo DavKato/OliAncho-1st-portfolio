@@ -28,7 +28,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  // loading: { color: '#fff' },
+  loading: false,
   /*
    ** Global CSS
    */
@@ -45,6 +45,30 @@ export default {
       if (savedPosition) {
         return savedPosition;
       }
+
+      //to any of '/posts' pages
+      if (
+        to.name.split('___')[0] === 'posts' ||
+        (!from.name.startsWith('posts') && to.name.startsWith('posts'))
+      ) {
+        return { x: 0, y: 1800 };
+      }
+
+      //between potfolio pages
+      const mainNames = ['index', 'about', 'blog', 'works', 'location'];
+      if (
+        mainNames.some(name => name === from.name.split('___')[0]) &&
+        mainNames.some(name => name === to.name.split('___')[0])
+      ) {
+        return false;
+      }
+
+      return { x: 0, y: 0 };
+      // if (
+      //   to.matched.some(r => r.components.default.options.scrollToTop !== false)
+      // ) {
+      //   return { x: 0, y: 0 };
+      // }
     }
   },
   /*
