@@ -64,7 +64,7 @@ main {
 
 <script>
 import { TweenLite } from "gsap";
-import "~/node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin";
+import scrollTo from "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import NavL from "~/components/Top/NavL";
 import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
@@ -87,6 +87,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      const gsapPlugins = [scrollTo];
       TweenLite.set("#dummy-sky", { display: "block" });
       TweenLite.to("#defaultLayout", 1, { opacity: 1, delay: 0.3 });
       TweenLite.to(window, 1.2, {
