@@ -56,7 +56,7 @@ main {
 #dummy-sky {
   width: 100%;
   height: 100rem;
-  display: block;
+  display: none;
   background: linear-gradient(to top, transparent 0%, $white-p 100%);
 }
 </style>
@@ -86,9 +86,15 @@ export default {
     TheFooter
   },
   mounted() {
-    TweenLite.to("#defaultLayout", 1, { opacity: 1, delay: 0.3 });
-    TweenLite.to(window, 1.2, { scrollTo: "#bagus-top", ease: Power2.easeOut });
-    TweenLite.set("#dummy-sky", { display: "none", delay: 1.1 });
+    this.$nextTick(() => {
+      TweenLite.set("#dummy-sky", { display: "block" });
+      TweenLite.to("#defaultLayout", 1, { opacity: 1, delay: 0.3 });
+      TweenLite.to(window, 1.2, {
+        scrollTo: "#bagus-top",
+        ease: Power2.easeOut
+      });
+      TweenLite.set("#dummy-sky", { display: "none", delay: 1.1 });
+    });
   }
 };
 </script>
