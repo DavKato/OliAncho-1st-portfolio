@@ -64,7 +64,7 @@ main {
 
 <script>
 import { TweenLite } from "gsap";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import "~/node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin";
 import NavL from "~/components/Top/NavL";
 import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
