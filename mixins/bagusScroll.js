@@ -1,10 +1,9 @@
 export default {
-  scrollToTop: false,
-  async mounted() {
+  mounted() {
     if (this.$store.state.toBagus) {
-      TweenLite.to(window, 0.6, {
-        scrollTo: { y: '#bagus-title', offsetY: 35 }
-      });
+      document
+        .getElementById('bagus-title')
+        .scrollIntoView({ behavior: 'smooth' });
       this.$store.commit('toBagus');
     }
     //  else if (this.$store.state.toContact) {

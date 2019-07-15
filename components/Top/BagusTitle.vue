@@ -6,13 +6,14 @@
       :key="index.title"
       tag="li"
     >
-      <h1
+      <h2
+        id="bagus-title"
         @mouseover="hovered(i)"
         @mouseout="unHovered(i)"
         @mousedown="activated(i)"
         @mouseup="unHovered(i)"
         @click="$store.commit('toBagus')"
-      >{{ index.title }}</h1>
+      >{{ index.title }}</h2>
     </nuxt-link>
   </ul>
 </template>
@@ -27,7 +28,7 @@
     list-style: none;
     cursor: pointer;
 
-    & h1 {
+    & h2 {
       text-transform: uppercase;
       position: absolute;
       left: 50%;

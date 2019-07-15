@@ -48,7 +48,7 @@ $green-pre: #d9ebde80;
   padding-top: 21rem;
 
   .post {
-    background-color: $post-bg;
+    background-color: $white-p;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -267,8 +267,6 @@ $green-pre: #d9ebde80;
       margin: 4rem 0;
     }
   }
-  ////
-  ////////////////////////////////
 }
 </style>
 
@@ -281,12 +279,15 @@ import hljs from "highlight.js/lib/highlight";
 import javascript from "highlight.js/lib/languages/javascript";
 import xml from "highlight.js/lib/languages/xml";
 import css from "highlight.js/lib/languages/css";
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("xml", xml);
+hljs.registerLanguage("css", css);
 
 import { TweenLite } from "gsap";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import StickyHeader from "~/components/Blog/StickyHeader";
 import PrevPost from "~/components/Blog/PrevPost";
 import NextPost from "~/components/Blog/NextPost";
+import blogScroll from "~/mixins/blogScroll.js";
 
 export default {
   layout: "blog",
@@ -369,30 +370,14 @@ export default {
       next
     };
   },
+  mixins: [blogScroll],
   mounted() {
-    this.$nextTick(() => {
-      this.scrollTop();
-    });
-    hljs.registerLanguage("javascript", javascript);
-    hljs.registerLanguage("xml", xml);
-    hljs.registerLanguage("css", css);
-    hljs.initHighlighting();
+    this.initHighlightJs;
   },
   components: {
     StickyHeader,
     PrevPost,
     NextPost
-  },
-  methods: {
-    scrollTop() {
-      TweenLite.to(window, 1, { scrollTo: { y: 0 } });
-    }
-  },
-  beforeRouteLeave(to, from, next) {
-    if (!to.name.startsWith("posts")) {
-      TweenLite.to(window, 0.5, { scrollTo: { y: 2000 }, onComplete: next });
-      TweenLite.to("#blog-layout", 0.4, { opacity: 0 });
-    } else next();
   }
 };
 </script>

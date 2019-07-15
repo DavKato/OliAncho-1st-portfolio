@@ -70,9 +70,8 @@
 </template>
 
 <script>
-import { TweenMax, TimelineLite } from "gsap";
 import { mapMutations } from "vuex";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+// import { TweenMax, TimelineLite } from "gsap";
 import bagusScroll from "~/mixins/bagusScroll.js";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
@@ -158,9 +157,9 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     if (to.name.startsWith("posts")) {
-      TweenLite.set("#dummy-sky", { display: "block" });
-      TweenLite.to(window, 0.5, { scrollTo: { y: 0 }, onComplete: next });
-      TweenLite.to("#defaultLayout", 0.4, { opacity: 0 });
+      // TweenLite.set("#dummy-sky", { display: "block" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      TweenLite.to("#defaultLayout", 0.4, { opacity: 0, onComplete: next });
     } else next();
   }
 };

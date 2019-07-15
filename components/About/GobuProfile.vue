@@ -10,7 +10,7 @@
           <p class="skills">{{ $t('about.gobuSkill') }}</p>
         </div>
         <div class="img-box">
-          <img src="~/assets/img/2x/about/about-gobu.png" alt="Gobu's picture">
+          <img src="~/assets/img/2x/about/about-gobu.png" alt="Gobu's picture" />
         </div>
       </div>
       <p class="detail">{{ $t('about.gobuDetail') }}</p>

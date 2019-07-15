@@ -2,9 +2,7 @@ import postsEn from './contents/en/posts.json';
 import postsJa from './contents/ja/posts.json';
 export default {
   mode: 'universal',
-  /*
-   ** Headers of the page
-   */
+
   head: {
     title: 'OliAncho',
     meta: [
@@ -25,36 +23,31 @@ export default {
       }
     ]
   },
-  /*
-   ** Customize the progress-bar color
-   */
+
   loading: false,
-  /*
-   ** Global CSS
-   */
+
   css: ['@assets/scss/main.scss'],
-  /*
-   ** Plugins to load before mounting the App
-   */
+
   plugins: ['~/plugins/dateFormatter.js'],
-  /*
-   ** Router
-   */
+
   router: {
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
         return savedPosition;
       }
-
       //to any of '/posts' pages
       if (
         to.name.split('___')[0] === 'posts' ||
         (!from.name.startsWith('posts') && to.name.startsWith('posts'))
       ) {
-        return { x: 0, y: 1800 };
+        // return { x: 0, y: 1800 };
+        return new Promise(resolve => {
+          setTimeout(() => {
+            resolve({ x: 0, y: 1800 });
+          }, 300);
+        });
       }
-
-      //between potfolio pages
+      // between potfolio pages
       const mainNames = ['index', 'about', 'blog', 'works', 'location'];
       if (
         mainNames.some(name => name === from.name.split('___')[0]) &&
@@ -62,7 +55,6 @@ export default {
       ) {
         return false;
       }
-
       return { x: 0, y: 0 };
       // if (
       //   to.matched.some(r => r.components.default.options.scrollToTop !== false)
@@ -71,13 +63,11 @@ export default {
       // }
     }
   },
-  /*
-   ** Nuxt.js modules
-   */
+
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    '@nuxtjs/pwa',
     [
       'nuxt-i18n',
       {
@@ -104,22 +94,14 @@ export default {
       }
     ]
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
+
   axios: {},
-  /*
-   ** Build configuration
-   */
+
   styleResources: {
     scss: ['@assets/scss/_variables.scss']
   },
 
   build: {
-    /*
-     ** You can extend webpack config here
-     */
     extend(config, ctx) {
       config.module.rules.push({
         test: /\.md$/,
@@ -130,6 +112,7 @@ export default {
       });
     }
   },
+
   generate: {
     routes: [
       '/about',
@@ -148,6 +131,8 @@ export default {
       .concat(postsJa.map(post => `ja/posts/${post.slug}`)),
     subFolder: false
   },
+
   ssr: false,
+
   resourceHints: true
 };

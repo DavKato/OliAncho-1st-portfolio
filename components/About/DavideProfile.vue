@@ -3,7 +3,7 @@
     <div class="contents">
       <div class="top">
         <div class="img-box">
-          <img src="~/assets/img/2x/about/about-davi.png" alt="Davide's picture">
+          <img src="~/assets/img/2x/about/about-davi.png" alt="Davide's picture" />
         </div>
         <div class="caption">
           <h3 class="title">

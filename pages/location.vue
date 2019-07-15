@@ -266,8 +266,8 @@ $yellow-location: #eaea5d;
 </style>
 
 <script>
-import { TweenMax, TimelineLite, CSSPlugin } from "gsap";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+// import { TweenMax, TimelineLite } from "gsap";
+// import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   data() {
