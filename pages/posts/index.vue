@@ -102,14 +102,11 @@ export default {
     },
     cardHover(e) {
       const tar = e.target;
-      TweenLite.to(tar, 0.3, { scale: 1.03 });
+      TweenLite.to(tar, 0.2, { scale: 1.02 });
     },
     cardLeave(e) {
       const tar = e.target;
       TweenLite.to(tar, 0.3, { scale: 1 });
-    },
-    cardClicked(e) {
-      const tar = e.target;
     },
     renderList(e) {
       let tar = document.getElementsByClassName("postcard");
