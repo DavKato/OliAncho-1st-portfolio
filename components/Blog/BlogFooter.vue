@@ -31,6 +31,7 @@
         src="v1563231774/bagushaus/posts/footer-telescope.png"
         width="116,232"
         sizes="14.6vh"
+        placeholder
         class="scope"
       />
       <ul class="footer__tail-links">

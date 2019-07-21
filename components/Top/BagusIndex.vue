@@ -3,6 +3,10 @@
     class="window"
     :to="localePath(index.title)"
     :class="{ 'window-hover': index.hover, 'window-active': index.active }"
+    @mouseenter.native="hovered(i)"
+    @mouseleave.native="unHovered(i)"
+    @mousedown.native="activated(i),$store.commit('toBagus')"
+    @mouseup.native="unHovered(i)"
   >
     <div class="window__image-box window__image-box--glassL">
       <CldImg :src="`bagushaus/top/${index.glassL}.png`" width="237,474" sizes="20vw" />
@@ -48,17 +52,6 @@
   position: relative;
   z-index: 2;
 
-  // &:not(:last-child)::after {
-  //   content: "";
-  //   display: block;
-  //   border-right: 1.4rem solid $gray-d;
-  //   height: 107%;
-  //   width: 0;
-  //   position: absolute;
-  //   top: -1rem;
-  //   right: -3.7rem;
-  // }
-
   &:link,
   &:visited {
     color: $black-p;
@@ -91,8 +84,6 @@
     }
 
     &--main {
-      // background-size: 100% 100%;
-      // background-repeat: no-repeat;
       position: relative;
     }
   }
@@ -123,23 +114,20 @@
 
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   props: {
     index: {
       type: Object,
       required: true
+    },
+    i: {
+      type: Number,
+      required: true
     }
   },
   methods: {
-    path2x(img) {
-      return require("../../assets/img/2x/top/" + img + ".png");
-    }
-  },
-  computed: {
-    imgCol2x() {
-      const img = this.path2x(this.index.imgCol);
-      return `url(${img})`;
-    }
+    ...mapMutations("bagusList", ["hovered", "unHovered", "activated"])
   }
 };
 </script>

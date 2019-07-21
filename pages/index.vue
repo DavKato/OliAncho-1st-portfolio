@@ -1,15 +1,6 @@
 <template>
   <section class="bagus-box">
-    <BagusIndex
-      v-for="(index, i) of bagusIndex"
-      :key="index.title"
-      :index="index"
-      @mouseover.native="hovered(i)"
-      @mouseout.native="unHovered(i)"
-      @mousedown.native="activated(i)"
-      @mouseup.native="unHovered(i)"
-      @click.native="$store.commit('toBagus')"
-    />
+    <BagusIndex v-for="(index, i) of bagusIndex" :key="index.title" :index="index" :i="i" />
   </section>
 </template>
 

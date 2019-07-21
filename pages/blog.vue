@@ -5,7 +5,7 @@
       width="1187,2374"
       sizes="1180px"
       alt="background image with stars"
-      ref="stars"
+      id="blog-stars"
     />
     <div class="caption-box">
       <CldImg
@@ -163,7 +163,7 @@ export default {
     ...mapMutations("posts", ["selectTag"])
   },
   mounted() {
-    const { stars } = this.$refs;
+    const stars = document.getElementById("blog-stars");
 
     TweenMax.from(stars, 5, {
       opacity: 0.7,

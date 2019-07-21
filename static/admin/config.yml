@@ -3,6 +3,21 @@ backend:
   branch: test
 publish_mode: editorial_workflow
 media_folder: 'static/images'
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: oliancho
+    api_key: 745898391849235
+    default_transformations: [
+          [
+            {
+        -   - fetch_format: auto
+              quality: auto,
+              width: 1800,
+              crop: 'limit',
+            },
+          ],
+        ],
 public_folder: '/images'
 collections:
   - name: 'japanese__posts'
