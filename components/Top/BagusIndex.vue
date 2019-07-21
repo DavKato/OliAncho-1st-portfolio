@@ -5,27 +5,33 @@
     :class="{ 'window-hover': index.hover, 'window-active': index.active }"
   >
     <div class="window__image-box window__image-box--glassL">
-      <img :src="path2x(index.glassL)" alt="stend glass" />
+      <CldImg :src="`bagushaus/top/${index.glassL}.png`" width="237,474" sizes="20vw" />
     </div>
-    <div
-      class="window__image-box window__image-box--main"
-      :style="{ backgroundImage: `url(${path2x(index.imgCol)})` }"
-    >
-      <img
-        :src="path2x(index.imgMono)"
-        alt="our picture"
-        class="main-image"
+    <div class="window__image-box window__image-box--main">
+      <CldImg
+        :src="`bagushaus/top/${index.imgMono}.png`"
+        width="237,474"
+        sizes="20vw"
+        :alt="`to ${index.title}`"
+        class="main-mono"
         :class="{ 'image-hover': index.hover }"
+      />
+      <LazyImg
+        :src="`bagushaus/top/${index.imgCol}.png`"
+        :alt="`to ${index.title}`"
+        width="237,474"
+        sizes="20vw"
+        class="main-color"
       />
     </div>
     <div class="window__image-box window__image-box--glassS">
-      <img :src="path2x(index.glassS)" alt="stend glass" />
+      <CldImg :src="`bagushaus/top/${index.glassS}.png`" width="237,474" sizes="20vw" />
     </div>
     <div class="window__text-box">
       <p class="window__text">{{ $t(`main.${index.title}`) }}</p>
     </div>
     <div class="window__image-box window__image-box--glassL">
-      <img :src="path2x(index.glassL)" alt="stend glass" />
+      <CldImg :src="`bagushaus/top/${index.glassS}.png`" width="237,474" sizes="20vw" />
     </div>
   </nuxt-link>
 </template>
@@ -85,8 +91,9 @@
     }
 
     &--main {
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
+      // background-size: 100% 100%;
+      // background-repeat: no-repeat;
+      position: relative;
     }
   }
 
@@ -100,8 +107,17 @@
   opacity: 0;
 }
 
-.main-image {
+.main-mono {
+  position: relative;
+  z-index: 2;
   transition: opacity 0.7s;
+}
+.main-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
 

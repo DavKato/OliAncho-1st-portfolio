@@ -11,6 +11,8 @@
       :thumbnail="post.thumbnail"
       :link="post.link"
       tag="postcard"
+      @mouseenter.native="cardHover($event)"
+      @mouseleave.native="cardLeave($event)"
     />
   </section>
 </template>
@@ -61,7 +63,10 @@ export default {
   mounted() {
     this.renderList();
     this.scrollY = window.scrollY;
-    window.addEventListener("scroll", () => (this.scrollY = window.scrollY));
+    window.addEventListener("scroll", this.attachScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.attachScroll);
   },
   computed: {
     sortedList() {
@@ -92,7 +97,21 @@ export default {
     })
   },
   methods: {
-    renderList() {
+    attachScroll() {
+      this.scrollY = window.scrollY;
+    },
+    cardHover(e) {
+      const tar = e.target;
+      TweenLite.to(tar, 0.3, { scale: 1.03 });
+    },
+    cardLeave(e) {
+      const tar = e.target;
+      TweenLite.to(tar, 0.3, { scale: 1 });
+    },
+    cardClicked(e) {
+      const tar = e.target;
+    },
+    renderList(e) {
       let tar = document.getElementsByClassName("postcard");
 
       if (tar.length < 1);
@@ -115,6 +134,7 @@ export default {
       }
     },
     destroyList(payload) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       let tar = document.getElementsByClassName("postcard");
 
       if (tar.length < 1) {
@@ -158,6 +178,8 @@ export default {
 
   .postcard {
     opacity: 0;
+    transform-origin: bottom;
+
     &:first-of-type {
       margin-top: 10.5%;
     }

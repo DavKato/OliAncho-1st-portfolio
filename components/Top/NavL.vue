@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <h1>OliAncho</h1>
 </template>
 

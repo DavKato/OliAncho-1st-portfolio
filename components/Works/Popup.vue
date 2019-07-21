@@ -5,10 +5,12 @@
       <span class="span2"></span>
     </div>
     <div class="image-roll">
-      <img
+      <LazyImg
         v-for="(image, i) in selected.img"
         :key="image"
-        :src="path2x(image)"
+        :src="`bagushaus/worklist/${selected.imgF}/${image}`"
+        width="474,948"
+        sizes="30vw"
         :alt="`selected work's image ${i+1}`"
       />
     </div>

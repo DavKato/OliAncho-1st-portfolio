@@ -1,17 +1,31 @@
 <template>
   <div class="twitter">
-    <img src="~/assets/img/2x/contact/contact-shit.png" alt class="twitter__shit">
-    <a href="#" class="twitter__logo">
-      <img src="~/assets/img/2x/contact/contact-twitter.png" alt class="twitter__logo--image">
-    </a>
+    <CldImg
+      src="v1563231771/bagushaus/contact/contact-shit.png"
+      width="65,130"
+      sizes="62px"
+      class="twitter__shit"
+    />
+    <TwitterLink width="100,200" sizes="120px" class="twitter__logo" />
   </div>
 </template>
+
+<script>
+import TwitterLink from "~/components/GlobalComponents/TwitterLink";
+export default {
+  components: {
+    TwitterLink
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 .twitter {
   position: absolute;
   top: 7%;
   right: 25%;
+  z-index: 5;
 
   &:hover {
     & .twitter__logo {
@@ -31,17 +45,10 @@
     z-index: 10;
   }
   &__logo {
-    display: block;
     height: 10rem;
-    width: 11.6rem;
     transition: transform 0.2s;
     transform: rotate(-8deg);
-
-    &--image {
-      height: 100%;
-      width: 100%;
-      filter: $fsh-m;
-    }
+    filter: $fsh-m;
   }
 }
 </style>

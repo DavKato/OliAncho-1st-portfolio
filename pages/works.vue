@@ -1,6 +1,12 @@
 <template>
   <section class="works">
     <div class="caption-box" :class="{ blur: selected.toggled }">
+      <CldImg
+        src="bagushaus/works/works-tiles.png"
+        width="729,1458"
+        sizes="58vw"
+        class="caption-box-img"
+      />
       <p class="caption">{{ $t('works.caption') }}</p>
     </div>
     <div class="worklist" :class="{ blur: selected.toggled }">
@@ -10,7 +16,12 @@
         :key="work.name"
         @click="showDetail(i)"
       >
-        <img :src="path2x(work.images[0])" :alt="work.name" />
+        <LazyImg
+          :src="`bagushaus/worklist/${work.imageFolder}/${work.images[0]}`"
+          width="474,948"
+          sizes="474px"
+          :alt="work.name"
+        />
         <figcaption class="worklist-each__caption">{{ work.name }}</figcaption>
       </figure>
     </div>
@@ -21,19 +32,17 @@
 </template>
 
 <script>
-import { TweenLite, CSSPlugin } from "gsap";
-import Popup from "~/components/Works/Popup";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   components: {
-    Popup
+    Popup: () => import("~/components/Works/Popup.vue")
   },
   data() {
     return {
       selected: {
         toggled: false,
         img: [],
+        imgF: "",
         client: "",
         tech: "",
         description: "",
@@ -56,6 +65,7 @@ export default {
       this.selected = {
         toggled: true,
         img: [...list.images],
+        imgF: list.imageFolder,
         client: list.client,
         tech: list.tech,
         description: list.description,
@@ -67,7 +77,6 @@ export default {
         opacity: 0,
         y: 200,
         scale: 0,
-        rotation: 0.001,
         ease: Power2.easeOut,
         onComplete: done
       });
@@ -78,7 +87,6 @@ export default {
         y: 200,
         scale: 0,
         ease: Power1.easeIn,
-        rotation: 0.001,
         onComplete: done
       });
     }
@@ -104,15 +112,20 @@ $trs: all 0.4s;
   height: 22%;
   padding: 3.3% 0;
   margin: 8% auto;
-  background-image: url(~assets/img/2x/works/works-tiles.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   position: relative;
   transition: $trs;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   .caption {
     font-size: 1.9rem;
@@ -142,10 +155,9 @@ $trs: all 0.4s;
 
 .worklist {
   width: 100%;
-  height: 25%;
-  margin-top: 5%;
+  margin-top: 3%;
   display: grid;
-  grid-auto-columns: 25rem;
+  grid-auto-columns: 30rem;
   grid-auto-flow: column;
   gap: 5rem;
   align-items: center;
@@ -160,10 +172,15 @@ $trs: all 0.4s;
     position: relative;
     cursor: pointer;
 
+    &:hover img {
+      transform: scale(1.05);
+    }
+
     img {
       width: 100%;
       height: 85%;
       object-fit: contain;
+      transition: transform 0.2s;
     }
 
     &__caption {
@@ -178,7 +195,7 @@ $trs: all 0.4s;
       border: 2px solid #707070;
       position: absolute;
       top: 40%;
-      right: -2.5rem;
+      right: -3rem;
       transform: rotate(45deg);
     }
   }

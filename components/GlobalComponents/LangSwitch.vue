@@ -1,13 +1,40 @@
 <template>
   <transition name="fade" mode="out-in">
     <nuxt-link v-if="$i18n.locale == 'ja'" :to="switchLocalePath('en')" key="ja">
-      <img src="~/assets/img/2x/top/top-english.png" alt="English flag" />
+      <CldImg
+        src="v1563231776/bagushaus/global/english.png"
+        :width="width"
+        :sizes="sizes"
+        alt="Switch to English"
+      />
     </nuxt-link>
     <nuxt-link v-if="$i18n.locale == 'en'" :to="switchLocalePath('ja')" key="en">
-      <img src="~/assets/img/2x/top/top-japanese.png" alt="Japanese flag" />
+      <CldImg
+        src="v1563231774/bagushaus/global/japanese.png"
+        :width="width"
+        :sizes="sizes"
+        alt="Switch to Japanese"
+      />
     </nuxt-link>
   </transition>
 </template>
+
+<script>
+export default {
+  props: {
+    width: {
+      type: String,
+      required: false,
+      default: "auto"
+    },
+    sizes: {
+      type: String,
+      required: false,
+      default: ""
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 img {

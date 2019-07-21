@@ -6,28 +6,34 @@
     </h1>
     <p class="intro">{{ $t('location.intro') }}</p>
     <div class="map-box">
-      <img :src="path2x('maps')" class="map" alt="World map where we have been" />
-      <img
-        :src="path2x('duck-orange')"
+      <CldImg
+        src="bagushaus/location/location-maps"
+        width="833,1666"
+        sizes="833px"
+        class="map"
+        alt="World map where we have been"
+      />
+      <CldImg
+        src="bagushaus/location/location-duck-orange.png"
         class="orange"
         ref="orange"
-        @click="highlightShip"
-        @mouseover="orangeHover"
-        @mouseleave="orangeSilence"
-        @mousedown="orangeActive"
-        @mouseup="orangeInActive"
+        @click.native="highlightShip"
+        @mouseover.native="orangeHover"
+        @mouseleave.native="orangeSilence"
+        @mousedown.native="orangeActive"
+        @mouseup.native="orangeInActive"
       />
       <p class="currentP">{{ $t('location.currentParagraph') }}</p>
-      <img :src="path2x('wave')" class="wave" />
+      <CldImg src="bagushaus/location/location-wave.png" class="wave" />
       <div class="ship" ref="ship" @mouseover="orangeFlicker" @mouseleave="orangeSilence">
-        <img :src="path2x('ship')" />
+        <CldImg src="bagushaus/location/location-ship.png" width="250,500" sizes="250px" />
         <div class="info">
           <p class="currentL">{{ $t('location.currentLocation') }}</p>
           <p class="time">{{ time }}</p>
         </div>
       </div>
       <div class="plane" ref="plane">
-        <img :src="path2x('plane')" />
+        <CldImg src="bagushaus/location/location-plane.png" width="410,820" sizes="410px" />
         <p
           class="number"
           @mouseover="planeHover"
@@ -42,13 +48,13 @@
         </p>
       </div>
       <div class="ducks__three" @mouseover="threeDOn">
-        <img :src="path2x('duck-yellow')" class="duck duck-big" />
-        <img :src="path2x('duck-yellow')" class="duck duck-middle" />
-        <img :src="path2x('duck-yellow')" class="duck duck-small" />
+        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-big" />
+        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
+        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
       </div>
       <div class="ducks__two" @mouseover="twoDOn">
-        <img :src="path2x('duck-yellow')" class="duck duck-middle" />
-        <img :src="path2x('duck-yellow')" class="duck duck-small" />
+        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
+        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
       </div>
     </div>
   </section>
@@ -62,7 +68,7 @@ $yellow-location: #eaea5d;
 }
 
 .location {
-  background-image: url("../assets/img/2x/location/location-middle-square.png");
+  background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/bagushaus/location/location-middle-square.png");
   background-size: 100% 100%;
   position: relative;
   display: flex;
@@ -103,7 +109,7 @@ $yellow-location: #eaea5d;
 
       &::after {
         content: "";
-        background-image: url(~assets/img/2x/location/location-fart.png);
+        background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/bagushaus/location/location-fart.png");
         background-size: contain;
         position: absolute;
         background-repeat: no-repeat;
@@ -124,9 +130,9 @@ $yellow-location: #eaea5d;
   }
 
   .map-box {
+    width: 100%;
     height: 62%;
     margin-top: -1%;
-    margin-left: -6%;
     position: relative;
 
     & > *:not(.map) {
@@ -145,32 +151,31 @@ $yellow-location: #eaea5d;
     }
 
     .orange {
-      width: 2.3%;
+      width: 2.8%;
       top: 25.8%;
-      left: 22.2%;
+      left: 20.2%;
       filter: $fsh-s;
       cursor: pointer;
     }
 
     .currentP {
-      left: 23%;
+      left: 21.5%;
       bottom: 6%;
       font-size: 1.9rem;
       white-space: pre;
       text-align: right;
-      transform: rotate(-40deg);
+      transform: rotate(-35deg);
     }
 
     .wave {
-      width: 9.5%;
-      left: 20%;
+      width: 10%;
+      left: 18%;
       bottom: 2%;
     }
 
     .ship {
-      bottom: -3%;
-      left: 27%;
-      height: 37.5%;
+      bottom: -4%;
+      left: 26%;
       width: 21%;
       transform-origin: 45% 70%;
 
@@ -180,7 +185,7 @@ $yellow-location: #eaea5d;
 
       .info {
         position: absolute;
-        top: 50%;
+        top: 48%;
         left: -2%;
         height: 50%;
         width: 100%;
@@ -191,7 +196,7 @@ $yellow-location: #eaea5d;
         pointer-events: none;
 
         & > p {
-          font-size: 2.4rem;
+          font-size: 2.2rem;
           line-height: 1.2;
         }
         .time {
@@ -202,8 +207,7 @@ $yellow-location: #eaea5d;
 
     .plane {
       top: 0;
-      right: 4%;
-      height: 43%;
+      right: 2%;
       width: 25%;
       transform: rotate(30deg);
       will-change: transform;
@@ -215,9 +219,9 @@ $yellow-location: #eaea5d;
       }
       .number {
         position: absolute;
-        top: 34%;
+        top: 33.5%;
         left: 27%;
-        font-size: 2.2rem;
+        font-size: 2rem;
         color: $black-p;
         margin-left: -0.5rem;
         letter-spacing: -0.5px;
@@ -227,7 +231,7 @@ $yellow-location: #eaea5d;
           margin-left: -0.7rem;
         }
         & > .en {
-          font-size: 2rem;
+          font-size: 1.8rem;
           margin-bottom: -5px;
         }
       }
@@ -266,8 +270,6 @@ $yellow-location: #eaea5d;
 </style>
 
 <script>
-// import { TweenMax, TimelineLite } from "gsap";
-// import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   data() {
@@ -282,9 +284,6 @@ export default {
     setInterval(this.timeCatcher, 5000);
   },
   methods: {
-    path2x(img) {
-      return require("../assets/img/2x/location/location-" + img + ".png");
-    },
     timeCatcher() {
       const diffFromUTC = 2;
       const formatter = cli => {
@@ -299,7 +298,7 @@ export default {
       this.time = `${formatter(t)}：${formatter(m)}`;
     },
     orangeFlicker() {
-      const { orange } = this.$refs;
+      const orange = document.getElementsByClassName("orange")[0];
       TweenMax.to(orange, 1.1, {
         scale: 1.3,
         opacity: 0,
@@ -308,19 +307,19 @@ export default {
       });
     },
     orangeHover() {
-      const { orange } = this.$refs;
+      const orange = document.getElementsByClassName("orange")[0];
       TweenMax.to(orange, 0.2, { y: -3, rotation: 0 });
     },
     orangeActive() {
-      const { orange } = this.$refs;
+      const orange = document.getElementsByClassName("orange")[0];
       TweenMax.to(orange, 0.2, { rotation: 10 });
     },
     orangeInActive() {
-      const { orange } = this.$refs;
+      const orange = document.getElementsByClassName("orange")[0];
       TweenMax.to(orange, 0.2, { rotation: 0 });
     },
     orangeSilence() {
-      const { orange } = this.$refs;
+      const orange = document.getElementsByClassName("orange")[0];
       TweenMax.to(orange, 0.5, { scale: 1, opacity: 1, y: 0 });
     },
     highlightShip() {
@@ -344,7 +343,7 @@ export default {
         return false;
       }
       const { plane } = this.$refs;
-      TweenMax.to(plane, 0.3, { rotation: 33 });
+      TweenMax.to(plane, 0.3, { rotation: 40 });
     },
     planeActive() {
       if (this.planeToggle) {
@@ -391,15 +390,15 @@ export default {
     threeDOn(ev) {
       const tar = [...ev.target.childNodes];
       const tl = new TimelineLite();
-      tl.staggerTo(tar, 0.4, { y: -15, ease: Power1.easeInOut }, 0.1)
-        .staggerTo(tar, 0.7, { y: 30, ease: Power1.easeInOut }, 0.1, "-=0.4")
+      tl.staggerTo(tar, 0.4, { y: -20, ease: Power1.easeInOut }, 0.1)
+        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, "-=0.4")
         .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.7");
     },
     twoDOn(ev) {
       const tar = [...ev.target.childNodes];
       const tl = new TimelineLite();
-      tl.staggerTo(tar, 0.4, { y: -15, ease: Power1.easeInOut }, 0.1)
-        .staggerTo(tar, 0.7, { y: 30, ease: Power1.easeInOut }, 0.1, "-=0.2")
+      tl.staggerTo(tar, 0.4, { y: -20, ease: Power1.easeInOut }, 0.1)
+        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, "-=0.2")
         .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.5");
     }
   }

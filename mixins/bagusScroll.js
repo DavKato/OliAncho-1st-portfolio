@@ -1,5 +1,5 @@
 export default {
-  mounted() {
+  beforeDestroy() {
     if (this.$store.state.toBagus) {
       document
         .getElementById('bagus-title')

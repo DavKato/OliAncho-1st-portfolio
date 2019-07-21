@@ -1,6 +1,8 @@
 <template>
   <nav class="sticky">
-    <TextLogo :selectTag="selectTag" @click="$emit('click', $event)" />
+    <nuxt-link :to="localePath('posts')" tag="div">
+      <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
+    </nuxt-link>
 
     <ul class="filter">
       <nuxt-link

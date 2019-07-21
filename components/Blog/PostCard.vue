@@ -16,13 +16,7 @@
   position: relative;
   height: 18rem;
   width: 70.5%;
-  // transition: transform 0.3s;
-  transform-origin: bottom;
   margin-bottom: 11rem;
-
-  &:hover {
-    transform: scale(1.01);
-  }
 
   &:link,
   &:active {
@@ -50,13 +44,13 @@
   .summary {
     color: $gray-d;
     margin-top: 0.3rem;
-    margin-left: 6rem;
+    margin-left: 2.4rem;
     width: 60%;
     font-size: 1.5rem;
   }
   .thumbnail {
     position: absolute;
-    top: -3rem;
+    top: 0;
     right: 1rem;
     width: 29.6%;
     height: 100%;

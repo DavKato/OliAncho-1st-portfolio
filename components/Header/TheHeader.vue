@@ -1,6 +1,7 @@
 <template>
   <div class="header">
-    <Logo class="header__logo"/>
+    <CldImg src="bagushaus/top/top-pic.png" width="1206,2412" sizes="1200px" id="port-bg" />
+    <Logo class="header__logo" />
   </div>
 </template>
 
@@ -20,9 +21,6 @@ export default {
   max-width: 150vh;
   height: 100vh;
   max-height: 66.67vw;
-  background-image: url("../../assets/img/2x/top/top-pic.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   position: relative;
 
   &__logo {
@@ -31,5 +29,12 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+}
+#port-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>

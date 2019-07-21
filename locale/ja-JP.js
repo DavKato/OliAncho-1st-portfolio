@@ -56,7 +56,8 @@ export default {
     list: [
       {
         name: 'マリナ・ソランツォ',
-        images: ['Marina-demo1', 'Marina-demo2'],
+        images: ['Marina-demo1.png', 'Marina-demo2.png'],
+        imageFolder: 'marina',
         client: 'Marina Soranzo様',
         tech:
           'ウェブデザイン、グラフィックデザイン、コーディング (Vue/Nuxt.js)、ホスティング、多言語仕様, レスポンシブ、翻訳サポート',
@@ -66,7 +67,8 @@ export default {
       },
       {
         name: '',
-        images: ['under-construction-ja'],
+        images: ['under-construction-ja.png'],
+        imageFolder: 'construction',
         client: '',
         tech: '',
         description: '',

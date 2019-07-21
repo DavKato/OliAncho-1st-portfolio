@@ -51,7 +51,8 @@ export default {
     list: [
       {
         name: "Marina's Language Lesson",
-        images: ['Marina-demo1', 'Marina-demo2'],
+        images: ['Marina-demo1.png', 'Marina-demo2.png'],
+        imageFolder: 'marina',
         client: 'Marina Soranzo',
         tech:
           'Site design, Graphic design, Coding - Vue/Nuxt.js, Multi-Language, Responsive, Translation support',
@@ -61,7 +62,8 @@ export default {
       },
       {
         name: '',
-        images: ['under-construction'],
+        images: ['under-construction.png'],
+        imageFolder: 'construction',
         client: '',
         tech: '',
         description: '',

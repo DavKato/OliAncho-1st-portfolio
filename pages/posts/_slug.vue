@@ -1,20 +1,24 @@
 <template>
   <div class="post-page">
-    <StickyHeader />
+    <StickyHeader @click="$emit('click', $event)" />
     <section class="post">
       <div class="intro">
         <div class="intro__info">
           <p class="date">{{ date | date($i18n.locale) }}</p>
           <figure class="author">
-            <img
+            <CldImg
               v-if="author === 'Gobu'"
-              src="~/assets/img/2x/about/about-gobu.png"
+              src="bagushaus/about/about-gobu.png"
+              options="q_auto,f_auto,c_thumb,g_face"
+              width="100,200"
               alt="Gobu's picture"
               class="author-img"
             />
-            <img
+            <CldImg
               v-if="author === 'Davide'"
-              src="~/assets/img/2x/about/about-davi.png"
+              src="bagushaus/about/about-davi.png"
+              options="q_auto,f_auto,c_thumb,g_face"
+              width="100,200"
               alt="Davide's picture"
               class="author-img"
             />

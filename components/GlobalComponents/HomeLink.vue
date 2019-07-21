@@ -1,13 +1,12 @@
 <template>
-  <div @click="scrollToContact">
+  <nuxt-link :to="localePath('index')">
     <CldImg
-      src="v1563231775/bagushaus/global/email.png"
+      src="v1563231773/bagushaus/global/oliancho-logo.png"
       :width="width"
       :sizes="sizes"
-      alt="jump to contact form"
-      style="cursor:pointer;"
+      alt="Jump to our portfolio"
     />
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
@@ -23,11 +22,8 @@ export default {
       required: false,
       default: ""
     }
-  },
-  methods: {
-    scrollToContact() {
-      TweenLite.to(window, 0.5, { scrollTo: { y: "#contact", offsetY: 30 } });
-    }
   }
 };
 </script>
+
+

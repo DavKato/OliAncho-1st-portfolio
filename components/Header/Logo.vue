@@ -1,9 +1,9 @@
 <template>
   <div class="logo-box">
     <nuxt-link :to="localePath('index')">
-      <img
-        src="~/assets/img/2x/top/top-logo.png"
-        alt="Logo"
+      <CldImg
+        src="bagushaus/top/top-logo.png"
+        alt="OliAncho Logo"
         class="logo-box__image"
         @click="valScroll"
       />

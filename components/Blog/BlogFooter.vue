@@ -1,33 +1,55 @@
 <template>
   <section class="footer">
     <div class="trees">
-      <img src="~/assets/img/2x/posts/1tree.png" />
-      <img src="~/assets/img/2x/posts/2tree.png" />
-      <img src="~/assets/img/2x/posts/3tree.png" />
-      <img src="~/assets/img/2x/posts/4tree.png" />
+      <LazyImg
+        src="v1563231773/bagushaus/posts/1tree.png"
+        width="242,484"
+        sizes="25vw"
+        placeholder
+      />
+      <LazyImg
+        src="v1563231773/bagushaus/posts/2tree.png"
+        width="294,587"
+        sizes="25vw"
+        placeholder
+      />
+      <LazyImg
+        src="v1563231773/bagushaus/posts/3tree.png"
+        width="243,486"
+        sizes="25vw"
+        placeholder
+      />
+      <LazyImg
+        src="v1563231773/bagushaus/posts/4tree.png"
+        width="282,563"
+        sizes="25vw"
+        placeholder
+      />
     </div>
     <div class="footer__tail">
-      <img src="~/assets/img/2x/posts/footer-telescope.png" class="scope" />
+      <LazyImg
+        src="v1563231774/bagushaus/posts/footer-telescope.png"
+        width="116,232"
+        sizes="14.6vh"
+        class="scope"
+      />
       <ul class="footer__tail-links">
         <li>
-          <a href="#">
-            <img class="insta" src="~/assets/img/2x/posts/insta.png" />
-          </a>
+          <InstaLink width="39,78" sizes="39px" />
         </li>
         <li>
-          <a href="#">
-            <img class="twitter" src="~/assets/img/2x/posts/twitter.png" />
-          </a>
+          <TwitterLink width="40,80" sizes="40px" />
         </li>
         <li>
-          <nuxt-link :to="localePath('index')">
-            <img class="home" src="~/assets/img/2x/posts/oliancho-logo.png" />
-          </nuxt-link>
+          <HomeLink width="33,66" sizes="33px" />
         </li>
-        <li>
-          <a @click.prevent="toTop" href="#blog-layout">
-            <img class="to-top" src="~/assets/img/2x/posts/top.png" />
-          </a>
+        <li @click.prevent="toTop">
+          <CldImg
+            class="to-top"
+            src="v1563231774/bagushaus/posts/top.png"
+            width="52,104"
+            sizes="52px"
+          />
         </li>
       </ul>
       <TheFooter class="copyright" />
@@ -94,21 +116,8 @@
         margin-right: 0.8rem;
       }
 
-      .insta {
-        height: 3.9rem;
-        width: 3.9rem;
-      }
-      .twitter {
-        height: 3.5rem;
-        width: 4rem;
-      }
-      .home {
-        height: 3.4rem;
-        width: 3.3rem;
-      }
       .to-top {
-        height: 5.2rem;
-        width: 5.2rem;
+        cursor: pointer;
       }
     }
 
@@ -124,9 +133,15 @@
 
 <script>
 import TheFooter from "~/components/GlobalComponents/TheFooter";
+import TwitterLink from "~/components/GlobalComponents/TwitterLink";
+import HomeLink from "~/components/GlobalComponents/HomeLink";
+import InstaLink from "~/components/GlobalComponents/InstaLink";
 export default {
   components: {
-    TheFooter
+    TheFooter,
+    TwitterLink,
+    HomeLink,
+    InstaLink
   },
   methods: {
     toTop() {

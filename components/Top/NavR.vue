@@ -1,7 +1,7 @@
 <template>
   <nav class="main-nav">
-    <ContactLink class="contact" />
-    <LangSwitch class="flag" />
+    <ContactLink class="contact" width="23,55" sizes="55px" />
+    <LangSwitch class="flag" width="23,55" sizes="55px" />
   </nav>
 </template>
 

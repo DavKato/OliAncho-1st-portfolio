@@ -1,15 +1,26 @@
 <template>
   <div class="flower-box">
-    <img src="~/assets/img/2x/contact/contact-flower.png" alt="flower" class="flower-box__flower">
-    <a href="#">
-      <img
-        src="~/assets/img/2x/contact/contact-instagram.png"
-        alt="instagram logo"
-        class="flower-box__insta"
-      >
-    </a>
+    <LazyImg
+      src="v1563231772/bagushaus/contact/Contact-flower.png"
+      width="200,400"
+      sizes="31.5rem"
+      alt="hand-written flower"
+      placeholder
+      class="flower-box__flower"
+    />
+    <InstaLink width="84,168" sizes="11.4rem" class="flower-box__insta" />
   </div>
 </template>
+
+<script>
+import InstaLink from "~/components/GlobalComponents/InstaLink";
+export default {
+  components: {
+    InstaLink
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 .flower-box {
@@ -18,19 +29,17 @@
   right: 2%;
 
   &__flower {
-    height: 51.3rem;
     width: 31.5rem;
     object-fit: 100%;
   }
   &__insta {
-    height: 11.4rem;
     width: 11.4rem;
     position: absolute;
     left: 49.7%;
     top: 19.2%;
     transform: translateX(-50%);
     filter: $fsh-m;
-    transition: transform 0.3s;
+    transition: all 0.3s;
 
     &:hover {
       transform: translateX(-50%) rotate(90deg) scale(0.85);

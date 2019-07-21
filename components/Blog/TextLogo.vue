@@ -1,10 +1,14 @@
-<template>
-  <nuxt-link :to="localePath('posts')" tag="div">
-    <h1 @click="$emit('click', {tag: 'all', reset: true})" class="text-logo">
-      OliAncho
-      <span>.blog</span>
-    </h1>
-  </nuxt-link>
+<template functional>
+  <h1
+    class="text-logo"
+    :class="[data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
+    OliAncho
+    <span>.blog</span>
+  </h1>
 </template>
 
 <style lang="scss" scoped>
@@ -28,11 +32,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  props: {
-    selectTag: Function
-  }
-};
-</script>

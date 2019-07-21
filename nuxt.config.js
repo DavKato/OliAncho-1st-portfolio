@@ -28,7 +28,11 @@ export default {
 
   css: ['@assets/scss/main.scss'],
 
-  plugins: ['~/plugins/dateFormatter.js'],
+  plugins: [
+    '~/plugins/dateFormatter',
+    '~/plugins/CustomImg',
+    '~/plugins/VLazyImage'
+  ],
 
   router: {
     scrollBehavior(to, from, savedPosition) {
@@ -36,15 +40,12 @@ export default {
         return savedPosition;
       }
       //to any of '/posts' pages
-      if (
-        to.name.split('___')[0] === 'posts' ||
-        (!from.name.startsWith('posts') && to.name.startsWith('posts'))
-      ) {
+      if (!from.name.startsWith('posts') && to.name.startsWith('posts')) {
         // return { x: 0, y: 1800 };
         return new Promise(resolve => {
           setTimeout(() => {
-            resolve({ x: 0, y: 1800 });
-          }, 300);
+            resolve({ x: 0, y: 1500 });
+          }, 400);
         });
       }
       // between potfolio pages
@@ -55,6 +56,11 @@ export default {
       ) {
         return false;
       }
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve({ x: 0, y: 0 });
+        }, 300);
+      });
       return { x: 0, y: 0 };
       // if (
       //   to.matched.some(r => r.components.default.options.scrollToTop !== false)

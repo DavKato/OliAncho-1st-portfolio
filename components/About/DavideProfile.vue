@@ -3,7 +3,13 @@
     <div class="contents">
       <div class="top">
         <div class="img-box">
-          <img src="~/assets/img/2x/about/about-davi.png" alt="Davide's picture" />
+          <LazyImg
+            src="v1563231770/bagushaus/about/about-davi.png"
+            placeholder
+            width="150,300"
+            sizes="150px"
+            alt="Davide's picture"
+          />
         </div>
         <div class="caption">
           <h3 class="title">

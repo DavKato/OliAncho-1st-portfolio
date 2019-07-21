@@ -1,23 +1,20 @@
 <template>
   <ul class="links">
-    <LangSwitch
-      class="links-image flag"
-      v-if="$route.path === '/posts' || $route.path === '/ja/posts'"
-    />
-    <li>
-      <a href="#">
-        <img class="links-image insta" src="~/assets/img/2x/posts/insta.png" />
-      </a>
+    <li class="links-image">
+      <LangSwitch
+        width="35,70"
+        sizes="35px"
+        v-if="$route.path === '/posts' || $route.path=== '/ja/posts'"
+      />
     </li>
-    <li>
-      <a href="#">
-        <img class="links-image twitter" src="~/assets/img/2x/posts/twitter.png" />
-      </a>
+    <li class="links-image">
+      <InstaLink width="39,78" sizes="39px" />
     </li>
-    <li>
-      <nuxt-link :to="localePath('index')">
-        <img class="links-image home" src="~/assets/img/2x/posts/oliancho-logo.png" />
-      </nuxt-link>
+    <li class="links-image">
+      <TwitterLink width="40,80" sizes="40px" />
+    </li>
+    <li class="links-image">
+      <HomeLink width="33,66" sizes="33px" />
     </li>
   </ul>
 </template>
@@ -43,31 +40,20 @@
       @include iconActive;
     }
   }
-
-  .insta {
-    height: 3.9rem;
-    width: 3.9rem;
-  }
-  .twitter {
-    height: 3.5rem;
-    width: 4rem;
-  }
-  .home {
-    height: 3.4rem;
-    width: 3.3rem;
-  }
-  .flag {
-    height: 2.6rem;
-    width: 3.5rem;
-  }
 }
 </style>
 
 <script>
 import LangSwitch from "~/components/GlobalComponents/LangSwitch";
+import HomeLink from "~/components/GlobalComponents/HomeLink";
+import TwitterLink from "~/components/GlobalComponents/TwitterLink";
+import InstaLink from "~/components/GlobalComponents/InstaLink";
 export default {
   components: {
-    LangSwitch
+    LangSwitch,
+    HomeLink,
+    TwitterLink,
+    InstaLink
   }
 };
 </script>

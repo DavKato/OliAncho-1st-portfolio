@@ -1,11 +1,13 @@
 <template>
   <li class="filter">
     <div class="filter__container" @click="$emit('click',{ tag, reset: true })">
-      <img
+      <CldImg
         :id="tag"
         class="filter__container-img"
         :class="{'light-on': selectedTag === tag}"
-        src="~/assets/img/2x/posts/window.png"
+        src="v1563231774/bagushaus/posts/window.png"
+        width="230,460"
+        sizes="17vw"
       />
       <h2 class="filter__container-text">{{ $t(text) }}</h2>
     </div>
@@ -22,10 +24,14 @@
     flex-direction: column;
     align-items: center;
 
-    &:hover .filter__container-text {
-      @include tsh-m;
+    &:hover {
+      & .filter__container-img {
+        transform: scale(1.02);
+      }
+      & .filter__container-text {
+        @include tsh-m;
+      }
     }
-
     &:link,
     &:visited {
       text-decoration: none;

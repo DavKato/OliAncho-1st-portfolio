@@ -50,7 +50,7 @@ import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
 import BagusWalls from "~/components/Top/BagusWalls";
 import BagusTitle from "~/components/Top/BagusTitle";
-import Contact from "~/components/Contact/Contact";
+// import Contact from "~/components/Contact/Contact";
 import TheFooter from "~/components/GlobalComponents/TheFooter";
 import { TweenMax, TimelineLite } from "gsap";
 export default {
@@ -63,7 +63,7 @@ export default {
     TheHeader,
     BagusWalls,
     BagusTitle,
-    Contact,
+    Contact: () => import("~/components/Contact/Contact"),
     TheFooter
   }
 };

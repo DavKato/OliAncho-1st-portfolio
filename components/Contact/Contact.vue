@@ -3,7 +3,7 @@
     <p class="hidden">
       <label>
         {{ $t('formDummy') }}
-        <input name="dummyInput" value="contact" v-model="dummyInput">
+        <input name="dummyInput" value="contact" v-model="dummyInput" />
       </label>
     </p>
     <div class="form__box form__box1"></div>
@@ -28,7 +28,7 @@
         name="name"
         :placeholder="$t('yourName')"
         v-model="form.name"
-      >
+      />
     </div>
     <div
       class="form__box form__box5 form__box-input"
@@ -45,7 +45,7 @@
         name="email"
         :placeholder="$t('yourContact')"
         v-model="form.email"
-      >
+      />
     </div>
     <div
       class="form__box form__box-str form__box6 form__box-input"
@@ -62,7 +62,7 @@
         name="title"
         :placeholder="$t('formTitle')"
         v-model="form.title"
-      >
+      />
     </div>
     <div
       class="form__box form__box7 form__box-input"
@@ -83,10 +83,10 @@
     <div class="form__box form__box-str form__box8">
       <button class="form__button" type="submit">Send</button>
     </div>
-    <TwitterLink/>
-    <FlowerBox/>
+    <TwitterLink />
+    <FlowerBox />
     <transition name="pop">
-      <Thanks v-if="thanks"/>
+      <Thanks v-if="thanks" />
     </transition>
   </form>
 </template>
@@ -370,12 +370,11 @@
 <script>
 import TwitterLink from "./TwitterLink";
 import FlowerBox from "./FlowerBox";
-import Thanks from "./Thanks";
 export default {
   components: {
     TwitterLink,
     FlowerBox,
-    Thanks
+    Thanks: () => import("./Thanks")
   },
   data() {
     return {

@@ -1,7 +1,19 @@
 <template>
   <section class="blog">
-    <img :src="path2x('blog-starbacks')" alt="background image with stars" ref="stars" />
+    <CldImg
+      src="bagushaus/blog/blog-starbacks"
+      width="1187,2374"
+      sizes="1180px"
+      alt="background image with stars"
+      ref="stars"
+    />
     <div class="caption-box">
+      <CldImg
+        src="bagushaus/blog/blog-tiles.png"
+        width="729,1458"
+        sizes="729px"
+        class="caption-box-tiles"
+      />
       <div class="latest-title">
         <h3>{{ $t('blog.caption') }}</h3>
       </div>
@@ -18,50 +30,60 @@
     <p class="middle">{{ $t('blog.intro') }}</p>
     <div class="categories">
       <nuxt-link class="category" :to="localePath('posts')">
-        <img
-          :src="path2x('blog-1tree')"
-          alt="tallest tree"
-          @mouseover="treeShake($event)"
-          @mouseleave="restore($event)"
-          @click="selectTag({tag: 'life', reset: false})"
+        <CldImg
+          src="bagushaus/blog/blog-1tree.png"
+          width="287,574"
+          sizes="287px"
+          alt="to Nomad Life page"
+          @mouseenter.native="treeShake($event)"
+          @mouseleave.native="restore($event)"
+          @click.native="selectTag({tag: 'life', reset: false})"
         />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
       <nuxt-link class="category" :to="localePath('posts')">
-        <img
-          :src="path2x('blog-2tree')"
+        <CldImg
+          src="bagushaus/blog/blog-2tree.png"
+          width="301,602"
+          sizes="301px"
           alt="tall tree"
-          @mouseover="treeBump($event)"
-          @mouseleave="restore($event)"
-          @click="selectTag({tag: 'web', reset: false})"
+          @mouseenter.native="treeBump($event)"
+          @mouseleave.native="restore($event)"
+          @click.native="selectTag({tag: 'web', reset: false})"
         />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
       <nuxt-link class="category" :to="localePath('posts')">
-        <img
-          :src="path2x('blog-3tree')"
+        <CldImg
+          src="bagushaus/blog/blog-3tree.png"
+          width="202,404"
+          sizes="202px"
           alt="short tree"
-          @mouseover="treeGrow($event)"
-          @mouseleave="restore($event)"
-          @click="selectTag({tag: 'japanese', reset: false})"
+          @mouseenter.native="treeGrow($event)"
+          @mouseleave.native="restore($event)"
+          @click.native="selectTag({tag: 'japanese', reset: false})"
         />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
       <nuxt-link class="category" :to="localePath('posts')">
-        <img
-          :src="path2x('blog-4tree')"
+        <CldImg
+          src="bagushaus/blog/blog-4tree.png"
+          width="167,334"
+          sizes="167px"
           alt="shortest tree"
-          @mouseover="treeMario($event)"
-          @mouseleave="restore($event)"
-          @click="selectTag({tag: 'glutenFree', reset: false})"
+          @mouseenter.native="treeMario($event)"
+          @mouseleave.native="restore($event)"
+          @click.native="selectTag({tag: 'glutenFree', reset: false})"
         />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
       <nuxt-link class="go-to" :to="localePath('posts')">
-        <img
-          :src="path2x('blog-moon')"
+        <CldImg
+          src="bagushaus/blog/blog-moon.png"
+          width="221,442"
+          sizes="221px"
           alt="go to blog page"
-          @click="selectTag({tag: 'all', reset: false})"
+          @click.native="selectTag({tag: 'all', reset: false})"
         />
         <p class="go-to__text">{{ $t('blog.goto') }}</p>
       </nuxt-link>
@@ -71,7 +93,6 @@
 
 <script>
 import { mapMutations } from "vuex";
-// import { TweenMax, TimelineLite } from "gsap";
 import bagusScroll from "~/mixins/bagusScroll.js";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
@@ -97,9 +118,6 @@ export default {
   },
   mixins: [bagusScroll],
   methods: {
-    path2x(img) {
-      return require("../assets/img/2x/blog/" + img + ".png");
-    },
     treeShake(event) {
       const { life } = this.$refs;
       TweenMax.to([event.target, life], 1.8, {
@@ -187,12 +205,17 @@ export default {
   height: 22%;
   padding: 3.3% 4% 3.4%;
   margin-top: 7%;
-  background-image: url(~assets/img/2x/blog/blog-tiles.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   background-color: $white-p;
   position: relative;
   z-index: 2;
+
+  &-tiles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
   .latest {
     &-post {

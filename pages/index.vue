@@ -15,7 +15,6 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import bagusScroll from "~/mixins/bagusScroll.js";
 import BagusIndex from "~/components/Top/BagusIndex";
 export default {

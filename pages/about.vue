@@ -9,7 +9,13 @@
       <div class="image-box">
         <div class="select-davide" @mouseover="daviHover = true" @mouseleave="daviHover = false"></div>
         <div class="select-gobu" @mouseover="gobuHover = true" @mouseleave="gobuHover = false"></div>
-        <img src="~/assets/img/2x/about/about-davigobu.png" alt="私たちの写真です。" />
+        <LazyImg
+          src="v1563231771/bagushaus/about/about-davigobu.png"
+          alt="DavideとGobuのイラスト"
+          width="713,1426"
+          sizes="700"
+          placeholder
+        />
       </div>
       <div class="text-box">
         <p class="position">{{ $t('about.gobuPosition') }}</p>
@@ -26,8 +32,6 @@
 </template>
 
 <script>
-import { TweenLite } from "gsap";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 import bagusScroll from "~/mixins/bagusScroll.js";
 import DavideProfile from "~/components/About/DavideProfile";
 import GobuProfile from "~/components/About/GobuProfile";
@@ -49,17 +53,23 @@ export default {
 <style lang="scss" scoped>
 .about {
   padding: 0 7%;
-
   color: $black-d;
-
-  background-image: url("~assets/img/2x/about/about-middle-square.png");
+  background-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/about/about-middle-square.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
-  z-index: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .caption {

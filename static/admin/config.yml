@@ -28,13 +28,13 @@ collections:
           required: true,
           options: ['Davide', 'Gobu'],
         }
-      # - {
-      #     label: '言語',
-      #     name: 'language',
-      #     widget: 'string',
-      #     required: true,
-      #     default: 'ja',
-      #   }
+      - {
+          label: '言語',
+          name: 'language',
+          widget: 'hidden',
+          required: true,
+          default: 'ja',
+        }
       - { label: '作成日', name: 'date', widget: 'date', required: true }
       - { label: '更新日', name: 'update', widget: 'date', required: false }
       - {
@@ -75,13 +75,13 @@ collections:
           required: true,
           options: ['Gobu', 'Davide'],
         }
-      # - {
-      #     label: 'Language',
-      #     name: 'language',
-      #     widget: 'string',
-      #     required: true,
-      #     default: 'ja',
-      #   }
+      - {
+          label: 'Language',
+          name: 'language',
+          widget: 'hidden',
+          required: true,
+          default: 'ja',
+        }
       - {
           label: 'Published date',
           name: 'date',
