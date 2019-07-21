@@ -8,16 +8,11 @@ media_library:
   config:
     cloud_name: oliancho
     api_key: 745898391849235
-    default_transformations: [
-          [
-            {
-        -   - fetch_format: auto
-              quality: auto,
-              width: 1800,
-              crop: 'limit',
-            },
-          ],
-        ],
+    default_transformations:
+      - - fetch_format: auto
+          width: 1800
+          quality: auto
+          crop: limit
 public_folder: '/images'
 collections:
   - name: 'japanese__posts'
