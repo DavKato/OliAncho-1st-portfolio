@@ -139,7 +139,7 @@ $trs: all 0.4s;
     content: "";
     width: 30rem;
     height: 30rem;
-    background-image: url(~assets/img/2x/works/works-oliveanchovy.png);
+    background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
     background-size: 100% 100%;
     position: absolute;
     top: -40%;

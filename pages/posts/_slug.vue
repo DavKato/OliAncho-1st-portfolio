@@ -31,7 +31,11 @@
         </div>
         <img class="thumbnail" :src="thumbnail" alt />
       </div>
-      <article class="post__content" v-html="html"></article>
+      <Markdown
+        class="post__content"
+        :renderFunc="renderFunc"
+        :staticRenderFuncs="staticRenderFuncs"
+      />
       <div class="post__links">
         <PrevPost v-if="prev" :prev="prev" />
         <div class="empty" v-else-if="!prev">{{ $t('posts.noPrev') }}</div>
@@ -230,6 +234,7 @@ $green-pre: #d9ebde80;
       border: 2px solid $gray-l;
       line-height: 1.5;
       margin: 2.8rem 0;
+      white-space: pre-wrap;
     }
     & code {
       border-radius: 3px;
@@ -267,7 +272,7 @@ $green-pre: #d9ebde80;
 
     & img {
       display: block;
-      max-width: 100%;
+      width: 70%;
       margin: 4rem 0;
     }
   }
@@ -279,16 +284,9 @@ $green-pre: #d9ebde80;
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
 
-import hljs from "highlight.js/lib/highlight";
-import javascript from "highlight.js/lib/languages/javascript";
-import xml from "highlight.js/lib/languages/xml";
-import css from "highlight.js/lib/languages/css";
-hljs.registerLanguage("javascript", javascript);
-hljs.registerLanguage("xml", xml);
-hljs.registerLanguage("css", css);
-
 import { TweenLite } from "gsap";
 import StickyHeader from "~/components/Blog/StickyHeader";
+import Markdown from "~/components/Blog/Markdown";
 import PrevPost from "~/components/Blog/PrevPost";
 import NextPost from "~/components/Blog/NextPost";
 import blogScroll from "~/mixins/blogScroll.js";
@@ -297,14 +295,7 @@ export default {
   layout: "blog",
   head() {
     return {
-      title: `${this.title} - OliAncho`,
-      link: [
-        {
-          rel: "stylesheet",
-          href:
-            "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"
-        }
-      ]
+      title: `${this.title} - OliAncho`
     };
   },
   async asyncData({ params, app }) {
@@ -369,17 +360,16 @@ export default {
       thumbnail,
       summary,
       slug,
-      html: post.html,
+      renderFunc: post.vue.render,
+      staticRenderFuncs: post.vue.staticRenderFns,
       prev,
       next
     };
   },
   mixins: [blogScroll],
-  mounted() {
-    this.initHighlightJs;
-  },
   components: {
     StickyHeader,
+    Markdown,
     PrevPost,
     NextPost
   }

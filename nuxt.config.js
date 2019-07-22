@@ -61,7 +61,6 @@ export default {
           resolve({ x: 0, y: 0 });
         }, 300);
       });
-      return { x: 0, y: 0 };
       // if (
       //   to.matched.some(r => r.components.default.options.scrollToTop !== false)
       // ) {

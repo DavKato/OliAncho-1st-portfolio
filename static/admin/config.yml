@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: test
 publish_mode: editorial_workflow
-media_folder: 'static/images'
 media_library:
   name: cloudinary
   config:
@@ -10,10 +9,9 @@ media_library:
     api_key: 745898391849235
     default_transformations:
       - - fetch_format: auto
-          width: 1800
+          width: 1200
           quality: auto
           crop: limit
-public_folder: '/images'
 collections:
   - name: 'japanese__posts'
     label: 'ブログ/日本語'

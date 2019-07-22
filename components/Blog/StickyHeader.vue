@@ -119,7 +119,7 @@
         top: 50%;
         right: -3.2rem;
         transform: translateY(-50%);
-        background-image: url(~assets/img/2x/posts/star-black.png);
+        background-image: url(~assets/img/star-black.png);
         background-size: contain;
         cursor: default;
       }
