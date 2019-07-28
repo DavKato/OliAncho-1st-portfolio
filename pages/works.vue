@@ -26,7 +26,7 @@
       </figure>
     </div>
     <transition name="popup" @enter="popup" @leave="popdown" :css="false">
-      <Popup v-if="selected.toggled" :selected="selected" />
+      <Popup v-show="selected.toggled" :selected="selected" />
     </transition>
   </section>
 </template>
@@ -99,9 +99,7 @@ $trs: all 0.4s;
 
 .works {
   color: $black-d;
-
   position: relative;
-  z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,8 +108,7 @@ $trs: all 0.4s;
 .caption-box {
   width: 61%;
   height: 22%;
-  padding: 3.3% 0;
-  margin: 8% auto;
+  margin: 7%;
   position: relative;
   transition: $trs;
   display: flex;
@@ -128,7 +125,7 @@ $trs: all 0.4s;
   }
 
   .caption {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     line-height: 1.6;
     white-space: pre;
     text-align: center;
@@ -140,7 +137,7 @@ $trs: all 0.4s;
     width: 30rem;
     height: 30rem;
     background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
-    background-size: 100% 100%;
+    background-size: contain;
     position: absolute;
     top: -40%;
   }
@@ -155,6 +152,7 @@ $trs: all 0.4s;
 
 .worklist {
   width: 100%;
+  height: 45%;
   margin-top: 3%;
   display: grid;
   grid-auto-columns: 30rem;

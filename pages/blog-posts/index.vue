@@ -61,9 +61,11 @@ export default {
     PostCard
   },
   mounted() {
-    this.renderList();
-    this.scrollY = window.scrollY;
-    window.addEventListener("scroll", this.attachScroll);
+    this.$nextTick(() => {
+      this.renderList();
+      this.scrollY = window.scrollY;
+      window.addEventListener("scroll", this.attachScroll);
+    });
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.attachScroll);

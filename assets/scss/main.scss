@@ -34,8 +34,16 @@
 }
 
 html {
-  --oa: calc((1.25vh + 0.8vw) / 2);
-  font-size: var(--oa);
+  font-size: calc((1.25vh + 0.8vw) / 2);
+  @include respond('tab') {
+    font-size: calc((1.1vh + 0.77vw) / 2);
+  }
+  @include respond('mobile') {
+    font-size: calc((1vh + 0.77vw) / 2);
+  }
+  @include respond('iphoneX') {
+    font-size: calc((0.9vh + 0.77vw) / 2);
+  }
 }
 
 body {

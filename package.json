@@ -1,9 +1,10 @@
 {
   "name": "oliancho",
   "version": "1.0.0",
-  "description": "OliAncho Official Website",
+  "description": "OliAncho Official Web App",
   "author": "Davide Kato",
   "private": true,
+  "browserslist": "defaults",
   "scripts": {
     "test": "jest",
     "dev": "PORT=8080 nuxt",
@@ -12,12 +13,15 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/google-analytics": "^2.2.0",
     "@nuxtjs/pwa": "^3.0.0-beta.16",
+    "@nuxtjs/sitemap": "^1.2.0",
     "front-matter-markdown": "^0.4.3",
     "gsap": "^2.1.3",
     "nuxt": "^2.8.1",
     "nuxt-i18n": "^5.12.4",
-    "v-lazy-image": "^1.3.2"
+    "v-lazy-image": "^1.3.2",
+    "vue-scrollto": "^2.15.0"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^0.1.2",

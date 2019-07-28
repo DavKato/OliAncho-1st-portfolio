@@ -4,7 +4,7 @@
       <div class="top">
         <div class="img-box">
           <LazyImg
-            src="v1563231770/bagushaus/about/about-davi.png"
+            src="bagushaus/about/davi.png"
             placeholder
             width="150,300"
             sizes="150px"

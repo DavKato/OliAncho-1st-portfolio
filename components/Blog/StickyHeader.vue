@@ -1,6 +1,6 @@
 <template>
   <nav class="sticky">
-    <nuxt-link :to="localePath('posts')" tag="div">
+    <nuxt-link :to="localePath('blog-posts')" tag="div">
       <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
     </nuxt-link>
 
@@ -76,15 +76,18 @@
   .filter {
     align-self: center;
     margin-top: -1.3rem;
-    display: grid;
-    grid-auto-flow: column;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     list-style: none;
-    gap: 4.4rem;
 
     &__list {
       cursor: pointer;
       position: relative;
+
+      &:not(:last-child) {
+        margin-right: 4.4rem;
+      }
 
       &-text {
         font-family: $font-h;

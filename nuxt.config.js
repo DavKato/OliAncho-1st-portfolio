@@ -28,10 +28,19 @@ export default {
 
   css: ['@assets/scss/main.scss'],
 
+  manifest: {
+    name: 'OliAncho Web App',
+    short_name: 'OliAncho',
+    theme_color: '#6180aa',
+    icons: []
+  },
+
   plugins: [
+    '~/plugins/breakpoints.js',
     '~/plugins/dateFormatter',
     '~/plugins/CustomImg',
-    '~/plugins/VLazyImage'
+    '~/plugins/VLazyImage',
+    '~/plugins/vueScreenSize.js'
   ],
 
   router: {
@@ -39,8 +48,11 @@ export default {
       if (savedPosition) {
         return savedPosition;
       }
-      //to any of '/posts' pages
-      if (!from.name.startsWith('posts') && to.name.startsWith('posts')) {
+      //to any of '/blog-posts' pages
+      if (
+        !from.name.startsWith('blog-posts') &&
+        to.name.startsWith('blog-posts')
+      ) {
         // return { x: 0, y: 1800 };
         return new Promise(resolve => {
           setTimeout(() => {
@@ -72,7 +84,9 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    'vue-scrollto/nuxt',
     '@nuxtjs/pwa',
+    // '@nuxtjs/google-analytics',
     [
       'nuxt-i18n',
       {
@@ -97,13 +111,34 @@ export default {
         lazy: true,
         langDir: 'locale/'
       }
-    ]
+    ],
+    '@nuxtjs/sitemap'
   ],
+
+  // googleAnalytics: {
+  // },
+
+  sitemap: {
+    gzip: true
+  },
+
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://res.cloudinary.com/oliancho/image/upload/.*',
+        handler: 'cacheFirst'
+      },
+      {
+        urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
+        handler: 'cacheFirst'
+      }
+    ]
+  },
 
   axios: {},
 
   styleResources: {
-    scss: ['@assets/scss/_variables.scss']
+    scss: ['@assets/scss/_variables.scss', '@assets/scss/_mixins.scss']
   },
 
   build: {
@@ -115,6 +150,13 @@ export default {
           vue: true
         }
       });
+    },
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          autoprefixer: { grid: false }
+        }
+      }
     }
   },
 
@@ -124,16 +166,16 @@ export default {
       '/location',
       '/works',
       '/blog',
-      '/posts',
+      '/blog-posts',
       '/ja',
       '/ja/about',
       '/ja/location',
       '/ja/works',
       '/ja/blog',
-      '/ja/posts'
+      '/ja/blog-posts'
     ]
-      .concat(postsEn.map(post => `/posts/${post.slug}`))
-      .concat(postsJa.map(post => `ja/posts/${post.slug}`)),
+      .concat(postsEn.map(post => `/blog-posts/${post.slug}`))
+      .concat(postsJa.map(post => `ja/blog-posts/${post.slug}`)),
     subFolder: false
   },
 

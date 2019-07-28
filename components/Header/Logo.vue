@@ -1,28 +1,13 @@
 <template>
   <div class="logo-box">
-    <nuxt-link :to="localePath('index')">
-      <CldImg
-        src="bagushaus/top/top-logo.png"
-        alt="OliAncho Logo"
-        class="logo-box__image"
-        @click="valScroll"
-      />
+    <nuxt-link
+      :to="localePath('index')"
+      v-scroll-to="{ el: '#bagus-title', duration: 700, easeing: 'ease-out' }"
+    >
+      <CldImg src="bagushaus/top/top-logo.png" alt="OliAncho Logo" class="logo-box__image" />
     </nuxt-link>
   </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    valScroll() {
-      if (this.$route.path !== "/" && this.$route.path !== "/ja") {
-        this.$store.commit("toBagus");
-      } else return false;
-    }
-  }
-};
-</script>
-
 
 <style lang="scss" scoped>
 .logo-box {

@@ -10,9 +10,8 @@
         id="bagus-title"
         @mouseover="hovered(i)"
         @mouseout="unHovered(i)"
-        @mousedown="activated(i)"
+        @mousedown="activated(i), $store.commit('toBagus')"
         @mouseup="unHovered(i)"
-        @click="$store.commit('toBagus')"
       >{{ index.title }}</h2>
     </nuxt-link>
   </ul>

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`posts/${link}`" class="postcard">
+  <nuxt-link :to="`blog-posts/${link}`" class="postcard">
     <div class="date-box">
       <p>{{ date | date($i18n.locale) }}</p>
     </div>

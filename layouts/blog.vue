@@ -7,7 +7,7 @@
       id="blog-bg"
     />
     <nuxt />
-    <BlogFooter />
+    <BlogFooter id="blog-footer" />
   </div>
 </template>
 
@@ -27,10 +27,12 @@
 
 
 <script>
-import BlogFooter from "~/components/Blog/BlogFooter";
 export default {
+  head() {
+    return this.$nuxtI18nSeo();
+  },
   components: {
-    BlogFooter
+    BlogFooter: () => import("~/components/Blog/BlogFooter")
   }
 };
 </script>

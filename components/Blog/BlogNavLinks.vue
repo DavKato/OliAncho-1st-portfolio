@@ -4,7 +4,7 @@
       <LangSwitch
         width="35,70"
         sizes="35px"
-        v-if="$route.path === '/posts' || $route.path=== '/ja/posts'"
+        v-if="$route.path === '/blog-posts' || $route.path=== '/ja/blog-posts'"
       />
     </li>
     <li class="links-image">

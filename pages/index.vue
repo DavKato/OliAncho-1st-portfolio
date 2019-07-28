@@ -1,35 +1,27 @@
 <template>
-  <section class="bagus-box">
-    <BagusIndex v-for="(index, i) of bagusIndex" :key="index.title" :index="index" :i="i" />
+  <section class="bagus">
+    <BagusIndex v-show="$vssWidth > $data.$tab" />
+    <BagusIndexMb v-show="$vssWidth <= $data.$tab" />
   </section>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
 import bagusScroll from "~/mixins/bagusScroll.js";
-import BagusIndex from "~/components/Top/BagusIndex";
 export default {
   components: {
-    BagusIndex
+    BagusIndex: () => import("~/components/Top/BagusIndex"),
+    BagusIndexMb: () => import("~/components/Mobile/BagusIndexMb")
   },
-  mixins: [bagusScroll],
-  computed: {
-    ...mapState("bagusList", {
-      bagusIndex: state => state.list
-    })
-  },
-  methods: {
-    ...mapMutations("bagusList", ["hovered", "unHovered", "activated"])
-  }
+  mixins: [bagusScroll]
 };
 </script>
 
 <style lang="scss" scoped>
-.bagus-box {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.2%;
-  height: 100%;
-  // margin: 0 -1rem;
-}
+// .bagus {
+// @include respond("tab") {
+//   height: 70vh;
+//   width: 50%;
+//   margin: 0 auto;
+// }
+// }
 </style>

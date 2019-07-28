@@ -1,16 +1,42 @@
 <template functional>
-  <h1>OliAncho</h1>
+  <h1>
+    <span class="desc">WEB Creator</span>
+    <span class="title">OliAncho</span>
+  </h1>
 </template>
 
 <style lang="scss" scoped>
 h1 {
-  font-size: 4.5rem;
   position: absolute;
-  top: 0.5rem;
+  top: 2rem;
   left: 2.3rem;
-  line-height: 1.5;
-  z-index: 10;
+  z-index: 100;
   transition: all 0.2s;
+  line-height: 1.1;
+
+  @include respond("mobile") {
+    top: 1rem;
+    left: 1.2rem;
+    line-height: 1;
+  }
+
+  .desc {
+    display: block;
+    font-size: 2.3rem;
+
+    @include respond("mobile") {
+      font-size: 2.5rem;
+    }
+  }
+
+  .title {
+    display: block;
+    font-size: 4.5rem;
+
+    @include respond("tab") {
+      font-size: 4.2rem;
+    }
+  }
 
   &:hover {
     @include tsh-s;

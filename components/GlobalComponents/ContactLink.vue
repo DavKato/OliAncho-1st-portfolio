@@ -1,11 +1,12 @@
-<template>
-  <div @click="scrollToContact">
+<template functional>
+  <div v-scroll-to="{ el: '#contact', duration: 500, offset: -30 }">
     <CldImg
       src="v1563231775/bagushaus/global/email.png"
-      :width="width"
-      :sizes="sizes"
+      :width="props.width"
+      :sizes="props.sizes"
       alt="jump to contact form"
       style="cursor:pointer;"
+      title="To Portfolio"
     />
   </div>
 </template>
@@ -22,11 +23,6 @@ export default {
       type: String,
       required: false,
       default: ""
-    }
-  },
-  methods: {
-    scrollToContact() {
-      TweenLite.to(window, 0.5, { scrollTo: { y: "#contact", offsetY: 30 } });
     }
   }
 };

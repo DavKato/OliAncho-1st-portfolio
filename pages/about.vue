@@ -10,7 +10,7 @@
         <div class="select-davide" @mouseover="daviHover = true" @mouseleave="daviHover = false"></div>
         <div class="select-gobu" @mouseover="gobuHover = true" @mouseleave="gobuHover = false"></div>
         <LazyImg
-          src="v1563231771/bagushaus/about/about-davigobu.png"
+          src="bagushaus/about/about-davigobu.png"
           alt="DavideとGobuのイラスト"
           width="713,1426"
           sizes="700"
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+// import vueScreenSize from "~/mixins/vueScreenSize.js";
 import bagusScroll from "~/mixins/bagusScroll.js";
 import DavideProfile from "~/components/About/DavideProfile";
 import GobuProfile from "~/components/About/GobuProfile";

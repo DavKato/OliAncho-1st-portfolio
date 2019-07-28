@@ -8,7 +8,7 @@
           <figure class="author">
             <CldImg
               v-if="author === 'Gobu'"
-              src="bagushaus/about/about-gobu.png"
+              src="bagushaus/about/gobu.png"
               options="q_auto,f_auto,c_thumb,g_face"
               width="100,200"
               alt="Gobu's picture"
@@ -16,7 +16,7 @@
             />
             <CldImg
               v-if="author === 'Davide'"
-              src="bagushaus/about/about-davi.png"
+              src="bagushaus/about/davi.png"
               options="q_auto,f_auto,c_thumb,g_face"
               width="100,200"
               alt="Davide's picture"
@@ -47,7 +47,7 @@
 </template>
 
 <style lang="scss" scoped>
-$green-pre: #d9ebde80;
+@import "../../assets/scss/markdown-style";
 
 .post-page {
   display: flex;
@@ -168,113 +168,6 @@ $green-pre: #d9ebde80;
     font-size: 1.6rem;
     line-height: 1.7;
     word-spacing: 1px;
-
-    & * {
-      margin-bottom: 2.8rem;
-    }
-
-    & > *:first-child {
-      margin-top: 0 !important;
-    }
-
-    & h1,
-    h2,
-    h3 {
-      font-weight: 600;
-      font-family: $font-p;
-      line-height: 1.25;
-      margin-top: 4rem;
-    }
-
-    & h1 {
-      font-size: 2.9rem;
-    }
-    & h2 {
-      font-size: 2.3rem;
-    }
-    & h3 {
-      font-size: 1.8rem;
-    }
-
-    & ol,
-    & ul {
-      padding-left: 2rem;
-    }
-
-    & ol ol,
-    & ul ol {
-      list-style-type: lower-roman;
-    }
-
-    & li {
-      margin-bottom: 0;
-      & + li {
-        margin-top: 0.25rem;
-      }
-    }
-
-    & ol ol,
-    & ol ul,
-    & ul ol,
-    & ul ul,
-    & pre code {
-      margin-bottom: 0;
-    }
-
-    & pre,
-    & code {
-      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
-        monospace;
-      word-spacing: normal;
-    }
-    & pre {
-      padding: 2.2rem;
-      border-radius: 3px;
-      background-color: $green-pre;
-      border: 2px solid $gray-l;
-      line-height: 1.5;
-      margin: 2.8rem 0;
-      white-space: pre-wrap;
-    }
-    & code {
-      border-radius: 3px;
-      padding: 0.2em 0.4em;
-      background-color: $green-pre;
-    }
-    & pre > code {
-      border-radius: 0;
-      padding: 0;
-      background-color: transparent;
-    }
-
-    & a {
-      color: inherit;
-      box-shadow: inset 0 -1px 0 currentColor;
-      transition: color 0.8s ease-in, box-shadow 0.13s ease-in-out;
-
-      &:hover {
-        box-shadow: inset 0 0 0 currentcolor, 0 2px 0 currentcolor;
-      }
-      &:link,
-      &:visited {
-        text-decoration: none;
-      }
-    }
-
-    & blockquote {
-      border-left: 8px solid darken($green-pre, 5%);
-      padding: 2rem;
-
-      & > p:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    & img {
-      display: block;
-      width: 70%;
-      margin: 4rem 0;
-    }
   }
 }
 </style>

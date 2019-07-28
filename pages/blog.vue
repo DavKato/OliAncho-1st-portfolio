@@ -11,7 +11,7 @@
       <CldImg
         src="bagushaus/blog/blog-tiles.png"
         width="729,1458"
-        sizes="729px"
+        sizes="58vw"
         class="caption-box-tiles"
       />
       <div class="latest-title">
@@ -23,13 +23,13 @@
         >{{ latestPost.date | date($i18n.locale) }} 【{{ latestPost.title }}】</p>
         <p class="latest-post-text latest-post-low">{{ latestPost.summary }}</p>
       </div>
-      <nuxt-link :to="`posts/${latestPost.link}`" class="cta">
+      <nuxt-link :to="`blog-posts/${latestPost.link}`" class="cta">
         <p class="cta-btn">{{ $t('blog.readThis') }}</p>
       </nuxt-link>
     </div>
     <p class="middle">{{ $t('blog.intro') }}</p>
     <div class="categories">
-      <nuxt-link class="category" :to="localePath('posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')">
         <CldImg
           src="bagushaus/blog/blog-1tree.png"
           width="287,574"
@@ -41,7 +41,7 @@
         />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')">
         <CldImg
           src="bagushaus/blog/blog-2tree.png"
           width="301,602"
@@ -53,7 +53,7 @@
         />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')">
         <CldImg
           src="bagushaus/blog/blog-3tree.png"
           width="202,404"
@@ -65,7 +65,7 @@
         />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')">
         <CldImg
           src="bagushaus/blog/blog-4tree.png"
           width="167,334"
@@ -77,7 +77,7 @@
         />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
       </nuxt-link>
-      <nuxt-link class="go-to" :to="localePath('posts')">
+      <nuxt-link class="go-to" :to="localePath('blog-posts')">
         <CldImg
           src="bagushaus/blog/blog-moon.png"
           width="221,442"
@@ -163,18 +163,19 @@ export default {
     ...mapMutations("posts", ["selectTag"])
   },
   mounted() {
-    const stars = document.getElementById("blog-stars");
-
-    TweenMax.from(stars, 5, {
-      opacity: 0.7,
-      scale: 0.95,
-      repeat: -1,
-      ease: Power1.easeOut,
-      yoyo: true
+    this.$nextTick(() => {
+      const stars = document.getElementById("blog-stars");
+      TweenMax.from(stars, 5, {
+        opacity: 0.6,
+        scale: 0.95,
+        repeat: -1,
+        ease: Power1.easeInOut,
+        yoyo: true
+      });
     });
   },
   beforeRouteLeave(to, from, next) {
-    if (to.name.startsWith("posts")) {
+    if (to.name.startsWith("blog-posts")) {
       // TweenLite.set("#dummy-sky", { display: "block" });
       window.scrollTo({ top: 0, behavior: "smooth" });
       TweenLite.to("#defaultLayout", 0.4, { opacity: 0, onComplete: next });

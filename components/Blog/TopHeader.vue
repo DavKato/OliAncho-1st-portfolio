@@ -43,7 +43,7 @@
     </svg>
 
     <div class="upper-nav">
-      <nuxt-link :to="localePath('posts')" tag="div">
+      <nuxt-link :to="localePath('blog-posts')" tag="div">
         <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
       </nuxt-link>
       <BlogNavLinks />

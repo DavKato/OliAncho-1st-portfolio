@@ -10,11 +10,7 @@
           <p class="skills">{{ $t('about.gobuSkill') }}</p>
         </div>
         <div class="img-box">
-          <LazyImg
-            src="v1563231770/bagushaus/about/about-gobu.png"
-            placeholder
-            alt="Gobu's picture"
-          />
+          <LazyImg src="bagushaus/about/gobu.png" placeholder alt="Gobu's picture" />
         </div>
       </div>
       <p class="detail">{{ $t('about.gobuDetail') }}</p>

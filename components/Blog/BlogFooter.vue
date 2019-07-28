@@ -1,37 +1,16 @@
 <template>
   <section class="footer">
     <div class="trees">
-      <LazyImg
-        src="v1563231773/bagushaus/posts/1tree.png"
-        width="242,484"
-        sizes="25vw"
-        placeholder
-      />
-      <LazyImg
-        src="v1563231773/bagushaus/posts/2tree.png"
-        width="294,587"
-        sizes="25vw"
-        placeholder
-      />
-      <LazyImg
-        src="v1563231773/bagushaus/posts/3tree.png"
-        width="243,486"
-        sizes="25vw"
-        placeholder
-      />
-      <LazyImg
-        src="v1563231773/bagushaus/posts/4tree.png"
-        width="282,563"
-        sizes="25vw"
-        placeholder
-      />
+      <CldImg src="v1563231773/bagushaus/posts/1tree.png" width="242,484" sizes="25vw" />
+      <CldImg src="v1563231773/bagushaus/posts/2tree.png" width="294,587" sizes="25vw" />
+      <CldImg src="v1563231773/bagushaus/posts/3tree.png" width="243,486" sizes="25vw" />
+      <CldImg src="v1563231773/bagushaus/posts/4tree.png" width="282,563" sizes="25vw" />
     </div>
     <div class="footer__tail">
-      <LazyImg
+      <CldImg
         src="v1563231774/bagushaus/posts/footer-telescope.png"
         width="116,232"
         sizes="14.6vh"
-        placeholder
         class="scope"
       />
       <ul class="footer__tail-links">
@@ -44,7 +23,7 @@
         <li>
           <HomeLink width="33,66" sizes="33px" />
         </li>
-        <li @click.prevent="toTop">
+        <li v-scroll-to="{ el: '#blog-layout', duration: 500, easing: 'ease-in-out' }">
           <CldImg
             class="to-top"
             src="v1563231774/bagushaus/posts/top.png"
@@ -69,6 +48,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
+    position: relative;
+    z-index: 1;
 
     & > img {
       max-height: 53.75vh;
@@ -143,11 +124,6 @@ export default {
     TwitterLink,
     HomeLink,
     InstaLink
-  },
-  methods: {
-    toTop() {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    }
   }
 };
 </script>

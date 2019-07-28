@@ -41,15 +41,5 @@ export default {
       @include iconActive;
     }
   }
-
-  .contact {
-    width: 5.5rem;
-    height: 4.1rem;
-  }
-
-  .flag {
-    width: 5.5rem;
-    height: 4.1rem;
-  }
 }
 </style>
