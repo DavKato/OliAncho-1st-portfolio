@@ -22,24 +22,21 @@
         <h3 class="name">Gobu</h3>
       </div>
       <transition name="davi">
-        <DavideProfile v-if="daviHover" />
+        <DavideProfile v-if="$vssWidth > $data.$tab && daviHover" />
       </transition>
       <transition name="gobu">
-        <GobuProfile v-if="gobuHover" />
+        <GobuProfile v-if="$vssWidth > $data.$tab && gobuHover" />
       </transition>
     </div>
   </section>
 </template>
 
 <script>
-// import vueScreenSize from "~/mixins/vueScreenSize.js";
 import bagusScroll from "~/mixins/bagusScroll.js";
-import DavideProfile from "~/components/About/DavideProfile";
-import GobuProfile from "~/components/About/GobuProfile";
 export default {
   components: {
-    DavideProfile,
-    GobuProfile
+    DavideProfile: () => import("~/components/About/DavideProfile"),
+    GobuProfile: () => import("~/components/About/GobuProfile")
   },
   mixins: [bagusScroll],
   data() {
