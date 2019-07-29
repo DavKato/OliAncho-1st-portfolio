@@ -39,9 +39,10 @@ collections:
       - {
           label: '言語',
           name: 'language',
-          widget: 'hidden',
+          widget: 'select',
           required: true,
           default: 'ja',
+          options: ['ja', 'en'],
         }
       - { label: '作成日', name: 'date', widget: 'date', required: true }
       - { label: '更新日', name: 'update', widget: 'date', required: false }
@@ -86,9 +87,10 @@ collections:
       - {
           label: 'Language',
           name: 'language',
-          widget: 'hidden',
+          widget: 'select',
           required: true,
-          default: 'ja',
+          default: 'en',
+          options: ['ja', 'en'],
         }
       - {
           label: 'Published date',

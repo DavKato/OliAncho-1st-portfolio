@@ -6,7 +6,7 @@
 
     <ul class="filter">
       <nuxt-link
-        :to="localePath('posts')"
+        :to="localePath('blog-posts')"
         class="filter__list"
         :class="{ active: selectedTag === 'life'}"
         tag="li"
@@ -17,7 +17,7 @@
         >{{ $t('posts.life') }}</h2>
       </nuxt-link>
       <nuxt-link
-        :to="localePath('posts')"
+        :to="localePath('blog-posts')"
         class="filter__list"
         :class="{ active: selectedTag === 'web'}"
         tag="li"
@@ -28,7 +28,7 @@
         >{{ $t('posts.web') }}</h2>
       </nuxt-link>
       <nuxt-link
-        :to="localePath('posts')"
+        :to="localePath('blog-posts')"
         class="filter__list"
         :class="{ active: selectedTag === 'japanese'}"
         tag="li"
@@ -39,7 +39,7 @@
         >{{ $t('posts.japanese') }}</h2>
       </nuxt-link>
       <nuxt-link
-        :to="localePath('posts')"
+        :to="localePath('blog-posts')"
         :class="{ active: selectedTag === 'glutenFree'}"
         tag="li"
         class="filter__list"
