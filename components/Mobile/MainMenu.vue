@@ -4,6 +4,12 @@
       <nav class="menu" v-show="showMenu">
         <ul class="menu-list">
           <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('index')">
+              <span class="menu-list-text">Top</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="showMenu = !showMenu">
             <nuxt-link class="menu-list-item" :to="localePath('about')">
               <span class="menu-list-text">About</span>
               <MenuArrow class="menu-list-arrow" />
@@ -27,15 +33,9 @@
               <MenuArrow class="menu-list-arrow" />
             </nuxt-link>
           </li>
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('index')">
-              <span class="menu-list-text">Contact</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
         </ul>
         <ul class="external-list">
-          <li class="external-list-box">
+          <li class="external-list-box" @click="showMenu = !showMenu">
             <a href="#" class="external-list-box">
               <CldImg
                 src="bagushaus/Mobile/twitter-blue.png"
@@ -46,7 +46,7 @@
               />
             </a>
           </li>
-          <li class="external-list-item">
+          <li class="external-list-item" @click="showMenu = !showMenu">
             <a href="#" class="external-list-box">
               <CldImg
                 src="bagushaus/Mobile/instagram-blue.png"
@@ -57,18 +57,18 @@
               />
             </a>
           </li>
-          <li class="external-list-item">
-            <a href="#" class="external-list-box">
+          <li class="external-list-item" @click="showMenu = !showMenu">
+            <nuxt-link :to="localePath('contact')" class="external-list-box">
               <CldImg
                 src="bagushaus/Mobile/email-blue.png"
                 width="35,70,107"
                 sizes="(maxwidth: 440px) 35px, 3.5rem"
                 class="email"
-                alt="Jump to our twitter"
+                alt="Contact us"
               />
-            </a>
+            </nuxt-link>
           </li>
-          <li class="external-list-item lang">
+          <li class="external-list-item lang" @click="showMenu = !showMenu">
             <LangSwitch width="35,70,110" sizes="(maxwidth: 440px) 35px, 3.1rem" />
           </li>
         </ul>

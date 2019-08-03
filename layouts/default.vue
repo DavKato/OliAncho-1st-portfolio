@@ -1,15 +1,23 @@
 <template>
   <div id="defaultLayout">
     <NavL />
-    <NavR v-show="$vssWidth > $data.$tab" />
-    <MainMenu v-show="$vssWidth <= $data.$tab" />
+    <no-ssr>
+      <NavR v-if="$vssWidth > $data.$tab" />
+      <MainMenu v-else-if="$vssWidth <= $data.$tab" />
+    </no-ssr>
     <TheHeader id="bagus-top" />
     <main>
-      <BagusTitle v-show="$vssWidth > $data.$tab" />
-      <BagusWalls v-show="$vssWidth > $data.$tab" />
+      <no-ssr>
+        <BagusTitle v-if="$vssWidth > $data.$tab" />
+      </no-ssr>
+      <no-ssr>
+        <BagusWalls v-if="$vssWidth > $data.$tab" />
+      </no-ssr>
       <nuxt class="bagus-box" />
     </main>
-    <Contact id="contact" v-show="$vssWidth > $data.$tab" />
+    <no-ssr>
+      <Contact id="contact" v-if="$vssWidth > $data.$tab" />
+    </no-ssr>
     <TheFooter />
   </div>
 </template>
@@ -47,9 +55,12 @@ main {
   @include respond("tab") {
     height: auto;
     max-height: none;
-    margin: -0.4rem 0 3rem;
+    margin: -0.5rem 0 3rem;
     border: 0.8rem solid $gray-d;
     border-top: none;
+  }
+  @include respond("mobile") {
+    margin-top: -0.7rem;
   }
 }
 

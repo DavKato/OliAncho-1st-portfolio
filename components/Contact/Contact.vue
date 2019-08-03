@@ -359,10 +359,10 @@
   opacity: 0;
 }
 .pop-enter-active {
-  transition: opacity 1.4s ease-in;
+  transition: opacity 0.8s ease-in;
 }
 .pop-leave-active {
-  transition: opacity 1.8s ease-out;
+  transition: opacity 1.2s ease-out;
 }
 </style>
 
@@ -391,7 +391,6 @@ export default {
         message: true
       },
       dummyInput: null,
-      focused: false,
       thanks: false
     };
   },
@@ -399,7 +398,7 @@ export default {
     thanks() {
       setTimeout(() => {
         this.thanks = false;
-      }, 2400);
+      }, 2100);
     }
   },
   methods: {

@@ -3,13 +3,20 @@
     <div class="contents">
       <div class="top">
         <div class="img-box">
-          <LazyImg
-            src="bagushaus/about/davi.png"
-            placeholder
-            width="150,300"
-            sizes="150px"
-            alt="Davide's picture"
-          />
+          <picture class="img-box-img">
+            <source
+              :media="`(max-width: ${$data.$tab}px)`"
+              :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}331/bagushaus/Mobile/davi.png 331w, https://res.cloudinary.com/oliancho/image/upload/${options}662/bagushaus/Mobile/davi.png 662w, https://res.cloudinary.com/oliancho/image/upload/${options}993/bagushaus/Mobile/davi.png 993w`"
+              sizes="90vw"
+            />
+            <LazyImg
+              src="bagushaus/about/davi.png"
+              placeholder
+              width="150,300"
+              sizes="150px"
+              alt="Davide's picture"
+            />
+          </picture>
         </div>
         <div class="caption">
           <h3 class="title">
@@ -24,23 +31,31 @@
   </section>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      options: "f_auto,q_auto,w_"
+    };
+  }
+};
+</script>
+
+
 <style lang="scss" scoped>
+@import "../../assets/scss/about-davigobu.scss";
+
 $daviGreen: #b9ddc8;
+
 .profile {
-  position: absolute;
-  top: 6%;
-  right: 1%;
-  width: 67%;
-  height: 78%;
-  z-index: 200;
-  pointer-events: none;
-  display: flex;
+  right: 7%;
   justify-content: flex-end;
 
+  @include respond("tab") {
+    justify-content: flex-start;
+  }
+
   &::before {
-    content: "";
-    position: absolute;
-    top: 4%;
     left: 0;
     border-bottom: 2.5rem solid $daviGreen;
     border-right: 7rem solid $daviGreen;
@@ -50,74 +65,32 @@ $daviGreen: #b9ddc8;
 }
 .contents {
   background-color: $daviGreen;
-  width: 81%;
-  height: 100%;
-  border-radius: 1.8rem;
-  overflow: hidden;
-  position: relative;
+
+  @include respond("tab") {
+    background-color: transparent;
+  }
 }
 .top {
-  height: 35%;
   margin: 10% 1% 8% 2%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @include respond("tab") {
+    margin: 0;
+  }
 
   & .img-box {
-    height: 100%;
-    position: relative;
-    z-index: 300;
-
-    & > img {
-      height: 100%;
-    }
-
     &::after {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $white-p;
       transform: rotate(-27deg);
-      z-index: -1;
+      @include respond("tab") {
+        content: none;
+      }
     }
   }
 }
 .caption {
-  margin-top: 8%;
   padding-left: 2%;
-  position: relative;
-  & .title {
-    font-size: 1.8rem;
-    letter-spacing: 0.05px;
-    font-weight: normal;
+  @include respond("tab") {
+    background-color: #2a6a45;
   }
-  & .name {
-    margin-left: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  & .skills {
-    padding-top: 2.1rem;
-    font-size: 1.4rem;
-    letter-spacing: 0px;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    top: 60.5%;
-    right: -4%;
-    width: 120%;
-    height: 0;
-    border-bottom: 3px solid $white-p;
-  }
-}
-.detail {
-  font-size: 1.5rem;
-  margin: 0 8% 10% 8%;
-  line-height: 1.6;
 }
 </style>
 

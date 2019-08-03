@@ -180,7 +180,7 @@ export default {
     transform-origin: bottom;
 
     &:first-of-type {
-      margin-top: 10.5%;
+      margin-top: 9%;
     }
   }
 }

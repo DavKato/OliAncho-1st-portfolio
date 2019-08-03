@@ -1,14 +1,29 @@
 <template>
   <section class="about">
+    <MobileTitle v-show="$vssWidth <= $data.$tab" />
     <p class="caption">{{ $t('about.caption') }}</p>
     <div class="us">
-      <div class="text-box">
+      <div class="text-box text-box-davide">
         <p class="position">{{ $t('about.daviPosition') }}</p>
         <h3 class="name">Davide</h3>
       </div>
       <div class="image-box">
-        <div class="select-davide" @mouseover="daviHover = true" @mouseleave="daviHover = false"></div>
-        <div class="select-gobu" @mouseover="gobuHover = true" @mouseleave="gobuHover = false"></div>
+        <no-ssr>
+          <div
+            class="select-davide"
+            @mouseover="daviHover = true"
+            @mouseleave="daviHover = false"
+            v-if="$vssWidth > $data.$tab"
+          ></div>
+        </no-ssr>
+        <no-ssr>
+          <div
+            class="select-gobu"
+            @mouseover="gobuHover = true"
+            @mouseleave="gobuHover = false"
+            v-if="$vssWidth > $data.$tab"
+          ></div>
+        </no-ssr>
         <LazyImg
           src="bagushaus/about/about-davigobu.png"
           alt="DavideとGobuのイラスト"
@@ -17,17 +32,18 @@
           placeholder
         />
       </div>
-      <div class="text-box">
+      <div class="text-box text-box-gobu">
         <p class="position">{{ $t('about.gobuPosition') }}</p>
         <h3 class="name">Gobu</h3>
       </div>
-      <transition name="davi">
-        <DavideProfile v-if="$vssWidth > $data.$tab && daviHover" />
-      </transition>
-      <transition name="gobu">
-        <GobuProfile v-if="$vssWidth > $data.$tab && gobuHover" />
-      </transition>
     </div>
+
+    <transition name="davi">
+      <DavideProfile v-show="$vssWidth <= $data.$tab || daviHover" />
+    </transition>
+    <transition name="gobu">
+      <GobuProfile v-show="$vssWidth <= $data.$tab || gobuHover" />
+    </transition>
   </section>
 </template>
 
@@ -36,7 +52,8 @@ import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   components: {
     DavideProfile: () => import("~/components/About/DavideProfile"),
-    GobuProfile: () => import("~/components/About/GobuProfile")
+    GobuProfile: () => import("~/components/About/GobuProfile"),
+    MobileTitle: () => import("~/components/Mobile/BagusTitle.vue")
   },
   mixins: [bagusScroll],
   data() {
@@ -60,6 +77,12 @@ export default {
   flex-direction: column;
   justify-content: center;
 
+  @include respond("tab") {
+    background-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/Mobile/tile-about.png");
+    padding: 14% 6.3% 17%;
+    box-shadow: inset 0 -0.3rem 0 $gray-d;
+  }
+
   &__bg {
     position: absolute;
     top: 0;
@@ -74,11 +97,19 @@ export default {
   font-size: 1.9rem;
   line-height: 1.6;
   display: block;
-  width: 65%;
+  max-width: 85%;
   padding-top: 5rem;
   margin: 0 auto;
   text-align: center;
-  white-space: pre;
+  white-space: pre-wrap;
+
+  @include respond("tab") {
+    font-size: 2.8rem;
+    width: 80%;
+    line-break: strict;
+    padding-top: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 .us {
@@ -89,42 +120,79 @@ export default {
   margin-top: -2rem;
   position: relative;
 
+  @include respond("tab") {
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    width: 87%;
+    align-self: center;
+  }
+
   & .image-box {
     object-fit: cover;
-    height: 100%;
     width: 70%;
     pointer-events: none;
+
+    @include respond("tab") {
+      width: 100%;
+    }
 
     & img {
       width: 100%;
     }
-    & .select-davide {
-      position: absolute;
-      top: 10%;
-      left: 15%;
-      width: 23%;
-      height: 75%;
-      pointer-events: all;
-    }
+    & .select-davide,
     & .select-gobu {
       position: absolute;
       top: 10%;
-      right: 15%;
-      width: 22%;
       height: 75%;
       pointer-events: all;
+
+      @include respond("tab") {
+        display: none;
+      }
+    }
+    & .select-davide {
+      left: 15%;
+      width: 23%;
+    }
+    & .select-gobu {
+      right: 15%;
+      width: 22%;
     }
   }
   & .text-box {
     text-align: center;
     width: 15%;
     padding-bottom: 8%;
+
+    @include respond("tab") {
+      width: 30%;
+      margin-top: -5.5rem;
+      line-height: 1.3;
+      padding: 0;
+    }
+
+    &-davide {
+      @include respond("tab") {
+        order: 1;
+      }
+    }
+    &-gobu {
+      @include respond("tab") {
+        order: 2;
+      }
+    }
   }
   & .name {
     font-size: 3rem;
+    @include respond("tab") {
+      font-size: 3.2rem;
+    }
   }
   & .position {
     font-size: 1.8rem;
+    @include respond("tab") {
+      font-size: 2.2rem;
+    }
   }
 }
 

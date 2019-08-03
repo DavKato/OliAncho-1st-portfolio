@@ -11,7 +11,7 @@
 .white-out {
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.75);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -27,7 +27,7 @@
   padding: 2rem 3rem;
   text-align: center;
   background-color: $white-p;
-  border-radius: 10rem;
+  border-radius: 1rem;
 
   & h1 {
     margin-top: 1rem;

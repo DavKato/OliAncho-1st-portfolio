@@ -1,6 +1,10 @@
 export default {
   beforeDestroy() {
-    if (this.$store.state.toBagus) {
+    if (
+      this.$vssWidth > this.$data.$tab &&
+      this.$vssWidth > this.$vssHeight &&
+      this.$store.state.toBagus
+    ) {
       this.$scrollTo('#bagus-title', 500, { easing: 'ease-out' });
       this.$store.commit('toBagus');
     }

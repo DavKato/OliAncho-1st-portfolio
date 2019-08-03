@@ -92,7 +92,7 @@ export default {
       "Go South in winter, Go North in summer.\n'Get one, Release one' is our motto.\n We are degital nomads mainly based in Europe and Asia.",
     currentParagraph: 'Currently\nIn：',
     currentLocation: 'Germany',
-    numberVisited: 'countries'
+    numberVisited: 'cntry'
   },
 
   //POSTS

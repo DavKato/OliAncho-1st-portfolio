@@ -1,13 +1,22 @@
 <template>
   <div class="logo-box">
-    <nuxt-link
-      :to="localePath('index')"
-      v-scroll-to="{ el: '#bagus-title', duration: 700, easeing: 'ease-out' }"
-    >
+    <nuxt-link :to="localePath('index')" @click.native="scrollToTitle">
       <CldImg src="bagushaus/top/top-logo.png" alt="OliAncho Logo" class="logo-box__image" />
     </nuxt-link>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    scrollToTitle() {
+      if (this.$vssWidth > this.$data.$tab && this.$vssWidth > this.$vssHeight)
+        this.$scrollTo("#bagus-title", 700, { easing: "ease-out" });
+    }
+  }
+};
+</script>
+
 
 <style lang="scss" scoped>
 .logo-box {

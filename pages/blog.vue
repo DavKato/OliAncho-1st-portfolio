@@ -1,26 +1,40 @@
 <template>
   <section class="blog">
+    <MobileTitle v-show="$vssWidth <= $data.$tab" />
+
     <CldImg
       src="bagushaus/blog/blog-starbacks"
       width="1187,2374"
-      sizes="1180px"
+      :sizes="`(max-width: ${$data.$tab}) 95vw, 1180px`"
       alt="background image with stars"
       id="blog-stars"
     />
     <div class="caption-box">
-      <CldImg
-        src="bagushaus/blog/blog-tiles.png"
-        width="729,1458"
-        sizes="58vw"
-        class="caption-box-tiles"
-      />
-      <div class="latest-title">
+      <picture class="caption-box-tiles">
+        <source
+          :media="`(max-width: ${$data.$tab}px)`"
+          :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}381/v1564665891/bagushaus/Mobile/tile-blog2.png 381w, https://res.cloudinary.com/oliancho/image/upload/${options}762/v1564665891/bagushaus/Mobile/tile-blog2.png 762w, https://res.cloudinary.com/oliancho/image/upload/${options}1141/v1564665891/bagushaus/Mobile/tile-blog2.png 1141w`"
+          sizes="94vw"
+        />
+        <CldImg src="bagushaus/blog/blog-tiles.png" width="729,1458" sizes="58vw" />
+      </picture>
+      <no-ssr>
+        <LazyImg
+          :src="latestPost.thumbnail"
+          width="103, 206, 309"
+          options="q_auto,f_auto,ar_2:3,c_fill,g_auto"
+          class="latest-thumbnail"
+          v-if="$vssWidth <= $data.$tab"
+        />
+      </no-ssr>
+      <div class="latest-title" v-show="$vssWidth > $data.$tab">
         <h3>{{ $t('blog.caption') }}</h3>
       </div>
       <div class="latest-post">
-        <p
-          class="latest-post-text latest-post-top"
-        >{{ latestPost.date | date($i18n.locale) }} 【{{ latestPost.title }}】</p>
+        <h3 class="latest-post-text latest-post-top">
+          <span class="date">{{ latestPost.date | date($i18n.locale) }}</span>
+          <span class="title">【{{ latestPost.title }}】</span>
+        </h3>
         <p class="latest-post-text latest-post-low">{{ latestPost.summary }}</p>
       </div>
       <nuxt-link :to="`blog-posts/${latestPost.link}`" class="cta">
@@ -85,7 +99,7 @@
           alt="go to blog page"
           @click.native="selectTag({tag: 'all', reset: false})"
         />
-        <p class="go-to__text">{{ $t('blog.goto') }}</p>
+        <p class="go-to__text">Check It Out!</p>
       </nuxt-link>
     </div>
   </section>
@@ -104,11 +118,14 @@ export default {
       const latestMD = await import(
         `~/contents/${app.i18n.locale}/posts/${slug}.md`
       );
+      const rawThum = latestMD.attributes.thumbnail.split("/");
+      const newThum = rawThum.slice(-3).join("/");
       return {
         link: slug,
         date: latestMD.attributes.date,
         title: latestMD.attributes.title,
-        summary: latestMD.attributes.summary
+        summary: latestMD.attributes.summary,
+        thumbnail: newThum
       };
     }
 
@@ -116,7 +133,15 @@ export default {
 
     return { latestPost };
   },
+  data() {
+    return {
+      options: "f_auto,q_auto,w_"
+    };
+  },
   mixins: [bagusScroll],
+  components: {
+    MobileTitle: () => import("~/components/Mobile/BagusTitle.vue")
+  },
   methods: {
     treeShake(event) {
       const { life } = this.$refs;
@@ -208,7 +233,15 @@ export default {
   margin-top: 7%;
   background-color: $white-p;
   position: relative;
-  z-index: 2;
+
+  @include respond("tab") {
+    margin-top: 0;
+    padding: 4.5rem;
+    width: 100%;
+    height: 39rem;
+    background-color: transparent;
+    display: flex;
+  }
 
   &-tiles {
     position: absolute;
@@ -216,18 +249,70 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+
+    @include respond("tab") {
+      z-index: 2;
+    }
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .latest {
+    &-thumbnail {
+      height: 100%;
+      object-fit: contain;
+    }
+
     &-post {
       width: 100%;
       height: 100%;
       line-height: 1.6;
       text-align: center;
 
+      @include respond("tab") {
+        display: flex;
+        flex-direction: column;
+        padding-top: 4rem;
+        text-align: left;
+      }
+
       &-text {
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @include respond("tab") {
+          overflow: visible;
+          .date {
+            display: inline-block;
+            position: relative;
+            color: $white-p;
+            background-color: $black-d;
+            margin-left: -3rem;
+            z-index: 2;
+            padding: 0.2rem 1rem;
+            font-family: $font-h;
+            font-weight: 100;
+            font-size: 2rem;
+
+            &::before {
+              content: "NEW!";
+              color: inherit;
+              background-color: inherit;
+              font-style: italic;
+              margin-right: 1rem;
+            }
+          }
+          .title {
+            display: block;
+            margin-top: 1.5rem;
+            margin-left: 1rem;
+            letter-spacing: -0.5px;
+            text-align: center;
+          }
+        }
       }
 
       &-top {
@@ -237,11 +322,16 @@ export default {
       }
       &-low {
         height: 60%;
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         line-height: 1.4;
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @include respond("tab") {
+          padding: 0 2rem;
+          font-size: 1.9rem;
+        }
       }
     }
 
@@ -273,6 +363,11 @@ export default {
     align-items: center;
     transition: all 0.2s;
 
+    @include respond("tab") {
+      height: 11%;
+      z-index: 3;
+    }
+
     &:hover {
       transform: translateY(-1px);
       background-color: rgba(12, 13, 15, 0.1);
@@ -283,6 +378,12 @@ export default {
       color: $white-p;
       margin-left: 12.5%;
       letter-spacing: -0.3px;
+      @include respond("tab") {
+        font-size: 2.2rem;
+        margin-left: 9%;
+        border-bottom: 1px solid #fff;
+        line-height: 1.3;
+      }
     }
   }
 }
@@ -298,6 +399,12 @@ export default {
   position: relative;
   font-feature-settings: "palt";
   line-height: 1.3;
+
+  @include respond("tab") {
+    height: 46rem;
+    gap: 0;
+    grid-template-columns: 28% 29% 21% 18%;
+  }
 
   .category {
     display: block;
@@ -317,46 +424,137 @@ export default {
       text-align: center;
       pointer-events: none;
       color: #000;
+
+      @include respond("tab") {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-shadow: -1px -1px 1px $yellow-bg, 1px -1px 1px $yellow-bg,
+          -1px 1px 1px $yellow-bg, 1px 1px 1px $yellow-bg;
+      }
+      @include respond("mobile") {
+        font-size: 1.8rem;
+      }
     }
 
     .life {
       &-ja {
         top: 33.5%;
         left: 34.5%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 33%;
+          left: 32%;
+        }
+        @include respond("tab") {
+          top: 33%;
+          left: 30%;
+        }
+        @include respond("mobile") {
+          top: 32.5%;
+          left: 29%;
+        }
       }
       &-en {
         top: 34.5%;
         left: 39%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 34%;
+          left: 37%;
+        }
+        @include respond("tab") {
+          left: 36%;
+        }
       }
     }
     .work {
       &-ja {
         top: 37%;
         left: 41%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 36%;
+          left: 40%;
+        }
+        @include respond("tab") {
+          top: 36%;
+          left: 38.5%;
+        }
+        @include respond("mobile") {
+          top: 36%;
+          left: 37%;
+        }
       }
       &-en {
         top: 37%;
         left: 44%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 36%;
+          left: 43%;
+        }
+        @include respond("tab") {
+          left: 42.5%;
+        }
+        @include respond("mobile") {
+          top: 36.5%;
+          left: 42%;
+        }
       }
     }
     .teach {
       &-ja {
         top: 36%;
         left: 35.5%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 34%;
+          left: 32%;
+        }
+        @include respond("tab") {
+          top: 35%;
+          left: 32%;
+        }
+        @include respond("mobile") {
+          top: 35%;
+          left: 31%;
+        }
       }
       &-en {
         top: 36%;
         left: 29%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 34%;
+          left: 25%;
+        }
+        @include respond("tab") {
+          top: 35%;
+          left: 24%;
+        }
       }
     }
     .recipe {
       &-ja {
         top: 35%;
         left: 28%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 34%;
+          left: 25%;
+        }
+        @include respond("tab") {
+          top: 35.5%;
+          left: 26%;
+        }
+        @include respond("mobile") {
+          top: 34%;
+          left: 25%;
+        }
       }
       &-en {
         top: 35%;
         left: 32%;
+        @media only screen and (max-aspect-ratio: 1/1) {
+          top: 34%;
+          left: 29%;
+        }
+        @include respond("tab") {
+          left: 30%;
+        }
       }
     }
   }
@@ -368,6 +566,17 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.9rem;
+
+  @include respond("tab") {
+    top: 49%;
+    text-align: center;
+    width: 30%;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  @include respond("mobile") {
+    top: 51%;
+  }
 }
 
 .go-to {
@@ -375,6 +584,12 @@ export default {
   top: -1%;
   right: 3%;
   height: 42%;
+
+  @include respond("tab") {
+    top: 2%;
+    height: 38%;
+    right: 5%;
+  }
 
   & > img {
     height: 100%;
@@ -394,7 +609,7 @@ export default {
     position: absolute;
     top: 30%;
     right: 17%;
-    white-space: pre;
+    width: 50%;
     font-size: 1.8rem;
     font-weight: 600;
     line-height: 1.4;

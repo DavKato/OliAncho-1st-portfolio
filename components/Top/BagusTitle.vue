@@ -51,6 +51,10 @@
 import { mapState, mapMutations } from "vuex";
 export default {
   computed: {
+    currentPage() {
+      const cur = this.$route.name.split("___")[0];
+      return cur === "index" ? "menu" : cur;
+    },
     ...mapState("bagusList", {
       bagusList: state => state.list
     })

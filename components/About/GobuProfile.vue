@@ -10,7 +10,20 @@
           <p class="skills">{{ $t('about.gobuSkill') }}</p>
         </div>
         <div class="img-box">
-          <LazyImg src="bagushaus/about/gobu.png" placeholder alt="Gobu's picture" />
+          <picture class="img-box-img">
+            <source
+              :media="`(max-width: ${$data.$tab}px)`"
+              :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}331/bagushaus/Mobile/gobu.png 331w, https://res.cloudinary.com/oliancho/image/upload/${options}662/bagushaus/Mobile/gobu.png 662w, https://res.cloudinary.com/oliancho/image/upload/${options}993/bagushaus/Mobile/gobu.png 993w`"
+              sizes="90vw"
+            />
+            <LazyImg
+              src="bagushaus/about/gobu.png"
+              placeholder
+              width="150,300"
+              sizes="150px"
+              alt="Gobu's picture"
+            />
+          </picture>
         </div>
       </div>
       <p class="detail">{{ $t('about.gobuDetail') }}</p>
@@ -18,20 +31,25 @@
   </section>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      options: "f_auto,q_auto,w_"
+    };
+  }
+};
+</script>
+
 <style lang="scss" scoped>
+@import "../../assets/scss/about-davigobu.scss";
+
 $gobuRed: #ddc1b9;
+
 .profile {
-  position: absolute;
-  top: 6%;
-  left: 1%;
-  width: 67%;
-  height: 78%;
-  z-index: 200;
-  pointer-events: none;
+  left: 7%;
+
   &::before {
-    content: "";
-    position: absolute;
-    top: 4%;
     right: 0;
     border-bottom: 2.5rem solid $gobuRed;
     border-left: 7rem solid $gobuRed;
@@ -41,73 +59,33 @@ $gobuRed: #ddc1b9;
 }
 .contents {
   background-color: $gobuRed;
-  width: 81%;
-  height: 100%;
-  border-radius: 1.8rem;
-  overflow: hidden;
-  position: relative;
+
+  @include respond("tab") {
+    background-color: transparent;
+  }
 }
 .top {
-  height: 35%;
   margin: 10% 2% 8% 1%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @include respond("tab") {
+    align-items: flex-end;
+    margin: 0;
+  }
 
   & .img-box {
-    height: 100%;
-    position: relative;
-    z-index: 300;
-
-    & > img {
-      height: 100%;
-    }
-
     &::after {
       content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $white-p;
       transform: rotate(27deg);
-      z-index: -1;
+      @include respond("tab") {
+        content: none;
+      }
     }
   }
 }
 .caption {
-  margin-top: 8%;
   padding-right: 2%;
-  position: relative;
-  & .title {
-    font-size: 1.8rem;
-    letter-spacing: 0.05px;
-    font-weight: normal;
+  order: 1;
+  @include respond("tab") {
+    background-color: #d34c24;
   }
-  & .name {
-    margin-left: 1rem;
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  & .skills {
-    padding-top: 2.1rem;
-    font-size: 1.4rem;
-    letter-spacing: 0px;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    top: 60.5%;
-    left: -4%;
-    width: 120%;
-    height: 0;
-    border-bottom: 3px solid $white-p;
-  }
-}
-.detail {
-  font-size: 1.5rem;
-  margin: 0 8% 10% 8%;
-  line-height: 1.6;
 }
 </style>

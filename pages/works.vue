@@ -1,5 +1,6 @@
 <template>
   <section class="works">
+    <MobileTitle v-show="$vssWidth <= $data.$tab" />
     <div class="caption-box" :class="{ blur: selected.toggled }">
       <CldImg
         src="bagushaus/works/works-tiles.png"
@@ -35,7 +36,8 @@
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
   components: {
-    Popup: () => import("~/components/Works/Popup.vue")
+    Popup: () => import("~/components/Works/Popup.vue"),
+    MobileTitle: () => import("~/components/Mobile/BagusTitle.vue")
   },
   data() {
     return {
@@ -73,20 +75,19 @@ export default {
       };
     },
     popup(el, done) {
-      TweenLite.from(el, 0.5, {
-        opacity: 0,
-        y: 200,
-        scale: 0,
+      // document.documentElement.style.overflow = "hidden";
+      TweenLite.to(el, 0.4, {
+        opacity: 1,
+        scale: 1,
         ease: Power2.easeOut,
         onComplete: done
       });
     },
     popdown(el, done) {
-      TweenLite.to(el, 0.4, {
+      // document.documentElement.style.overflow = "auto";
+      TweenLite.to(el, 0.3, {
         opacity: 0,
-        y: 200,
         scale: 0,
-        ease: Power1.easeIn,
         onComplete: done
       });
     }
@@ -116,12 +117,26 @@ $trs: all 0.4s;
   justify-content: center;
   align-items: center;
 
+  @include respond("tab") {
+    width: 100%;
+    height: 19.3rem;
+    margin: 0;
+  }
+
+  @include respond("mobile") {
+    height: 16.7rem;
+  }
+
   &-img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    @include respond("tab") {
+      object-fit: contain;
+      height: auto;
+    }
   }
 
   .caption {
@@ -129,6 +144,10 @@ $trs: all 0.4s;
     line-height: 1.6;
     white-space: pre;
     text-align: center;
+    @include respond("tab") {
+      font-size: 2.3rem;
+      line-height: 1.3;
+    }
   }
 
   &:before,
@@ -140,6 +159,10 @@ $trs: all 0.4s;
     background-size: contain;
     position: absolute;
     top: -40%;
+
+    @include respond("tab") {
+      content: none;
+    }
   }
   &:before {
     left: -24rem;
@@ -164,6 +187,14 @@ $trs: all 0.4s;
   //for now
   justify-content: center;
 
+  @include respond("tab") {
+    grid-auto-columns: auto;
+    grid-auto-flow: row;
+    margin: 9rem 0 12rem;
+    width: 75%;
+    gap: 11rem;
+  }
+
   &-each {
     width: 100%;
     height: 100%;
@@ -184,8 +215,11 @@ $trs: all 0.4s;
     &__caption {
       font-size: 1.5rem;
       text-align: center;
+      @include respond("tab") {
+        font-size: 2.6rem;
+      }
     }
-    &:not(last-child)::after {
+    &:not(:last-child)::after {
       content: "";
       background-color: #eaea5d;
       width: 1.1rem;
@@ -195,6 +229,31 @@ $trs: all 0.4s;
       top: 40%;
       right: -3rem;
       transform: rotate(45deg);
+
+      @include respond("tab") {
+        content: none;
+      }
+    }
+
+    @include respond("tab") {
+      &::before {
+        content: "";
+        position: absolute;
+        top: 40%;
+        right: -10rem;
+        width: 30rem;
+        height: 30rem;
+        background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
+        background-size: contain;
+        background-color: transparent;
+        z-index: 10;
+        opacity: 0.8;
+      }
+      &:nth-child(2n)::before {
+        transform: rotateY(180deg);
+        right: unset;
+        left: -10rem;
+      }
     }
   }
 }
