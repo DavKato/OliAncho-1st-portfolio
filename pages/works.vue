@@ -7,6 +7,7 @@
         width="729,1458"
         sizes="58vw"
         class="caption-box-img"
+        v-show="$vssWidth > $data.$tab || !selected.toggled"
       />
       <p class="caption">{{ $t('works.caption') }}</p>
     </div>
@@ -59,9 +60,6 @@ export default {
     }
   },
   methods: {
-    path2x(img) {
-      return require("../assets/img/" + img + ".png");
-    },
     showDetail(i) {
       const list = this.workList[i];
       this.selected = {
@@ -75,7 +73,6 @@ export default {
       };
     },
     popup(el, done) {
-      // document.documentElement.style.overflow = "hidden";
       TweenLite.to(el, 0.4, {
         opacity: 1,
         scale: 1,
@@ -84,7 +81,6 @@ export default {
       });
     },
     popdown(el, done) {
-      // document.documentElement.style.overflow = "auto";
       TweenLite.to(el, 0.3, {
         opacity: 0,
         scale: 0,
@@ -135,7 +131,6 @@ $trs: all 0.4s;
     height: 100%;
     @include respond("tab") {
       object-fit: contain;
-      height: auto;
     }
   }
 
@@ -144,6 +139,9 @@ $trs: all 0.4s;
     line-height: 1.6;
     white-space: pre;
     text-align: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     @include respond("tab") {
       font-size: 2.3rem;
       line-height: 1.3;
@@ -177,10 +175,7 @@ $trs: all 0.4s;
   width: 100%;
   height: 45%;
   margin-top: 3%;
-  display: grid;
-  grid-auto-columns: 30rem;
-  grid-auto-flow: column;
-  gap: 5rem;
+  display: flex;
   align-items: center;
   transition: $trs;
 
@@ -188,18 +183,46 @@ $trs: all 0.4s;
   justify-content: center;
 
   @include respond("tab") {
-    grid-auto-columns: auto;
-    grid-auto-flow: row;
     margin: 9rem 0 12rem;
     width: 75%;
-    gap: 11rem;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   &-each {
-    width: 100%;
+    width: 30rem;
     height: 100%;
     position: relative;
     cursor: pointer;
+    @include respond("tab") {
+      height: auto;
+      width: 100%;
+    }
+
+    &:not(:last-child) {
+      margin-right: 10rem;
+      @include respond("tab") {
+        margin-right: 0;
+        margin-bottom: 11rem;
+      }
+
+      &::after {
+        content: "";
+        background-color: #eaea5d;
+        width: 1.1rem;
+        height: 1.1rem;
+        border: 2px solid #707070;
+        position: absolute;
+        top: 40%;
+        right: -5rem;
+        transform: rotate(45deg);
+
+        @include respond("tab") {
+          content: none;
+        }
+      }
+    }
 
     &:hover img {
       transform: scale(1.05);
@@ -210,6 +233,9 @@ $trs: all 0.4s;
       height: 85%;
       object-fit: contain;
       transition: transform 0.2s;
+      @include respond("tab") {
+        height: auto;
+      }
     }
 
     &__caption {
@@ -219,22 +245,6 @@ $trs: all 0.4s;
         font-size: 2.6rem;
       }
     }
-    &:not(:last-child)::after {
-      content: "";
-      background-color: #eaea5d;
-      width: 1.1rem;
-      height: 1.1rem;
-      border: 2px solid #707070;
-      position: absolute;
-      top: 40%;
-      right: -3rem;
-      transform: rotate(45deg);
-
-      @include respond("tab") {
-        content: none;
-      }
-    }
-
     @include respond("tab") {
       &::before {
         content: "";

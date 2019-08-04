@@ -7,7 +7,8 @@
   "browserslist": "defaults",
   "scripts": {
     "test": "jest",
-    "dev": "PORT=8080 nuxt",
+    "dev": "nuxt",
+    "start": "nuxt start",
     "a": "nuxt build -a",
     "generate": "node contents/index.js && nuxt generate"
   },

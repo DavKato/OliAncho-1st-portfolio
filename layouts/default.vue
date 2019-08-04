@@ -39,7 +39,7 @@
     justify-content: flex-end;
   }
   @include respond("iphoneX") {
-    padding: 0;
+    padding: 3rem 0 0;
   }
 }
 main {
