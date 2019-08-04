@@ -131,7 +131,6 @@
     &:focus {
       outline: none;
       box-shadow: 0 0.5rem 0 $black-l;
-      // border-bottom: 0.5rem solid $blue-p;
     }
 
     &--textarea {
@@ -155,6 +154,7 @@
   }
 
   &__button {
+    display: block;
     font-size: 5rem;
     margin-top: 6rem;
     color: $white-p;
@@ -167,6 +167,7 @@
     box-shadow: 2px 2px 3px rgba($black-d, 0.3);
     &:focus {
       outline: none;
+      box-shadow: 0 0.5rem 0 $black-l;
     }
   }
 }
