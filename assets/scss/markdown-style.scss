@@ -23,9 +23,15 @@ $green-pre: #d9ebde80;
   }
   & h2 {
     font-size: 2.3rem;
+    @include respond('tab') {
+      font-size: 2.5rem;
+    }
   }
   & h3 {
     font-size: 1.8rem;
+    @include respond('tab') {
+      font-size: 2.1rem;
+    }
   }
 
   & ol,
@@ -106,5 +112,9 @@ $green-pre: #d9ebde80;
     display: block;
     width: 70%;
     margin: 3.2rem 0;
+    @include respond('tab') {
+      width: 90%;
+      margin: 4rem auto;
+    }
   }
 }

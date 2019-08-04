@@ -17,13 +17,3 @@ export default {
   mixins: [bagusScroll]
 };
 </script>
-
-<style lang="scss" scoped>
-// .bagus {
-// @include respond("tab") {
-//   height: 70vh;
-//   width: 50%;
-//   margin: 0 auto;
-// }
-// }
-</style>

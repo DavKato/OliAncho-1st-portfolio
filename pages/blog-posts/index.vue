@@ -1,7 +1,11 @@
 <template>
   <section id="blog-top">
-    <TopHeader class="top__header" @click="destroyList($event)" />
-    <StickyHeader v-show="scrollY > 230" :style="stickyStyle" @click="destroyList($event)" />
+    <TopHeader class="top__header" @click="destroyList($event)" v-show="$vssWidth > $data.$tab" />
+    <StickyHeader
+      v-show="scrollY > 230 || $vssWidth <= $data.$tab"
+      :style="stickyStyle"
+      @click="destroyList($event)"
+    />
     <PostCard
       v-for="(post, i) in sortedList"
       :key="post.title + i"
@@ -79,6 +83,13 @@ export default {
       }
     },
     stickyStyle() {
+      if (this.$vssWidth <= this.$data.$tab) {
+        return {
+          visibility: "visible",
+          opacity: 1
+        };
+      }
+
       if (this.scrollY <= 230) {
         return { visibility: "hidden" };
       }
@@ -181,6 +192,9 @@ export default {
 
     &:first-of-type {
       margin-top: 9%;
+      @include respond("tab") {
+        margin-top: 18rem;
+      }
     }
   }
 }

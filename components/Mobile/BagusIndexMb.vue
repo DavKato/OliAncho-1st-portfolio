@@ -1,9 +1,5 @@
 <template>
   <div class="container">
-    <!-- <h2 class="post">
-      <span class="welcome">Welcome</span>
-      <span class="menu">Menu</span>
-    </h2>-->
     <StendGlass src="bagushaus/Mobile/top/glass-blue.png" />
     <div class="window">
       <nuxt-link
@@ -13,7 +9,7 @@
         class="window-box"
       >
         <span class="window-box__text">{{ item.link }}</span>
-        <LazyImg class="window-box__img" :src="item.img" width="184,368,552" sizes="50vw" />
+        <CldImg class="window-box__img" :src="item.img" width="184,368,552" sizes="50vw" />
       </nuxt-link>
     </div>
     <StendGlass src="bagushaus/Mobile/top/glass-red.png" />
@@ -52,34 +48,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .post {
-//   position: absolute;
-//   top: -8.5%;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-transform: uppercase;
-//   line-height: 1;
-//   color: $blue-p;
-
-//   @include respond("mobile") {
-//     top: -9%;
-//   }
-
-//   .welcome {
-//     display: block;
-//     font-size: 2rem;
-//     letter-spacing: 0.2rem;
-//   }
-
-//   .menu {
-//     display: block;
-//     font-size: 5rem;
-//   }
-// }
 .container {
   position: relative;
   display: flex;

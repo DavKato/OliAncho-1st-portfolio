@@ -102,6 +102,7 @@ export default {
 
   //POSTS
   posts: {
+    all: 'ぜんぶ',
     life: '海外ノマド生活',
     web: 'ウェブのお仕事',
     japanese: '日本語教師',

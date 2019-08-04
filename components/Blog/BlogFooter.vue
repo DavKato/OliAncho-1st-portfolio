@@ -12,20 +12,21 @@
         width="116,232"
         sizes="14.6vh"
         class="scope"
+        v-show="$vssWidth > $data.$tab && $vssWidth >= $vssHeight"
       />
       <ul class="footer__tail-links">
-        <li>
-          <InstaLink width="39,78" sizes="39px" />
-        </li>
-        <li>
+        <li class="footer__tail-links--list">
           <TwitterLink width="40,80" sizes="40px" />
         </li>
-        <li>
+        <li class="footer__tail-links--list">
+          <InstaLink width="39,78" sizes="39px" />
+        </li>
+        <li class="footer__tail-links--list">
           <HomeLink width="33,66" sizes="33px" />
         </li>
         <li v-scroll-to="{ el: '#blog-layout', duration: 500, easing: 'ease-in-out' }">
           <CldImg
-            class="to-top"
+            class="to-top footer__tail-links--list"
             src="v1563231774/bagushaus/posts/top.png"
             width="52,104"
             sizes="52px"
@@ -69,6 +70,16 @@
     justify-content: space-between;
     padding-top: 2.6%;
 
+    @include respond("long-scr") {
+      height: 15rem;
+      justify-content: flex-end;
+    }
+
+    @include respond("tab") {
+      height: 20rem;
+      justify-content: flex-end;
+    }
+
     .scope {
       position: absolute;
       bottom: 0;
@@ -81,8 +92,14 @@
       display: flex;
       align-items: center;
       list-style: none;
+      @include respond("long-scr") {
+        margin-bottom: 2rem;
+      }
+      @include respond("tab") {
+        margin-bottom: 3rem;
+      }
 
-      & img {
+      &--list {
         filter: $fsh-s;
         transition: all 0.2s;
 
@@ -96,10 +113,17 @@
 
       & li:not(:last-child) {
         margin-right: 0.8rem;
+        @include respond("long-scr") {
+          margin-right: 6rem;
+        }
+        @include respond("tab") {
+          margin-right: 6rem;
+        }
       }
 
       .to-top {
         cursor: pointer;
+        margin-left: -0.5rem;
       }
     }
 

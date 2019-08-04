@@ -20,6 +20,8 @@
   margin-top: 0.4rem;
   cursor: pointer;
   transition: all 0.2s;
+  position: relative;
+  z-index: 11;
 
   &:hover {
     @include tsh-s;

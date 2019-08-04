@@ -53,7 +53,6 @@ export default {
         !from.name.startsWith('blog-posts') &&
         to.name.startsWith('blog-posts')
       ) {
-        // return { x: 0, y: 1800 };
         return new Promise(resolve => {
           setTimeout(() => {
             resolve({ x: 0, y: 1500 });
@@ -172,7 +171,9 @@ export default {
       '/ja/location',
       '/ja/works',
       '/ja/blog',
-      '/ja/blog-posts'
+      '/ja/blog-posts',
+      '/contact',
+      '/ja/contact'
     ]
       .concat(postsEn.map(post => `/blog-posts/${post.slug}`))
       .concat(postsJa.map(post => `ja/blog-posts/${post.slug}`)),

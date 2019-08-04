@@ -42,6 +42,9 @@
       object-fit: contain;
       transition: all 0.3s;
       transform-origin: bottom;
+      @include respond("long-scr") {
+        margin-top: -1rem;
+      }
     }
 
     &-text {
@@ -49,6 +52,9 @@
       color: $white-p;
       transition: filter 0.3s;
       margin-top: -0.5rem;
+      @include respond("long-scr") {
+        margin-top: 0.5rem;
+      }
     }
   }
 }

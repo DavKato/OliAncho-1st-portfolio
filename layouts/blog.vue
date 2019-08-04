@@ -2,7 +2,8 @@
   <div id="blog-layout">
     <CldImg
       src="v1563231774/bagushaus/posts/starbuck.png"
-      width="1280,2560"
+      width="828,1280,1536,2560"
+      sizes="100vw"
       alt="Background image with stars"
       id="blog-bg"
     />
@@ -22,6 +23,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 </style>
 

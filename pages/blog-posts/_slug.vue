@@ -29,7 +29,9 @@
           <h1 class="intro__title-heading">{{ title }}</h1>
           <p class="intro__title-sub">{{ summary }}</p>
         </div>
-        <img class="thumbnail" :src="thumbnail" alt />
+        <no-ssr>
+          <img class="thumbnail" :src="thumbnail" v-if="$vssWidth > $data.$tab" />
+        </no-ssr>
       </div>
       <Markdown
         class="post__content"
@@ -54,6 +56,9 @@
   flex-direction: column;
   align-items: center;
   padding-top: 21rem;
+  @include respond("tab") {
+    padding-top: 15rem;
+  }
 
   .post {
     background-color: $white-p;
@@ -63,6 +68,12 @@
     max-width: 94rem;
     min-width: 20rem;
     position: relative;
+    @include respond("long-scr") {
+      padding-bottom: 2rem;
+    }
+    @include respond("tab") {
+      width: 87%;
+    }
 
     .intro {
       height: 23rem;
@@ -70,11 +81,22 @@
       justify-content: space-between;
       padding-top: 2rem;
       background-color: $gray-l;
+      @include respond("tab") {
+        position: relative;
+        justify-content: space-between;
+        padding: 3rem 3%;
+        height: auto;
+      }
 
       &__info {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include respond("tab") {
+          order: 2;
+          justify-content: flex-start;
+          align-self: center;
+        }
 
         .date {
           text-align: center;
@@ -84,6 +106,14 @@
           background-color: #000;
           padding: 0.2rem 1.5rem;
           margin-left: -4rem;
+          @include respond("tab") {
+            margin-left: 0;
+            font-size: 1.5rem;
+            background-color: inherit;
+            color: inherit;
+            font-family: $font-p;
+            margin-bottom: 1rem;
+          }
         }
         .author {
           display: flex;
@@ -91,6 +121,9 @@
           align-items: center;
           margin-left: 1.6rem;
           margin-bottom: 2.4rem;
+          @include respond("tab") {
+            margin: 0;
+          }
 
           &-img {
             width: 8rem;
@@ -111,16 +144,32 @@
         align-self: center;
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding: 3rem;
+        @include respond("tab") {
+          order: 1;
+        }
 
         &-heading {
           font-size: 3.1rem;
           line-height: 1.3;
+          @include respond("tab") {
+            line-height: 1.5;
+            color: #111;
+          }
         }
         &-sub {
           margin-top: 1rem;
           font-size: 1.4rem;
           color: $gray-d;
+          @include respond("tab") {
+            width: 90%;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 1.7rem;
+            color: $black-d;
+            border-top: 1px solid $gray-p;
+          }
         }
       }
 
@@ -144,6 +193,11 @@
       grid-template-columns: 49% 49%;
       justify-content: space-between;
       padding: var(--links-padding);
+
+      @include respond("tab") {
+        padding: 1rem;
+        height: var(--links-height);
+      }
     }
   }
   .empty {
@@ -168,6 +222,10 @@
     font-size: 1.6rem;
     line-height: 1.7;
     word-spacing: 1px;
+    @include respond("tab") {
+      width: 90%;
+      font-size: 1.7rem;
+    }
   }
 }
 </style>

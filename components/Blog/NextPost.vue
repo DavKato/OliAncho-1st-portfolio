@@ -67,6 +67,14 @@
     color: #000;
     font-size: 2rem;
     padding: 1.2rem 1.6rem;
+    @include respond("tab") {
+      font-size: 1.8rem;
+      padding: 1rem 1.1rem;
+    }
+    @include respond("mobile") {
+      font-size: 1.7rem;
+      padding: 0.6rem 1rem;
+    }
   }
   .thumbnail {
     width: 100%;

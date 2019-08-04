@@ -4,7 +4,7 @@
       <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
     </nuxt-link>
 
-    <ul class="filter">
+    <ul class="filter" v-show="$vssWidth > $data.$tab && $vssWidth >= $vssHeight">
       <nuxt-link
         :to="localePath('blog-posts')"
         class="filter__list"
@@ -51,7 +51,10 @@
       </nuxt-link>
     </ul>
 
-    <BlogNavLinks />
+    <no-ssr>
+      <BlogNavLinks v-if="$vssWidth > $data.$tab && $vssWidth >= $vssHeight" />
+      <BlogMainMenu v-else @filter="$emit('click', $event)" />
+    </no-ssr>
   </nav>
 </template>
 
@@ -144,11 +147,11 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import TextLogo from "~/components/Blog/TextLogo";
-import BlogNavLinks from "~/components/Blog/BlogNavLinks";
 export default {
   components: {
     TextLogo,
-    BlogNavLinks
+    BlogNavLinks: () => import("~/components/Blog/BlogNavLinks"),
+    BlogMainMenu: () => import("~/components/Mobile/BlogMainMenu.vue")
   },
   computed: {
     ...mapState("posts", ["selectedTag"])
