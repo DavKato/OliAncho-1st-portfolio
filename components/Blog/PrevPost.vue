@@ -13,9 +13,8 @@
 <style lang="scss" scoped>
 .postcard {
   width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: var(--links-height) 1fr;
+  grid-template-columns: 14rem 1fr;
   border: 2px solid #000;
   transition: outline-offset 0.05s;
   outline-offset: 0;
@@ -32,8 +31,10 @@
 
   .desc {
     width: 100%;
-    height: 100%;
     padding-top: 6%;
+    @include respond("mobile") {
+      padding-top: 4%;
+    }
 
     .date-box {
       background-color: #000;
@@ -66,13 +67,17 @@
     color: #000;
     font-size: 2rem;
     padding: 1.2rem 1.6rem;
+    display: flex;
+    align-items: center;
     @include respond("tab") {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       padding: 1rem 1.2rem;
+      height: 11rem;
+      font-family: $font-p;
     }
     @include respond("mobile") {
-      font-size: 1.7rem;
-      padding: 0.6rem 1rem;
+      font-size: 2.1rem;
+      padding: 1rem;
     }
   }
   .thumbnail {

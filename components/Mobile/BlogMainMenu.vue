@@ -101,10 +101,10 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 100;
+  z-index: 200;
 
   .hamburger {
-    width: 4.5rem;
+    width: 4.2rem;
   }
 }
 
@@ -112,7 +112,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 62vh;
+  height: 65vh;
   width: 100vw;
   padding: 16% 17% 10%;
   z-index: 10;

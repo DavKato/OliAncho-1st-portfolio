@@ -76,6 +76,10 @@
   align-items: flex-start;
   z-index: 10;
 
+  @include respond("mobile") {
+    height: 12rem;
+  }
+
   .filter {
     align-self: center;
     margin-top: -1.3rem;

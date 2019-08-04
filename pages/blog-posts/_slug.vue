@@ -58,6 +58,7 @@
   padding-top: 21rem;
   @include respond("tab") {
     padding-top: 15rem;
+    margin-bottom: 3rem;
   }
 
   .post {
@@ -68,11 +69,13 @@
     max-width: 94rem;
     min-width: 20rem;
     position: relative;
-    @include respond("long-scr") {
-      padding-bottom: 2rem;
-    }
     @include respond("tab") {
       width: 87%;
+      padding-bottom: 2rem;
+    }
+    @include respond("mobile") {
+      width: 100%;
+      padding-bottom: 0;
     }
 
     .intro {
@@ -84,7 +87,7 @@
       @include respond("tab") {
         position: relative;
         justify-content: space-between;
-        padding: 3rem 3%;
+        padding: 4rem 3% 3rem;
         height: auto;
       }
 
@@ -108,7 +111,7 @@
           margin-left: -4rem;
           @include respond("tab") {
             margin-left: 0;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             background-color: inherit;
             color: inherit;
             font-family: $font-p;
@@ -130,6 +133,10 @@
             height: 8rem;
             border-radius: 50%;
             border: 1px solid $black-l;
+            @include respond("tab") {
+              width: 9rem;
+              height: 9rem;
+            }
           }
 
           &-name {
@@ -148,6 +155,7 @@
         padding: 3rem;
         @include respond("tab") {
           order: 1;
+          padding: 0;
         }
 
         &-heading {
@@ -156,6 +164,8 @@
           @include respond("tab") {
             line-height: 1.5;
             color: #111;
+            font-size: 3.4rem;
+            font-weight: 600;
           }
         }
         &-sub {
@@ -166,7 +176,7 @@
             width: 90%;
             padding-top: 1.5rem;
             margin-top: 1.5rem;
-            font-size: 1.7rem;
+            font-size: 2rem;
             color: $black-d;
             border-top: 1px solid $gray-p;
           }
@@ -185,18 +195,15 @@
     }
 
     &__links {
-      --links-padding: 2rem;
-      --links-height: 14.2rem;
-      height: calc(var(--links-height) + var(--links-padding) * 2);
       width: 100%;
       display: grid;
       grid-template-columns: 49% 49%;
       justify-content: space-between;
-      padding: var(--links-padding);
+      padding: 2rem;
 
       @include respond("tab") {
         padding: 1rem;
-        height: var(--links-height);
+        // height: var(--links-height);
       }
     }
   }
@@ -224,7 +231,10 @@
     word-spacing: 1px;
     @include respond("tab") {
       width: 90%;
-      font-size: 1.7rem;
+      font-size: 1.9rem;
+    }
+    @include respond("mobile") {
+      font-size: 2.2rem;
     }
   }
 }
