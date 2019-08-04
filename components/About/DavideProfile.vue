@@ -9,8 +9,8 @@
               :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}331/bagushaus/Mobile/davi.png 331w, https://res.cloudinary.com/oliancho/image/upload/${options}662/bagushaus/Mobile/davi.png 662w, https://res.cloudinary.com/oliancho/image/upload/${options}993/bagushaus/Mobile/davi.png 993w`"
               sizes="90vw"
             />
-            <LazyImg
-              src="v1563980543/bagushaus/about/davi.png"
+            <CldImg
+              src="bagushaus/about/davi.png"
               placeholder
               width="150,300"
               sizes="150px"

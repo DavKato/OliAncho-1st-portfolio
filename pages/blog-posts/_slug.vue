@@ -203,7 +203,6 @@
 
       @include respond("tab") {
         padding: 1rem;
-        // height: var(--links-height);
       }
     }
   }

@@ -112,9 +112,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 65vh;
+  height: 62vh;
   width: 100vw;
-  padding: 16% 17% 10%;
+  padding: 16% 17% 8%;
   z-index: 10;
   background-image: linear-gradient(
     to bottom,
@@ -168,12 +168,11 @@
     &-text {
       font-size: 3.6rem;
       font-family: $font-h;
-      text-transform: uppercase;
       line-height: 1.6;
       letter-spacing: 0.2rem;
 
       @include respond("mobile") {
-        font-size: 4.3rem;
+        font-size: 4rem;
       }
     }
 
@@ -189,29 +188,29 @@
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  margin-top: 9%;
+  margin-top: 6rem;
 
   & .twitter {
     @include respond("mobile") {
-      width: 35px;
+      width: 33px;
     }
   }
 
   & .insta {
     @include respond("mobile") {
-      width: 30px;
+      width: 28px;
     }
   }
 
   & .email {
     @include respond("mobile") {
-      width: 35px;
+      width: 31px;
     }
   }
 
   & .lang {
     @include respond("mobile") {
-      height: 25px;
+      height: 23px;
     }
 
     & > * {

@@ -16,8 +16,8 @@
               :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}331/bagushaus/Mobile/gobu.png 331w, https://res.cloudinary.com/oliancho/image/upload/${options}662/bagushaus/Mobile/gobu.png 662w, https://res.cloudinary.com/oliancho/image/upload/${options}993/bagushaus/Mobile/gobu.png 993w`"
               sizes="90vw"
             />
-            <LazyImg
-              src="v1563980543/bagushaus/about/gobu.png"
+            <CldImg
+              src="bagushaus/about/gobu.png"
               placeholder
               width="150,300"
               sizes="150px"

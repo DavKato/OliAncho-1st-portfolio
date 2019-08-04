@@ -97,7 +97,7 @@ export default {
 
   //POSTS
   posts: {
-    all: 'all',
+    all: 'All',
     life: 'Nomad Life',
     web: 'Web Dev',
     japanese: 'Japanese',
