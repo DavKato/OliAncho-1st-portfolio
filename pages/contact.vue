@@ -91,7 +91,7 @@
 
   @include respond("mobile") {
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 3rem;
   }
 
   &__caption {
@@ -154,7 +154,6 @@
   }
 
   &__button {
-    display: block;
     font-size: 5rem;
     margin-top: 6rem;
     color: $white-p;
@@ -163,7 +162,6 @@
     padding: 0.2rem 4rem;
     text-transform: uppercase;
     font-family: $font-h;
-    outline: none;
     box-shadow: 2px 2px 3px rgba($black-d, 0.3);
     &:focus {
       outline: none;
