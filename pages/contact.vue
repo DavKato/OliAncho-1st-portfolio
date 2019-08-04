@@ -159,7 +159,7 @@
     color: $white-p;
     border: 3px solid $white-p;
     background-color: transparent;
-    padding: 0.2rem 4rem;
+    padding: 0.2rem 4rem 0.2rem;
     text-transform: uppercase;
     font-family: $font-h;
     box-shadow: 2px 2px 3px rgba($black-d, 0.3);
