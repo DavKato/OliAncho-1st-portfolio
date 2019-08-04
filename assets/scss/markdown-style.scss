@@ -3,6 +3,9 @@ $green-pre: #d9ebde80;
 /deep/ .post__content {
   & * {
     margin-bottom: 2.8rem;
+    @include respond('mobile') {
+      margin-bottom: 3.4rem;
+    }
   }
 
   & > *:first-child {
@@ -16,6 +19,9 @@ $green-pre: #d9ebde80;
     font-family: $font-p;
     line-height: 1.25;
     margin-top: 4rem;
+    @include respond('mobile') {
+      margin-top: 4.5rem;
+    }
   }
 
   & h1 {
@@ -24,7 +30,7 @@ $green-pre: #d9ebde80;
       font-size: 3.4rem;
     }
     @include respond('mobile') {
-      font-size: 3.7rem;
+      font-size: 3.8rem;
     }
   }
   & h2 {
@@ -33,7 +39,7 @@ $green-pre: #d9ebde80;
       font-size: 2.7rem;
     }
     @include respond('mobile') {
-      font-size: 3rem;
+      font-size: 3.3rem;
     }
   }
   & h3 {
@@ -42,7 +48,7 @@ $green-pre: #d9ebde80;
       font-size: 2.3rem;
     }
     @include respond('mobile') {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
   }
 

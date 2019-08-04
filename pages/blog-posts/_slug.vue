@@ -164,7 +164,7 @@
           @include respond("tab") {
             line-height: 1.5;
             color: #111;
-            font-size: 3.4rem;
+            font-size: 3.8rem;
             font-weight: 600;
           }
         }
@@ -174,9 +174,9 @@
           color: $gray-d;
           @include respond("tab") {
             width: 90%;
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-            font-size: 2rem;
+            padding-top: 1.7rem;
+            margin-top: 2rem;
+            font-size: 2.2rem;
             color: $black-d;
             border-top: 1px solid $gray-p;
           }
@@ -203,6 +203,7 @@
 
       @include respond("tab") {
         padding: 1rem;
+        height: 18.3rem;
       }
     }
   }
@@ -230,10 +231,11 @@
     word-spacing: 1px;
     @include respond("tab") {
       width: 90%;
-      font-size: 1.9rem;
+      font-size: 2rem;
+      margin-top: 5rem;
     }
     @include respond("mobile") {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
     }
   }
 }
