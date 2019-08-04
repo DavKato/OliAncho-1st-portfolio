@@ -10,7 +10,7 @@
               sizes="90vw"
             />
             <LazyImg
-              src="bagushaus/about/davi.png"
+              src="v1563980543/bagushaus/about/davi.png"
               placeholder
               width="150,300"
               sizes="150px"

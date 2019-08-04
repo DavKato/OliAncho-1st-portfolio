@@ -17,7 +17,7 @@
               sizes="90vw"
             />
             <LazyImg
-              src="bagushaus/about/gobu.png"
+              src="v1563980543/bagushaus/about/gobu.png"
               placeholder
               width="150,300"
               sizes="150px"
