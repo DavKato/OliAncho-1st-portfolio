@@ -163,6 +163,9 @@
     text-transform: uppercase;
     font-family: $font-h;
     box-shadow: 2px 2px 3px rgba($black-d, 0.3);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     &:focus {
       outline: none;
       box-shadow: 0 0.5rem 0 $black-l;
