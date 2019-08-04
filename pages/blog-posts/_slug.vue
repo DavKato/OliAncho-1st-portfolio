@@ -230,12 +230,13 @@
     line-height: 1.7;
     word-spacing: 1px;
     @include respond("tab") {
-      width: 90%;
-      font-size: 2rem;
+      width: 88%;
+      font-size: 2.2rem;
       margin-top: 5rem;
     }
     @include respond("mobile") {
-      font-size: 2.4rem;
+      font-size: 2.8rem;
+      line-height: 1.6;
     }
   }
 }
