@@ -92,6 +92,7 @@
   @include respond("mobile") {
     justify-content: center;
     margin-top: 3rem;
+    height: auto;
   }
 
   &__caption {
