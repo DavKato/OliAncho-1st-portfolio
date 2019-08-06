@@ -1,6 +1,6 @@
 <template>
   <section class="about">
-    <MobileTitle v-show="$vssWidth <= $data.$tab" />
+    <MobileTitle v-show="$vssWidth <= $data.$tab" class="top-title" />
     <p class="caption">{{ $t('about.caption') }}</p>
     <div class="us">
       <div class="text-box text-box-davide">
@@ -66,6 +66,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include respond("tab") {
+  .top-title {
+    top: calc(-5.6rem - 24px) !important;
+  }
+}
 .about {
   padding: 0 7%;
   color: $black-d;
@@ -76,11 +81,15 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  // border: 3.4rem solid;
+  // border-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/about/about-middle-square.png")
+  //   71 repeat;
 
   @include respond("tab") {
-    background-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/Mobile/tile-about.png");
-    padding: 14% 6.3% 17%;
-    box-shadow: inset 0 -0.3rem 0 $gray-d;
+    background-image: none;
+    border: 3rem solid;
+    border-image: url("../assets/img/tiles44.png") 72 repeat;
+    padding: 4rem 0 6rem;
   }
 
   &__bg {

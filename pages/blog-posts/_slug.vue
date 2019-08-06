@@ -75,7 +75,6 @@
     }
     @include respond("mobile") {
       width: 100%;
-      padding-bottom: 0;
     }
 
     .intro {

@@ -32,15 +32,16 @@ export default {
 
   //ABOUT
   about: {
-    caption: 'We are O L I A N C H O !',
-    daviPosition: 'WEBエンジニア',
-    gobuPosition: 'WEBデザイナー',
-    gobuSkill: 'SITE DESIGN / GRAPHIC DESIGN',
+    caption:
+      'We are OliAncho.\nWe take care all of the frontend stuff of any kind of web project.\n..and we love it!',
+    daviPosition: 'Web Developer',
+    gobuPosition: 'Designer',
+    gobuSkill: 'WEB DESIGN / GRAPHIC DESIGN',
     daviSkill: 'CODING - HTML5, CSS, JavaScript',
     gobuDetail:
-      'えっちな日本人ですダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト',
+      "We all know that the design can really change the impression to users.\nI try my best to create a design that is user friendly and intuitive, that the idea just flows into user's head before they read a single text.\nI provide a flexible and personalized design that fits perfectly in the final media.\n..and a bit of fantasy and humour if there is a room for it :D",
     daviDetail:
-      'えっちなイタリア人ですダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト'
+      "I'm an ex-musician frontend developer who's brought up in Japan.\nI mainly use a JaveScript framework called Vue/Nuxt.js to build a website that is performant and SEO friendly (technical people call it \"statically generated SPA\").\nI tend to be more careful rather than speedy when it comes to create something.\nWell, that's it about me. We are looking forward to hear from you!"
   },
 
   //WORKS

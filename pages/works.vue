@@ -2,13 +2,6 @@
   <section class="works">
     <MobileTitle v-show="$vssWidth <= $data.$tab" />
     <div class="caption-box" :class="{ blur: selected.toggled }">
-      <CldImg
-        src="bagushaus/works/works-tiles.png"
-        width="729,1458"
-        sizes="58vw"
-        class="caption-box-img"
-        v-show="$vssWidth > $data.$tab || !selected.toggled"
-      />
       <p class="caption">{{ $t('works.caption') }}</p>
     </div>
     <div class="worklist" :class="{ blur: selected.toggled }">
@@ -112,6 +105,8 @@ $trs: all 0.4s;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 3rem solid;
+  border-image: url("../assets/img/tiles44.png") 72 repeat;
 
   @include respond("tab") {
     width: 100%;
@@ -139,9 +134,6 @@ $trs: all 0.4s;
     line-height: 1.6;
     white-space: pre;
     text-align: center;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
     @include respond("tab") {
       font-size: 2.3rem;
       line-height: 1.3;
@@ -156,18 +148,28 @@ $trs: all 0.4s;
     background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
     background-size: contain;
     position: absolute;
-    top: -40%;
+    top: -80%;
 
+    @include respond("long-scr") {
+      width: 25rem;
+      height: 25rem;
+    }
     @include respond("tab") {
       content: none;
     }
   }
   &:before {
-    left: -24rem;
+    left: -28rem;
     transform: rotateY(180deg);
+    @include respond("long-scr") {
+      left: -23rem;
+    }
   }
   &:after {
-    right: -24rem;
+    right: -28rem;
+    @include respond("long-scr") {
+      right: -23rem;
+    }
   }
 }
 
@@ -249,20 +251,23 @@ $trs: all 0.4s;
       &::before {
         content: "";
         position: absolute;
-        top: 40%;
-        right: -10rem;
-        width: 30rem;
-        height: 30rem;
+        top: 30%;
+        right: -13rem;
+        min-width: 34rem;
+        min-height: 34rem;
+        width: 60%;
+        height: 80%;
         background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
         background-size: contain;
         background-color: transparent;
-        z-index: 10;
+        background-repeat: no-repeat;
+        z-index: 9;
         opacity: 0.8;
       }
       &:nth-child(2n)::before {
         transform: rotateY(180deg);
         right: unset;
-        left: -10rem;
+        left: -13rem;
       }
     }
   }

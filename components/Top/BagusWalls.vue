@@ -11,16 +11,18 @@
 .walls {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -1rem;
   height: 100%;
-  width: 100%;
+  width: 101%;
   display: flex;
   justify-content: space-between;
 }
-// .wall {
-// }
 
-$commonW: 24.1%;
+.wall {
+  margin-left: 0.8rem;
+}
+
+$commonW: 23.8%;
 @mixin wallsborder {
   box-shadow: inset 0 0.8rem 0 $gray-d;
 }

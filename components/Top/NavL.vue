@@ -1,5 +1,5 @@
 <template functional>
-  <h1>
+  <h1 v-on="listeners">
     <span class="desc">WEB Creator</span>
     <span class="title">OliAncho</span>
   </h1>
@@ -10,7 +10,7 @@ h1 {
   position: absolute;
   top: 2rem;
   left: 2.3rem;
-  z-index: 100;
+  z-index: 10;
   transition: all 0.2s;
   line-height: 1.1;
 

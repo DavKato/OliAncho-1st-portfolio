@@ -33,7 +33,7 @@
       left: 50%;
       top: -4rem;
       transform: translateX(-50%);
-      font-size: 3rem;
+      font-size: 3.2rem;
       z-index: 50;
 
       &:hover {

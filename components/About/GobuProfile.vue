@@ -65,7 +65,7 @@ $gobuRed: #ddc1b9;
   }
 }
 .top {
-  margin: 10% 2% 8% 1%;
+  margin: 6% 2% 5% 1%;
   @include respond("tab") {
     align-items: flex-end;
     margin: 0;

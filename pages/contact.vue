@@ -297,7 +297,7 @@ export default {
         .then(() => {
           this.formInit();
           this.thanks = true;
-          this.$router.go(-1);
+          setTimeout(() => this.$router.go(-1), 2800);
         })
         .catch(err => {
           this.$router.push("404");

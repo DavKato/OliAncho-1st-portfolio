@@ -112,14 +112,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 62vh;
+  // min-height: 62vh;
+  max-height: 105vh;
   width: 100vw;
-  padding: 16% 17% 8%;
+  padding: 10% 17% 8%;
   z-index: 10;
   background-image: linear-gradient(
     to bottom,
     $mud-b,
-    $mud-b 86%,
+    $mud-b 90%,
     transparent 100%
   );
   display: flex;
@@ -188,29 +189,30 @@
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  margin-top: 6rem;
+  margin-top: 5%;
 
   & .twitter {
-    @include respond("mobile") {
-      width: 33px;
-    }
-  }
-
-  & .insta {
-    @include respond("mobile") {
-      width: 28px;
-    }
-  }
-
-  & .email {
+    // width: 9rem;
     @include respond("mobile") {
       width: 31px;
     }
   }
 
+  & .insta {
+    @include respond("mobile") {
+      width: 26px;
+    }
+  }
+
+  & .email {
+    @include respond("mobile") {
+      width: 29px;
+    }
+  }
+
   & .lang {
     @include respond("mobile") {
-      height: 23px;
+      height: 21px;
     }
 
     & > * {

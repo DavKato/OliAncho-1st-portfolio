@@ -71,7 +71,7 @@ $daviGreen: #b9ddc8;
   }
 }
 .top {
-  margin: 10% 1% 8% 2%;
+  margin: 6% 1% 5% 2%;
   @include respond("tab") {
     margin: 0;
   }

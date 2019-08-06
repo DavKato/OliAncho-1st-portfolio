@@ -2,6 +2,7 @@
   <div>
     <transition @enter="expandMenu" @leave="foldMenu">
       <nav class="menu" v-show="showMenu">
+        <NavL />
         <ul class="menu-list">
           <li class="menu-list-box" @click="showMenu = !showMenu">
             <nuxt-link class="menu-list-item" :to="localePath('index')">
@@ -223,6 +224,7 @@
 
 <script>
 import MenuArrow from "~/components/GlobalComponents/Svg/MenuArrow";
+import NavL from "~/components/Top/NavL";
 export default {
   data() {
     return {
@@ -231,6 +233,7 @@ export default {
   },
   components: {
     MenuArrow,
+    NavL,
     LangSwitch: () => import("~/components/GlobalComponents/LangSwitch")
   },
   methods: {

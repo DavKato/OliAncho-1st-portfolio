@@ -1,6 +1,6 @@
 <template>
   <div id="defaultLayout">
-    <NavL />
+    <NavL @click="goHome" />
     <no-ssr>
       <NavR v-if="$vssWidth > $data.$tab" />
       <MainMenu v-else-if="$vssWidth <= $data.$tab" />
@@ -98,6 +98,11 @@ export default {
     Contact: () => import("~/components/Contact/Contact"),
     TheFooter,
     MainMenu: () => import("~/components/Mobile/MainMenu")
+  },
+  methods: {
+    goHome() {
+      this.$router.push(this.localePath("index"));
+    }
   }
 };
 </script>

@@ -100,6 +100,10 @@
   height: 93vh;
   position: relative;
 
+  @include respond("long-scr") {
+    margin-bottom: 1vw;
+  }
+
   &__caption {
     font-size: 3.5rem;
     padding-left: 1.5rem;
@@ -359,10 +363,10 @@
   opacity: 0;
 }
 .pop-enter-active {
-  transition: opacity 0.8s ease-in;
+  transition: opacity 0.9s ease-in;
 }
 .pop-leave-active {
-  transition: opacity 1.2s ease-out;
+  transition: opacity 1.4s ease-out;
 }
 </style>
 
@@ -398,7 +402,7 @@ export default {
     thanks() {
       setTimeout(() => {
         this.thanks = false;
-      }, 2100);
+      }, 1900);
     }
   },
   methods: {

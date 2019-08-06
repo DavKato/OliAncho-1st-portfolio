@@ -1,6 +1,6 @@
 <template>
   <section class="location">
-    <MobileTitle v-show="$vssWidth <= $data.$tab" />
+    <MobileTitle class="top-title" v-show="$vssWidth <= $data.$tab" />
     <h1 class="caption">
       {{ $t('location.caption') }}
       <span></span>
@@ -68,20 +68,27 @@ $yellow-location: #eaea5d;
 @mixin wh100 {
   width: 100%;
   height: 100%;
+  @include respond("tab") {
+    object-fit: contain;
+    height: auto;
+  }
 }
 
 .location {
-  background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/bagushaus/location/location-middle-square.png");
+  @include respond("tab") {
+    .top-title {
+      top: -8.6rem !important;
+      font-size: 4.1rem !important;
+    }
+  }
   background-size: 100% 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   line-height: 1.6;
-
-  @include respond("tab") {
-    background-image: url("https://res.cloudinary.com/oliancho/image/upload/v1564665917/bagushaus/Mobile/tile-location.png");
-  }
+  border: 3.5rem solid;
+  border-image: url("../assets/img/tiles44.png") 72 repeat;
   line-height: 1.5;
 
   & img {
@@ -92,16 +99,16 @@ $yellow-location: #eaea5d;
     font-size: 2.9rem;
     font-family: $font-p;
     display: inline-block;
-    margin-top: 5%;
+    margin-top: 2%;
     position: relative;
     font-style: italic;
     transition: transform 0.2s;
 
     @include respond("tab") {
-      width: 55%;
+      width: 58%;
       text-align: center;
-      font-size: 2.7rem;
-      margin-top: 8%;
+      font-size: 2.8rem;
+      margin-top: 3%;
     }
 
     &:hover {
@@ -151,26 +158,26 @@ $yellow-location: #eaea5d;
   .intro {
     font-size: 1.9rem;
     text-align: center;
-    margin-top: 1.5%;
+    margin-top: 2%;
     white-space: pre;
     @include respond("tab") {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       white-space: pre-wrap;
-      width: 75%;
-      margin-top: 6.5%;
+      width: 85%;
+      margin-top: 6%;
+      line-height: 1.6;
     }
   }
 
   .map-box {
     width: 100%;
-    height: 62%;
-    margin-top: -1%;
+    height: 69%;
     position: relative;
 
     @include respond("tab") {
-      height: 51rem;
-      margin-top: -2rem;
-      width: 85%;
+      margin: 8% 0 4%;
+      height: auto;
+      width: 99%;
     }
 
     & > *:not(.map) {
@@ -196,13 +203,11 @@ $yellow-location: #eaea5d;
       cursor: pointer;
       @include respond("tab") {
         width: 4%;
-        top: 31%;
-        left: 8%;
+        top: 26%;
+        left: 7.5%;
       }
       @include respond("mobile") {
         width: 5%;
-        top: 32%;
-        left: 8%;
       }
     }
 
@@ -213,14 +218,18 @@ $yellow-location: #eaea5d;
       white-space: pre;
       text-align: right;
       transform: rotate(-35deg);
+      @include respond("long-scr") {
+        left: 18.5%;
+        bottom: 5%;
+      }
       @include respond("tab") {
-        left: 11%;
-        bottom: 16%;
-        font-size: 1.7rem;
+        left: 9%;
+        bottom: 4%;
+        font-size: 1.8rem;
       }
       @include respond("mobile") {
-        left: 8%;
-        bottom: 17%;
+        // left: 8%;
+        // bottom: 17%;
         font-size: 1.8rem;
       }
     }
@@ -229,15 +238,16 @@ $yellow-location: #eaea5d;
       width: 10%;
       left: 18%;
       bottom: 2%;
+      @include respond("long-scr") {
+        left: 17%;
+      }
       @include respond("tab") {
-        width: 12%;
-        left: 8.5%;
-        bottom: 14%;
+        width: 13%;
+        left: 6.5%;
+        bottom: 1%;
       }
       @include respond("mobile") {
         width: 14%;
-        left: 6.5%;
-        bottom: 15%;
       }
     }
 
@@ -246,15 +256,17 @@ $yellow-location: #eaea5d;
       left: 26%;
       width: 22%;
       transform-origin: 45% 70%;
+      @include respond("long-scr") {
+        width: 25%;
+        left: 24%;
+      }
       @include respond("tab") {
-        bottom: 12%;
-        left: 17%;
-        width: 28%;
+        bottom: -4%;
+        left: 15.5%;
+        width: 30%;
       }
       @include respond("mobile") {
-        bottom: 12%;
-        left: 16%;
-        width: 34%;
+        width: 35%;
       }
 
       & > img {
@@ -277,7 +289,7 @@ $yellow-location: #eaea5d;
           font-size: 2.3rem;
           line-height: 1.2;
           @include respond("tab") {
-            font-size: 1.9rem;
+            font-size: 2rem;
           }
           @include respond("mobile") {
             font-size: 2rem;
@@ -298,15 +310,18 @@ $yellow-location: #eaea5d;
       z-index: 9;
       cursor: pointer;
 
+      @include respond("long-scr") {
+        width: 27%;
+        top: -3%;
+        right: 0;
+      }
       @include respond("tab") {
         width: 33%;
-        right: -4%;
-        top: 1%;
+        right: -2%;
+        top: -16%;
       }
       @include respond("mobile") {
         width: 36%;
-        right: -4%;
-        top: 1%;
       }
 
       & > img {
@@ -316,7 +331,7 @@ $yellow-location: #eaea5d;
         position: absolute;
         top: 34%;
         left: 27%;
-        font-size: 2.1rem;
+        font-size: 2rem;
         color: $black-p;
         margin-left: -0.9rem;
         letter-spacing: -0.5px;
@@ -324,7 +339,7 @@ $yellow-location: #eaea5d;
         @include respond("tab") {
           font-size: 1.9rem;
           letter-spacing: normal;
-          top: 33%;
+          top: 34%;
         }
 
         & > b,
@@ -356,8 +371,9 @@ $yellow-location: #eaea5d;
         height: 15%;
         transform: rotate(12deg);
         @include respond("tab") {
-          height: 12%;
+          height: 14%;
           top: 48%;
+          left: 55%;
         }
       }
     }
