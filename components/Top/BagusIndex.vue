@@ -79,10 +79,12 @@
 
   &__text-box {
     padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
   }
 
   &__text {
-    font-size: 1.8rem;
+    font-size: 2rem;
     white-space: pre-wrap;
   }
 

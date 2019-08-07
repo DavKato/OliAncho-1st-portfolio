@@ -1,10 +1,13 @@
 export default {
   //Home preview
   main: {
-    about: 'Who we are',
-    works: 'What we have done',
-    blog: 'Our blog',
-    location: 'Where we have been'
+    about: 'We are web creator duo.\n\nFind a little bit more about us here!',
+    works:
+      'Check out a part of what we have built and what technology is used.',
+    blog:
+      'Our main writer Gobu is Japanese, so there is not many English contents here at the moment..\nBut we are working on it.',
+    location:
+      'Just a small play ground where you can check out where we are and where we have been.'
   },
 
   //Form section normal
@@ -23,7 +26,7 @@ export default {
   nameError: 'Please enter your name.',
   emailError: 'Please enter a valid email address.',
   titleError: 'Please enter the title (anything!).',
-  messageError: 'Message has to have 20 ~ 300 charactors.',
+  messageError: 'Message has to have 10 ~ 300 charactors.',
   //Form thanks
   thanks: {
     caption: 'Message sent!',
@@ -41,7 +44,7 @@ export default {
     gobuDetail:
       "We all know that the design can really change the impression to users.\nI try my best to create a design that is user friendly and intuitive, that the idea just flows into user's head before they read a single text.\nI provide a flexible and personalized design that fits perfectly in the final media.\n..and a bit of fantasy and humour if there is a room for it :D",
     daviDetail:
-      "I'm an ex-musician frontend developer who's brought up in Japan.\nI mainly use a JaveScript framework called Vue/Nuxt.js to build a website that is performant and SEO friendly (technical people call it \"statically generated SPA\").\nI tend to be more careful rather than speedy when it comes to create something.\nWell, that's it about me. We are looking forward to hear from you!"
+      "I'm an ex-musician JAMstack developer who's brought up in Japan.\nI mainly use Vue/Nuxt.js JavaScript framework which helps me to build a versatile and performant web app.\nI tend to be more careful rather than speedy when it comes to creating things.\nWell, that's it about me. We are looking forward to hear from you!"
   },
 
   //WORKS

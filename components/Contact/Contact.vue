@@ -326,11 +326,6 @@
   width: 80%;
 }
 
-// .lighten {
-// background-color: lighten($green-p, 3%);
-// @include lg-m($green-p);
-// }
-
 .hidden {
   display: none;
 }
@@ -418,7 +413,7 @@ export default {
         : (this.isValid.title = false);
 
       this.form.message &&
-      (this.form.message.length > 20 && this.form.message.length < 300)
+      (this.form.message.length > 10 && this.form.message.length < 300)
         ? (this.isValid.message = true)
         : (this.isValid.message = false);
 

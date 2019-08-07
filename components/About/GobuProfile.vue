@@ -66,6 +66,7 @@ $gobuRed: #ddc1b9;
 }
 .top {
   margin: 6% 2% 5% 1%;
+  flex-direction: row-reverse;
   @include respond("tab") {
     align-items: flex-end;
     margin: 0;
@@ -84,6 +85,9 @@ $gobuRed: #ddc1b9;
 .caption {
   padding-right: 2%;
   order: 1;
+  &::after {
+    left: -4%;
+  }
   @include respond("tab") {
     background-color: #d34c24;
   }

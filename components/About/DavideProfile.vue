@@ -88,6 +88,9 @@ $daviGreen: #b9ddc8;
 }
 .caption {
   padding-left: 2%;
+  &::after {
+    right: -4%;
+  }
   @include respond("tab") {
     background-color: #2a6a45;
   }

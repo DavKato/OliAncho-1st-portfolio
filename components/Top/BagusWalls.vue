@@ -11,18 +11,14 @@
 .walls {
   position: absolute;
   top: 0;
-  left: -1rem;
+  left: 0;
   height: 100%;
-  width: 101%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.wall {
-  margin-left: 0.8rem;
-}
-
-$commonW: 23.8%;
+$commonW: 24%;
 @mixin wallsborder {
   box-shadow: inset 0 0.8rem 0 $gray-d;
 }
@@ -33,7 +29,7 @@ $commonW: 23.8%;
     opacity: 1;
     &:not(:last-child) {
       border-right: $bdw-p solid $gray-d;
-      margin-left: $bdw-p;
+      margin-left: $bdw-p + 0.2rem;
     }
   }
 }

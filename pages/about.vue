@@ -81,9 +81,6 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // border: 3.4rem solid;
-  // border-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/about/about-middle-square.png")
-  //   71 repeat;
 
   @include respond("tab") {
     background-image: none;

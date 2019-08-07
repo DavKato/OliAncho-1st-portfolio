@@ -252,7 +252,7 @@ export default {
         : (this.isValid.title = false);
 
       this.form.message &&
-      (this.form.message.length > 20 && this.form.message.length < 300)
+      (this.form.message.length > 10 && this.form.message.length < 300)
         ? (this.isValid.message = true)
         : (this.isValid.message = false);
 
