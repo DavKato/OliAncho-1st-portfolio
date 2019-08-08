@@ -89,6 +89,7 @@ export default {
   head() {
     const i18nSeo = this.$nuxtI18nSeo();
     const pageDesc = this.$t("desc.portfolio");
+    const url = "https://oliancho.com/";
     return {
       titleTemplate: "%s | OliAncho",
       htmlAttrs: { ...i18nSeo.htmlAttrs },
@@ -106,6 +107,9 @@ export default {
           content: pageDesc
         },
         { hid: "og:title", property: "og:title", content: "OliAncho" },
+        { hid: "og:type", property: "og:type", content: "website" },
+        { hid: "og:site_name", property: "og:site_name", content: "OliAncho" },
+        { hid: "og:url", property: "og:url", content: url },
         {
           hid: "og:description",
           property: "og:description",
@@ -114,7 +118,7 @@ export default {
         {
           hid: "og:image",
           property: "og:image",
-          content: "/images/top-thumbnail.jpg"
+          content: url + "images/top-thumbnail.jpg"
         },
         { name: "twitter:card", content: "summary_large_image" },
         ...i18nSeo.meta

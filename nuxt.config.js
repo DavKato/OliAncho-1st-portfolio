@@ -118,8 +118,7 @@ export default {
   ],
 
   googleAnalytics: {
-    id: 'UA-145311670-1',
-    dev: false
+    id: 'UA-145311670-1'
   },
 
   sitemap: {

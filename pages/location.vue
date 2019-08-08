@@ -197,8 +197,8 @@ $yellow-location: #eaea5d;
 
     .orange {
       width: 2.8%;
-      top: 25.8%;
-      left: 20.2%;
+      top: 26.8%;
+      left: 18.2%;
       filter: $fsh-s;
       cursor: pointer;
       @include respond("tab") {
@@ -228,8 +228,6 @@ $yellow-location: #eaea5d;
         font-size: 1.8rem;
       }
       @include respond("mobile") {
-        // left: 8%;
-        // bottom: 17%;
         font-size: 1.8rem;
       }
     }

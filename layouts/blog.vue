@@ -39,6 +39,7 @@
 export default {
   head() {
     const i18nSeo = this.$nuxtI18nSeo();
+    const url = "https://oliancho.com/";
     return {
       titleTemplate: "%s | OliAncho",
       htmlAttrs: { ...i18nSeo.htmlAttrs },
@@ -52,9 +53,15 @@ export default {
         },
         { hid: "og:type", property: "og:type", content: "blog" },
         {
+          hid: "og:site_name",
+          property: "og:site_name",
+          content: "OliAnchoBlog"
+        },
+        { hid: "og:url", property: "og:url", content: url + "ja/blog-posts/" },
+        {
           hid: "og:image",
           property: "og:image",
-          content: "~/static/images/blog-thumbnail.jpg"
+          content: url + "images/blog-thumbnail.jpg"
         },
         { name: "twitter:card", content: "summary_large_image" },
         ...i18nSeo.meta
