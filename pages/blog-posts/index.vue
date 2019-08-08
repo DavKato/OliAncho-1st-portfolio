@@ -32,6 +32,23 @@ import PostCard from "~/components/Blog/PostCard";
 import blogScroll from "~/mixins/blogScroll.js";
 export default {
   layout: "blog",
+  head() {
+    const pageTitle = "OliAnchoBlog";
+    const pageDesc = this.$t("desc.blog");
+    return {
+      title: pageTitle,
+      titleTemplate: null,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: pageDesc
+        },
+        { hid: "og:title", property: "og:title", content: pageTitle },
+        { hid: "og:description", property: "og:description", content: pageDesc }
+      ]
+    };
+  },
   async asyncData({ app }) {
     const postList = app.i18n.locale === "en" ? postsEn : postsJa;
 

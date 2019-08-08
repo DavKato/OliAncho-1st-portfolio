@@ -87,7 +87,40 @@ import TheFooter from "~/components/GlobalComponents/TheFooter";
 import { TweenMax, TimelineLite } from "gsap";
 export default {
   head() {
-    return this.$nuxtI18nSeo();
+    const i18nSeo = this.$nuxtI18nSeo();
+    const pageDesc = this.$t("desc.portfolio");
+    return {
+      titleTemplate: "%s | OliAncho",
+      htmlAttrs: { ...i18nSeo.htmlAttrs },
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { "http-equiv": "x-ua-compatible", content: "ie=edge" },
+        {
+          name: "format-detection",
+          content: "telephone=no, email=no, address=no"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: pageDesc
+        },
+        { hid: "og:title", property: "og:title", content: "OliAncho" },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: pageDesc
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "/images/top-thumbnail.jpg"
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...i18nSeo.meta
+      ],
+      link: [...i18nSeo.link]
+    };
   },
   components: {
     NavL,

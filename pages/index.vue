@@ -9,6 +9,12 @@
 <script>
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
+  head() {
+    return {
+      title: "OliAncho",
+      titleTemplate: null
+    };
+  },
   components: {
     BagusIndex: () => import("~/components/Top/BagusIndex"),
     BagusIndexMb: () => import("~/components/Mobile/BagusIndexMb"),

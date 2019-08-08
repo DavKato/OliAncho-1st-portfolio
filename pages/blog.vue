@@ -111,6 +111,11 @@ import bagusScroll from "~/mixins/bagusScroll.js";
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
 export default {
+  head() {
+    return {
+      title: "Blog"
+    };
+  },
   async asyncData({ app }) {
     const postList = app.i18n.locale === "en" ? postsEn : postsJa;
 

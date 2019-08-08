@@ -1,4 +1,11 @@
 export default {
+  // Site description meta
+  desc: {
+    portfolio:
+      'We create Performant and Personalized Web app. Design only or Development only is also Welcome',
+    blog:
+      "Web Creator Team OliAncho's Blog Posts about Web Dev, Design, Nomad Life and Gluten Free stuff"
+  },
   //Home preview
   main: {
     about: 'We are web creator duo.\n\nFind a little bit more about us here!',

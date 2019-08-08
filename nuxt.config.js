@@ -1,27 +1,55 @@
 import postsEn from './contents/en/posts.json';
 import postsJa from './contents/ja/posts.json';
+import i18n from './locale/i18n-config';
+
+const imgDir = '/images/';
+
 export default {
   mode: 'universal',
 
   head: {
-    title: 'OliAncho',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: "Web tech team OliAncho's official website"
-      }
-    ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon32.ico' },
+      {
+        rel: 'icon',
+        sizes: '16x16',
+        type: 'image/png',
+        href: imgDir + 'favicon16.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '32x32',
+        type: 'image/png',
+        href: imgDir + 'favicon32.png'
+      },
+      {
+        rel: 'icon',
+        sizes: '64x64',
+        type: 'image/png',
+        href: imgDir + 'favicon64.png'
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '64x64',
+        type: 'image/png',
+        href: imgDir + 'apple-touch180.png'
+      },
+      //Chrome for Android
+      {
+        rel: 'icon',
+        sizes: '192x192',
+        type: 'image/png',
+        href: imgDir + 'favicon192.png'
+      },
       {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap'
       }
     ]
+  },
+
+  icon: {
+    iconFileName: 'images/icon-manifest.png'
   },
 
   loading: false,
@@ -31,8 +59,7 @@ export default {
   manifest: {
     name: 'OliAncho Web App',
     short_name: 'OliAncho',
-    theme_color: '#6180aa',
-    icons: []
+    theme_color: '#6180aa'
   },
 
   plugins: [
@@ -85,37 +112,15 @@ export default {
     '@nuxtjs/style-resources',
     'vue-scrollto/nuxt',
     '@nuxtjs/pwa',
-    // '@nuxtjs/google-analytics',
-    [
-      'nuxt-i18n',
-      {
-        locales: [
-          {
-            code: 'en',
-            iso: 'en-GB',
-            file: 'en-GB.js'
-          },
-          {
-            code: 'ja',
-            iso: 'ja-JP',
-            file: 'ja-JP.js'
-          }
-        ],
-        defaultLocale: 'en',
-        strategy: 'prefix_and_default',
-        detectBrowserLanguage: {
-          fallbackLocale: 'en'
-        },
-        seo: false,
-        lazy: true,
-        langDir: 'locale/'
-      }
-    ],
+    '@nuxtjs/google-analytics',
+    ['nuxt-i18n', i18n],
     '@nuxtjs/sitemap'
   ],
 
-  // googleAnalytics: {
-  // },
+  googleAnalytics: {
+    id: 'UA-145311670-1',
+    dev: false
+  },
 
   sitemap: {
     gzip: true
@@ -130,11 +135,19 @@ export default {
       {
         urlPattern: '^https://fonts.(?:googleapis|gstatic).com/(.*)',
         handler: 'cacheFirst'
+      },
+      {
+        urlPattern: '/.*',
+        handler: 'staleWhileRevalidate',
+        strategyOptions: {
+          cacheName: 'my-cache',
+          cacheExpiration: {
+            maxAgeSeconds: 24 * 60 * 60 * 30
+          }
+        }
       }
     ]
   },
-
-  axios: {},
 
   styleResources: {
     scss: ['@assets/scss/_variables.scss', '@assets/scss/_mixins.scss']

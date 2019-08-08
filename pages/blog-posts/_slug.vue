@@ -1,6 +1,6 @@
 <template>
   <div class="post-page">
-    <StickyHeader @click="$emit('click', $event)" />
+    <StickyHeader @click="selectTag($event)" />
     <section class="post">
       <div class="intro">
         <div class="intro__info">
@@ -245,8 +245,8 @@
 <script>
 import postsEn from "~/contents/en/posts.json";
 import postsJa from "~/contents/ja/posts.json";
+import { mapMutations } from "vuex";
 
-import { TweenLite } from "gsap";
 import StickyHeader from "~/components/Blog/StickyHeader";
 import Markdown from "~/components/Blog/Markdown";
 import PrevPost from "~/components/Blog/PrevPost";
@@ -256,8 +256,19 @@ import blogScroll from "~/mixins/blogScroll.js";
 export default {
   layout: "blog",
   head() {
+    const pageTitle = this.title;
+    const pageDesc = `${this.summary} | OliAncho`;
     return {
-      title: `${this.title} - OliAncho`
+      title: pageTitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: pageDesc
+        },
+        { hid: "og:title", property: "og:title", content: pageTitle },
+        { hid: "og:description", property: "og:description", content: pageDesc }
+      ]
     };
   },
   async asyncData({ params, app }) {
@@ -334,6 +345,9 @@ export default {
     Markdown,
     PrevPost,
     NextPost
+  },
+  methods: {
+    ...mapMutations("posts", ["selectTag"])
   }
 };
 </script>

@@ -26,7 +26,28 @@ import MainMenu from "~/components/Mobile/MainMenu";
 import TheFooter from "~/components/GlobalComponents/TheFooter";
 export default {
   head() {
-    return this.$nuxtI18nSeo();
+    const i18nSeo = this.$nuxtI18nSeo();
+    const pageTitle = "contact form | OliAncho";
+    return {
+      title: pageTitle,
+      htmlAttrs: { ...i18nSeo.htmlAttrs },
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { "http-equiv": "x-ua-compatible", content: "ie=edge" },
+        {
+          name: "format-detection",
+          content: "telephone=no, email=no, address=no"
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: this.$t("desc.portfolio")
+        },
+        ...i18nSeo.meta
+      ],
+      link: [...i18nSeo.link]
+    };
   },
   components: {
     NavL,

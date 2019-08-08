@@ -38,7 +38,29 @@
 <script>
 export default {
   head() {
-    return this.$nuxtI18nSeo();
+    const i18nSeo = this.$nuxtI18nSeo();
+    return {
+      titleTemplate: "%s | OliAncho",
+      htmlAttrs: { ...i18nSeo.htmlAttrs },
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { "http-equiv": "x-ua-compatible", content: "ie=edge" },
+        {
+          name: "format-detection",
+          content: "telephone=no, email=no, address=no"
+        },
+        { hid: "og:type", property: "og:type", content: "blog" },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: "~/static/images/blog-thumbnail.jpg"
+        },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...i18nSeo.meta
+      ],
+      link: [...i18nSeo.link]
+    };
   },
   components: {
     BlogFooter: () => import("~/components/Blog/BlogFooter")

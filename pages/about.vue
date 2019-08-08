@@ -50,6 +50,11 @@
 <script>
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
+  head() {
+    return {
+      title: "About"
+    };
+  },
   components: {
     DavideProfile: () => import("~/components/About/DavideProfile"),
     GobuProfile: () => import("~/components/About/GobuProfile"),

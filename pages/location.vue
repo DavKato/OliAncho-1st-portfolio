@@ -398,6 +398,11 @@ $yellow-location: #eaea5d;
 <script>
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
+  head() {
+    return {
+      title: "Location"
+    };
+  },
   data() {
     return {
       planeToggle: false,

@@ -29,6 +29,11 @@
 <script>
 import bagusScroll from "~/mixins/bagusScroll.js";
 export default {
+  head() {
+    return {
+      title: "Works"
+    };
+  },
   components: {
     Popup: () => import("~/components/Works/Popup.vue"),
     MobileTitle: () => import("~/components/Mobile/BagusTitle.vue")
