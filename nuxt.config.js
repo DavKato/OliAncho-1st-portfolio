@@ -117,7 +117,9 @@ export default {
   },
 
   sitemap: {
-    gzip: true
+    path: '/sitemap.xml',
+    hostname: 'https://oliancho.com',
+    exclude: ['/admin/**']
   },
 
   workbox: {

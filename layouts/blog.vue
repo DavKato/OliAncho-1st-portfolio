@@ -44,14 +44,18 @@ export default {
       titleTemplate: "%s | OliAncho",
       htmlAttrs: { ...i18nSeo.htmlAttrs },
       meta: [
-        { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { hid: "charset", charset: "utf-8" },
+        {
+          name: "viewport",
+          hid: "viewport",
+          content: "width=device-width, initial-scale=1"
+        },
         { "http-equiv": "x-ua-compatible", content: "ie=edge" },
         {
           name: "format-detection",
           content: "telephone=no, email=no, address=no"
         },
-        { hid: "og:type", property: "og:type", content: "blog" },
+        { hid: "og:type", property: "og:type", content: "article" },
         {
           hid: "og:site_name",
           property: "og:site_name",
