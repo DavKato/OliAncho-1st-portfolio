@@ -193,7 +193,7 @@ export default {
     subFolder: false
   },
 
-  ssr: false,
+  ssr: false
 
-  resourceHints: true
+  // resourceHints: true
 };
