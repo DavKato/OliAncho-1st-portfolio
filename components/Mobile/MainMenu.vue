@@ -2,7 +2,7 @@
   <div>
     <transition @enter="expandMenu" @leave="foldMenu">
       <nav class="menu" v-show="showMenu">
-        <NavL />
+        <NavL @click="goHome" />
         <ul class="menu-list">
           <li class="menu-list-box" @click="showMenu = !showMenu">
             <nuxt-link class="menu-list-item" :to="localePath('index')">
@@ -48,7 +48,7 @@
             </a>
           </li>
           <li class="external-list-item" @click="showMenu = !showMenu">
-            <a href="#" class="external-list-box">
+            <a href="https://www.instagram.com/oliancho/" class="external-list-box">
               <CldImg
                 src="bagushaus/Mobile/instagram-blue.png"
                 width="30,60,90"
@@ -287,6 +287,12 @@ export default {
         scaleY: 0,
         onComplete: done
       });
+    },
+    goHome() {
+      if (!this.$route.name.startsWith("index")) {
+        this.$router.push(this.localePath("index"));
+      }
+      this.showMenu = !this.showMenu;
     }
   }
 };

@@ -138,7 +138,8 @@ export default {
   },
   methods: {
     goHome() {
-      this.$router.push(this.localePath("index"));
+      if (!this.$route.name.startsWith("index"))
+        this.$router.push(this.localePath("index"));
     }
   }
 };

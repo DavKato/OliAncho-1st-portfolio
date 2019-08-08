@@ -99,11 +99,6 @@ export default {
           resolve({ x: 0, y: 0 });
         }, 300);
       });
-      // if (
-      //   to.matched.some(r => r.components.default.options.scrollToTop !== false)
-      // ) {
-      //   return { x: 0, y: 0 };
-      // }
     }
   },
 
@@ -193,6 +188,4 @@ export default {
   },
 
   ssr: false
-
-  // resourceHints: true
 };

@@ -148,12 +148,12 @@ $trs: all 0.4s;
   &:before,
   &:after {
     content: "";
-    width: 30rem;
-    height: 30rem;
+    width: 28rem;
+    height: 28rem;
     background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/v1563231777/bagushaus/works/works-oliveanchovy.png");
     background-size: contain;
     position: absolute;
-    top: -80%;
+    top: -82%;
 
     @include respond("long-scr") {
       width: 25rem;
@@ -164,14 +164,14 @@ $trs: all 0.4s;
     }
   }
   &:before {
-    left: -28rem;
+    left: -26rem;
     transform: rotateY(180deg);
     @include respond("long-scr") {
       left: -23rem;
     }
   }
   &:after {
-    right: -28rem;
+    right: -26rem;
     @include respond("long-scr") {
       right: -23rem;
     }

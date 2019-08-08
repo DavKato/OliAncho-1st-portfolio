@@ -1,5 +1,5 @@
 <template functional>
-  <a href="#">
+  <a href="https://www.instagram.com/oliancho/">
     <CldImg
       src="v1563231771/bagushaus/global/instagram.png"
       :width="props.width"

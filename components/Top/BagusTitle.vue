@@ -31,7 +31,7 @@
       text-transform: uppercase;
       position: absolute;
       left: 50%;
-      top: -4rem;
+      top: -4.3rem;
       transform: translateX(-50%);
       font-size: 3.2rem;
       z-index: 50;
