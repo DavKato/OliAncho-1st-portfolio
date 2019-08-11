@@ -2,6 +2,7 @@
   <div class="container">
     <nuxt-link
       class="window"
+      :aria-label="index.title"
       v-for="(index, i) of bagusIndex"
       :key="index.title"
       :to="localePath(index.title)"

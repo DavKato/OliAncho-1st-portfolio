@@ -78,3 +78,10 @@
   box-shadow: 0 0.2rem 0.5rem 0.2rem rgba(0, 0, 0, 0.2);
   transform: translateY(-0.2rem);
 }
+
+//Focus Outline for Mobile
+
+@mixin focus-ol {
+  outline: groove 3px rgba($blue-l, 0.4) !important;
+  outline-offset: 1.5rem;
+}

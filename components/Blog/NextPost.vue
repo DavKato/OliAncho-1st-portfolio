@@ -19,7 +19,8 @@
   transition: outline-offset 0.05s;
   outline-offset: 0;
 
-  &:hover {
+  &:hover,
+  &:focus {
     outline: solid 2px $blue-l;
     outline-offset: 0.9rem;
   }

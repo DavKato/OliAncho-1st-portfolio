@@ -1,54 +1,62 @@
 <template>
   <nav class="sticky">
-    <nuxt-link :to="localePath('blog-posts')" tag="div">
-      <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
-    </nuxt-link>
-
+    <TextLogo @click="$emit('click', $event)" />
     <ul class="filter" v-show="$vssWidth > $data.$tab && $vssWidth >= $vssHeight">
-      <nuxt-link
-        :to="localePath('blog-posts')"
-        class="filter__list"
-        :class="{ active: selectedTag === 'life'}"
-        tag="li"
-      >
-        <h2
-          @click="$emit('click', {tag: 'life', reset: true})"
-          class="filter__list-text"
-        >{{ $t('posts.life') }}</h2>
-      </nuxt-link>
-      <nuxt-link
-        :to="localePath('blog-posts')"
-        class="filter__list"
-        :class="{ active: selectedTag === 'web'}"
-        tag="li"
-      >
-        <h2
-          @click="$emit('click', {tag: 'web', reset: true})"
-          class="filter__list-text"
-        >{{ $t('posts.web') }}</h2>
-      </nuxt-link>
-      <nuxt-link
-        :to="localePath('blog-posts')"
-        class="filter__list"
-        :class="{ active: selectedTag === 'japanese'}"
-        tag="li"
-      >
-        <h2
-          @click="$emit('click', {tag: 'japanese', reset: true})"
-          class="filter__list-text"
-        >{{ $t('posts.japanese') }}</h2>
-      </nuxt-link>
-      <nuxt-link
-        :to="localePath('blog-posts')"
-        :class="{ active: selectedTag === 'glutenFree'}"
-        tag="li"
-        class="filter__list"
-      >
-        <h2
-          @click="$emit('click', {tag: 'glutenFree', reset: true})"
-          class="filter__list-text"
-        >{{ $t('posts.glutenFree') }}</h2>
-      </nuxt-link>
+      <li class="filter__list">
+        <nuxt-link
+          :to="localePath('blog-posts')"
+          :class="{ active: selectedTag === 'life'}"
+          tabindex="0"
+          class="filter__link"
+        >
+          <h2
+            @click="$emit('click', {tag: 'life', reset: true})"
+            class="filter__list-text"
+          >{{ $t('posts.life') }}</h2>
+        </nuxt-link>
+      </li>
+      <li class="filter__list">
+        <nuxt-link
+          :to="localePath('blog-posts')"
+          :class="{ active: selectedTag === 'web'}"
+          tabindex="0"
+          class="filter__link"
+        >
+          <h2
+            @click="$emit('click', {tag: 'web', reset: true})"
+            @keydown.enter="$emit('click', {tag: 'glutenFree', reset: true})"
+            class="filter__list-text"
+          >{{ $t('posts.web') }}</h2>
+        </nuxt-link>
+      </li>
+      <li class="filter__list">
+        <nuxt-link
+          :to="localePath('blog-posts')"
+          :class="{ active: selectedTag === 'japanese'}"
+          tabindex="0"
+          class="filter__link"
+        >
+          <h2
+            @click="$emit('click', {tag: 'japanese', reset: true})"
+            @keydown.enter="$emit('click', {tag: 'glutenFree', reset: true})"
+            class="filter__list-text"
+          >{{ $t('posts.japanese') }}</h2>
+        </nuxt-link>
+      </li>
+      <li class="filter__list">
+        <nuxt-link
+          :to="localePath('blog-posts')"
+          :class="{ active: selectedTag === 'glutenFree'}"
+          tabindex="0"
+          class="filter__link"
+        >
+          <h2
+            @click="$emit('click', {tag: 'glutenFree', reset: true})"
+            @keydown.enter="$emit('click', {tag: 'glutenFree', reset: true})"
+            class="filter__list-text"
+          >{{ $t('posts.glutenFree') }}</h2>
+        </nuxt-link>
+      </li>
     </ul>
 
     <no-ssr>
@@ -88,6 +96,11 @@
     align-items: center;
     list-style: none;
 
+    &__link {
+      text-decoration: none;
+      outline: none;
+    }
+
     &__list {
       cursor: pointer;
       position: relative;
@@ -102,7 +115,8 @@
         color: $white-p;
       }
 
-      &:hover {
+      &:hover,
+      &:focus-within {
         &::before {
           width: 100%;
         }

@@ -1,15 +1,11 @@
 <template>
   <div id="defaultLayout">
     <NavL @click="goHome" />
-    <no-ssr>
-      <NavR v-if="$vssWidth > $data.$tab" />
-      <MainMenu v-else-if="$vssWidth <= $data.$tab" />
-    </no-ssr>
+    <NavR v-show="$vssWidth > $data.$tab" />
+    <MainMenu v-show="$vssWidth <= $data.$tab" />
     <TheHeader id="bagus-top" />
     <main>
-      <no-ssr>
-        <BagusTitle v-if="$vssWidth > $data.$tab" />
-      </no-ssr>
+      <BagusTitle v-show="$vssWidth > $data.$tab" />
       <no-ssr>
         <BagusWalls v-if="$vssWidth > $data.$tab" />
       </no-ssr>

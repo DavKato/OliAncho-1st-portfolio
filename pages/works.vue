@@ -10,6 +10,8 @@
         v-for="(work, i) in workList"
         :key="work.name"
         @click="showDetail(i)"
+        @keydown.enter="showDetail(i)"
+        tabindex="0"
       >
         <LazyImg
           :src="`bagushaus/worklist/${work.imageFolder}/${work.images[0]}`"
@@ -231,8 +233,17 @@ $trs: all 0.4s;
       }
     }
 
-    &:hover img {
+    &:hover img,
+    &:focus img {
       transform: scale(1.05);
+      @include respond("tab") {
+        transform: scale(1);
+        @include focus-ol;
+      }
+    }
+
+    &:focus {
+      outline: none;
     }
 
     img {

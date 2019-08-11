@@ -12,40 +12,38 @@
           <rect
             class="mask__window window"
             x="15%"
-            y="29.3%"
+            y="27.6%"
             :class="{ deActive: selectedTag === 'life'}"
           />
           <rect
             class="mask__window window"
             x="35%"
-            y="29.3%"
+            y="27.6%"
             :class="{ deActive: selectedTag === 'web'}"
           />
           <rect
             class="mask__window window"
             x="55%"
-            y="29.3%"
+            y="27.6%"
             :class="{ deActive: selectedTag === 'japanese'}"
           />
           <rect
             class="mask__window window"
             x="75%"
-            y="29.3%"
+            y="27.6%"
             :class="{ deActive: selectedTag === 'glutenFree'}"
           />
         </mask>
       </defs>
       <rect class="top-nav" id="rect1" x="0" y="0" width="100%" height="100%" fill="#909473" />
-      <rect class="window yellow" x="15%" y="29.3%" v-if="selectedTag === 'life'" />
-      <rect class="window yellow" x="35%" y="29.3%" v-if="selectedTag === 'web'" />
-      <rect class="window yellow" x="55%" y="29.3%" v-if="selectedTag === 'japanese'" />
-      <rect class="window yellow" x="75%" y="29.3%" v-if="selectedTag === 'glutenFree'" />
+      <rect class="window yellow" x="15%" y="27.6%" v-if="selectedTag === 'life'" />
+      <rect class="window yellow" x="35%" y="27.6%" v-if="selectedTag === 'web'" />
+      <rect class="window yellow" x="55%" y="27.6%" v-if="selectedTag === 'japanese'" />
+      <rect class="window yellow" x="75%" y="27.6%" v-if="selectedTag === 'glutenFree'" />
     </svg>
 
     <div class="upper-nav">
-      <nuxt-link :to="localePath('blog-posts')" tag="div">
-        <TextLogo @click="$emit('click', {tag: 'all', reset: true})" />
-      </nuxt-link>
+      <TextLogo @click="$emit('click', $event)" />
       <BlogNavLinks />
     </div>
     <ul class="filters">
@@ -83,10 +81,7 @@
     margin-top: -2vw;
     padding: 1.9vh 12% 0;
     display: flex;
-    // grid-template-columns: repeat(4, minmax(18%, 23rem));
-    // justify-content: center;
     align-items: flex-start;
-    // gap: 1.2%;
     list-style: none;
     z-index: 10;
 
@@ -105,7 +100,7 @@
 
   .window {
     width: 9%;
-    height: calc(7% + 5vw);
+    height: calc(7.7% + 5vw);
   }
   .top-nav {
     width: 100%;

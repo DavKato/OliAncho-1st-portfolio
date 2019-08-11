@@ -1,8 +1,5 @@
 <template functional>
-  <nuxt-link :to="props.src">
-    <!-- <slot /> -->
-    {{ props.title }}
-  </nuxt-link>
+  <nuxt-link :to="props.src" tabindex="0">{{ props.title }}</nuxt-link>
 </template>
 
 <script>

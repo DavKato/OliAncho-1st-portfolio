@@ -1,14 +1,18 @@
 <template functional>
-  <a href="https://www.instagram.com/oliancho/">
+  <a
+    href="https://www.instagram.com/oliancho/"
+    tabindex="0"
+    v-on="listeners"
+    style="outline: none;"
+    :class="[data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+  >
     <CldImg
       src="v1563231771/bagushaus/global/instagram.png"
       :width="props.width"
       :sizes="props.sizes"
       alt="Jump to our Instagram page"
-      :class="[data.class, data.staticClass]"
-      :style="[data.style, data.staticStyle]"
-      v-bind="data.attrs"
-      v-on="listeners"
     />
   </a>
 </template>

@@ -108,7 +108,9 @@ $green-pre: #d9ebde80;
     box-shadow: inset 0 -1px 0 currentColor;
     transition: color 0.8s ease-in, box-shadow 0.13s ease-in-out;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      outline: none;
       box-shadow: inset 0 0 0 currentcolor, 0 2px 0 currentcolor;
     }
     &:link,

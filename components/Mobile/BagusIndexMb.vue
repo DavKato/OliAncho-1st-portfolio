@@ -1,17 +1,18 @@
 <template>
   <div class="container">
     <StendGlass src="bagushaus/Mobile/top/glass-blue.png" />
-    <div class="window">
+    <nav class="window">
       <nuxt-link
         v-for="item in windowList"
         :to="localePath(item.link)"
         :key="item.link"
         class="window-box"
+        tabindex="0"
       >
         <span class="window-box__text">{{ item.link }}</span>
         <CldImg class="window-box__img" :src="item.img" width="184,368,552" sizes="50vw" />
       </nuxt-link>
-    </div>
+    </nav>
     <StendGlass src="bagushaus/Mobile/top/glass-red.png" />
   </div>
 </template>

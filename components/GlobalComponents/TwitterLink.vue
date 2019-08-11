@@ -1,5 +1,5 @@
 <template functional>
-  <a href="#">
+  <a href="#" tabindex="0" v-on="listeners" style="outline: none;">
     <CldImg
       src="v1563231772/bagushaus/global/twitter.png"
       :width="props.width"
@@ -8,7 +8,6 @@
       :class="[data.class, data.staticClass]"
       :style="[data.style, data.staticStyle]"
       v-bind="data.attrs"
-      v-on="listeners"
     />
   </a>
 </template>

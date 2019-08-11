@@ -1,7 +1,12 @@
 <template>
   <div class="logo-box">
-    <nuxt-link :to="localePath('index')" @click.native="scrollToTitle">
-      <CldImg src="bagushaus/top/top-logo.png" alt="OliAncho Logo" class="logo-box__image" />
+    <nuxt-link
+      :to="localePath('index')"
+      class="logo-box__link"
+      @click.native="scrollToTitle"
+      tabindex="0"
+    >
+      <CldImg src="bagushaus/top/top-logo.png" alt="to Top page" class="logo-box__image" />
     </nuxt-link>
   </div>
 </template>
@@ -20,6 +25,21 @@ export default {
 
 <style lang="scss" scoped>
 .logo-box {
+  &__link {
+    &:hover,
+    &:focus {
+      outline: none;
+      & .logo-box__image {
+        filter: $fsh-m;
+        transform: scale(1.04) skewY(-2deg);
+      }
+    }
+    &:active .logo-box__image {
+      filter: $fsh-s;
+      transform: scale(0.98) skewY(2deg);
+    }
+  }
+
   &__image {
     width: 25vw;
     max-width: 33.3vh;
@@ -27,14 +47,6 @@ export default {
     max-height: 25vw;
     filter: $fsh-s;
     transition: all 0.4s;
-    &:hover {
-      filter: $fsh-m;
-      transform: scale(1.02) skewY(-1deg);
-    }
-    &:active {
-      filter: $fsh-s;
-      transform: scale(0.98) skewY(2deg);
-    }
   }
 }
 </style>

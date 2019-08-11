@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="localePath('index')">
+  <nuxt-link :to="localePath('index')" tabindex="0" style="outline: none;">
     <CldImg
       src="v1563231773/bagushaus/global/oliancho-logo.png"
       :width="width"

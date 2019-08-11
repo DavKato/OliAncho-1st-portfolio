@@ -1,78 +1,12 @@
 <template>
   <div>
-    <transition @enter="expandMenu" @leave="foldMenu">
-      <nav class="menu" v-show="showMenu">
-        <ul class="menu-list">
-          <li class="menu-list-box" @click="filterPosts('all')">
-            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')">
-              <span class="menu-list-text">{{ $t('posts.all') }}</span>
-              <BlogMenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="filterPosts('life')">
-            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')">
-              <span class="menu-list-text">{{ $t('posts.life') }}</span>
-              <BlogMenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="filterPosts('web')">
-            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')">
-              <span class="menu-list-text">{{ $t('posts.web') }}</span>
-              <BlogMenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="filterPosts('japanese')">
-            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')">
-              <span class="menu-list-text">{{ $t('posts.japanese') }}</span>
-              <BlogMenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="filterPosts('glutenFree')">
-            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')">
-              <span class="menu-list-text">{{ $t('posts.glutenFree') }}</span>
-              <BlogMenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-        </ul>
-        <ul class="external-list">
-          <li class="external-list-box" @click="showMenu = !showMenu">
-            <a href="#" class="external-list-box">
-              <TwitterLink
-                width="35,70,105"
-                sizes="(maxwidth: 440px) 35px, 3.7rem"
-                class="twitter"
-              />
-            </a>
-          </li>
-          <li class="external-list-item" @click="showMenu = !showMenu">
-            <a href="#" class="external-list-box">
-              <InstaLink width="30,60,90" sizes="(maxwidth: 440px) 30px, 3.2rem" class="insta" />
-            </a>
-          </li>
-          <li class="external-list-item" @click="showMenu = !showMenu">
-            <nuxt-link :to="localePath('contact')" class="external-list-box">
-              <CldImg
-                src="bagushaus/global/email.png"
-                width="35,70,107"
-                sizes="(maxwidth: 440px) 30px, 3.5rem"
-                class="email"
-              />
-            </nuxt-link>
-          </li>
-          <li
-            class="external-list-item lang"
-            @click="showMenu = !showMenu"
-            v-if="$route.path === '/blog-posts' || $route.path=== '/ja/blog-posts'"
-          >
-            <LangSwitch width="35,70,110" sizes="(maxwidth: 440px) 35px, 3.1rem" />
-          </li>
-          <li class="external-list-item">
-            <HomeLink width="33,66,100" sizes="(max-width: 440px) 32px, 3.2rem" class="home" />
-          </li>
-        </ul>
-      </nav>
-    </transition>
-    <div class="burger" @click="showMenu = !showMenu">
+    <div
+      class="burger"
+      @click="showMenu = !showMenu"
+      @keydown.enter="showMenu = !showMenu"
+      aria-label="menu"
+      tabindex="0"
+    >
       <svg
         class="hamburger"
         viewBox="0 0 8 8"
@@ -86,6 +20,86 @@
         </g>
       </svg>
     </div>
+    <transition @enter="expandMenu" @leave="foldMenu">
+      <nav class="menu" v-show="showMenu">
+        <ul class="menu-list">
+          <li class="menu-list-box" @click="filterPosts('all')">
+            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')" tabindex="0">
+              <span class="menu-list-text">{{ $t('posts.all') }}</span>
+              <BlogMenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="filterPosts('life')">
+            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')" tabindex="0">
+              <span class="menu-list-text">{{ $t('posts.life') }}</span>
+              <BlogMenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="filterPosts('web')">
+            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')" tabindex="0">
+              <span class="menu-list-text">{{ $t('posts.web') }}</span>
+              <BlogMenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="filterPosts('japanese')">
+            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')" tabindex="0">
+              <span class="menu-list-text">{{ $t('posts.japanese') }}</span>
+              <BlogMenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="filterPosts('glutenFree')">
+            <nuxt-link class="menu-list-item" :to="localePath('blog-posts')" tabindex="0">
+              <span class="menu-list-text">{{ $t('posts.glutenFree') }}</span>
+              <BlogMenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+        </ul>
+        <ul class="external-list">
+          <li class="external-list-box" @click="showMenu = !showMenu">
+            <TwitterLink
+              width="35,70,105"
+              sizes="(maxwidth: 440px) 35px, 3.7rem"
+              class="twitter external-list-box"
+            />
+          </li>
+          <li class="external-list-item" @click="showMenu = !showMenu">
+            <InstaLink
+              width="30,60,90"
+              sizes="(maxwidth: 440px) 30px, 3.2rem"
+              class="insta external-list-box"
+            />
+          </li>
+          <li class="external-list-item" @click="showMenu = !showMenu">
+            <nuxt-link :to="localePath('contact')" class="external-list-box" tabindex="0">
+              <CldImg
+                src="bagushaus/global/email.png"
+                width="35,70,107"
+                sizes="(maxwidth: 440px) 30px, 3.5rem"
+                class="email"
+              />
+            </nuxt-link>
+          </li>
+          <li
+            class="external-list-item lang"
+            @click="showMenu = !showMenu"
+            v-if="$route.path === '/blog-posts' || $route.path=== '/ja/blog-posts'"
+          >
+            <LangSwitch
+              width="35,70,110"
+              sizes="(maxwidth: 440px) 35px, 3.1rem"
+              class="external-list-box"
+            />
+          </li>
+          <li class="external-list-item">
+            <HomeLink
+              width="33,66,100"
+              sizes="(max-width: 440px) 32px, 3.2rem"
+              class="home external-list-box"
+            />
+          </li>
+        </ul>
+      </nav>
+    </transition>
   </div>
 </template>
 
@@ -102,6 +116,12 @@
   align-items: center;
   flex-direction: column;
   z-index: 200;
+  transition: transform 0.2s;
+
+  &:focus {
+    outline: none;
+    transform: scale(1.15) translateY(-1px);
+  }
 
   .hamburger {
     width: 4.2rem;
@@ -112,7 +132,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  // min-height: 62vh;
   max-height: 105vh;
   width: 100vw;
   padding: 10% 17% 8%;
@@ -164,6 +183,9 @@
         text-decoration: none;
         color: #000;
       }
+      &:focus {
+        @include focus-ol;
+      }
     }
 
     &-text {
@@ -190,6 +212,10 @@
   align-items: center;
   list-style: none;
   margin-top: 5%;
+
+  &-box:focus-within {
+    @include focus-ol;
+  }
 
   & .twitter {
     // width: 9rem;

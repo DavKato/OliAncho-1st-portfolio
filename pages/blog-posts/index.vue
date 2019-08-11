@@ -16,7 +16,10 @@
       :link="post.link"
       tag="postcard"
       @mouseenter.native="cardHover($event)"
+      @focus.native="cardHover($event)"
       @mouseleave.native="cardLeave($event)"
+      @blur.native="cardLeave($event)"
+      tabindex="0"
     />
   </section>
 </template>
@@ -206,6 +209,10 @@ export default {
   .postcard {
     opacity: 0;
     transform-origin: bottom;
+
+    &:focus {
+      outline: none;
+    }
 
     &:first-of-type {
       margin-top: 9%;

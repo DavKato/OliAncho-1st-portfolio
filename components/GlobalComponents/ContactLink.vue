@@ -1,5 +1,11 @@
 <template functional>
-  <div v-scroll-to="{ el: '#contact', duration: 500, offset: -30 }">
+  <div
+    v-scroll-to="{ el: '#contact', duration: 500, offset: -30 }"
+    :class="[data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+    v-on="listeners"
+  >
     <CldImg
       src="v1563231775/bagushaus/global/email.png"
       :width="props.width"
@@ -7,10 +13,6 @@
       alt="jump to contact form"
       style="cursor:pointer;"
       title="Contact Us"
-      :class="[data.class, data.staticClass]"
-      :style="[data.style, data.staticStyle]"
-      v-bind="data.attrs"
-      v-on="listeners"
     />
   </div>
 </template>

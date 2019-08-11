@@ -1,81 +1,12 @@
 <template>
   <div>
-    <transition @enter="expandMenu" @leave="foldMenu">
-      <nav class="menu" v-show="showMenu">
-        <NavL @click="goHome" />
-        <ul class="menu-list">
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('index')">
-              <span class="menu-list-text">Top</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('about')">
-              <span class="menu-list-text">About</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('works')">
-              <span class="menu-list-text">Works</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('blog')">
-              <span class="menu-list-text">Blog</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-          <li class="menu-list-box" @click="showMenu = !showMenu">
-            <nuxt-link class="menu-list-item" :to="localePath('location')">
-              <span class="menu-list-text">Location</span>
-              <MenuArrow class="menu-list-arrow" />
-            </nuxt-link>
-          </li>
-        </ul>
-        <ul class="external-list">
-          <li class="external-list-box" @click="showMenu = !showMenu">
-            <a href="#" class="external-list-box">
-              <CldImg
-                src="bagushaus/Mobile/twitter-blue.png"
-                width="35,70,105"
-                sizes="(maxwidth: 440px) 35px, 3.7rem"
-                class="twitter"
-                alt="Jump to our twitter"
-              />
-            </a>
-          </li>
-          <li class="external-list-item" @click="showMenu = !showMenu">
-            <a href="https://www.instagram.com/oliancho/" class="external-list-box">
-              <CldImg
-                src="bagushaus/Mobile/instagram-blue.png"
-                width="30,60,90"
-                sizes="(maxwidth: 440px) 30px, 3.2rem"
-                class="insta"
-                alt="Jump to our instagram"
-              />
-            </a>
-          </li>
-          <li class="external-list-item" @click="showMenu = !showMenu">
-            <nuxt-link :to="localePath('contact')" class="external-list-box">
-              <CldImg
-                src="bagushaus/Mobile/email-blue.png"
-                width="35,70,107"
-                sizes="(maxwidth: 440px) 35px, 3.5rem"
-                class="email"
-                alt="Contact us"
-              />
-            </nuxt-link>
-          </li>
-          <li class="external-list-item lang" @click="showMenu = !showMenu">
-            <LangSwitch width="35,70,110" sizes="(maxwidth: 440px) 35px, 3.1rem" />
-          </li>
-        </ul>
-      </nav>
-    </transition>
-    <div class="burger" @click="showMenu = !showMenu">
+    <div
+      class="burger"
+      @click="showMenu = !showMenu"
+      @keydown.enter="showMenu = !showMenu"
+      aria-label="menu"
+      tabindex="0"
+    >
       <svg
         class="hamburger"
         viewBox="0 0 8 8"
@@ -89,6 +20,85 @@
         </g>
       </svg>
     </div>
+    <transition @enter="expandMenu" @leave="foldMenu">
+      <nav class="menu" v-show="showMenu">
+        <NavL @click="goHome" />
+        <ul class="menu-list">
+          <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('index')" tabindex="0">
+              <span class="menu-list-text">Top</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('about')" tabindex="0">
+              <span class="menu-list-text">About</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('works')" tabindex="0">
+              <span class="menu-list-text">Works</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('blog')" tabindex="0">
+              <span class="menu-list-text">Blog</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+          <li class="menu-list-box" @click="showMenu = !showMenu">
+            <nuxt-link class="menu-list-item" :to="localePath('location')" tabindex="0">
+              <span class="menu-list-text">Location</span>
+              <MenuArrow class="menu-list-arrow" />
+            </nuxt-link>
+          </li>
+        </ul>
+        <ul class="external-list">
+          <li class="external-list-box" @click="showMenu = !showMenu">
+            <a href="#" class="external-list-box" tabindex="0">
+              <CldImg
+                src="bagushaus/Mobile/twitter-blue.png"
+                width="35,70,105"
+                sizes="(maxwidth: 440px) 35px, 3.7rem"
+                class="twitter"
+                alt="Jump to our twitter"
+              />
+            </a>
+          </li>
+          <li class="external-list-item" @click="showMenu = !showMenu">
+            <a href="https://www.instagram.com/oliancho/" class="external-list-box" tabindex="0">
+              <CldImg
+                src="bagushaus/Mobile/instagram-blue.png"
+                width="30,60,90"
+                sizes="(maxwidth: 440px) 30px, 3.2rem"
+                class="insta"
+                alt="Jump to our instagram"
+              />
+            </a>
+          </li>
+          <li class="external-list-item" @click="showMenu = !showMenu">
+            <nuxt-link :to="localePath('contact')" class="external-list-box" tabindex="0">
+              <CldImg
+                src="bagushaus/Mobile/email-blue.png"
+                width="35,70,107"
+                sizes="(maxwidth: 440px) 35px, 3.5rem"
+                class="email"
+                alt="Contact us"
+              />
+            </nuxt-link>
+          </li>
+          <li class="external-list-item lang" @click="showMenu = !showMenu">
+            <LangSwitch
+              width="35,70,110"
+              sizes="(maxwidth: 440px) 35px, 3.1rem"
+              class="external-list-box"
+            />
+          </li>
+        </ul>
+      </nav>
+    </transition>
   </div>
 </template>
 
@@ -105,7 +115,13 @@
   align-items: center;
   flex-direction: column;
   background-image: radial-gradient($green-p 30%, transparent 100%);
+  transition: transform 0.2s;
   z-index: 100;
+
+  &:focus {
+    outline: none;
+    transform: scale(1.15) translateY(-1px);
+  }
 
   .hamburger {
     width: 4.2rem;
@@ -163,6 +179,10 @@
         text-decoration: none;
         color: $black-d;
       }
+
+      &:focus {
+        @include focus-ol;
+      }
     }
 
     &-text {
@@ -190,6 +210,10 @@
   align-items: center;
   list-style: none;
   margin-top: 9%;
+
+  &-box:focus {
+    @include focus-ol;
+  }
 
   & .twitter {
     @include respond("mobile") {

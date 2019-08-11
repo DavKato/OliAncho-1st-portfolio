@@ -125,20 +125,18 @@
     width: 100%;
     height: 100%;
     padding: 1.2rem 2rem;
+    outline: none;
 
     &::placeholder {
       color: $gray-l;
       font-family: $font-p;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::placeholder {
         @include tsh-m;
       }
-    }
-
-    &:focus {
-      outline: none;
     }
   }
 
@@ -307,7 +305,7 @@
     width: $bw8;
 
     &:hover,
-    &:focus {
+    &:focus-within {
       @include lg-m($green-p);
       box-shadow: 0.8rem 0.7rem 0.8rem rgba(0, 0, 0, 0.2);
     }

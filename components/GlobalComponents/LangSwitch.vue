@@ -1,6 +1,12 @@
 <template>
   <transition name="fade" mode="out-in">
-    <nuxt-link v-if="$i18n.locale == 'ja'" :to="switchLocalePath('en')" key="ja">
+    <nuxt-link
+      v-if="$i18n.locale == 'ja'"
+      :to="switchLocalePath('en')"
+      key="ja"
+      tabindex="0"
+      style="outline: none;"
+    >
       <CldImg
         src="v1563231776/bagushaus/global/english.png"
         :width="width"
@@ -8,7 +14,13 @@
         alt="Switch to English"
       />
     </nuxt-link>
-    <nuxt-link v-if="$i18n.locale == 'en'" :to="switchLocalePath('ja')" key="en">
+    <nuxt-link
+      v-if="$i18n.locale == 'en'"
+      :to="switchLocalePath('ja')"
+      key="en"
+      tabindex="0"
+      style="outline: none;"
+    >
       <CldImg
         src="v1563231774/bagushaus/global/japanese.png"
         :width="width"

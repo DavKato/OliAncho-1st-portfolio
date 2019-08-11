@@ -1,8 +1,8 @@
 <template>
-  <nav class="main-nav">
-    <ContactLink class="contact" width="23,55" sizes="55px" />
-    <LangSwitch class="flag" width="23,55" sizes="55px" />
-  </nav>
+  <div class="nav-r">
+    <ContactLink class="link" width="23,55" sizes="55px" />
+    <LangSwitch class="link" width="23,55" sizes="55px" />
+  </div>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
-.main-nav {
+.nav-r {
   display: flex;
   align-items: center;
   position: absolute;
@@ -29,17 +29,20 @@ export default {
     margin-right: 1.5rem;
   }
 
-  & img {
-    height: 100%;
-    filter: $fsh-s;
+  .link {
     transition: all 0.2s;
-
-    &:hover {
+    &:hover,
+    &:focus {
       @include iconHover;
+      outline: none;
     }
     &:active {
       @include iconActive;
     }
+  }
+  & img {
+    height: 100%;
+    filter: $fsh-s;
   }
 }
 </style>

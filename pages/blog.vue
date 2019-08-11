@@ -37,13 +37,23 @@
         </h3>
         <p class="latest-post-text latest-post-low">{{ latestPost.summary }}</p>
       </div>
-      <nuxt-link :to="`blog-posts/${latestPost.link}`" class="cta">
+      <nuxt-link :to="`blog-posts/${latestPost.link}`" class="cta" tabindex="0">
         <p class="cta-btn">{{ $t('blog.readThis') }}</p>
       </nuxt-link>
     </div>
     <p class="middle">{{ $t('blog.intro') }}</p>
     <div class="categories">
-      <nuxt-link class="category" :to="localePath('blog-posts')">
+      <nuxt-link class="go-to" :to="localePath('blog-posts')" tabindex="0">
+        <CldImg
+          src="bagushaus/blog/blog-moon.png"
+          width="221,442"
+          sizes="221px"
+          alt="go to blog page"
+          @click.native="selectTag({tag: 'all', reset: false})"
+        />
+        <p class="go-to__text">Check It Out!</p>
+      </nuxt-link>
+      <nuxt-link class="category" :to="localePath('blog-posts')" tabindex="0">
         <CldImg
           src="bagushaus/blog/blog-1tree.png"
           width="287,574"
@@ -55,7 +65,7 @@
         />
         <p :class="`life-${$i18n.locale}`" ref="life">{{ $t('blog.life') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('blog-posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')" tabindex="0">
         <CldImg
           src="bagushaus/blog/blog-2tree.png"
           width="301,602"
@@ -67,7 +77,7 @@
         />
         <p :class="`work-${$i18n.locale}`" ref="work">{{ $t('blog.work') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('blog-posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')" tabindex="0">
         <CldImg
           src="bagushaus/blog/blog-3tree.png"
           width="202,404"
@@ -79,7 +89,7 @@
         />
         <p :class="`teach-${$i18n.locale}`" ref="teach">{{ $t('blog.teaching') }}</p>
       </nuxt-link>
-      <nuxt-link class="category" :to="localePath('blog-posts')">
+      <nuxt-link class="category" :to="localePath('blog-posts')" tabindex="0">
         <CldImg
           src="bagushaus/blog/blog-4tree.png"
           width="167,334"
@@ -90,16 +100,6 @@
           @click.native="selectTag({tag: 'glutenFree', reset: false})"
         />
         <p :class="`recipe-${$i18n.locale}`" ref="recipe">{{ $t('blog.recipe') }}</p>
-      </nuxt-link>
-      <nuxt-link class="go-to" :to="localePath('blog-posts')">
-        <CldImg
-          src="bagushaus/blog/blog-moon.png"
-          width="221,442"
-          sizes="221px"
-          alt="go to blog page"
-          @click.native="selectTag({tag: 'all', reset: false})"
-        />
-        <p class="go-to__text">Check It Out!</p>
       </nuxt-link>
     </div>
   </section>
@@ -222,6 +222,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   position: relative;
+
+  & * {
+    outline: none;
+  }
 
   & > img {
     position: absolute;
@@ -378,6 +382,10 @@ export default {
       background-color: rgba(12, 13, 15, 0.1);
     }
 
+    &:focus {
+      @include focus-ol;
+    }
+
     &-btn {
       font-size: 1.6rem;
       color: $white-p;
@@ -415,6 +423,10 @@ export default {
     display: block;
     width: 100%;
     position: relative;
+
+    &:focus {
+      @include focus-ol;
+    }
 
     & > img {
       width: 100%;
@@ -589,6 +601,10 @@ export default {
   top: -1%;
   right: 3%;
   height: 42%;
+
+  &:focus {
+    @include focus-ol;
+  }
 
   @include respond("tab") {
     top: 2%;

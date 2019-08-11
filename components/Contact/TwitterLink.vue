@@ -27,7 +27,8 @@ export default {
   right: 25%;
   z-index: 5;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     & .twitter__logo {
       transform: rotate(4deg);
     }

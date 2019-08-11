@@ -41,7 +41,12 @@ export default {
     filter: $fsh-m;
     transition: all 0.3s;
 
-    &:hover {
+    & > img {
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
       transform: translateX(-50%) rotate(90deg) scale(0.85);
       filter: $fsh-s;
     }

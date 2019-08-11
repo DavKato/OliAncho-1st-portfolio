@@ -39,9 +39,9 @@
         :staticRenderFuncs="staticRenderFuncs"
       />
       <div class="post__links">
-        <PrevPost v-if="prev" :prev="prev" />
+        <PrevPost v-if="prev" :prev="prev" tabindex="0" />
         <div class="empty" v-else-if="!prev">{{ $t('posts.noPrev') }}</div>
-        <NextPost v-if="next" :next="next" />
+        <NextPost v-if="next" :next="next" tabindex="0" />
         <div class="empty" v-else-if="!next">{{ $t('posts.noNext') }}</div>
       </div>
     </section>

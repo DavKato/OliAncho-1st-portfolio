@@ -1,6 +1,12 @@
 <template>
   <li class="filter">
-    <div class="filter__container" @click="$emit('click',{ tag, reset: true })">
+    <div
+      class="filter__container"
+      @click="$emit('click',{ tag, reset: true })"
+      @keydown.enter="$emit('click',{ tag, reset: true })"
+      tabindex="0"
+      style="outline: none;"
+    >
       <CldImg
         :id="tag"
         class="filter__container-img"
@@ -24,9 +30,10 @@
     flex-direction: column;
     align-items: center;
 
-    &:hover {
+    &:hover,
+    &:focus {
       & .filter__container-img {
-        transform: scale(1.02);
+        transform: scale(1.05);
       }
       & .filter__container-text {
         @include tsh-m;

@@ -103,7 +103,8 @@
         filter: $fsh-s;
         transition: all 0.2s;
 
-        &:hover {
+        &:hover,
+        &:focus-within {
           @include iconHover;
         }
         &:active {

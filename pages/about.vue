@@ -12,7 +12,10 @@
           <div
             class="select-davide"
             @mouseover="daviHover = true"
+            @focus="daviHover = true"
             @mouseleave="daviHover = false"
+            @blur="daviHover = false"
+            tabindex="0"
             v-if="$vssWidth > $data.$tab"
           ></div>
         </no-ssr>
@@ -20,7 +23,10 @@
           <div
             class="select-gobu"
             @mouseover="gobuHover = true"
+            @focus="gobuHover = true"
             @mouseleave="gobuHover = false"
+            @blur="gobuHover = false"
+            tabindex="0"
             v-if="$vssWidth > $data.$tab"
           ></div>
         </no-ssr>
