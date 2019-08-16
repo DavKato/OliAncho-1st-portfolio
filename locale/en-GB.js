@@ -68,7 +68,7 @@ export default {
         tech:
           'Site design, Graphic design, Coding - Vue/Nuxt.js, Multi-Language, Responsive, Translation support',
         description:
-          'This is this and yeah I love beer.\n My wife is a goblin and I am proud. I hope it helps.\nHey Sydney, How are you doing? I miss you!',
+          "This is a website for private language/cooking lesson in Germany. Some pretty drawings that client's grand-children drew are being used.\n\nIt is rather simple website function-wise, but it is fairly international with 4 language support.",
         url: 'https://www.marina.com'
       },
       {
@@ -77,7 +77,7 @@ export default {
         imageFolder: 'construction',
         client: '',
         tech: '',
-        description: '',
+        description: 'Please come again soon!',
         url: ''
       }
     ]

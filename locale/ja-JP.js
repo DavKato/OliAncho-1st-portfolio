@@ -62,15 +62,15 @@ export default {
     techCap: '技術',
     list: [
       {
-        name: 'マリナ・ソランツォ',
+        name: 'プライベートレッスン@ミュンヘン',
         images: ['Marina-demo1.png', 'Marina-demo2.png'],
         imageFolder: 'marina',
         client: 'Marina Soranzo様',
         tech:
           'ウェブデザイン、グラフィックデザイン、コーディング (Vue/Nuxt.js)、ホスティング、多言語仕様, レスポンシブ、翻訳サポート',
         description:
-          'こんにちは、ビール好きかい？　僕は好きです。\nグルテン食べられなくなってビールも飲めなくなったけどね。\n僕の嫁はゴブリンさ。知ってた？\nシドニー、元気？　懐かしいなぁ。',
-        url: 'https://www.marina.com'
+          'ドイツでプライベートの語学レッスン・料理教室をしている方のウェブサイトです。 お孫さんが描いたという素敵な絵を、サイト内にも使わせていただきました。\n\n機能面ではシンプルなウェブサイトですが、4ヶ国語に対応しています。',
+        url: '依頼主の事情により現在非公開'
       },
       {
         name: '',
@@ -78,7 +78,7 @@ export default {
         imageFolder: 'construction',
         client: '',
         tech: '',
-        description: '',
+        description: 'ただいま建設中です。少々お待ちください。',
         url: ''
       }
     ]

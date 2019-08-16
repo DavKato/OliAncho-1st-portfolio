@@ -160,6 +160,7 @@
 
     &__right {
       width: 35%;
+      white-space: pre-wrap;
 
       @include respond("tab") {
         width: 100%;

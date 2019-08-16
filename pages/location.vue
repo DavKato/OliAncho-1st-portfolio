@@ -75,21 +75,25 @@ $yellow-location: #eaea5d;
 }
 
 .location {
-  @include respond("tab") {
-    .top-title {
-      top: -8.6rem !important;
-      font-size: 4.1rem !important;
-    }
-  }
+  background-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/location/location-middle-square.png");
   background-size: 100% 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 1.6;
-  border: 3.5rem solid;
-  border-image: url("../assets/img/tiles44.png") 72 repeat;
   line-height: 1.5;
+  padding: 3.5rem;
+
+  @include respond("tab") {
+    background-image: none;
+    padding: 0;
+    border: 3.5rem solid;
+    border-image: url("../assets/img/tiles44.png") 72 repeat;
+    .top-title {
+      top: -8.6rem !important;
+      font-size: 4.1rem !important;
+    }
+  }
 
   & img {
     object-fit: contain;
