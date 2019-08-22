@@ -29,7 +29,7 @@ export default {
       },
       {
         rel: 'apple-touch-icon',
-        sizes: '64x64',
+        sizes: '180x180',
         type: 'image/png',
         href: imgDir + 'apple-touch180.png'
       },
