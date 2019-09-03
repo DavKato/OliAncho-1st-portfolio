@@ -87,6 +87,7 @@
   &__text {
     font-size: 2rem;
     white-space: pre-wrap;
+    text-align: center;
   }
 
   &__image-box {

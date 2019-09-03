@@ -68,6 +68,7 @@ $gobuRed: #ddc1b9;
   margin: 6% 2% 1% 1%;
   flex-direction: row-reverse;
   @include respond("tab") {
+    flex-direction: column;
     align-items: flex-end;
     margin: 0;
   }

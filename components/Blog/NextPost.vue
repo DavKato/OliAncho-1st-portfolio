@@ -12,11 +12,11 @@
 
 <style lang="scss" scoped>
 .postcard {
-  width: 100%;
+  width: 49%;
   display: grid;
   grid-template-columns: 1fr 14rem;
   border: 2px solid #000;
-  transition: outline-offset 0.05s;
+  transition: outline-offset 0.1s;
   outline-offset: 0;
 
   &:hover,

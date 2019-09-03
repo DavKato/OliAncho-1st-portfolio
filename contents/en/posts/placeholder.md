@@ -11,8 +11,11 @@ summary: This is a placeholder. I need to start writing real posts!!
 
 # Hello Mr./Mrs. Traveler
 
-Please revisit again a few days later.
-You should see a real blog post about vue/nuxt by real web developer!
+This is a placeholder post since there is no English blog post in this website yet.
+
+I made this blog as a part of our portfolio just to showcase what we can do..
+I don't really have a plan to start writing posts.
+(I'm a kind of person who raaarely update SNS, you know)
 
 <BagusImg src="shots.jpg" alt="Davide" title="Davide"/>
 

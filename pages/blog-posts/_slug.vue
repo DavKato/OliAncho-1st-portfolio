@@ -195,10 +195,10 @@
 
     &__links {
       width: 100%;
-      display: grid;
-      grid-template-columns: 49% 49%;
+      display: flex;
       justify-content: space-between;
       padding: 2rem;
+      height: 18rem;
 
       @include respond("tab") {
         padding: 1rem;
@@ -213,7 +213,7 @@
     font-size: 3rem;
     font-family: $font-h;
     color: $gray-d;
-    width: 100%;
+    width: 49%;
     height: 100%;
     border: 2px solid #000;
     font-style: italic;
