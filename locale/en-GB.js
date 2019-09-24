@@ -115,5 +115,12 @@ export default {
     glutenFree: 'Gluten Free',
     noPrev: 'This is the oldest post',
     noNext: 'This is the latest post'
+  },
+
+  //ERROR
+  error: {
+    notFound: 'Page not found',
+    sentence:
+      'The specified file was not found on "oliAncho.com".\nPlease check the URL for mistakes and try again.'
   }
 };

@@ -116,5 +116,12 @@ export default {
     glutenFree: 'グルテンフリー',
     noPrev: 'これが最古の記事です。',
     noNext: 'これが最新の記事です。'
+  },
+
+  //ERROR
+  error: {
+    notFound: 'ページが見つかりませんでした。',
+    sentence:
+      '指定されたファイルが見つかりませんでした。\nお手数ですが、URLを確認のうえ再度お試しください。'
   }
 };

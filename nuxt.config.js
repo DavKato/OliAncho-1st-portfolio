@@ -87,7 +87,7 @@ export default {
         });
       }
       // between potfolio pages
-      const mainNames = ['index', 'about', 'blog', 'works', 'location'];
+      const mainNames = ['index', 'about', 'blog', 'works', 'location', '404'];
       if (
         mainNames.some(name => name === from.name.split('___')[0]) &&
         mainNames.some(name => name === to.name.split('___')[0])
@@ -182,11 +182,14 @@ export default {
       '/ja/blog',
       '/ja/blog-posts',
       '/contact',
-      '/ja/contact'
+      '/ja/contact',
+      '/404',
+      '/ja/404'
     ]
       .concat(postsEn.map(post => `/blog-posts/${post.slug}`))
       .concat(postsJa.map(post => `ja/blog-posts/${post.slug}`)),
-    subFolder: false
+    subFolder: false,
+    fallback: true
   },
 
   ssr: false
