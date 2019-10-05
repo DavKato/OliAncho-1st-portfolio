@@ -201,16 +201,17 @@ $yellow-location: #eaea5d;
 
     .orange {
       width: 2.8%;
-      top: 26.8%;
-      left: 18.2%;
+      top: 55.9%;
+      left: 40.2%;
       filter: $fsh-s;
       cursor: pointer;
       @include respond("tab") {
         width: 4%;
-        top: 26%;
-        left: 7.5%;
+        top: 55.1%;
+        left: 36.7%;
       }
       @include respond("mobile") {
+        top: 54%;
         width: 5%;
       }
     }
@@ -256,7 +257,7 @@ $yellow-location: #eaea5d;
     .ship {
       bottom: -4%;
       left: 26%;
-      width: 22%;
+      width: 23%;
       transform-origin: 45% 70%;
       @include respond("long-scr") {
         width: 25%;
@@ -288,7 +289,7 @@ $yellow-location: #eaea5d;
         pointer-events: none;
 
         & > p {
-          font-size: 2.3rem;
+          font-size: 2.2rem;
           line-height: 1.2;
           @include respond("tab") {
             font-size: 2rem;
@@ -421,7 +422,7 @@ export default {
   },
   methods: {
     timeCatcher() {
-      const diffFromUTC = 2;
+      const diffFromUTC = 8;
       const formatter = cli => {
         if (cli < 10) {
           return "0" + cli;

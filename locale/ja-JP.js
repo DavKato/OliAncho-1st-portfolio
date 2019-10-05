@@ -103,7 +103,7 @@ export default {
     intro:
       ' 寒い季節は南へ、暑い季節は北へ、海外を中心に夫婦でノマド生活をしています。\nルールは「新しいものを買ったら、持っているものを1つ手放す」\n持ち物を増やさないように頑張っています。',
     currentParagraph: '  現在地：\n\t',
-    currentLocation: 'ドイツ',
+    currentLocation: 'インドネシア',
     numberVisited: 'ヵ国'
   },
 
