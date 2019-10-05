@@ -123,5 +123,9 @@ export default {
     notFound: 'ページが見つかりませんでした。',
     sentence:
       '指定されたファイルが見つかりませんでした。\nお手数ですが、URLを確認のうえ再度お試しください。'
-  }
+  },
+
+  //NO-IE
+  ie:
+    'このウェブサイトはInternet Explorerをサポートしていません。\nEdgeやChrome、Safariなど他のブラウザをご利用ください。'
 };

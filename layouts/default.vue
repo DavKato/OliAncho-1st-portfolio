@@ -1,5 +1,8 @@
 <template>
   <div id="defaultLayout">
+    <NoIe>
+      <div class="ie" v-if="ie">{{ $t('ie') }}</div>
+    </NoIe>
     <NavL @click="goHome" />
     <NavR v-show="$vssWidth > $data.$tab" />
     <MainMenu v-show="$vssWidth <= $data.$tab" />
@@ -71,6 +74,12 @@ main {
     height: auto;
   }
 }
+
+.ie {
+  position: absolute;
+  top: 8rem;
+  right: 1rem;
+}
 </style>
 
 
@@ -80,7 +89,10 @@ import TheHeader from "~/components/Header/TheHeader";
 import BagusWalls from "~/components/Top/BagusWalls";
 import BagusTitle from "~/components/Top/BagusTitle";
 import TheFooter from "~/components/GlobalComponents/TheFooter";
+
+import detectIE from "~/mixins/detectIE.js";
 import { TweenMax, TimelineLite } from "gsap";
+
 export default {
   head() {
     const i18nSeo = this.$nuxtI18nSeo();
@@ -134,8 +146,10 @@ export default {
     BagusTitle,
     Contact: () => import("~/components/Contact/Contact"),
     TheFooter,
-    MainMenu: () => import("~/components/Mobile/MainMenu")
+    MainMenu: () => import("~/components/Mobile/MainMenu"),
+    NoIe: () => import("~/components/GlobalComponents/NoIE")
   },
+  mixins: [detectIE],
   methods: {
     goHome() {
       if (!this.$route.name.startsWith("index"))

@@ -12,7 +12,7 @@ export default {
     works:
       'Check out a part of what we have built and what technology is used.',
     blog:
-      'Our main writer Gobu is Japanese, so there is not many English contents here at the moment..\nBut we are working on it.',
+      'Our main writer Gobu is Japanese, so there is English content here at the moment..',
     location:
       'Just a small play ground where you can check out where we are and where we have been.'
   },
@@ -122,5 +122,8 @@ export default {
     notFound: 'Page not found',
     sentence:
       'The specified file was not found on "oliAncho.com".\nPlease check the URL for mistakes and try again.'
-  }
+  },
+  //NO-IE
+  ie:
+    'This website does not support Internet Explorer.\nPlease use other web browsers like Edge, Chrome or Safari.'
 };

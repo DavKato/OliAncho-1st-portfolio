@@ -14,6 +14,9 @@
         id="blog-bg"
       />
     </picture>
+    <NoIe>
+      <div class="ie" v-if="ie">{{ $t('ie') }}</div>
+    </NoIe>
     <nuxt />
     <BlogFooter id="blog-footer" />
   </div>
@@ -32,10 +35,17 @@
   height: 100%;
   object-fit: cover;
 }
+
+.ie {
+  position: absolute;
+  top: 8rem;
+  right: 1rem;
+}
 </style>
 
 
 <script>
+import detectIE from "~/mixins/detectIE.js";
 export default {
   head() {
     const i18nSeo = this.$nuxtI18nSeo();
@@ -74,8 +84,10 @@ export default {
     };
   },
   components: {
+    NoIe: () => import("~/components/GlobalComponents/NoIE"),
     BlogFooter: () => import("~/components/Blog/BlogFooter")
   },
+  mixins: [detectIE],
   data() {
     return {
       options: "f_auto,q_auto,w_"

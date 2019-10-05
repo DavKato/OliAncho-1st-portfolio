@@ -11,14 +11,7 @@
 </template>
 
 <script>
-// import Quill from "Quill";
-// export default {
-//   layout: "admin",
-//   mounted() {
-//     const editor = new Quill("#editor", {
-//       modules: { toolbar: "#toolbar" },
-//       theme: "snow"
-//     });
-//   }
-// };
+// import 'quill/dist/quill.snow.css'
+// import { quillEditor } from 'vue-quill-editor'
+
 </script>
