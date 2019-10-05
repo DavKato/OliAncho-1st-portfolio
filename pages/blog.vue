@@ -206,7 +206,6 @@ export default {
   },
   beforeRouteLeave(to, from, next) {
     if (to.name.startsWith("blog-posts")) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
       this.$scrollTo("#defaultLayout", 400, { easing: "ease-out" });
       TweenLite.to("#defaultLayout", 0.4, { opacity: 0, onComplete: next });
     } else next();

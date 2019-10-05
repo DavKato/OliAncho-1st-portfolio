@@ -1,7 +1,10 @@
 export default {
   mounted() {
     this.$nextTick(() => {
-      this.$scrollTo('#blog-layout', 500, { easing: 'ease-out' });
+      setTimeout(
+        this.$scrollTo('#blog-layout', 500, { easing: 'ease-out' }),
+        300
+      );
     });
   },
   beforeRouteLeave(to, from, next) {

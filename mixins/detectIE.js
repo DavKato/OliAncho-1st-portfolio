@@ -5,11 +5,13 @@ export default {
     };
   },
   mounted() {
-    const ua = window.navigator.userAgent;
-    const isIE = /MSIE|Trident/.test(ua);
+    if (process.client) {
+      const ua = window.navigator.userAgent;
+      const isIE = /MSIE|Trident/.test(ua);
 
-    if (isIE) {
-      this.ie = true;
+      if (isIE) {
+        this.ie = true;
+      }
     }
   }
 };
