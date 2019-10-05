@@ -84,7 +84,7 @@ export default {
     };
   },
   components: {
-    NoIe: () => import("~/components/GlobalComponents/NoIE"),
+    NoIe: () => import("~/components/GlobalComponents/NoIe"),
     BlogFooter: () => import("~/components/Blog/BlogFooter")
   },
   mixins: [detectIE],

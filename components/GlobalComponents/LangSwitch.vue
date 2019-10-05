@@ -1,33 +1,35 @@
 <template>
   <transition name="fade" mode="out-in">
-    <nuxt-link
+    <div
       v-if="$i18n.locale == 'ja'"
-      :to="switchLocalePath('en')"
+      @click="changeLocale('en')"
       key="ja"
       tabindex="0"
-      style="outline: none;"
+      style="outline: none; cursor:pointer;"
     >
       <CldImg
         src="v1563231776/bagushaus/global/english.png"
         :width="width"
         :sizes="sizes"
         alt="Switch to English"
+        title="Switch to English"
       />
-    </nuxt-link>
-    <nuxt-link
+    </div>
+    <div
       v-if="$i18n.locale == 'en'"
-      :to="switchLocalePath('ja')"
+      @click="changeLocale('ja')"
       key="en"
       tabindex="0"
-      style="outline: none;"
+      style="outline: none; cursor:pointer;"
     >
       <CldImg
         src="v1563231774/bagushaus/global/japanese.png"
         :width="width"
         :sizes="sizes"
         alt="Switch to Japanese"
+        title="Switch to Japanese"
       />
-    </nuxt-link>
+    </div>
   </transition>
 </template>
 
@@ -43,6 +45,11 @@ export default {
       type: String,
       required: false,
       default: ""
+    }
+  },
+  methods: {
+    changeLocale(to) {
+      this.$i18n.setLocale(to);
     }
   }
 };

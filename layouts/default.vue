@@ -147,7 +147,7 @@ export default {
     Contact: () => import("~/components/Contact/Contact"),
     TheFooter,
     MainMenu: () => import("~/components/Mobile/MainMenu"),
-    NoIe: () => import("~/components/GlobalComponents/NoIE")
+    NoIe: () => import("~/components/GlobalComponents/NoIe")
   },
   mixins: [detectIE],
   methods: {

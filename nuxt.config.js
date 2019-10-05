@@ -1,6 +1,7 @@
 import postsEn from './contents/en/posts.json';
 import postsJa from './contents/ja/posts.json';
 import i18n from './locale/i18n-config';
+import Mode from 'frontmatter-markdown-loader/mode';
 
 const imgDir = '/images/';
 
@@ -155,7 +156,7 @@ export default {
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
         options: {
-          vue: true
+          mode: [Mode.HTML, Mode.VUE_RENDER_FUNCTIONS]
         }
       });
     },
@@ -169,25 +170,16 @@ export default {
   },
 
   generate: {
-    routes: [
-      '/about',
-      '/location',
-      '/works',
-      '/blog',
-      '/blog-posts',
-      '/ja',
-      '/ja/about',
-      '/ja/location',
-      '/ja/works',
-      '/ja/blog',
-      '/ja/blog-posts',
-      '/contact',
-      '/ja/contact',
-      '/404',
-      '/ja/404'
-    ]
+    routes: []
       .concat(postsEn.map(post => `/blog-posts/${post.slug}`))
       .concat(postsJa.map(post => `ja/blog-posts/${post.slug}`)),
+    // function() {
+    //   const routes = [];
+    //   postsEn.map(post => routes.push(`/blog-posts/${post.slug}`));
+    //   postsJa.map(post => routes.push(`ja/blog-posts/${post.slug}`));
+    //   return routes;
+    // },
+
     subFolder: false,
     fallback: true
   },

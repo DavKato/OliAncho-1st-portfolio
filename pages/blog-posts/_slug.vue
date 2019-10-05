@@ -252,6 +252,7 @@ import Markdown from "~/components/Blog/Markdown";
 import PrevPost from "~/components/Blog/PrevPost";
 import NextPost from "~/components/Blog/NextPost";
 import blogScroll from "~/mixins/blogScroll.js";
+import { log } from "util";
 
 export default {
   layout: "blog",
@@ -280,7 +281,7 @@ export default {
     const { author, date, update, summary, thumbnail, title, tag } = attr;
 
     //For prev/next links
-    const postList = app.i18n.locale === "en" ? postsEn : postsJa;
+    const postList = lang === "en" ? postsEn : postsJa;
     const sortedList = postList.filter(el => el.tag === tag);
 
     const curIndex = sortedList.findIndex(el => el.slug === slug);
@@ -297,8 +298,7 @@ export default {
         thumbnail: attr.thumbnail
       };
     };
-    // const prev = prevPost ? await importAdjacentPosts(prevPost.slug) : false;
-    // const next = nextPost ? await importAdjacentPosts(nextPost.slug) : false;
+
     let prev, next;
     if (prevPost) {
       prev = await importAdjacentPosts(prevPost.slug);
