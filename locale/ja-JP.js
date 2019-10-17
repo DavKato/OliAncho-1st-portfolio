@@ -62,7 +62,7 @@ export default {
     techCap: '技術',
     list: [
       {
-        name: 'プライベートレッスン@ミュンヘン',
+        name: 'イタリア語・ドイツ語レッスン/料理教室@ミュンヘン',
         images: ['Marina-demo1.png', 'Marina-demo2.png'],
         imageFolder: 'marina',
         client: 'Marina Soranzo様',
@@ -70,16 +70,7 @@ export default {
           'ウェブデザイン、グラフィックデザイン、コーディング (Vue/Nuxt.js)、ホスティング、多言語仕様, レスポンシブ、翻訳サポート',
         description:
           'ドイツでプライベートの語学レッスン・料理教室をしている方のウェブサイトです。 お孫さんが描いたという素敵な絵を、サイト内にも使わせていただきました。\n\n機能面ではシンプルなウェブサイトですが、4ヶ国語に対応しています。',
-        url: '依頼主の事情により現在非公開'
-      },
-      {
-        name: '',
-        images: ['under-construction-ja.png'],
-        imageFolder: 'construction',
-        client: '',
-        tech: '',
-        description: 'ただいま建設中です。少々お待ちください。',
-        url: ''
+        url: 'https://marina-beed5.web.app'
       }
     ]
   },

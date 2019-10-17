@@ -2,9 +2,9 @@ export default {
   // Site description meta
   desc: {
     portfolio:
-      'We create Performant and Personalized Web app. Design only or Development only is also Welcome',
+      'Are you looking for a front-end developer to create your Performant and Personalized Web Site?',
     blog:
-      "Web Creator Team OliAncho's Blog Posts about Web Dev, Design, Nomad Life and Gluten Free stuff"
+      "Web development team OliAncho's Blog Posts about Web Dev, Design, Nomad Life and Gluten Free stuff"
   },
   //Home preview
   main: {
@@ -61,24 +61,15 @@ export default {
     techCap: 'Role',
     list: [
       {
-        name: "Marina's Language Lesson",
+        name: 'Language/Cooking Lessons in Munich',
         images: ['Marina-demo1.png', 'Marina-demo2.png'],
         imageFolder: 'marina',
         client: 'Marina Soranzo',
         tech:
-          'Site design, Graphic design, Coding - Vue/Nuxt.js, Multi-Language, Responsive, Translation support',
+          'Site design, Graphic design, Coding, Multi-Language, Responsive, Translation support',
         description:
           "This is a website for private language/cooking lesson in Germany. Some pretty drawings that client's grand-children drew are being used.\n\nIt is rather simple website function-wise, but it is fairly international with 4 language support.",
-        url: 'Temporarily closed'
-      },
-      {
-        name: '',
-        images: ['under-construction.png'],
-        imageFolder: 'construction',
-        client: '',
-        tech: '',
-        description: 'Please come again soon!',
-        url: ''
+        url: 'https://marina-beed5.web.app'
       }
     ]
   },

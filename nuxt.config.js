@@ -3,6 +3,7 @@ import postsJa from './contents/ja/posts.json';
 import i18n from './locale/i18n-config';
 import Mode from 'frontmatter-markdown-loader/mode';
 
+const url = 'https://oliancho.com';
 const imgDir = '/images/';
 
 export default {
@@ -119,7 +120,7 @@ export default {
 
   sitemap: {
     path: '/sitemap.xml',
-    hostname: 'https://oliancho.com',
+    hostname: url,
     exclude: ['/admin/**']
   },
 

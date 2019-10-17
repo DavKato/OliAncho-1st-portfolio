@@ -97,7 +97,7 @@ export default {
   head() {
     const i18nSeo = this.$nuxtI18nSeo();
     const pageDesc = this.$t("desc.portfolio");
-    const url = "https://oliancho.com/";
+    const url = "https://oliancho.com";
     return {
       titleTemplate: "%s | OliAncho",
       htmlAttrs: { ...i18nSeo.htmlAttrs },

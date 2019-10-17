@@ -1,4 +1,5 @@
 export default {
+  baseUrl: 'https://oliancho.com',
   locales: [
     {
       code: 'en',

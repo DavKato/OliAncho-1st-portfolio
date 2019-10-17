@@ -10,6 +10,7 @@
     "dev": "nuxt",
     "start": "nuxt start",
     "a": "nuxt build -a",
+    "build": "nuxt build",
     "generate": "node contents/index.js && nuxt generate"
   },
   "dependencies": {
