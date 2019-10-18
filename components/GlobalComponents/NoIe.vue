@@ -1,11 +1,11 @@
 <template functional>
-  <no-ssr>
+  <client-only>
     <slot
       :style="[data.style, data.staticStyle]"
       v-bind="data.attrs"
       :class="[data.class, data.staticClass]"
     ></slot>
-  </no-ssr>
+  </client-only>
 </template>
 
 <style lang="scss">

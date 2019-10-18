@@ -59,10 +59,10 @@
       </li>
     </ul>
 
-    <no-ssr>
+    <client-only>
       <BlogNavLinks v-if="$vssWidth > $data.$tab && $vssWidth >= $vssHeight" />
       <BlogMainMenu v-else @filter="$emit('click', $event)" />
-    </no-ssr>
+    </client-only>
   </nav>
 </template>
 

@@ -18,7 +18,7 @@
         />
         <CldImg src="bagushaus/blog/blog-tiles.png" width="729,1458" sizes="58vw" />
       </picture>
-      <no-ssr>
+      <client-only>
         <LazyImg
           :src="latestPost.thumbnail"
           width="103, 206, 309"
@@ -26,7 +26,7 @@
           class="latest-thumbnail"
           v-if="$vssWidth <= $data.$tab"
         />
-      </no-ssr>
+      </client-only>
       <div class="latest-title" v-show="$vssWidth > $data.$tab">
         <h3>{{ $t('blog.caption') }}</h3>
       </div>

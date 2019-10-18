@@ -13,14 +13,14 @@
     <TheHeader id="bagus-top" />
     <main class="firstBody">
       <BagusTitle v-show="$vssWidth > $data.$tab" />
-      <no-ssr>
+      <client-only>
         <BagusWalls v-if="$vssWidth > $data.$tab" />
-      </no-ssr>
+      </client-only>
       <nuxt class="bagus-box" />
     </main>
-    <no-ssr>
+    <client-only>
       <Contact id="contact" v-if="$vssWidth > $data.$tab" class="secondBody" />
-    </no-ssr>
+    </client-only>
     <TheFooter class="firstBody" />
   </div>
 </template>
@@ -166,6 +166,7 @@ export default {
         this.$router.push(this.localePath("index"));
     },
     intro() {
+      if (process.client) window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
       const tl = new TimelineLite({
         onComplete: () => {

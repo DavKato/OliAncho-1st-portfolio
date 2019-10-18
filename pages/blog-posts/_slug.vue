@@ -29,9 +29,9 @@
           <h1 class="intro__title-heading">{{ title }}</h1>
           <p class="intro__title-sub">{{ summary }}</p>
         </div>
-        <no-ssr>
+        <client-only>
           <img class="thumbnail" :src="thumbnail" v-if="$vssWidth > $data.$tab" />
-        </no-ssr>
+        </client-only>
       </div>
       <Markdown
         class="post__content"

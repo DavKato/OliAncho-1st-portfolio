@@ -72,39 +72,6 @@ export default {
     '~/plugins/vueScreenSize.js'
   ],
 
-  router: {
-    scrollBehavior(to, from, savedPosition) {
-      if (savedPosition) {
-        return savedPosition;
-      }
-      //to any of '/blog-posts' pages from other layouts
-      // if (
-      //   !from.name.startsWith('blog-posts') &&
-      //   to.name.startsWith('blog-posts')
-      // ) {
-      //   return new Promise(resolve => {
-      //     setTimeout(() => {
-      //       resolve({ x: 0, y: 1000 });
-      //     }, 300);
-      //   });
-      // }
-      // between potfolio pages
-      const mainNames = ['index', 'about', 'blog', 'works', 'location', '404'];
-      if (
-        mainNames.some(name => name === from.name.split('___')[0]) &&
-        mainNames.some(name => name === to.name.split('___')[0])
-      ) {
-        return false;
-      }
-      return { x: 0, y: 0 };
-      // new Promise(resolve => {
-      //   setTimeout(() => {
-      //     resolve({ x: 0, y: 0 });
-      //   }, 300);
-      // });
-    }
-  },
-
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',

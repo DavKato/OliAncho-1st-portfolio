@@ -1,6 +1,7 @@
 <template functional>
   <a
     href="https://www.instagram.com/oliancho/"
+    target="_blank"
     tabindex="0"
     v-on="listeners"
     style="outline: none;"

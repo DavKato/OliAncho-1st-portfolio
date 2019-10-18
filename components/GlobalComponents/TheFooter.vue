@@ -1,5 +1,9 @@
-<template>
-  <p>2019 &copy; OliAncho</p>
+<template functional>
+  <p
+    :class="[data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
+  >2019 &copy; OliAncho</p>
 </template>
 
 <style lang="scss" scoped>

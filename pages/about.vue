@@ -8,7 +8,7 @@
         <h3 class="name">Davide</h3>
       </div>
       <div class="image-box">
-        <no-ssr>
+        <client-only>
           <div
             class="select-davide"
             @mouseover="daviHover = true"
@@ -18,8 +18,8 @@
             tabindex="0"
             v-if="$vssWidth > $data.$tab"
           ></div>
-        </no-ssr>
-        <no-ssr>
+        </client-only>
+        <client-only>
           <div
             class="select-gobu"
             @mouseover="gobuHover = true"
@@ -29,7 +29,7 @@
             tabindex="0"
             v-if="$vssWidth > $data.$tab"
           ></div>
-        </no-ssr>
+        </client-only>
         <LazyImg
           src="bagushaus/about/about-davigobu.png"
           alt="DavideとGobuのイラスト"

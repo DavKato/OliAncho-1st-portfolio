@@ -53,12 +53,12 @@
         <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
         <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
       </div>
-      <no-ssr>
+      <client-only>
         <div class="ducks__two" @mouseover="twoDOn" v-if="$vssWidth > $data.$tab">
           <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
           <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
         </div>
-      </no-ssr>
+      </client-only>
     </div>
   </section>
 </template>
@@ -201,17 +201,16 @@ $yellow-location: #eaea5d;
 
     .orange {
       width: 2.8%;
-      top: 55.9%;
-      left: 40.2%;
+      top: 46%;
+      left: 37.6%;
       filter: $fsh-s;
       cursor: pointer;
       @include respond("tab") {
         width: 4%;
-        top: 55.1%;
-        left: 36.7%;
+        left: 33.4%;
       }
       @include respond("mobile") {
-        top: 54%;
+        top: 44%;
         width: 5%;
       }
     }
@@ -422,7 +421,7 @@ export default {
   },
   methods: {
     timeCatcher() {
-      const diffFromUTC = 8;
+      const diffFromUTC = 7;
       const formatter = cli => {
         if (cli < 10) {
           return "0" + cli;

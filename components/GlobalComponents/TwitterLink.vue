@@ -1,5 +1,11 @@
 <template functional>
-  <a href="#" tabindex="0" v-on="listeners" style="outline: none;">
+  <a
+    href="https://twitter.com/DOKs62"
+    target="_blank"
+    tabindex="0"
+    v-on="listeners"
+    style="outline: none;"
+  >
     <CldImg
       src="v1563231772/bagushaus/global/twitter.png"
       :width="props.width"
