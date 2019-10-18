@@ -83,6 +83,7 @@ export default {
       link: [...i18nSeo.link]
     };
   },
+  layoutTransition: "blog-post",
   components: {
     NoIe: () => import("~/components/GlobalComponents/NoIe"),
     BlogFooter: () => import("~/components/Blog/BlogFooter")

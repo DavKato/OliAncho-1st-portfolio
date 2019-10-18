@@ -4,11 +4,11 @@
 .layout-enter,
 .layout-leave-to {
   opacity: 0;
-  transform: translate3D(0, 10rem, 0);
+  transform: translate3D(0, -10rem, 0);
 }
 .layout-enter-active,
 .layout-leave-active {
-  transition: opacity 0.4s ease-out, transform 0.5s;
+  transition: opacity 0.2s ease-out, transform 0.5s;
 }
 
 .page-enter-active {

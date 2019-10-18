@@ -3,7 +3,7 @@ export default {
     this.$nextTick(() => {
       setTimeout(
         this.$scrollTo('#blog-layout', 500, { easing: 'ease-out' }),
-        300
+        400
       );
     });
   },

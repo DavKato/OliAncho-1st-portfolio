@@ -1,6 +1,10 @@
 <template>
   <div id="defaultLayout">
-    <NoIe>
+    <div
+      id="initialCover"
+      style="width:100vw;height:100vh;background-color:#fff;position:fixed;top:0;left:0;z-index:2000;"
+    ></div>
+    <NoIe class="secondBody">
       <div class="ie" v-if="ie">{{ $t('ie') }}</div>
     </NoIe>
     <NavL @click="goHome" class="secondBody" />
@@ -15,13 +19,16 @@
       <nuxt class="bagus-box" />
     </main>
     <no-ssr>
-      <Contact id="contact" class="firstBody" v-if="$vssWidth > $data.$tab" />
+      <Contact id="contact" v-if="$vssWidth > $data.$tab" class="secondBody" />
     </no-ssr>
     <TheFooter class="firstBody" />
   </div>
 </template>
 
 <style lang="scss">
+// #initialCover {
+// width=100vw;height=100vh;background-color:#eee;position:fixed;top:0;left:0;z-index:2000;
+// }
 #defaultLayout {
   background-color: $green-p;
   max-width: 100vw;
@@ -85,13 +92,16 @@ main {
 
 <script>
 import NavL from "~/components/Top/NavL";
+import NavR from "~/components/Top/NavR";
 import TheHeader from "~/components/Header/TheHeader";
 import BagusWalls from "~/components/Top/BagusWalls";
 import BagusTitle from "~/components/Top/BagusTitle";
+import Contact from "~/components/Contact/Contact";
 import TheFooter from "~/components/GlobalComponents/TheFooter";
 
 import detectIE from "~/mixins/detectIE.js";
 import { TweenMax, TimelineLite } from "gsap";
+import { setTimeout } from "timers";
 
 export default {
   head() {
@@ -140,11 +150,11 @@ export default {
   },
   components: {
     NavL,
-    NavR: () => import("~/components/Top/NavR"),
+    NavR,
     TheHeader,
     BagusWalls,
     BagusTitle,
-    Contact: () => import("~/components/Contact/Contact"),
+    Contact,
     TheFooter,
     MainMenu: () => import("~/components/Mobile/MainMenu"),
     NoIe: () => import("~/components/GlobalComponents/NoIe")
@@ -157,27 +167,29 @@ export default {
     },
     intro() {
       const tl = new TimelineLite();
-      tl.from(".logo-box", 1, { y: -700, ease: Bounce.easeOut })
-        .from(".firstBody", 3, { opacity: 0, ease: Power1.easeOut }, "+=0.5")
+      tl.to("#initialCover", 0.2, { display: "none" })
+        .from(".logo-box", 0.8, { y: -800, ease: Bounce.easeOut }, 0.5)
+        .from(".firstBody", 1.4, { autoAlpha: 0, ease: Power1.easeIn }, 1.3)
         .from(
           "#defaultLayout",
-          2,
+          1.4,
           {
             backgroundColor: "#fff",
-            ease: Power1.easeOut
+            borderColor: "#fff",
+            ease: Power1.easeIn
           },
-          "-=1.5"
+          "-=1"
         )
-        .from(
-          ".secondBody",
-          0.3,
-          { opacity: 0, ease: Power3.easeOut },
-          "-=0.4"
-        );
+        .from(".secondBody", 0.2, { autoAlpha: 0, ease: Power1.easeOut });
     }
   },
   mounted() {
-    if (process.client) this.intro();
+    this.$nextTick(() => {
+      this.intro();
+    });
+  },
+  destroyed() {
+    document.getElementById("initialCover").style.display = "block";
   }
 };
 </script>

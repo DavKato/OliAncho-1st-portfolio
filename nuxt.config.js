@@ -77,17 +77,17 @@ export default {
       if (savedPosition) {
         return savedPosition;
       }
-      //to any of '/blog-posts' pages
-      if (
-        !from.name.startsWith('blog-posts') &&
-        to.name.startsWith('blog-posts')
-      ) {
-        return new Promise(resolve => {
-          setTimeout(() => {
-            resolve({ x: 0, y: 1500 });
-          }, 400);
-        });
-      }
+      //to any of '/blog-posts' pages from other layouts
+      // if (
+      //   !from.name.startsWith('blog-posts') &&
+      //   to.name.startsWith('blog-posts')
+      // ) {
+      //   return new Promise(resolve => {
+      //     setTimeout(() => {
+      //       resolve({ x: 0, y: 1000 });
+      //     }, 300);
+      //   });
+      // }
       // between potfolio pages
       const mainNames = ['index', 'about', 'blog', 'works', 'location', '404'];
       if (
@@ -96,11 +96,12 @@ export default {
       ) {
         return false;
       }
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve({ x: 0, y: 0 });
-        }, 300);
-      });
+      return { x: 0, y: 0 };
+      // new Promise(resolve => {
+      //   setTimeout(() => {
+      //     resolve({ x: 0, y: 0 });
+      //   }, 300);
+      // });
     }
   },
 
