@@ -166,7 +166,6 @@ export default {
         this.$router.push(this.localePath("index"));
     },
     intro() {
-      if (process.client) window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
       const tl = new TimelineLite({
         onComplete: () => {
@@ -174,8 +173,8 @@ export default {
         }
       });
       tl.to("#initialCover", 0.3, { display: "none" })
-        .from(".logo-box", 0.8, { y: -800, ease: Bounce.easeOut }, 0.5)
-        .from(".firstBody", 1.4, { autoAlpha: 0, ease: Power1.easeIn }, 1.3)
+        .from(".logo-box", 0.8, { y: -1000, ease: Bounce.easeOut }, "-=0.2")
+        .from(".firstBody", 1.4, { autoAlpha: 0, ease: Power1.easeIn })
         .from(
           "#defaultLayout",
           1.4,
@@ -191,7 +190,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.intro();
+      if (process.client) this.$scrollTo("#defaultLayout");
+      setTimeout(this.intro(), 500);
     });
   },
   destroyed() {
