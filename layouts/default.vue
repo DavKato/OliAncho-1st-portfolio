@@ -3,11 +3,11 @@
     <NoIe>
       <div class="ie" v-if="ie">{{ $t('ie') }}</div>
     </NoIe>
-    <NavL @click="goHome" />
-    <NavR v-show="$vssWidth > $data.$tab" />
+    <NavL @click="goHome" class="secondBody" />
+    <NavR v-show="$vssWidth > $data.$tab" class="secondBody" />
     <MainMenu v-show="$vssWidth <= $data.$tab" />
     <TheHeader id="bagus-top" />
-    <main>
+    <main class="firstBody">
       <BagusTitle v-show="$vssWidth > $data.$tab" />
       <no-ssr>
         <BagusWalls v-if="$vssWidth > $data.$tab" />
@@ -15,9 +15,9 @@
       <nuxt class="bagus-box" />
     </main>
     <no-ssr>
-      <Contact id="contact" v-if="$vssWidth > $data.$tab" />
+      <Contact id="contact" class="firstBody" v-if="$vssWidth > $data.$tab" />
     </no-ssr>
-    <TheFooter />
+    <TheFooter class="firstBody" />
   </div>
 </template>
 
@@ -154,7 +154,30 @@ export default {
     goHome() {
       if (!this.$route.name.startsWith("index"))
         this.$router.push(this.localePath("index"));
+    },
+    intro() {
+      const tl = new TimelineLite();
+      tl.from(".logo-box", 1, { y: -700, ease: Bounce.easeOut })
+        .from(".firstBody", 3, { opacity: 0, ease: Power1.easeOut }, "+=0.5")
+        .from(
+          "#defaultLayout",
+          2,
+          {
+            backgroundColor: "#fff",
+            ease: Power1.easeOut
+          },
+          "-=1.5"
+        )
+        .from(
+          ".secondBody",
+          0.3,
+          { opacity: 0, ease: Power3.easeOut },
+          "-=0.4"
+        );
     }
+  },
+  mounted() {
+    if (process.client) this.intro();
   }
 };
 </script>

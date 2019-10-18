@@ -25,7 +25,7 @@
           <dd>{{ selected.tech }}</dd>
         </div>
         <div>
-          <a :href="selected.url" class="textrow__left--box textrow__left--link">
+          <a :href="selected.url" target="_blank" class="textrow__left--box textrow__left--link">
             <dt>URL：</dt>
             <dd>{{ selected.url }}</dd>
           </a>

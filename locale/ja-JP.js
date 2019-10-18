@@ -63,14 +63,14 @@ export default {
     list: [
       {
         name: 'イタリア語・ドイツ語レッスン/料理教室@ミュンヘン',
-        images: ['Marina-demo1.png', 'Marina-demo2.png'],
+        images: ['thumbnail1.png', 'thumbnail2.png'],
         imageFolder: 'marina',
         client: 'Marina Soranzo様',
         tech:
           'ウェブデザイン、グラフィックデザイン、コーディング (Vue/Nuxt.js)、ホスティング、多言語仕様, レスポンシブ、翻訳サポート',
         description:
           'ドイツでプライベートの語学レッスン・料理教室をしている方のウェブサイトです。 お孫さんが描いたという素敵な絵を、サイト内にも使わせていただきました。\n\n機能面ではシンプルなウェブサイトですが、4ヶ国語に対応しています。',
-        url: 'https://marina-beed5.web.app'
+        url: 'https://marinasoranzo.com'
       }
     ]
   },

@@ -1,5 +1,5 @@
 <template functional>
-  <h1 v-on="listeners">
+  <h1 v-on="listeners" :class="[data.class, data.staticClass]">
     <span class="desc">WEB Creator</span>
     <span class="title">OliAncho</span>
   </h1>

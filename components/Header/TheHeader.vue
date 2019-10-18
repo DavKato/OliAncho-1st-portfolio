@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <picture id="port-bg">
+    <picture id="port-bg" class="firstBody">
       <source
         :media="`(max-width: ${$data.$tab}px)`"
         :srcset="`https://res.cloudinary.com/oliancho/image/upload/${options}400/bagushaus/Mobile/top/top.png 400w, https://res.cloudinary.com/oliancho/image/upload/${options}800/bagushaus/Mobile/top/top.png 800w, https://res.cloudinary.com/oliancho/image/upload/${options}1153/bagushaus/Mobile/top/top.png 1153w`"

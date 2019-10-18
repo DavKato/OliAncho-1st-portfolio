@@ -62,14 +62,14 @@ export default {
     list: [
       {
         name: 'Language/Cooking Lessons in Munich',
-        images: ['Marina-demo1.png', 'Marina-demo2.png'],
+        images: ['thumbnail1.png', 'thumbnail2.png'],
         imageFolder: 'marina',
         client: 'Marina Soranzo',
         tech:
           'Site design, Graphic design, Coding, Multi-Language, Responsive, Translation support',
         description:
           "This is a website for private language/cooking lesson in Germany. Some pretty drawings that client's grand-children drew are being used.\n\nIt is rather simple website function-wise, but it is fairly international with 4 language support.",
-        url: 'https://marina-beed5.web.app'
+        url: 'https://marinasoranzo.com'
       }
     ]
   },

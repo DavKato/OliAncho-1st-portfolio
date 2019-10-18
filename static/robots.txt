@@ -1,4 +1,4 @@
 UserAgent: *
-Disallow:
+Disallow: /admin
 
 Sitemap: https://oliancho.com/sitemap.xml
