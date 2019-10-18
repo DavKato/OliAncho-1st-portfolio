@@ -166,8 +166,13 @@ export default {
         this.$router.push(this.localePath("index"));
     },
     intro() {
-      const tl = new TimelineLite();
-      tl.to("#initialCover", 0.2, { display: "none" })
+      document.body.style.overflow = "hidden";
+      const tl = new TimelineLite({
+        onComplete: () => {
+          document.body.style.overflow = "visible";
+        }
+      });
+      tl.to("#initialCover", 0.3, { display: "none" })
         .from(".logo-box", 0.8, { y: -800, ease: Bounce.easeOut }, 0.5)
         .from(".firstBody", 1.4, { autoAlpha: 0, ease: Power1.easeIn }, 1.3)
         .from(
