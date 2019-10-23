@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <ul class="title-box">
+    <ul class="title-box" id="bagus-title">
       <li v-for="(index, i) of bagusList" :key="index.title">
         <nuxt-link
           class="link"
@@ -10,7 +10,6 @@
           @blur.native="unHovered(i)"
         >
           <h2
-            id="bagus-title"
             @mouseover="hovered(i)"
             @mouseout="unHovered(i)"
             @mousedown="activated(i), $store.commit('toBagus')"

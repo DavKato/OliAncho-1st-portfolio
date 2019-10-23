@@ -19,11 +19,12 @@
     >
       <p v-show="!isValid.name" class="error-message">{{ $t('nameError') }}</p>
       <transition name="slide-in">
-        <label v-if="form.name" for="name" class="form__label">{{ $t('yourName') }}</label>
+        <label v-show="form.name" for="name" class="form__label">{{ $t('yourName') }}</label>
       </transition>
       <input
         type="text"
         id="name"
+        :aria-label="$t('yourName')"
         class="form__field"
         name="name"
         :placeholder="$t('yourName')"
@@ -36,11 +37,12 @@
     >
       <p v-show="!isValid.email" class="error-message">{{ $t('emailError') }}</p>
       <transition name="slide-in">
-        <label v-if="form.email" for="email" class="form__label">{{ $t('yourContact') }}</label>
+        <label v-show="form.email" for="email" class="form__label">{{ $t('yourContact') }}</label>
       </transition>
       <input
         type="email"
         id="email"
+        :aria-label="$t('yourContact')"
         class="form__field"
         name="email"
         :placeholder="$t('yourContact')"
@@ -53,11 +55,12 @@
     >
       <p v-show="!isValid.title" class="error-message">{{ $t('titleError') }}</p>
       <transition name="slide-in">
-        <label v-if="form.title" for="title" class="form__label">{{ $t('formTitle') }}</label>
+        <label v-show="form.title" for="title" class="form__label">{{ $t('formTitle') }}</label>
       </transition>
       <input
         type="text"
         id="title"
+        :aria-label="$t('formTitle')"
         class="form__field"
         name="title"
         :placeholder="$t('formTitle')"
@@ -70,11 +73,12 @@
     >
       <p v-show="!isValid.message" class="error-message">{{ $t('messageError') }}</p>
       <transition name="slide-in">
-        <label v-if="form.message" for="message" class="form__label">{{ $t('formMessage') }}</label>
+        <label v-show="form.message" for="message" class="form__label">{{ $t('formMessage') }}</label>
       </transition>
       <textarea
         name="message"
         id="message"
+        :aria-label="$t('formMessage')"
         class="form__field"
         :placeholder="$t('formMessage')"
         v-model="form.message"

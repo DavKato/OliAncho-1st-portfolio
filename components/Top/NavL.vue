@@ -18,6 +18,7 @@ h1 {
   z-index: 10;
   transition: all 0.2s;
   line-height: 1.1;
+  cursor: pointer;
 
   @include respond("mobile") {
     top: 1rem;

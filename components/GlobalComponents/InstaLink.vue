@@ -2,9 +2,10 @@
   <a
     href="https://www.instagram.com/oliancho/"
     target="_blank"
+    rel="noopener"
     tabindex="0"
-    v-on="listeners"
     style="outline: none;"
+    v-on="listeners"
     :class="[data.class, data.staticClass]"
     :style="[data.style, data.staticStyle]"
     v-bind="data.attrs"

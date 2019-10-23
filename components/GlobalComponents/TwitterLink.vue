@@ -2,9 +2,13 @@
   <a
     href="https://twitter.com/DOKs62"
     target="_blank"
+    rel="noopener"
     tabindex="0"
-    v-on="listeners"
     style="outline: none;"
+    v-on="listeners"
+    :class="[data.class, data.staticClass]"
+    :style="[data.style, data.staticStyle]"
+    v-bind="data.attrs"
   >
     <CldImg
       src="v1563231772/bagushaus/global/twitter.png"

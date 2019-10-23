@@ -5,7 +5,7 @@ export default {
       this.$vssWidth > this.$vssHeight &&
       this.$store.state.toBagus
     ) {
-      this.$scrollTo('#bagus-title', 500, { easing: 'ease-out' });
+      this.$scrollTo('#bagus-title', 500, { easing: 'ease-out', offset: -40 });
       this.$store.commit('toBagus');
     }
     //  else if (this.$store.state.toContact) {
