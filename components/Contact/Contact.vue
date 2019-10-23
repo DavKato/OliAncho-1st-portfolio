@@ -104,6 +104,11 @@
   height: 93vh;
   position: relative;
 
+  @include respond("wide-scr") {
+    max-width: none;
+    width: 75%;
+    height: 70rem;
+  }
   @include respond("long-scr") {
     margin-bottom: 1vw;
   }

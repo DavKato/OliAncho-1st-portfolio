@@ -58,6 +58,12 @@ main {
   border-top: none;
   position: relative;
 
+  @include respond("wide-scr") {
+    max-width: none;
+    width: 75%;
+    height: auto;
+    margin-top: -0.5rem;
+  }
   @include respond("tab") {
     height: auto;
     max-height: none;

@@ -35,6 +35,11 @@ export default {
   max-height: 66.67vw;
   position: relative;
 
+  @include respond("wide-scr") {
+    max-width: none;
+    width: 75%;
+    height: auto;
+  }
   @include respond("tab") {
     max-height: none;
     height: auto;

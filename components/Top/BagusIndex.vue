@@ -82,10 +82,14 @@
     padding: 0.8rem 1.2rem;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    @include respond("wide-scr") {
+      padding: 2rem 1.2rem;
+    }
   }
 
   &__text {
-    font-size: 2rem;
+    font-size: 1.9rem;
     white-space: pre-wrap;
     text-align: center;
   }

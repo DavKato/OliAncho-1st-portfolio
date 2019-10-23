@@ -47,6 +47,11 @@ export default {
     max-height: 25vw;
     filter: $fsh-s;
     transition: all 0.4s;
+    @include respond("wide-scr") {
+      width: 20vw;
+      max-width: none;
+      height: auto;
+    }
   }
 }
 </style>

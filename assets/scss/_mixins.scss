@@ -31,6 +31,11 @@
       @content;
     }
   }
+  @if $breakpoint == wide-scr {
+    @media only screen and (min-aspect-ratio: 2/1) {
+      @content;
+    }
+  }
 }
 
 //Text Shadow

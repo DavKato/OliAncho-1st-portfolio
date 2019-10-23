@@ -205,6 +205,9 @@ $yellow-location: #eaea5d;
       left: 37.6%;
       filter: $fsh-s;
       cursor: pointer;
+      @include respond("wide-scr") {
+        left: 33.7%;
+      }
       @include respond("tab") {
         width: 4%;
         left: 33.4%;
@@ -222,6 +225,10 @@ $yellow-location: #eaea5d;
       white-space: pre;
       text-align: right;
       transform: rotate(-35deg);
+      @include respond("wide-scr") {
+        left: 16.5%;
+        bottom: 8%;
+      }
       @include respond("long-scr") {
         left: 18.5%;
         bottom: 5%;
@@ -240,6 +247,11 @@ $yellow-location: #eaea5d;
       width: 10%;
       left: 18%;
       bottom: 2%;
+      @include respond("wide-scr") {
+        width: 8%;
+        left: 15.5%;
+        bottom: 5%;
+      }
       @include respond("long-scr") {
         left: 17%;
       }
@@ -258,12 +270,16 @@ $yellow-location: #eaea5d;
       left: 26%;
       width: 23%;
       transform-origin: 45% 70%;
+      @include respond("wide-scr") {
+        left: 22%;
+        width: 21%;
+        bottom: 2%;
+      }
       @include respond("long-scr") {
         width: 25%;
         left: 24%;
       }
       @include respond("tab") {
-        bottom: -4%;
         left: 15.5%;
         width: 30%;
       }
@@ -290,6 +306,9 @@ $yellow-location: #eaea5d;
         & > p {
           font-size: 2.2rem;
           line-height: 1.2;
+          @include respond("wide-scr") {
+            line-height: 1;
+          }
           @include respond("tab") {
             font-size: 2rem;
           }
@@ -366,6 +385,11 @@ $yellow-location: #eaea5d;
         right: 10%;
         height: 15%;
         transform: rotateY(180deg) rotate(12deg);
+        @include respond("wide-scr") {
+          height: 14%;
+          right: 15%;
+          bottom: 2%;
+        }
       }
       &__three {
         top: 52%;
