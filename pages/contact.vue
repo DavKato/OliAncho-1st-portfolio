@@ -6,7 +6,7 @@
         <input name="dummyInput" value="contact" v-model="dummyInput" />
       </label>
     </p>
-    <h1 class="form__caption">Contact</h1>
+    <h2 class="form__caption">Contact</h2>
     <div class="form__box">
       <transition name="slide-in">
         <p v-show="!isValid.name" class="error-message">{{ $t('nameError') }}</p>
@@ -20,6 +20,7 @@
         class="form__field"
         :class="{ inValid: !isValid.name }"
         name="name"
+        :aria-label="$t('yourName')"
         :placeholder="$t('yourName')"
         v-model="form.name"
       />
@@ -37,6 +38,7 @@
         class="form__field"
         :class="{ inValid: !isValid.name }"
         name="email"
+        :aria-label="$t('yourContact')"
         :placeholder="$t('yourContact')"
         v-model="form.email"
       />
@@ -54,6 +56,7 @@
         class="form__field"
         :class="{ inValid: !isValid.name }"
         name="title"
+        :aria-label="$t('formTitle')"
         :placeholder="$t('formTitle')"
         v-model="form.title"
       />
@@ -70,6 +73,7 @@
         id="message"
         class="form__field form__field--textarea"
         :class="{ inValid: !isValid.name }"
+        :aria-label="$t('formMessage')"
         :placeholder="$t('formMessage')"
         v-model="form.message"
       ></textarea>

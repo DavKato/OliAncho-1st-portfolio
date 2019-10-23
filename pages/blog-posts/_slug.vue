@@ -26,7 +26,7 @@
           </figure>
         </div>
         <div class="intro__title">
-          <h1 class="intro__title-heading">{{ title }}</h1>
+          <h2 class="intro__title-heading">{{ title }}</h2>
           <p class="intro__title-sub">{{ summary }}</p>
         </div>
         <client-only>

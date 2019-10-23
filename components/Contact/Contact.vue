@@ -8,7 +8,7 @@
     </p>
     <div class="form__box form__box1"></div>
     <div class="form__box form__box-str form__box2">
-      <h1 class="form__caption">Contact</h1>
+      <h2 class="form__caption">Contact</h2>
     </div>
     <div class="form__box form__box3">
       <h3 class="form__subtext">{{ $t('formSub') }}</h3>
