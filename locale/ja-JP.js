@@ -18,7 +18,7 @@ export default {
   },
 
   //Form normal
-  formSub: 'ご依頼、ご相談などお気軽にどうぞ。',
+  formSub: 'ご依頼、雑談などお気軽にどうぞ！',
   yourName: '名前',
   yourContact: 'Eメール',
   formTitle: 'タイトル',
@@ -51,7 +51,7 @@ export default {
     gobuDetail:
       'はじめまして、料理好き主婦のGobu (ごぶ) です。\n主にWEBデザインを担当しています。\n常に心がけているのは「使い勝手が良く、文字を読まなくても伝わるデザイン」。どんなにステキな文章でも、デザイン一つで伝わり方がガラッと変わってしまいますからね。そんな責任感を忘れず、枠にとらわれないキラリと光るデザインをご提案いたします。\n気持ちの良いやり取りができればと思っておりますので、どうぞよろしくお願いします。',
     daviDetail:
-      'イタリア生まれ日本育ち、元「自称ミュージシャン」のJavaScriptプログラマーです。\nVue/Nuxt.jsというJavaScriptのフレームワークを使って、パフォーマンスがよくSEOにも比較的強いSPA(シングルページアプリケーション)を作ることを得意としています。\n仕事においてはスピードよりも丁寧さに重きを置いています。\n'
+      'イタリア生まれ日本育ち、元「自称ミュージシャン」のWEBエンジニアです。\nフロントエンド： Vue/Nuxt, Svelte/sapper\nバックエンド： Node, MongoDB\n仕事においてはスピードよりも丁寧さに重きを置き、「解決するべき問題」や「達成したいポイント」など全体像を把握しつつコーディングします。\n最近はSvelte.jsとTDDに興味を持って勉強しています。'
   },
 
   //WORKS
@@ -94,7 +94,7 @@ export default {
     intro:
       ' 寒い季節は南へ、暑い季節は北へ、海外を中心に夫婦でノマド生活をしています。\nルールは「新しいものを買ったら、持っているものを1つ手放す」\n持ち物を増やさないように頑張っています。',
     currentParagraph: '  現在地：\n\t',
-    currentLocation: 'タイ',
+    currentLocation: 'マレーシア',
     numberVisited: 'ヵ国'
   },
 
@@ -118,5 +118,8 @@ export default {
 
   //NO-IE
   ie:
-    'このウェブサイトはInternet Explorerをサポートしていません。\nEdgeやChrome、Safariなど他のブラウザをご利用ください。'
-};
+    'このウェブサイトはInternet Explorerをサポートしていません。\nEdgeやChrome、Safariなど他のブラウザをご利用ください。',
+  //NoScript
+  noscript:
+    'Javascriptがオフの状態ですと、写真がぼやけたり動かない機能があったりします。ご了承ください。'
+}

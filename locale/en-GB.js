@@ -51,7 +51,7 @@ export default {
     gobuDetail:
       "We all know that the design can really change the impression to users.\nI try my best to create a design that is user friendly and intuitive, that the idea just flows into user's head before they read a single text.\nI provide a flexible and personalized design that fits perfectly in the final media.\n..and a bit of fantasy and humour if there is a room for it :D",
     daviDetail:
-      "I'm an ex-musician JAMstack developer who's brought up in Japan.\nI mainly use Vue/Nuxt.js JavaScript framework which helps me to build a versatile and performant web app.\nI tend to be more careful rather than speedy when it comes to creating things.\nWell, that's it about me. We are looking forward to hear from you!"
+      "I'm an ex-musician web developer who's brought up in Japan.\nFront end: Vue/Nuxt, Svelte/Sapper\nBack end: Node, MongoDB\nI tend to be more careful rather than speedy when it comes to creating things.\nI'm currently interested in TDD and more about Svelte. Feel free to contact me via Twitter or the form below!\n(Well I'm not a SNS person so my twitter is kinda (or, actually) empty but I'm trying!)"
   },
 
   //WORKS
@@ -93,7 +93,7 @@ export default {
     intro:
       "Go South in winter, Go North in summer.\n'Get one, Release one' is our motto.\n We are degital nomads mainly based in Europe and Asia.",
     currentParagraph: 'Currently\nIn：',
-    currentLocation: 'Thailand',
+    currentLocation: 'Malaysia',
     numberVisited: 'cntry'
   },
 
@@ -116,5 +116,8 @@ export default {
   },
   //NO-IE
   ie:
-    'This website does not support Internet Explorer.\nPlease use other web browsers like Edge, Chrome or Safari.'
-};
+    'This website does not support Internet Explorer.\nPlease use other web browsers like Edge, Chrome or Safari.',
+  //NoScript
+  noscript:
+    'Without javascript, some photos will be blurred\nand some funcitons will not work..!'
+}

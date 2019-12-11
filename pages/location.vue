@@ -26,15 +26,28 @@
       />
       <p class="currentP">{{ $t('location.currentParagraph') }}</p>
       <CldImg src="bagushaus/location/location-wave.png" class="wave" />
-      <div class="ship" ref="ship" @mouseover="orangeFlicker" @mouseleave="orangeSilence">
-        <CldImg src="bagushaus/location/location-ship.png" width="250,500" sizes="250px" />
+      <div
+        class="ship"
+        ref="ship"
+        @mouseover="orangeFlicker"
+        @mouseleave="orangeSilence"
+      >
+        <CldImg
+          src="bagushaus/location/location-ship.png"
+          width="250,500"
+          sizes="250px"
+        />
         <div class="info">
           <p class="currentL">{{ $t('location.currentLocation') }}</p>
           <p class="time">{{ time }}</p>
         </div>
       </div>
       <div class="plane" ref="plane">
-        <CldImg src="bagushaus/location/location-plane.png" width="410,820" sizes="410px" />
+        <CldImg
+          src="bagushaus/location/location-plane.png"
+          width="410,820"
+          sizes="410px"
+        />
         <p
           class="number"
           @mouseover="planeHover"
@@ -49,14 +62,33 @@
         </p>
       </div>
       <div class="ducks__three" @mouseover="threeDOn">
-        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-big" />
-        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
-        <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
+        <CldImg
+          src="bagushaus/location/location-duck-yellow.png"
+          class="duck duck-big"
+        />
+        <CldImg
+          src="bagushaus/location/location-duck-yellow.png"
+          class="duck duck-middle"
+        />
+        <CldImg
+          src="bagushaus/location/location-duck-yellow.png"
+          class="duck duck-small"
+        />
       </div>
       <client-only>
-        <div class="ducks__two" @mouseover="twoDOn" v-if="$vssWidth > $data.$tab">
-          <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-middle" />
-          <CldImg src="bagushaus/location/location-duck-yellow.png" class="duck duck-small" />
+        <div
+          class="ducks__two"
+          @mouseover="twoDOn"
+          v-if="$vssWidth > $data.$tab"
+        >
+          <CldImg
+            src="bagushaus/location/location-duck-yellow.png"
+            class="duck duck-middle"
+          />
+          <CldImg
+            src="bagushaus/location/location-duck-yellow.png"
+            class="duck duck-small"
+          />
         </div>
       </client-only>
     </div>
@@ -68,14 +100,14 @@ $yellow-location: #eaea5d;
 @mixin wh100 {
   width: 100%;
   height: 100%;
-  @include respond("tab") {
+  @include respond('tab') {
     object-fit: contain;
     height: auto;
   }
 }
 
 .location {
-  background-image: url("https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/location/location-middle-square.png");
+  background-image: url('https://res.cloudinary.com/oliancho/image/upload/f_auto,q_auto/v1563231770/bagushaus/location/location-middle-square.png');
   background-size: 100% 100%;
   position: relative;
   display: flex;
@@ -84,11 +116,11 @@ $yellow-location: #eaea5d;
   line-height: 1.5;
   padding: 3.5rem;
 
-  @include respond("tab") {
+  @include respond('tab') {
     background-image: none;
     padding: 0;
     border: 3.5rem solid;
-    border-image: url("../assets/img/tiles44.png") 72 repeat;
+    border-image: url('../assets/img/tiles44.png') 72 repeat;
     .top-title {
       top: -8.6rem !important;
       font-size: 4.1rem !important;
@@ -108,7 +140,7 @@ $yellow-location: #eaea5d;
     font-style: italic;
     transition: transform 0.2s;
 
-    @include respond("tab") {
+    @include respond('tab') {
       width: 58%;
       text-align: center;
       font-size: 2.8rem;
@@ -133,14 +165,14 @@ $yellow-location: #eaea5d;
       border: none;
       border-radius: 1rem;
 
-      @include respond("tab") {
+      @include respond('tab') {
         width: 100%;
         left: 0;
       }
 
       &::after {
-        content: "";
-        background-image: url("https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/bagushaus/location/location-fart.png");
+        content: '';
+        background-image: url('https://res.cloudinary.com/oliancho/image/upload/q_auto,f_auto/bagushaus/location/location-fart.png');
         background-size: contain;
         position: absolute;
         background-repeat: no-repeat;
@@ -150,7 +182,7 @@ $yellow-location: #eaea5d;
         width: 8rem;
         transform: translateY(-47%);
 
-        @include respond("tab") {
+        @include respond('tab') {
           height: 8rem;
           width: 6.5rem;
           right: -6rem;
@@ -164,7 +196,7 @@ $yellow-location: #eaea5d;
     text-align: center;
     margin-top: 2%;
     white-space: pre;
-    @include respond("tab") {
+    @include respond('tab') {
       font-size: 2.5rem;
       white-space: pre-wrap;
       width: 85%;
@@ -178,7 +210,7 @@ $yellow-location: #eaea5d;
     height: 69%;
     position: relative;
 
-    @include respond("tab") {
+    @include respond('tab') {
       margin: 8% 0 4%;
       height: auto;
       width: 99%;
@@ -205,14 +237,14 @@ $yellow-location: #eaea5d;
       left: 37.6%;
       filter: $fsh-s;
       cursor: pointer;
-      @include respond("wide-scr") {
+      @include respond('wide-scr') {
         left: 33.7%;
       }
-      @include respond("tab") {
+      @include respond('tab') {
         width: 4%;
         left: 33.4%;
       }
-      @include respond("mobile") {
+      @include respond('mobile') {
         top: 44%;
         width: 5%;
       }
@@ -225,20 +257,20 @@ $yellow-location: #eaea5d;
       white-space: pre;
       text-align: right;
       transform: rotate(-35deg);
-      @include respond("wide-scr") {
+      @include respond('wide-scr') {
         left: 16.5%;
         bottom: 8%;
       }
-      @include respond("long-scr") {
+      @include respond('long-scr') {
         left: 18.5%;
         bottom: 5%;
       }
-      @include respond("tab") {
+      @include respond('tab') {
         left: 9%;
         bottom: 4%;
         font-size: 1.8rem;
       }
-      @include respond("mobile") {
+      @include respond('mobile') {
         font-size: 1.8rem;
       }
     }
@@ -247,20 +279,20 @@ $yellow-location: #eaea5d;
       width: 10%;
       left: 18%;
       bottom: 2%;
-      @include respond("wide-scr") {
+      @include respond('wide-scr') {
         width: 8%;
         left: 15.5%;
         bottom: 5%;
       }
-      @include respond("long-scr") {
+      @include respond('long-scr') {
         left: 17%;
       }
-      @include respond("tab") {
+      @include respond('tab') {
         width: 13%;
         left: 6.5%;
         bottom: 1%;
       }
-      @include respond("mobile") {
+      @include respond('mobile') {
         width: 14%;
       }
     }
@@ -270,20 +302,20 @@ $yellow-location: #eaea5d;
       left: 26%;
       width: 23%;
       transform-origin: 45% 70%;
-      @include respond("wide-scr") {
+      @include respond('wide-scr') {
         left: 22%;
         width: 21%;
         bottom: 2%;
       }
-      @include respond("long-scr") {
+      @include respond('long-scr') {
         width: 25%;
         left: 24%;
       }
-      @include respond("tab") {
+      @include respond('tab') {
         left: 15.5%;
         width: 30%;
       }
-      @include respond("mobile") {
+      @include respond('mobile') {
         width: 35%;
       }
 
@@ -306,13 +338,13 @@ $yellow-location: #eaea5d;
         & > p {
           font-size: 2.2rem;
           line-height: 1.2;
-          @include respond("wide-scr") {
+          @include respond('wide-scr') {
             line-height: 1;
           }
-          @include respond("tab") {
+          @include respond('tab') {
             font-size: 2rem;
           }
-          @include respond("mobile") {
+          @include respond('mobile') {
             font-size: 2rem;
           }
         }
@@ -331,17 +363,17 @@ $yellow-location: #eaea5d;
       z-index: 9;
       cursor: pointer;
 
-      @include respond("long-scr") {
+      @include respond('long-scr') {
         width: 27%;
         top: -3%;
         right: 0;
       }
-      @include respond("tab") {
+      @include respond('tab') {
         width: 33%;
         right: -2%;
         top: -16%;
       }
-      @include respond("mobile") {
+      @include respond('mobile') {
         width: 36%;
       }
 
@@ -357,7 +389,7 @@ $yellow-location: #eaea5d;
         margin-left: -0.9rem;
         letter-spacing: -0.5px;
 
-        @include respond("tab") {
+        @include respond('tab') {
           font-size: 1.9rem;
           letter-spacing: normal;
           top: 34%;
@@ -372,7 +404,7 @@ $yellow-location: #eaea5d;
           text-transform: uppercase;
           font-size: 1.8rem;
           margin-left: -0.2rem;
-          @include respond("tab") {
+          @include respond('tab') {
             font-size: 1.4rem;
           }
         }
@@ -385,7 +417,7 @@ $yellow-location: #eaea5d;
         right: 10%;
         height: 15%;
         transform: rotateY(180deg) rotate(12deg);
-        @include respond("wide-scr") {
+        @include respond('wide-scr') {
           height: 14%;
           right: 15%;
           bottom: 2%;
@@ -396,7 +428,7 @@ $yellow-location: #eaea5d;
         left: 54%;
         height: 15%;
         transform: rotate(12deg);
-        @include respond("tab") {
+        @include respond('tab') {
           height: 14%;
           top: 48%;
           left: 55%;
@@ -422,70 +454,70 @@ $yellow-location: #eaea5d;
 </style>
 
 <script>
-import bagusScroll from "~/mixins/bagusScroll.js";
+import bagusScroll from '~/mixins/bagusScroll.js'
 export default {
   head() {
     return {
-      title: "Location"
-    };
+      title: 'Location'
+    }
   },
   data() {
     return {
       planeToggle: false,
-      time: ""
-    };
+      time: ''
+    }
   },
   mixins: [bagusScroll],
   mounted() {
-    this.timeCatcher();
-    setInterval(this.timeCatcher, 5000);
+    this.timeCatcher()
+    setInterval(this.timeCatcher, 5000)
   },
   components: {
-    MobileTitle: () => import("~/components/Mobile/BagusTitle.vue")
+    MobileTitle: () => import('~/components/Mobile/BagusTitle.vue')
   },
   methods: {
     timeCatcher() {
-      const diffFromUTC = 7;
+      const diffFromUTC = 8
       const formatter = cli => {
         if (cli < 10) {
-          return "0" + cli;
+          return '0' + cli
         } else {
-          return cli;
+          return cli
         }
-      };
-      const t = new Date().getUTCHours() + diffFromUTC;
-      const m = new Date().getUTCMinutes();
-      this.time = `${formatter(t)}：${formatter(m)}`;
+      }
+      const t = new Date().getUTCHours() + diffFromUTC
+      const m = new Date().getUTCMinutes()
+      this.time = `${formatter(t)}：${formatter(m)}`
     },
     orangeFlicker() {
-      const orange = document.getElementsByClassName("orange")[0];
+      const orange = document.getElementsByClassName('orange')[0]
       TweenMax.to(orange, 1.1, {
         scale: 1.3,
         opacity: 0,
         y: -15,
         repeat: -1
-      });
+      })
     },
     orangeHover() {
-      const orange = document.getElementsByClassName("orange")[0];
-      TweenMax.to(orange, 0.2, { y: -3, rotation: 0 });
+      const orange = document.getElementsByClassName('orange')[0]
+      TweenMax.to(orange, 0.2, { y: -3, rotation: 0 })
     },
     orangeActive() {
-      const orange = document.getElementsByClassName("orange")[0];
-      TweenMax.to(orange, 0.2, { rotation: 10 });
+      const orange = document.getElementsByClassName('orange')[0]
+      TweenMax.to(orange, 0.2, { rotation: 10 })
     },
     orangeInActive() {
-      const orange = document.getElementsByClassName("orange")[0];
-      TweenMax.to(orange, 0.2, { rotation: 0 });
+      const orange = document.getElementsByClassName('orange')[0]
+      TweenMax.to(orange, 0.2, { rotation: 0 })
     },
     orangeSilence() {
-      const orange = document.getElementsByClassName("orange")[0];
-      TweenMax.to(orange, 0.5, { scale: 1, opacity: 1, y: 0 });
+      const orange = document.getElementsByClassName('orange')[0]
+      TweenMax.to(orange, 0.5, { scale: 1, opacity: 1, y: 0 })
     },
     highlightShip() {
-      const { ship } = this.$refs;
-      TweenMax.killTweensOf(ship);
-      const tl = new TimelineLite();
+      const { ship } = this.$refs
+      TweenMax.killTweensOf(ship)
+      const tl = new TimelineLite()
       tl.to(ship, 0.6, {
         rotation: -6,
         x: -6,
@@ -496,43 +528,43 @@ export default {
           x: 3,
           ease: Power1.easeInOut
         })
-        .to(ship, 0.8, { rotation: 0, x: 0, ease: Power1.easeInOut }, "+=0.1");
+        .to(ship, 0.8, { rotation: 0, x: 0, ease: Power1.easeInOut }, '+=0.1')
     },
     planeHover() {
       if (this.planeToggle) {
-        return false;
+        return false
       }
-      const { plane } = this.$refs;
-      TweenMax.to(plane, 0.3, { rotation: 40 });
+      const { plane } = this.$refs
+      TweenMax.to(plane, 0.3, { rotation: 40 })
     },
     planeActive() {
       if (this.planeToggle) {
-        return false;
+        return false
       }
-      const { plane } = this.$refs;
-      TweenMax.to(plane, 0.1, { y: 5 });
+      const { plane } = this.$refs
+      TweenMax.to(plane, 0.1, { y: 5 })
     },
     planeInActive() {
       if (this.planeToggle) {
-        return false;
+        return false
       }
-      const { plane } = this.$refs;
-      TweenMax.to(plane, 0.1, { y: 0 });
+      const { plane } = this.$refs
+      TweenMax.to(plane, 0.1, { y: 0 })
     },
     planeSilence() {
       if (this.planeToggle) {
-        return false;
+        return false
       }
-      const { plane } = this.$refs;
-      TweenMax.to(plane, 0.3, { rotation: 30 });
+      const { plane } = this.$refs
+      TweenMax.to(plane, 0.3, { rotation: 30 })
     },
     bonVoyage() {
-      const { plane } = this.$refs;
+      const { plane } = this.$refs
       const tl = new TimelineLite({
         onComplete: () => (this.planeToggle = false)
-      });
-      this.planeToggle = true;
-      TweenMax.set(plane, { force3D: true });
+      })
+      this.planeToggle = true
+      TweenMax.set(plane, { force3D: true })
       tl.to(plane, 3.4, {
         x: -1600,
         y: -800,
@@ -545,22 +577,22 @@ export default {
           y: 0,
           rotation: 30,
           ease: Power4.easeOut
-        });
+        })
     },
     threeDOn(ev) {
-      const tar = [...ev.target.childNodes];
-      const tl = new TimelineLite();
+      const tar = [...ev.target.childNodes]
+      const tl = new TimelineLite()
       tl.staggerTo(tar, 0.4, { y: -20, ease: Power1.easeInOut }, 0.1)
-        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, "-=0.4")
-        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.7");
+        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, '-=0.4')
+        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, '-=0.7')
     },
     twoDOn(ev) {
-      const tar = [...ev.target.childNodes];
-      const tl = new TimelineLite();
+      const tar = [...ev.target.childNodes]
+      const tl = new TimelineLite()
       tl.staggerTo(tar, 0.4, { y: -20, ease: Power1.easeInOut }, 0.1)
-        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, "-=0.2")
-        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, "-=0.5");
+        .staggerTo(tar, 0.7, { y: 40, ease: Power1.easeInOut }, 0.1, '-=0.2')
+        .staggerTo(tar, 0.5, { y: 0, ease: Power1.easeInOut }, 0.1, '-=0.5')
     }
   }
-};
+}
 </script>
