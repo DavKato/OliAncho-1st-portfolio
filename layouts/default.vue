@@ -4,14 +4,6 @@
       id="initialCover"
       style="width:100vw;height:100vh;background-color:#fff;position:fixed;top:0;left:0;z-index:2000;"
     ></div>
-    <noscript>
-      <style>
-        #initialCover {
-          display: none;
-        }
-      </style>
-      <div class="noscript">{{ $t('noscript') }}</div>
-    </noscript>
     <NoIe class="secondBody">
       <div class="ie" v-if="ie">{{ $t('ie') }}</div>
     </NoIe>
@@ -217,10 +209,8 @@ export default {
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      if (process.client) this.$scrollTo('#defaultLayout')
-      setTimeout(this.intro(), 500)
-    })
+    if (process.client) this.$scrollTo('#defaultLayout')
+    this.intro()
   },
   destroyed() {
     document.getElementById('initialCover').style.display = 'block'
