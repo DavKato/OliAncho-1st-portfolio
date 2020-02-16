@@ -2,7 +2,7 @@
   <section class="works">
     <MobileTitle v-show="$vssWidth <= $data.$tab" />
     <div class="caption-box" :class="{ blur: selected.toggled }">
-      <p class="caption">{{ $t('works.caption') }}</p>
+      <p class="caption">{{ $t("works.caption") }}</p>
     </div>
     <div class="worklist" :class="{ blur: selected.toggled }">
       <figure
