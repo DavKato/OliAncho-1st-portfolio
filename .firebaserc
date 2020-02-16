@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "oliancho"
+  },
+  "targets": {
+    "oliancho": {
+      "hosting": {
+        "haus": [
+          "oliancho"
+        ]
+      }
+    }
   }
 }

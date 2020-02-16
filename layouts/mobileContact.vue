@@ -19,7 +19,6 @@
 }
 </style>
 
-
 <script>
 import NavL from "~/components/Top/NavL";
 import MainMenu from "~/components/Mobile/MainMenu";
@@ -38,7 +37,6 @@ export default {
           hid: "viewport",
           content: "width=device-width, initial-scale=1"
         },
-        { "http-equiv": "x-ua-compatible", content: "ie=edge" },
         {
           name: "format-detection",
           content: "telephone=no, email=no, address=no"

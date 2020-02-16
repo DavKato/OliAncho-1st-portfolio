@@ -22,10 +22,10 @@
           display: none;
         }
       </style>
-      <div class="noscript">{{ $t('noscript') }}</div>
+      <div class="noscript">{{ $t("noscript") }}</div>
     </noscript>
     <NoIe>
-      <div class="ie" v-if="ie">{{ $t('ie') }}</div>
+      <div class="ie" v-if="ie">{{ $t("ie") }}</div>
     </NoIe>
     <nuxt />
     <BlogFooter id="blog-footer" />
@@ -69,54 +69,59 @@
 </style>
 
 <script>
-import detectIE from '~/mixins/detectIE.js'
+import detectIE from "~/mixins/detectIE.js";
 export default {
   head() {
-    const i18nSeo = this.$nuxtI18nSeo()
-    const url = 'https://oliancho.com/'
+    const i18nSeo = this.$nuxtI18nSeo();
+    const url = "https://oliancho.com";
     return {
-      titleTemplate: '%s | OliAncho',
+      titleTemplate: "%s | OliAncho",
       htmlAttrs: { ...i18nSeo.htmlAttrs },
       meta: [
-        { hid: 'charset', charset: 'utf-8' },
+        { hid: "charset", charset: "utf-8" },
         {
-          name: 'viewport',
-          hid: 'viewport',
-          content: 'width=device-width, initial-scale=1'
+          name: "viewport",
+          hid: "viewport",
+          content: "width=device-width, initial-scale=1"
         },
-        { 'http-equiv': 'x-ua-compatible', content: 'ie=edge' },
         {
-          name: 'format-detection',
-          content: 'telephone=no, email=no, address=no'
+          name: "format-detection",
+          content: "telephone=no, email=no, address=no"
         },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
+        { property: "og:type", content: "article" },
         {
-          hid: 'og:site_name',
-          property: 'og:site_name',
-          content: 'OliAnchoBlog'
+          property: "og:site_name",
+          content: "OliAnchoBlog"
         },
-        { hid: 'og:url', property: 'og:url', content: url + 'ja/blog-posts/' },
+        { property: "og:url", content: url + "/ja/blog-posts/" },
         {
-          hid: 'og:image',
-          property: 'og:image',
-          content: url + 'images/blog-thumbnail.jpg'
+          property: "og:image",
+          content: url + "/images/blog-thumbnail.jpg"
         },
-        { name: 'twitter:card', content: 'summary_large_image' },
+        {
+          property: "og:image:width",
+          content: "1200"
+        },
+        {
+          property: "og:image:height",
+          content: "1200"
+        },
+        { name: "twitter:card", content: "summary_large_image" },
         ...i18nSeo.meta
       ],
       link: [...i18nSeo.link]
-    }
+    };
   },
-  layoutTransition: 'blog-post',
+  layoutTransition: "blog-post",
   components: {
-    NoIe: () => import('~/components/GlobalComponents/NoIe'),
-    BlogFooter: () => import('~/components/Blog/BlogFooter')
+    NoIe: () => import("~/components/GlobalComponents/NoIe"),
+    BlogFooter: () => import("~/components/Blog/BlogFooter")
   },
   mixins: [detectIE],
   data() {
     return {
-      options: 'f_auto,q_auto,w_'
-    }
+      options: "f_auto,q_auto,w_"
+    };
   }
-}
+};
 </script>

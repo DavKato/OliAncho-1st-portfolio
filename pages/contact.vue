@@ -1,18 +1,27 @@
 <template>
-  <form class="form" method="post" @submit.prevent="validate($event)" novalidate="true">
+  <form
+    class="form"
+    method="post"
+    @submit.prevent="validate($event)"
+    novalidate="true"
+  >
     <p style="display: none">
       <label>
-        {{ $t('formDummy') }}
+        {{ $t("formDummy") }}
         <input name="dummyInput" value="contact" v-model="dummyInput" />
       </label>
     </p>
     <h2 class="form__caption">Contact</h2>
     <div class="form__box">
       <transition name="slide-in">
-        <p v-show="!isValid.name" class="error-message">{{ $t('nameError') }}</p>
+        <p v-show="!isValid.name" class="error-message">
+          {{ $t("nameError") }}
+        </p>
       </transition>
       <transition name="slide-in">
-        <label v-if="form.name" for="name" class="form__label">{{ $t('yourName') }}</label>
+        <label v-if="form.name" for="name" class="form__label">{{
+          $t("yourName")
+        }}</label>
       </transition>
       <input
         type="text"
@@ -27,10 +36,14 @@
     </div>
     <div class="form__box">
       <transition name="slide-in">
-        <p v-show="!isValid.email" class="error-message">{{ $t('emailError') }}</p>
+        <p v-show="!isValid.email" class="error-message">
+          {{ $t("emailError") }}
+        </p>
       </transition>
       <transition name="slide-in">
-        <label v-if="form.email" for="email" class="form__label">{{ $t('yourContact') }}</label>
+        <label v-if="form.email" for="email" class="form__label">{{
+          $t("yourContact")
+        }}</label>
       </transition>
       <input
         type="email"
@@ -45,10 +58,14 @@
     </div>
     <div class="form__box">
       <transition name="slide-in">
-        <p v-show="!isValid.title" class="error-message">{{ $t('titleError') }}</p>
+        <p v-show="!isValid.title" class="error-message">
+          {{ $t("titleError") }}
+        </p>
       </transition>
       <transition name="slide-in">
-        <label v-if="form.title" for="title" class="form__label">{{ $t('formTitle') }}</label>
+        <label v-if="form.title" for="title" class="form__label">{{
+          $t("formTitle")
+        }}</label>
       </transition>
       <input
         type="text"
@@ -63,10 +80,14 @@
     </div>
     <div class="form__box">
       <transition name="slide-in">
-        <p v-show="!isValid.message" class="error-message">{{ $t('messageError') }}</p>
+        <p v-show="!isValid.message" class="error-message">
+          {{ $t("messageError") }}
+        </p>
       </transition>
       <transition name="slide-in">
-        <label v-if="form.message" for="message" class="form__label">{{ $t('formMessage') }}</label>
+        <label v-if="form.message" for="message" class="form__label">{{
+          $t("formMessage")
+        }}</label>
       </transition>
       <textarea
         name="message"
@@ -210,7 +231,6 @@
 }
 </style>
 
-
 <script>
 export default {
   layout: "mobileContact",
@@ -256,7 +276,7 @@ export default {
         : (this.isValid.title = false);
 
       this.form.message &&
-      (this.form.message.length > 10 && this.form.message.length < 300)
+      this.form.message.length > 10 && this.form.message.length < 300
         ? (this.isValid.message = true)
         : (this.isValid.message = false);
 
@@ -310,4 +330,3 @@ export default {
   }
 };
 </script>
-
